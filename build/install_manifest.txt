@@ -1,0 +1,2 @@
+/Users/David/bin/dorsales
+/Users/David/bin/make_trainer

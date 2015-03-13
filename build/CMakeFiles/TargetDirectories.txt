@@ -1,0 +1,4 @@
+/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/dorsales.dir
+/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/functions.dir
+/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/make_trainer.dir
+/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/utilities.dir
