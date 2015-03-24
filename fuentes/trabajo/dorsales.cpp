@@ -30,6 +30,9 @@ using namespace cimg_library;
 using namespace std;
 using namespace cv;
 
+int showfiles(set<string> images);
+void calculate(set<string> images, int contador);
+
 /* DORSALES.CPP - David Rios Benet
  * PROGRAMA PRINCIPAL DEL PROYECTO.
  * REALIZA LAS LLAMADAS A LAS FUNCIONES ASI COMO LOS DISPLAYS Y LA CREACION DEL .CSV CON LOS RESULTADOS.
@@ -72,6 +75,8 @@ int main(int argc, char **argv) {
 	 }*/
 
 	const bool modo = cimg_option("-m", false, 0);
+	const bool help = cimg_option("-h", false, 0);
+
 	if (modo)
 		std::cout << "El modo de ejecucion es OCR. \n";
 	else
@@ -80,10 +85,10 @@ int main(int argc, char **argv) {
 	std::string input = argv[optind];
 
 	//Si optind==0 salta ayuda
-	/*if (optind == argc) {
+	if (help) {
 	 ayuda();
 	 exit(0);
-	 }*/
+	 }
 
 	//Cargamos el input(txt) o imagen suelta
 	// ==== Determine kind of input ===========
@@ -97,6 +102,14 @@ int main(int argc, char **argv) {
 
 	if (is_Video)
 		std::cout << "It is VideoFile :" << input << "\n";
+
+	int contador = showfiles(images);
+	calculate(images, contador);
+
+}
+
+
+int showfiles(set<string> images){
 
 	int contador = 0;
 	if (images.size()) {
@@ -113,6 +126,11 @@ int main(int argc, char **argv) {
 
 	std::cout << "Numero imagenes a procesar: " << contador << "\n";
 
+	return contador;
+}
+
+void calculate(set<string> images, int contador){
+
 	CImg<int> contenedor_numobj(contador);
 	CImg<int> contenedor_tiempo(contador);
 	float totalTime;
@@ -127,6 +145,7 @@ int main(int argc, char **argv) {
 	 */
 
 	// CARGAMOS OCR -> REPASARRRRRR!!!
+
 	CImg<float> vectores;
 	vectores.resize(9, 10);
 	load_dlm(vectores);
