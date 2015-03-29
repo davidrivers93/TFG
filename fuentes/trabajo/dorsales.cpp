@@ -32,6 +32,8 @@ using namespace cv;
 
 int showfiles(set<string> images);
 void calculate(set<string> images, int contador);
+void create_txt_file();
+std::string getOsName();
 
 /* DORSALES.CPP - David Rios Benet
  * PROGRAMA PRINCIPAL DEL PROYECTO.
@@ -45,8 +47,13 @@ void calculate(set<string> images, int contador);
  *
  */
 void ayuda() {
-	std::cout
-			<< "Introduce en la linea de comandos junto a dorsales el nombre del .txt\n";
+	std::cout << "Introduce en la linea de comandos junto a dorsales el nombre del .txt\n";
+
+	std::cout << "Opciones: \n";
+	std::cout << " \t opcion -h : Ayud \n";
+	std::cout << " \t opcion -m : Modo de ejecucion -> \n";
+	std::cout<< "\t \t True = OCR\n";
+	std::cout << " \t \t False = tesseract \n";
 }
 
 int main(int argc, char **argv) {
@@ -82,27 +89,33 @@ int main(int argc, char **argv) {
 	else
 		std::cout << "El modo de ejecucion es tesseract. \n";
 
-	std::string input = argv[optind];
+	std::string input = "prueba.txt";//argv[optind];
 
 	//Si optind==0 salta ayuda
 	if (help) {
 	 ayuda();
-	 exit(0);
+	 std::cout << "¿Quieres seguir utilizando el programa? SI/NO .\n";
+	 string opt;
+	 cin >> opt;
+	 if(opt == "NO")
+		 exit(0);
+
 	 }
 
+
 	//Cargamos el input(txt) o imagen suelta
+	create_txt_file();
 	// ==== Determine kind of input ===========
-	int camera_number = isCamera(input);
+	//int camera_number = isCamera(input);
 	// camera == -1 if it is not a camera
-	bool is_Video = isVideo(input);
+	//bool is_Video = isVideo(input);
 	set<string> images = isImages(input);
 
-	if (camera_number >= 0)
+	/*if (camera_number >= 0)
 		std::cout << "It is Camera number :" << camera_number << "\n";
 
 	if (is_Video)
-		std::cout << "It is VideoFile :" << input << "\n";
-
+		std::cout << "It is VideoFile :" << input << "\n";*/
 	int contador = showfiles(images);
 	calculate(images, contador);
 
@@ -127,6 +140,36 @@ int showfiles(set<string> images){
 	std::cout << "Numero imagenes a procesar: " << contador << "\n";
 
 	return contador;
+}
+
+std::string getOsName()
+{
+    #ifdef _WIN32
+    return "Windows 32-bit";
+    #elif _WIN64
+    return "Windows 64-bit";
+    #elif __unix || __unix__
+    return "Unix";
+    #elif __APPLE__ || __MACH__
+    return "Mac OSX";
+    #elif __linux__
+    reutnr "Linux";
+    #elif __FreeBSD__
+    return "FreeBSD";
+    #else
+    return "Other";
+    #endif
+}
+
+void create_txt_file(){
+
+	std::string OS = getOsName();
+	if(OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
+		system("ls *.jpg > prueba.txt");
+	else
+		system("dir *.jpg> prueba.txt");
+
+
 }
 
 void calculate(set<string> images, int contador){
