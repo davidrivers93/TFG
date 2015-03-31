@@ -1,3 +1,6 @@
+/* INCLUDES FROM C++ AND EXTERNAL LIBRARIES
+ *
+ */
 #include <stdlib.h>
 #include <vector>
 #include <set>
@@ -8,13 +11,6 @@
 #include </opt/local/include/tesseract/baseapi.h>
 #include </opt/local/include/leptonica/allheaders.h>
 
-#define cimg_use_opencv //To be able to use capture from camera in cimg
-#define cimg_plugin "opencv.h"
-#include "CImg.h"
-
-
-//#include "rw_xml.h"
-
 #if cimg_os==2 //Windows
 #include "getopt.h"
 #else
@@ -22,9 +18,19 @@
 #include <stdlib.h>
 #endif
 
+#define cimg_use_opencv //To be able to use capture from camera in cimg
+#define cimg_plugin "opencv.h"
+#include "CImg.h"
+
+/* OWN LIBRARIES
+ *
+ */
+
 #include "functions.h"
 #include "utilities.h"
 #include "opencv.h"
+#include "proc/misc.h"
+#include "proc/proc.h"
 
 using namespace cimg_library;
 using namespace std;
@@ -52,8 +58,9 @@ void ayuda() {
 	std::cout << "Opciones: \n";
 	std::cout << " \t opcion -h : Ayud \n";
 	std::cout << " \t opcion -m : Modo de ejecucion -> \n";
-	std::cout<< "\t \t True = OCR\n";
-	std::cout << " \t \t False = tesseract \n";
+	std::cout<< "\t \t 0 = OCR\n";
+	std::cout << " \t \t 1 = tesseract \n";
+	std::cout << " \t \t 2 = OCR & tesseract \n";
 }
 
 int main(int argc, char **argv) {
@@ -81,13 +88,15 @@ int main(int argc, char **argv) {
 	 }
 	 }*/
 
-	const bool modo = cimg_option("-m", false, 0);
+	const int modo = cimg_option("-m", false, 0);
 	const bool help = cimg_option("-h", false, 0);
 
-	if (modo)
+	if (modo==0)
 		std::cout << "El modo de ejecucion es OCR. \n";
-	else
+	if(modo==1)
 		std::cout << "El modo de ejecucion es tesseract. \n";
+	if(modo==2)
+		std::cout << "Se ejectuaran ambos modos. \n";
 
 	std::string input = "prueba.txt";//argv[optind];
 
@@ -119,8 +128,10 @@ int main(int argc, char **argv) {
 	int contador = showfiles(images);
 	calculate(images, contador);
 
-}
+	//LLAMARIAMOS AL ROUTER DE PROC/PROC QUE RECIBE LA LISTA DE IMAGENES
+	//router();
 
+}
 
 int showfiles(set<string> images){
 
@@ -163,6 +174,10 @@ std::string getOsName()
 
 void create_txt_file(){
 
+	/* create_txt_file
+	 * Funcion que crea el .txt de apoyo
+	 * DEBERIA DE ESTAR EN PROC/MISC
+	 */
 	std::string OS = getOsName();
 	if(OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
 		system("ls *.jpg > prueba.txt");
