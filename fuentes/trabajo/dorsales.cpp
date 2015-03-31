@@ -128,6 +128,11 @@ int main(int argc, char **argv) {
 	int contador = showfiles(images);
 	calculate(images, contador);
 
+	if(contador == 0){
+		std::cout << "No hay ninguna imagen a procesar. \n";
+		exit(0);
+	}
+
 	//LLAMARIAMOS AL ROUTER DE PROC/PROC QUE RECIBE LA LISTA DE IMAGENES
 	//router();
 
