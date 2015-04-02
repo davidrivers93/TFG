@@ -1,0 +1,2 @@
+/usr/bin/ar cr libproc/proc.a  CMakeFiles/proc/proc.dir/proc/proc.cpp.o
+/usr/bin/ranlib libproc/proc.a

@@ -1,0 +1,2 @@
+/usr/bin/ar cr libproc/misc.a  CMakeFiles/proc/misc.dir/proc/misc.cpp.o
+/usr/bin/ranlib libproc/misc.a

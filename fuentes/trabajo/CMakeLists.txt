@@ -3,7 +3,8 @@ SET (MIXED_PROGRAMS dorsales make_trainer )
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
-add_library(functions functions.cpp)
+add_library(proc/proc proc/proc.cpp)
+add_library(proc/misc proc/misc.cpp)
 
 SET(UTILITIES_SOURCES utilities)
 foreach(src ${UTILITIES_SOURCES} )

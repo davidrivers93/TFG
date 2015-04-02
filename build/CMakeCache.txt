@@ -388,6 +388,18 @@ X11_xf86vmode_INCLUDE_PATH:PATH=/opt/X11/include
 functions_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
+misc_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+proc/misc_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+proc/proc_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+proc_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
 utilities_LIB_DEPENDS:STATIC=
 
 

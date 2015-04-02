@@ -59,7 +59,8 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "trabajo/CMakeFiles/dorsales.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake"
+  "trabajo/CMakeFiles/proc/misc.dir/DependInfo.cmake"
+  "trabajo/CMakeFiles/proc/proc.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
   )
