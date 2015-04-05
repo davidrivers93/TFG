@@ -15,7 +15,8 @@
 #include <stdlib.h>
 #endif
 
-#include "functions.h"
+#include "proc.h"
+#include "misc.h"
 #include "utilities.h"
 
 using namespace cimg_library;

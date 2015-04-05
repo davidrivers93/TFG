@@ -26,11 +26,11 @@
  *
  */
 
-#include "functions.h"
 #include "utilities.h"
 #include "opencv.h"
-#include "trabajo/proc/misc.h"
-#include "trabajo/proc/proc.h"
+#include "misc.h"
+#include "proc.h"
+
 
 using namespace cimg_library;
 using namespace std;

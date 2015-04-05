@@ -27,14 +27,27 @@ void router(set<string> images, int modo);
 void proc_general(CImg<unsigned char> img_loaded);
 void show_parejas(std::vector<std::vector<int> > comienzos);
 void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input, cimg_library::CImg<unsigned char> & out_bin);
-bool busqueda_derecha(int o1, int o2, const cimg_library::CImg<int> & bbox) ;
-bool busqueda_izquierda(int o1, int o2, const cimg_library::CImg<int> & bbox) ;
-void busqueda(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos) ;
+bool busqueda_derecha(int o1, int o2, const cimg_library::CImg<int> & bbox);
+bool busqueda_izquierda(int o1, int o2, const cimg_library::CImg<int> & bbox);
+void busqueda(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos);
 void seleccion_comienzos(std::vector<std::vector<int> > & comienzos, std::vector<std::vector<int> > & comienzos_seleccionados, cimg_library::CImg<int> & seg,
 		cimg_library::CImg<int> & bbox, cimg_library::CImg<int> & areas);
 void busqueda_tercera_cifra(std::vector<std::vector<int> > & comienzos_seleccionados, cimg_library::CImg<int> & bbox);
-int SeleccionarEtiquetas_cimg(CImg<int> & segment, CImg<int> & tabla, int & numobj_out) ;
-
+int SeleccionarEtiquetas_cimg(CImg<int> & segment, CImg<int> & tabla, int & numobj_out);
+void segmentacion(const cimg_library::CImg<unsigned char> & img,
+		cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,
+		cimg_library::CImg<int> & areas);
+int binarySegmentation(const CImg<unsigned char> & im, CImg<int> & seg,
+		int & numobj);
+int BoundingBox_cimg(const CImg<int> & segment, int numobjs, CImg<int> &bbox) ;
+int Momentos_Areas_cimg(const CImg<int> &segment, CImg<float> & centros,
+		CImg<float> & covarianzas, CImg<int>& Npuntos, int nobjetos) ;
+void extractObject(const cimg_library::CImg<int> & segment,
+		const cimg_library::CImg<int> & bbox, int label, int margin,
+		cimg_library::CImg<unsigned char> &output);
+int OCR(cimg_library::CImg<float> & vectores,
+		cimg_library::CImg<float> & lowres) ;
+void load_dlm(cimg_library::CImg<float> & vectores);
 
 
 #endif

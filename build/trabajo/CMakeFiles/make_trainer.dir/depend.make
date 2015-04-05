@@ -3,8 +3,9 @@
 
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/CImg.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/getopt.h
-trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp
+trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
+trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/X11/X.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/X11/Xdefs.h

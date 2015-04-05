@@ -146,6 +146,19 @@ dorsales/fast:
 .PHONY : dorsales/fast
 
 #=============================================================================
+# Target rules for targets named functions
+
+# Build rule for target.
+functions: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 functions
+.PHONY : functions
+
+# fast build rule for target.
+functions/fast:
+	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
+.PHONY : functions/fast
+
+#=============================================================================
 # Target rules for targets named make_trainer
 
 # Build rule for target.
@@ -159,30 +172,17 @@ make_trainer/fast:
 .PHONY : make_trainer/fast
 
 #=============================================================================
-# Target rules for targets named proc/misc
+# Target rules for targets named proc
 
 # Build rule for target.
-proc/misc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 proc/misc
-.PHONY : proc/misc
+proc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 proc
+.PHONY : proc
 
 # fast build rule for target.
-proc/misc/fast:
-	$(MAKE) -f trabajo/CMakeFiles/proc/misc.dir/build.make trabajo/CMakeFiles/proc/misc.dir/build
-.PHONY : proc/misc/fast
-
-#=============================================================================
-# Target rules for targets named proc/proc
-
-# Build rule for target.
-proc/proc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 proc/proc
-.PHONY : proc/proc
-
-# fast build rule for target.
-proc/proc/fast:
-	$(MAKE) -f trabajo/CMakeFiles/proc/proc.dir/build.make trabajo/CMakeFiles/proc/proc.dir/build
-.PHONY : proc/proc/fast
+proc/fast:
+	$(MAKE) -f trabajo/CMakeFiles/proc.dir/build.make trabajo/CMakeFiles/proc.dir/build
+.PHONY : proc/fast
 
 #=============================================================================
 # Target rules for targets named utilities
@@ -209,9 +209,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... dorsales"
+	@echo "... functions"
 	@echo "... make_trainer"
-	@echo "... proc/misc"
-	@echo "... proc/proc"
+	@echo "... proc"
 	@echo "... utilities"
 .PHONY : help
 

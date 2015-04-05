@@ -110,7 +110,7 @@ sys/cdefs.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/opencv.h
 
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.cpp
 stdlib.h
 -
 vector
@@ -135,34 +135,8 @@ stdlib.h
 -
 CImg.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/CImg.h
-utilities.h
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
 opencv.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/opencv.h
-misc.h
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
-proc.h
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
-
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
-
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
-stdlib.h
--
-vector
--
-set
--
-iostream
--
-string
--
-time.h
--
-CImg.h
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/CImg.h
-
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
 
 /opt/local/include/X11/X.h
 X11/Xmd.h

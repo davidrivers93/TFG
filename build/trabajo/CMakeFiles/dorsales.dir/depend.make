@@ -5,9 +5,8 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC+
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/getopt.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/opencv.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
-trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
-trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc/misc.h
-trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc/proc.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/X11/X.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/X11/Xdefs.h

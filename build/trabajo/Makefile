@@ -147,6 +147,20 @@ dorsales/fast:
 .PHONY : dorsales/fast
 
 # Convenience name for target.
+trabajo/CMakeFiles/functions.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/rule
+.PHONY : trabajo/CMakeFiles/functions.dir/rule
+
+# Convenience name for target.
+functions: trabajo/CMakeFiles/functions.dir/rule
+.PHONY : functions
+
+# fast build rule for target.
+functions/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
+.PHONY : functions/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/make_trainer.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
@@ -161,32 +175,18 @@ make_trainer/fast:
 .PHONY : make_trainer/fast
 
 # Convenience name for target.
-trabajo/CMakeFiles/proc/misc.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/proc/misc.dir/rule
-.PHONY : trabajo/CMakeFiles/proc/misc.dir/rule
+trabajo/CMakeFiles/proc.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/proc.dir/rule
+.PHONY : trabajo/CMakeFiles/proc.dir/rule
 
 # Convenience name for target.
-proc/misc: trabajo/CMakeFiles/proc/misc.dir/rule
-.PHONY : proc/misc
+proc: trabajo/CMakeFiles/proc.dir/rule
+.PHONY : proc
 
 # fast build rule for target.
-proc/misc/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/misc.dir/build.make trabajo/CMakeFiles/proc/misc.dir/build
-.PHONY : proc/misc/fast
-
-# Convenience name for target.
-trabajo/CMakeFiles/proc/proc.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/proc/proc.dir/rule
-.PHONY : trabajo/CMakeFiles/proc/proc.dir/rule
-
-# Convenience name for target.
-proc/proc: trabajo/CMakeFiles/proc/proc.dir/rule
-.PHONY : proc/proc
-
-# fast build rule for target.
-proc/proc/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/proc.dir/build.make trabajo/CMakeFiles/proc/proc.dir/build
-.PHONY : proc/proc/fast
+proc/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc.dir/build.make trabajo/CMakeFiles/proc.dir/build
+.PHONY : proc/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
@@ -226,6 +226,30 @@ dorsales.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.s
 .PHONY : dorsales.cpp.s
 
+functions.o: functions.cpp.o
+.PHONY : functions.o
+
+# target to build an object file
+functions.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.o
+.PHONY : functions.cpp.o
+
+functions.i: functions.cpp.i
+.PHONY : functions.i
+
+# target to preprocess a source file
+functions.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.i
+.PHONY : functions.cpp.i
+
+functions.s: functions.cpp.s
+.PHONY : functions.s
+
+# target to generate assembly for a file
+functions.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
+.PHONY : functions.cpp.s
+
 make_trainer.o: make_trainer.cpp.o
 .PHONY : make_trainer.o
 
@@ -250,53 +274,29 @@ make_trainer.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
 .PHONY : make_trainer.cpp.s
 
-proc/misc.o: proc/misc.cpp.o
-.PHONY : proc/misc.o
+proc.o: proc.cpp.o
+.PHONY : proc.o
 
 # target to build an object file
-proc/misc.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/misc.dir/build.make trabajo/CMakeFiles/proc/misc.dir/proc/misc.cpp.o
-.PHONY : proc/misc.cpp.o
+proc.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc.dir/build.make trabajo/CMakeFiles/proc.dir/proc.cpp.o
+.PHONY : proc.cpp.o
 
-proc/misc.i: proc/misc.cpp.i
-.PHONY : proc/misc.i
-
-# target to preprocess a source file
-proc/misc.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/misc.dir/build.make trabajo/CMakeFiles/proc/misc.dir/proc/misc.cpp.i
-.PHONY : proc/misc.cpp.i
-
-proc/misc.s: proc/misc.cpp.s
-.PHONY : proc/misc.s
-
-# target to generate assembly for a file
-proc/misc.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/misc.dir/build.make trabajo/CMakeFiles/proc/misc.dir/proc/misc.cpp.s
-.PHONY : proc/misc.cpp.s
-
-proc/proc.o: proc/proc.cpp.o
-.PHONY : proc/proc.o
-
-# target to build an object file
-proc/proc.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/proc.dir/build.make trabajo/CMakeFiles/proc/proc.dir/proc/proc.cpp.o
-.PHONY : proc/proc.cpp.o
-
-proc/proc.i: proc/proc.cpp.i
-.PHONY : proc/proc.i
+proc.i: proc.cpp.i
+.PHONY : proc.i
 
 # target to preprocess a source file
-proc/proc.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/proc.dir/build.make trabajo/CMakeFiles/proc/proc.dir/proc/proc.cpp.i
-.PHONY : proc/proc.cpp.i
+proc.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc.dir/build.make trabajo/CMakeFiles/proc.dir/proc.cpp.i
+.PHONY : proc.cpp.i
 
-proc/proc.s: proc/proc.cpp.s
-.PHONY : proc/proc.s
+proc.s: proc.cpp.s
+.PHONY : proc.s
 
 # target to generate assembly for a file
-proc/proc.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc/proc.dir/build.make trabajo/CMakeFiles/proc/proc.dir/proc/proc.cpp.s
-.PHONY : proc/proc.cpp.s
+proc.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/proc.dir/build.make trabajo/CMakeFiles/proc.dir/proc.cpp.s
+.PHONY : proc.cpp.s
 
 utilities.o: utilities.cpp.o
 .PHONY : utilities.o
@@ -330,26 +330,26 @@ help:
 	@echo "... depend"
 	@echo "... dorsales"
 	@echo "... edit_cache"
+	@echo "... functions"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... make_trainer"
-	@echo "... proc/misc"
-	@echo "... proc/proc"
+	@echo "... proc"
 	@echo "... rebuild_cache"
 	@echo "... utilities"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"
+	@echo "... functions.o"
+	@echo "... functions.i"
+	@echo "... functions.s"
 	@echo "... make_trainer.o"
 	@echo "... make_trainer.i"
 	@echo "... make_trainer.s"
-	@echo "... proc/misc.o"
-	@echo "... proc/misc.i"
-	@echo "... proc/misc.s"
-	@echo "... proc/proc.o"
-	@echo "... proc/proc.i"
-	@echo "... proc/proc.s"
+	@echo "... proc.o"
+	@echo "... proc.i"
+	@echo "... proc.s"
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"

@@ -23,9 +23,10 @@
  *
  */
 
-#include "../utilities.h"
+#include "utilities.h"
 #include "opencv.h"
 #include "misc.h"
+#include "proc.h"
 
 using namespace cimg_library;
 using namespace std;
@@ -463,3 +464,226 @@ int SeleccionarEtiquetas_cimg(CImg<int> & segment, CImg<int> & tabla, int & numo
 
 	return 0;
 }
+
+void segmentacion(const cimg_library::CImg<unsigned char> & img,
+		cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,
+		cimg_library::CImg<int> & areas) {
+
+	/* FUNCION: Segmentacion
+	 * recibe la imagen asi como los bbox, seg y areas.
+	 */
+	//aaaa
+	int numobj;
+	int r = binarySegmentation(img, seg, numobj);
+
+	BoundingBox_cimg(seg, numobj, bbox);
+
+	CImg<float> cdg;
+	CImg<float> covarianzas;
+	Momentos_Areas_cimg(seg, cdg, covarianzas, areas, numobj);
+}
+
+int binarySegmentation(const CImg<unsigned char> & im, CImg<int> & seg,
+		int & numobj) {
+	if (im.spectrum() > 1) {
+		std::cerr << "Error at binarySegmentation. Image spectrum > 1\n";
+		return -1;
+	}
+	seg = im.get_label(false);
+	int maxLabel = seg.max();
+	CImg<int> table(maxLabel + 1);
+	table.fill(0);
+	int npix = im.size();
+	unsigned char const *p = im.data();
+	for (int o = 0; o < npix; o++) {
+		if (p[o]) {
+			table[seg[o]] = 1;
+		}
+	}
+	int r = SeleccionarEtiquetas_cimg(seg, table, numobj);
+	return r;
+}
+
+int BoundingBox_cimg(const CImg<int> & segment, int numobjs, CImg<int> &bbox) {
+	int e;
+	int maxetiq;
+	if (numobjs <= 0)
+		maxetiq = segment.max();
+	else
+		maxetiq = numobjs;
+
+	bbox.assign(4, maxetiq + 1);
+
+	cimg_forY(bbox,k) //Inicializacion
+	{
+		bbox(1, k) = bbox(3, k) = -1;
+		bbox(0, k) = segment.width() + 1;
+		bbox(2, k) = segment.height() + 1;
+	}
+
+	cimg_forXY(segment,x,y)
+	{
+		e = segment(x, y);
+		if (y < bbox(2, e)) //ymin
+			bbox(2, e) = y;
+
+		if (x < bbox(0, e)) //xmin
+			bbox(0, e) = x;
+
+		if (y > bbox(3, e)) //ymax
+			bbox(3, e) = y;
+		if (x > bbox(1, e)) //xmax
+			bbox(1, e) = x;
+
+	}
+
+	return 0;
+}
+
+
+int Momentos_Areas_cimg(const CImg<int> &segment, CImg<float> & centros,
+		CImg<float> & covarianzas, CImg<int>& Npuntos, int nobjetos) {
+	if (-1 == nobjetos)
+		nobjetos = segment.max();
+
+	int e = 0;
+	centros.assign(nobjetos + 1, 2);
+	centros.fill(0.0);
+	covarianzas.assign(2, 2, nobjetos + 1);
+	covarianzas.fill(0.0);
+	Npuntos.assign(nobjetos + 1);
+	Npuntos.fill(0);
+
+	//Calculamos la suma de las coordenadas y sus cuadrados
+	cimg_forXY(segment,x,y)
+	{
+		e = segment(x, y);
+		if (e) {
+			Npuntos[e]++;
+			centros(e, 0) += x;
+			centros(e, 1) += y;
+			covarianzas(0, 0, e) += (x * x);
+			covarianzas(0, 1, e) += (x * y);
+			covarianzas(1, 1, e) += (y * y);
+		}
+	}
+	//Calculamos los centros de gravedad
+	cimg_forX(centros,ee)
+	{
+		if (Npuntos(ee)) {
+			centros(ee, 0) = centros(ee, 0) / Npuntos[ee];
+			centros(ee, 1) = centros(ee, 1) / Npuntos[ee];
+		} else
+			centros(ee, 0) = centros(ee, 1) = -1;
+	}
+
+	cimg_forZ(covarianzas,ee)
+	{
+		if (Npuntos(ee)) {
+			covarianzas(0, 0, ee) = covarianzas(0, 0, ee) / Npuntos[ee]
+					- centros(ee, 0) * centros(ee, 0);
+			covarianzas(1, 1, ee) = covarianzas(1, 1, ee) / Npuntos[ee]
+					- centros(ee, 1) * centros(ee, 1);
+			covarianzas(0, 1, ee) = covarianzas(0, 1, ee) / Npuntos[ee]
+					- centros(ee, 0) * centros(ee, 1);
+			covarianzas(1, 0, ee) = covarianzas(0, 1, ee);
+		} else {
+			covarianzas(0, 0, ee) = covarianzas(1, 1, ee) = -1;
+			covarianzas(0, 1, ee) = covarianzas(1, 0, ee) = 0;
+		}
+	}
+
+	return 0;
+}
+
+void extractObject(const cimg_library::CImg<int> & segment,
+		const cimg_library::CImg<int> & bbox, int label, int margin,
+		cimg_library::CImg<unsigned char> &output) {
+	output.assign();
+	int nobjects = bbox.height() - 1;
+	if (label > nobjects)
+		return;
+	int xmin = bbox(0, label);
+	int xmax = bbox(1, label);
+	int ymin = bbox(2, label);
+	int ymax = bbox(3, label);
+
+	int w = xmax - xmin + 1;
+	int h = ymax - ymin + 1;
+	int xoff = -xmin + margin;
+	int yoff = -ymin + margin;
+	output.assign(w + 2 * margin, h + 2 * margin).fill(0);
+	for (int x = xmin; x <= xmax; x++) {
+		for (int y = ymin; y <= ymax; y++) {
+			if (segment(x, y) != label)
+				continue;
+			output(x + xoff, y + yoff) = 1;
+		}
+	}
+}
+
+int OCR(cimg_library::CImg<float> & vectores,
+		cimg_library::CImg<float> & lowres) {
+	/*OCR
+	 * FUNCION QUE DADA LA MATRIZ DE OCR Y UN OBJETO DE 3X3 CALCULA
+	 * EL DIGITO QUE MAS SE PARECE AL OBJETO MEDIANTE EL METODO
+	 * DE VECINO MAS PROXIMO.
+	 */
+	// Search NN
+	int nmin = 0;
+	float d = 0.0;
+	for (int x = 0; x < vectores.width(); x++)
+		d += (vectores(x, nmin) - lowres[x]) * (vectores(x, nmin) - lowres[x]);
+	float dmin = d;
+	for (int n = 1; n < vectores.height(); n++) {
+		d = 0.0;
+		for (int x = 0; x < vectores.width(); x++)
+			d += (vectores(x, n) - lowres[x]) * (vectores(x, n) - lowres[x]);
+		if (d < dmin) {
+			dmin = d;
+			nmin = n;
+		}
+	}
+	int digit =nmin%10;
+
+	return digit;
+
+}
+
+void load_dlm(cimg_library::CImg<float> & vectores) {
+	std::vector<CImg<float> > vectores_dlm(10);
+	CImg<float>intermedia(9,10);
+
+	/* LOAD_DLM
+	 *
+	 * FUNCION QUE DADOS 10 VECTORES_DLM DE CADA UNA DE LAS CIFRAS
+	 * CREA UNA MATRIZ CON ESOS 10 VECTORES DE TAMA�O 9 COLUMNAS
+	 * 10 FILAS.
+	 */
+
+	vectores_dlm[0].load_dlm("trainer0.dlm");
+	vectores_dlm[1].load_dlm("trainer1.dlm");
+	vectores_dlm[2].load_dlm("trainer2.dlm");
+	vectores_dlm[3].load_dlm("trainer3.dlm");
+	vectores_dlm[4].load_dlm("trainer4.dlm");
+	vectores_dlm[5].load_dlm("trainer5.dlm");
+	vectores_dlm[6].load_dlm("trainer6.dlm");
+	vectores_dlm[7].load_dlm("trainer7.dlm");
+	vectores_dlm[8].load_dlm("trainer8.dlm");
+	vectores_dlm[9].load_dlm("trainer9.dlm");
+
+	int fila=0;
+	int puntero1=0;
+
+	for(int o1=0;o1 < 89; o1++){
+		vectores(o1)=vectores_dlm[fila][puntero1];
+		if(puntero1==8){
+			puntero1=0;
+			fila++;
+			continue;
+		}
+		puntero1++;
+
+	}
+}
+

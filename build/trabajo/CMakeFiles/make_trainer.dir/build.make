@@ -91,6 +91,7 @@ trabajo/make_trainer: /opt/local/lib/libICE.dylib
 trabajo/make_trainer: /opt/local/lib/libX11.dylib
 trabajo/make_trainer: /opt/local/lib/libXext.dylib
 trabajo/make_trainer: trabajo/libutilities.a
+trabajo/make_trainer: trabajo/libfunctions.a
 trabajo/make_trainer: /opt/local/lib/libopencv_videostab.2.4.9.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_video.2.4.9.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_ts.a

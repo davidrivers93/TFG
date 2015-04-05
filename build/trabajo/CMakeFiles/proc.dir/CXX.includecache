@@ -110,7 +110,9 @@ sys/cdefs.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/opencv.h
 
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
+
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.cpp
 stdlib.h
 -
 vector
@@ -143,8 +145,6 @@ misc.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
 proc.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
-
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/misc.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc.h
 stdlib.h

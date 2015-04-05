@@ -91,6 +91,7 @@ trabajo/dorsales: /opt/local/lib/libICE.dylib
 trabajo/dorsales: /opt/local/lib/libX11.dylib
 trabajo/dorsales: /opt/local/lib/libXext.dylib
 trabajo/dorsales: trabajo/libutilities.a
+trabajo/dorsales: trabajo/libfunctions.a
 trabajo/dorsales: /opt/local/lib/libopencv_videostab.2.4.9.dylib
 trabajo/dorsales: /opt/local/lib/libopencv_video.2.4.9.dylib
 trabajo/dorsales: /opt/local/lib/libopencv_ts.a
