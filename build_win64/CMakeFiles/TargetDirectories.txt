@@ -1,0 +1,4 @@
+C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo/CMakeFiles/utilities.dir
+C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo/CMakeFiles/make_trainer.dir
+C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo/CMakeFiles/functions.dir
+C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo/CMakeFiles/dorsales.dir
