@@ -265,8 +265,8 @@
 <pathentry kind="mac" name="__WCHAR_UNSIGNED__" path="" value="1"/>
 <pathentry include="E:/opencv/opencv/build/x64/vc11/lib/include" kind="inc" path="" system="true"/>
 <pathentry include="E:/opencv/opencv/build/x64/vc11/lib/include/opencv" kind="inc" path="" system="true"/>
-<pathentry include="C:/Users/davidrivers93/Desktop/TFG/fuentes" kind="inc" path="" system="true"/>
-<pathentry include="C:/Users/davidrivers93/Desktop/TFG/fuentes/@includedir@" kind="inc" path="" system="true"/>
+<pathentry include="E:/Development/tfg/fuentes" kind="inc" path="" system="true"/>
+<pathentry include="E:/Development/tfg/fuentes/@includedir@" kind="inc" path="" system="true"/>
 <pathentry include="e:/MinGW/lib/gcc/mingw32/4.8.1/include" kind="inc" path="" system="true"/>
 <pathentry include="e:/MinGW/include" kind="inc" path="" system="true"/>
 <pathentry include="e:/MinGW/lib/gcc/mingw32/4.8.1/include-fixed" kind="inc" path="" system="true"/>
@@ -349,14 +349,14 @@
 </target>
 <target name="Build" path="[Targets]/[lib] utilities" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
-<buildArguments>-C "C:/Users/davidrivers93/Desktop/TFG/build_win64" </buildArguments>
+<buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>utilities</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Clean" path="[Targets]/[lib] utilities" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/Program Files (x86)/CMake/bin/cmake.exe</buildCommand>
-<buildArguments>-E chdir "C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/utilities.dir/cmake_clean.cmake"</buildArguments>
+<buildArguments>-E chdir "E:/Development/tfg/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/utilities.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
@@ -377,14 +377,14 @@
 </target>
 <target name="Build" path="[Targets]/[exe] make_trainer" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
-<buildArguments>-C "C:/Users/davidrivers93/Desktop/TFG/build_win64" </buildArguments>
+<buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>make_trainer</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Clean" path="[Targets]/[exe] make_trainer" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/Program Files (x86)/CMake/bin/cmake.exe</buildCommand>
-<buildArguments>-E chdir "C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/make_trainer.dir/cmake_clean.cmake"</buildArguments>
+<buildArguments>-E chdir "E:/Development/tfg/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/make_trainer.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
@@ -405,14 +405,14 @@
 </target>
 <target name="Build" path="[Targets]/[lib] functions" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
-<buildArguments>-C "C:/Users/davidrivers93/Desktop/TFG/build_win64" </buildArguments>
+<buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>functions</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Clean" path="[Targets]/[lib] functions" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/Program Files (x86)/CMake/bin/cmake.exe</buildCommand>
-<buildArguments>-E chdir "C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/functions.dir/cmake_clean.cmake"</buildArguments>
+<buildArguments>-E chdir "E:/Development/tfg/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/functions.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
@@ -433,14 +433,14 @@
 </target>
 <target name="Build" path="[Targets]/[exe] dorsales" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
-<buildArguments>-C "C:/Users/davidrivers93/Desktop/TFG/build_win64" </buildArguments>
+<buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>dorsales</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Clean" path="[Targets]/[exe] dorsales" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>E:/Program Files (x86)/CMake/bin/cmake.exe</buildCommand>
-<buildArguments>-E chdir "C:/Users/davidrivers93/Desktop/TFG/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/dorsales.dir/cmake_clean.cmake"</buildArguments>
+<buildArguments>-E chdir "E:/Development/tfg/build_win64/trabajo" "E:/Program Files (x86)/CMake/bin/cmake.exe" -P "CMakeFiles/dorsales.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>

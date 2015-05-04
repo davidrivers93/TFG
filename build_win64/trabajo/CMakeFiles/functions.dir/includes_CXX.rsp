@@ -1,1 +1,1 @@
--IE:/opencv/opencv/build/x64/vc11/lib/include -IE:/opencv/opencv/build/x64/vc11/lib/include/opencv -IC:/Users/davidrivers93/Desktop/TFG/fuentes -IC:/Users/davidrivers93/Desktop/TFG/fuentes/@includedir@ 
+-IE:/opencv/opencv/build/x64/vc11/lib/include -IE:/opencv/opencv/build/x64/vc11/lib/include/opencv -IE:/Development/tfg/fuentes -IE:/Development/tfg/fuentes/@includedir@ 

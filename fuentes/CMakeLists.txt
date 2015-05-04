@@ -15,6 +15,14 @@ if(APPLE)
 	set(CMAKE_PREFIX_PATH  "/opt/local/lib/cmake")
 endif(APPLE)
 
+#--- OpenCV (with pkgconfig)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(OPENCV REQUIRED opencv)
+# https://bugs.freedesktop.org/show_bug.cgi?id=82245
+# list(APPEND LIBRARIES ${OPENCV_LIBRARIES}) 
+list(APPEND LIBRARIES ${OPENCV_LDFLAGS})
+message(STATUS LIBS ${OPENCV_VERSION})
+
 FIND_PACKAGE(OpenCV REQUIRED)
 
 if(NOT WIN32)
