@@ -8,9 +8,6 @@
 #include <string>
 #include <time.h>
 
-#include </opt/local/include/tesseract/baseapi.h>
-#include </opt/local/include/leptonica/allheaders.h>
-
 #if cimg_os==2 //Windows
 #include "getopt.h"
 #else
