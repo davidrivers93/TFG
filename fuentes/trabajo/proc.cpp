@@ -61,9 +61,9 @@ void router(set<string> images, int modo){
 		std::cout << "Imagen a procesar: " << *it << "\n";
 		string imgname = *it;
 		CImg<unsigned char> img_loaded(imgname.c_str());
+		img_loaded.display("Imagen a procesar.");
 
 		proc_general(img_loaded);
-
 
 
 	}

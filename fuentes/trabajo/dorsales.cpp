@@ -70,24 +70,6 @@ int main(int argc, char **argv) {
 	double capt_height = 240;
 	CImgDisplay disp_cimg;
 
-	/*while ((opt = getopt(argc, argv, "hW:H:")) != -1) { //
-	 switch (opt) {
-	 case 'h':
-	 ayuda();
-	 exit(0);
-	 break;
-	 case 'W':
-	 capt_width = atoi(optarg);
-	 break;
-	 case 'H':
-	 capt_height = atoi(optarg);
-	 break;
-	 case 'i':
-	 std::string input = argv[optind];
-	 break;
-	 }
-	 }*/
-
 	const int modo = cimg_option("-m", false, 0);
 	const bool help = cimg_option("-h", false, 0);
 
@@ -169,7 +151,7 @@ std::string getOsName()
     #elif __APPLE__ || __MACH__
     return "Mac OSX";
     #elif __linux__
-    reutnr "Linux";
+    return "Linux";
     #elif __FreeBSD__
     return "FreeBSD";
     #else
@@ -184,6 +166,9 @@ void create_txt_file(){
 	 * DEBERIA DE ESTAR EN PROC/MISC
 	 */
 	std::string OS = getOsName();
+
+	std::cout << "El sistema operativo es " + OS;
+
 	if(OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
 		system("ls *.jpg > prueba.txt");
 	else
