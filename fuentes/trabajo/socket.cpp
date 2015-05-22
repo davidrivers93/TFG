@@ -3,44 +3,29 @@
  * 0 -> IP Protocol
  */
 
-#include<io.h>
 #include<stdio.h>
-#include<winsock2.h>
-#include<thread>
-#ifdef WIN32
-    #include <windows.h>
-    #include <map>
-#else
-    #include <pthread.h>
-    #include <unistd.h>
-#endif
+#include<string.h>    //strlen
+#include<stdlib.h>    //strlen
+#include<sys/socket.h>
+#include<arpa/inet.h> //inet_addr
+#include<unistd.h>    //write
 
-#pragma comment(lib,"ws2_32.lib") //Winsock Library
+#include<pthread.h> //for threading , link with lpthread
+
+void *connection_handler(void *);
 
 int main(int argc , char *argv[])
 {
-    WSADATA wsa;
-    SOCKET s , new_socket, *new_sock;
+    int socket_desc , new_socket , c , *new_sock;
     struct sockaddr_in server , client;
-    int c;
     char *message;
 
-    printf("\nInitialising Winsock...");
-    if (WSAStartup(MAKEWORD(2,2),&wsa) != 0)
+    //Create socket
+    socket_desc = socket(AF_INET , SOCK_STREAM , 0);
+    if (socket_desc == -1)
     {
-        printf("Failed. Error Code : %d",WSAGetLastError());
-        return 1;
+        printf("Could not create socket");
     }
-
-    printf("Initialised.\n");
-
-    //Create a socket
-    if((s = socket(AF_INET , SOCK_STREAM , 0 )) == INVALID_SOCKET)
-    {
-        printf("Could not create socket : %d" , WSAGetLastError());
-    }
-
-    printf("Socket created.\n");
 
     //Prepare the sockaddr_in structure
     server.sin_family = AF_INET;
@@ -48,56 +33,54 @@ int main(int argc , char *argv[])
     server.sin_port = htons( 8888 );
 
     //Bind
-    if( bind(s ,(struct sockaddr *)&server , sizeof(server)) == SOCKET_ERROR)
+    if( bind(socket_desc,(struct sockaddr *)&server , sizeof(server)) < 0)
     {
-        printf("Bind failed with error code : %d" , WSAGetLastError());
-        exit(EXIT_FAILURE);
+        puts("bind failed");
+        return 1;
     }
+    puts("bind done");
 
-    puts("Bind done");
-
-    //Listen to incoming connections
-    listen(s , 3);
+    //Listen
+    listen(socket_desc , 3);
 
     //Accept and incoming connection
     puts("Waiting for incoming connections...");
-
     c = sizeof(struct sockaddr_in);
-
-    while( (new_socket = accept(s , (struct sockaddr *)&client, &c)) != INVALID_SOCKET )
+    while( (new_socket = accept(socket_desc, (struct sockaddr *)&client, (socklen_t*)&c)) )
     {
         puts("Connection accepted");
 
         //Reply to the client
-        message = "Hello Client , I have received your connection. But I have to go now, bye\n";
-        write(new_socket, message, strlen(message));
+        message = "Hello Client , I have received your connection. And now I will assign a handler for you\n";
+        write(new_socket , message , strlen(message));
 
         pthread_t sniffer_thread;
-        new_sock = (int*) malloc(sizeof(int));
-	   *new_sock = new_socket;
-	   	if( pthread_create( &sniffer_thread , NULL ,  connection_handler , (void*) new_sock) < 0)
-	           {
-	               perror("could not create thread");
-	               return 1;
-	   }
+        new_sock = malloc(1);
+        *new_sock = new_socket;
 
-	   //Now join the thread , so that we dont terminate before the thread
-	   //pthread_join( sniffer_thread , NULL);
-	   puts("Handler assigned");
+        if( pthread_create( &sniffer_thread , NULL ,  connection_handler , (void*) new_sock) < 0)
+        {
+            perror("could not create thread");
+            return 1;
+        }
+
+        //Now join the thread , so that we dont terminate before the thread
+        //pthread_join( sniffer_thread , NULL);
+        puts("Handler assigned");
     }
 
-    if (new_socket == INVALID_SOCKET)
+    if (new_socket<0)
     {
-        printf("accept failed with error code : %d" , WSAGetLastError());
+        perror("accept failed");
         return 1;
     }
-
-    closesocket(s);
-    WSACleanup();
 
     return 0;
 }
 
+/*
+ * This will handle connection for each client
+ * */
 void *connection_handler(void *socket_desc)
 {
     //Get the socket descriptor

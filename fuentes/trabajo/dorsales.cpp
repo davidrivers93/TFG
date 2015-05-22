@@ -8,7 +8,8 @@
 #include <string>
 #include <time.h>
 
-
+#include <tesseract/baseapi.h>
+#include <leptonica/allheaders.h>
 
 #if cimg_os==2 //Windows
 #include "getopt.h"
@@ -17,10 +18,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #endif
-
+#include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"
-#include "CImg.h"
+
 
 /* OWN LIBRARIES
  *
@@ -233,7 +234,7 @@ void calculate(set<string> images, int contador, int modo){
 			//Realizamos un display de la imagen de entrada.
 			//img.display("Entrada", false);
 
-			router(it, modo);
+			//router(it, modo);
 
 			//ZONA DE SEGMENTACION Y BINARIZACION
 
@@ -371,7 +372,7 @@ void calculate(set<string> images, int contador, int modo){
 
 			char *outText;
 
-			seg2.display("Imagen a enviar a Tesseract", false);
+			/*seg2.display("Imagen a enviar a Tesseract", false);
 			tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
 			// Initialize tesseract-ocr with English, without specifying tessdata path
 			if (api->Init(NULL, "eng")) {
@@ -394,7 +395,7 @@ void calculate(set<string> images, int contador, int modo){
 			// Destroy used object and release memory
 			api->End();
 			//delete [] outText;
-			pixDestroy(&image);
+			pixDestroy(&image);*/
 
 			//seg2.display("A", false);
 
