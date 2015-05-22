@@ -278,77 +278,77 @@
 <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 <buildTargets>
 <target name=": install/local" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>install/local</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": install/strip" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>install/strip</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": edit_cache" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>edit_cache</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": install" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>install</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": rebuild_cache" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>rebuild_cache</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": list_install_components" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>list_install_components</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": all" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>all</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": clean" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>clean</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[lib] utilities" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>utilities</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[lib] utilities/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>utilities/fast</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Build" path="[Targets]/[lib] utilities" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>utilities</buildTarget>
 <stopOnError>true</stopOnError>
@@ -362,21 +362,21 @@
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[exe] make_trainer" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>make_trainer</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[exe] make_trainer/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>make_trainer/fast</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Build" path="[Targets]/[exe] make_trainer" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>make_trainer</buildTarget>
 <stopOnError>true</stopOnError>
@@ -390,21 +390,21 @@
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[lib] functions" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>functions</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[lib] functions/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>functions/fast</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Build" path="[Targets]/[lib] functions" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>functions</buildTarget>
 <stopOnError>true</stopOnError>
@@ -418,21 +418,21 @@
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[exe] dorsales" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>dorsales</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[exe] dorsales/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>dorsales/fast</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="Build" path="[Targets]/[exe] dorsales" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments>-C "E:/Development/tfg/build_win64" </buildArguments>
 <buildTarget>dorsales</buildTarget>
 <stopOnError>true</stopOnError>
@@ -446,42 +446,42 @@
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": all" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>all</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name=": clean" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>clean</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[obj] dorsales.cpp.obj" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>dorsales.cpp.obj</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[obj] functions.cpp.obj" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>functions.cpp.obj</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[obj] make_trainer.cpp.obj" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>make_trainer.cpp.obj</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
 <target name="[obj] utilities.cpp.obj" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>E:/MinGW/bin/mingw32-make.exe</buildCommand>
+<buildCommand>e:/MinGW/bin/mingw32-make.exe</buildCommand>
 <buildArguments></buildArguments>
 <buildTarget>utilities.cpp.obj</buildTarget>
 <stopOnError>true</stopOnError>
@@ -507,7 +507,7 @@
 <parser enabled="true"/>
 </buildOutputProvider>
 <scannerInfoProvider id="makefileGenerator">
-<runAction arguments="-f ${project_name}_scd.mk" command="E:/MinGW/bin/mingw32-make.exe" useDefault="true"/>
+<runAction arguments="-f ${project_name}_scd.mk" command="e:/MinGW/bin/mingw32-make.exe" useDefault="true"/>
 <parser enabled="true"/>
 </scannerInfoProvider>
 </profile>

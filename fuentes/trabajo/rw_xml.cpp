@@ -103,7 +103,7 @@ void xml_write(	std::vector<std::vector<std::vector<int> > > *contenedor_dorsale
 
 
 	FILE *fd = 0;
-	fd = fopen("results_" + tm_mday + "_" + tm_mon+1 + "_" + tm_year_1900 + ".xml", "w");
+	fd = fopen("results_" + now->tm_mday + "_" + now->tm_mon+1 + "_" + now->tm_year+1900 + ".xml", "w");
 	string xml_version = "1.0";
 	string encoding = "UTF-8";
 

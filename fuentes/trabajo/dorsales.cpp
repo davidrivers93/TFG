@@ -8,8 +8,11 @@
 #include <string>
 #include <time.h>
 
+
+
 #if cimg_os==2 //Windows
 #include "getopt.h"
+#include "E:\opencv\opencv\build\include\opencv"
 #else
 #include <unistd.h>
 #include <stdlib.h>
@@ -32,6 +35,8 @@
 using namespace cimg_library;
 using namespace std;
 using namespace cv;
+
+
 
 int showfiles(set<string> images);
 void calculate(set<string> images, int contador);
@@ -123,7 +128,7 @@ int main(int argc, char **argv) {
 	if (is_Video)
 		std::cout << "It is VideoFile :" << input << "\n";*/
 	int contador = showfiles(images);
-	calculate(images, contador);
+	calculate(images, contador, modo);
 
 	if(contador == 0){
 		std::cout << "No hay ninguna imagen a procesar. \n";
@@ -189,7 +194,7 @@ void create_txt_file(){
 
 }
 
-void calculate(set<string> images, int contador){
+void calculate(set<string> images, int contador, int modo){
 
 	CImg<int> contenedor_numobj(contador);
 	CImg<int> contenedor_tiempo(contador);
@@ -227,6 +232,8 @@ void calculate(set<string> images, int contador){
 
 			//Realizamos un display de la imagen de entrada.
 			//img.display("Entrada", false);
+
+			router(it, modo);
 
 			//ZONA DE SEGMENTACION Y BINARIZACION
 

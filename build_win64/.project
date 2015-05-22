@@ -31,7 +31,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.build.command</key>
-					<value>E:/MinGW/bin/mingw32-make.exe</value>
+					<value>e:/MinGW/bin/mingw32-make.exe</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.contents</key>
