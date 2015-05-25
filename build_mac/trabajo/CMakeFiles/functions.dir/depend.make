@@ -26,6 +26,7 @@ trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/jpeglib.h
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv/cv.h
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv/highgui.h
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv2/calib3d/calib3d.hpp
+trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv2/core/affine.hpp
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv2/core/core.hpp
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv2/core/core_c.h
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /opt/local/include/opencv2/core/eigen.hpp

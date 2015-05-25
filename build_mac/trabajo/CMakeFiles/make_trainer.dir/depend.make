@@ -28,6 +28,7 @@ trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/jpegl
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv/cv.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv/highgui.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv2/calib3d/calib3d.hpp
+trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv2/core/affine.hpp
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv2/core/core.hpp
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv2/core/core_c.h
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /opt/local/include/opencv2/core/eigen.hpp

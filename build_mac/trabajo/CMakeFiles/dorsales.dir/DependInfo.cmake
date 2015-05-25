@@ -4,14 +4,14 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o"
+  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
-  "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
+  "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
+  "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/functions.dir/functions.cpp.o"
+  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir/functions.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "Clang")
 

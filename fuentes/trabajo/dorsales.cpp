@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-
+#include <opencv2/opencv.hpp>
 #if cimg_os==2 //Windows
 #include "getopt.h"
 #include "E:\opencv\opencv\build\include\opencv"
@@ -26,7 +26,6 @@
 
 #include "functions.h"
 #include "utilities.h"
-#include "opencv.h"
 #include "proc/misc.h"
 #include "proc/proc.h"
 
@@ -37,7 +36,7 @@ using namespace cv;
 
 
 int showfiles(set<string> images);
-void calculate(set<string> images, int contador);
+void calculate(set<string> images, int contador, int modo);
 void create_txt_file();
 std::string getOsName();
 
@@ -108,16 +107,16 @@ int main(int argc, char **argv) {
 	 cin >> opt;
 	 if(opt == "NO")
 		 exit(0);
-
 	 }
 
 
-	//Cargamos el input(txt) o imagen suelta
+	//Creamos el txt file que nos parsea las fotos de la carpeta
 	create_txt_file();
 	// ==== Determine kind of input ===========
 	//int camera_number = isCamera(input);
 	// camera == -1 if it is not a camera
 	//bool is_Video = isVideo(input);
+
 	set<string> images = isImages(input);
 
 	/*if (camera_number >= 0)
@@ -126,6 +125,7 @@ int main(int argc, char **argv) {
 	if (is_Video)
 		std::cout << "It is VideoFile :" << input << "\n";*/
 	int contador = showfiles(images);
+
 	calculate(images, contador, modo);
 
 	if(contador == 0){

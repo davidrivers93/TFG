@@ -36,12 +36,15 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/dorsales")
+FILE(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/dorsales")
   IF(EXISTS "$ENV{DESTDIR}/Users/David/bin/dorsales" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/dorsales")
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/opt/local/lib"
       "$ENV{DESTDIR}/Users/David/bin/dorsales")
+    IF(CMAKE_INSTALL_DO_STRIP)
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/dorsales")
+    ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
@@ -54,12 +57,15 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/make_trainer")
+FILE(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/make_trainer")
   IF(EXISTS "$ENV{DESTDIR}/Users/David/bin/make_trainer" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/make_trainer")
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/opt/local/lib"
       "$ENV{DESTDIR}/Users/David/bin/make_trainer")
+    IF(CMAKE_INSTALL_DO_STRIP)
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/make_trainer")
+    ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

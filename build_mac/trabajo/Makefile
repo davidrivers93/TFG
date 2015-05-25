@@ -45,7 +45,7 @@ CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 CMAKE_SOURCE_DIR = /Users/David/Desktop/ProyectosC++/TFG/fuentes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build
+CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -82,6 +82,16 @@ install/local: preinstall
 install/local/fast: install/local
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/opt/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -103,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build/CMakeFiles /Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/progress.marks
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build/CMakeFiles 0
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/progress.marks
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/clean
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/preinstall
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/preinstall
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
 
 # Convenience name for target.
@@ -143,12 +153,12 @@ dorsales: trabajo/CMakeFiles/dorsales.dir/rule
 
 # fast build rule for target.
 dorsales/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
 .PHONY : dorsales/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/functions.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/rule
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/rule
 .PHONY : trabajo/CMakeFiles/functions.dir/rule
 
 # Convenience name for target.
@@ -157,12 +167,12 @@ functions: trabajo/CMakeFiles/functions.dir/rule
 
 # fast build rule for target.
 functions/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
 .PHONY : functions/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/make_trainer.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
 
 # Convenience name for target.
@@ -171,12 +181,12 @@ make_trainer: trabajo/CMakeFiles/make_trainer.dir/rule
 
 # fast build rule for target.
 make_trainer/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
 .PHONY : make_trainer/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
 .PHONY : trabajo/CMakeFiles/utilities.dir/rule
 
 # Convenience name for target.
@@ -185,7 +195,7 @@ utilities: trabajo/CMakeFiles/utilities.dir/rule
 
 # fast build rule for target.
 utilities/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
 
 dorsales.o: dorsales.cpp.o
@@ -193,7 +203,7 @@ dorsales.o: dorsales.cpp.o
 
 # target to build an object file
 dorsales.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
 .PHONY : dorsales.cpp.o
 
 dorsales.i: dorsales.cpp.i
@@ -201,7 +211,7 @@ dorsales.i: dorsales.cpp.i
 
 # target to preprocess a source file
 dorsales.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.i
 .PHONY : dorsales.cpp.i
 
 dorsales.s: dorsales.cpp.s
@@ -209,7 +219,7 @@ dorsales.s: dorsales.cpp.s
 
 # target to generate assembly for a file
 dorsales.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.s
 .PHONY : dorsales.cpp.s
 
 functions.o: functions.cpp.o
@@ -217,7 +227,7 @@ functions.o: functions.cpp.o
 
 # target to build an object file
 functions.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.o
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.o
 .PHONY : functions.cpp.o
 
 functions.i: functions.cpp.i
@@ -225,7 +235,7 @@ functions.i: functions.cpp.i
 
 # target to preprocess a source file
 functions.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.i
 .PHONY : functions.cpp.i
 
 functions.s: functions.cpp.s
@@ -233,7 +243,7 @@ functions.s: functions.cpp.s
 
 # target to generate assembly for a file
 functions.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
 .PHONY : functions.cpp.s
 
 make_trainer.o: make_trainer.cpp.o
@@ -241,7 +251,7 @@ make_trainer.o: make_trainer.cpp.o
 
 # target to build an object file
 make_trainer.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o
 .PHONY : make_trainer.cpp.o
 
 make_trainer.i: make_trainer.cpp.i
@@ -249,7 +259,7 @@ make_trainer.i: make_trainer.cpp.i
 
 # target to preprocess a source file
 make_trainer.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i
 .PHONY : make_trainer.cpp.i
 
 make_trainer.s: make_trainer.cpp.s
@@ -257,7 +267,7 @@ make_trainer.s: make_trainer.cpp.s
 
 # target to generate assembly for a file
 make_trainer.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
 .PHONY : make_trainer.cpp.s
 
 utilities.o: utilities.cpp.o
@@ -265,7 +275,7 @@ utilities.o: utilities.cpp.o
 
 # target to build an object file
 utilities.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.o
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.o
 .PHONY : utilities.cpp.o
 
 utilities.i: utilities.cpp.i
@@ -273,7 +283,7 @@ utilities.i: utilities.cpp.i
 
 # target to preprocess a source file
 utilities.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.i
 .PHONY : utilities.cpp.i
 
 utilities.s: utilities.cpp.s
@@ -281,7 +291,7 @@ utilities.s: utilities.cpp.s
 
 # target to generate assembly for a file
 utilities.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.s
 .PHONY : utilities.cpp.s
 
 # Help Target
@@ -295,6 +305,7 @@ help:
 	@echo "... functions"
 	@echo "... install"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... make_trainer"
 	@echo "... rebuild_cache"
@@ -322,6 +333,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

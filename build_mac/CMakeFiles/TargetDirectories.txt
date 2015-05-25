@@ -1,4 +1,4 @@
-/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/dorsales.dir
-/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/functions.dir
-/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/make_trainer.dir
-/Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/utilities.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/dorsales.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/make_trainer.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/utilities.dir

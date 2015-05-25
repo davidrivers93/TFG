@@ -41,7 +41,7 @@ CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 CMAKE_SOURCE_DIR = /Users/David/Desktop/ProyectosC++/TFG/fuentes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build
+CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 
 # Include any dependencies generated for this target.
 include trabajo/CMakeFiles/make_trainer.dir/depend.make
@@ -54,17 +54,17 @@ include trabajo/CMakeFiles/make_trainer.dir/flags.make
 
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: trabajo/CMakeFiles/make_trainer.dir/flags.make
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o"
-	cd /Users/David/Desktop/ProyectosC++/TFG/build/trabajo && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/make_trainer.dir/make_trainer.cpp.o -c /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/make_trainer.dir/make_trainer.cpp.o -c /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp
 
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/make_trainer.dir/make_trainer.cpp.i"
-	cd /Users/David/Desktop/ProyectosC++/TFG/build/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp > CMakeFiles/make_trainer.dir/make_trainer.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp > CMakeFiles/make_trainer.dir/make_trainer.cpp.i
 
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/make_trainer.dir/make_trainer.cpp.s"
-	cd /Users/David/Desktop/ProyectosC++/TFG/build/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp -o CMakeFiles/make_trainer.dir/make_trainer.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp -o CMakeFiles/make_trainer.dir/make_trainer.cpp.s
 
 trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o.requires:
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o.requires
@@ -92,40 +92,40 @@ trabajo/make_trainer: /opt/local/lib/libX11.dylib
 trabajo/make_trainer: /opt/local/lib/libXext.dylib
 trabajo/make_trainer: trabajo/libutilities.a
 trabajo/make_trainer: trabajo/libfunctions.a
-trabajo/make_trainer: /opt/local/lib/libopencv_videostab.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_video.2.4.9.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_videostab.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_video.2.4.11.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_ts.a
-trabajo/make_trainer: /opt/local/lib/libopencv_superres.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_stitching.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_photo.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_objdetect.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_nonfree.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_ml.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_legacy.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_imgproc.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_highgui.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_gpu.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_flann.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_features2d.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_core.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_contrib.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_calib3d.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_nonfree.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_gpu.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_photo.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_objdetect.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_legacy.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_video.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_ml.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_calib3d.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_features2d.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_highgui.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_imgproc.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_flann.2.4.9.dylib
-trabajo/make_trainer: /opt/local/lib/libopencv_core.2.4.9.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_superres.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_stitching.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_photo.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_objdetect.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_nonfree.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_ml.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_legacy.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_imgproc.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_highgui.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_gpu.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_flann.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_features2d.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_core.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_contrib.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_calib3d.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_nonfree.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_gpu.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_photo.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_objdetect.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_legacy.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_video.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_ml.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_calib3d.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_features2d.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_highgui.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_imgproc.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_flann.2.4.11.dylib
+trabajo/make_trainer: /opt/local/lib/libopencv_core.2.4.11.dylib
 trabajo/make_trainer: trabajo/CMakeFiles/make_trainer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable make_trainer"
-	cd /Users/David/Desktop/ProyectosC++/TFG/build/trabajo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/make_trainer.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/make_trainer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 trabajo/CMakeFiles/make_trainer.dir/build: trabajo/make_trainer
@@ -135,10 +135,10 @@ trabajo/CMakeFiles/make_trainer.dir/requires: trabajo/CMakeFiles/make_trainer.di
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/requires
 
 trabajo/CMakeFiles/make_trainer.dir/clean:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build/trabajo && $(CMAKE_COMMAND) -P CMakeFiles/make_trainer.dir/cmake_clean.cmake
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && $(CMAKE_COMMAND) -P CMakeFiles/make_trainer.dir/cmake_clean.cmake
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/clean
 
 trabajo/CMakeFiles/make_trainer.dir/depend:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/David/Desktop/ProyectosC++/TFG/fuentes /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo /Users/David/Desktop/ProyectosC++/TFG/build /Users/David/Desktop/ProyectosC++/TFG/build/trabajo /Users/David/Desktop/ProyectosC++/TFG/build/trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/David/Desktop/ProyectosC++/TFG/fuentes /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo /Users/David/Desktop/ProyectosC++/TFG/build_mac /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/depend
 

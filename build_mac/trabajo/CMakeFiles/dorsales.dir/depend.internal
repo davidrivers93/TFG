@@ -4,7 +4,8 @@
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/CImg.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/getopt.h
- /Users/David/Desktop/ProyectosC++/TFG/fuentes/opencv.h
+ /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/misc.h
+ /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/proc.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
@@ -27,32 +28,13 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /opt/local/include/jerror.h
  /opt/local/include/jmorecfg.h
  /opt/local/include/jpeglib.h
- /opt/local/include/leptonica/allheaders.h
- /opt/local/include/leptonica/alltypes.h
- /opt/local/include/leptonica/array.h
- /opt/local/include/leptonica/arrayaccess.h
- /opt/local/include/leptonica/bbuffer.h
- /opt/local/include/leptonica/bmf.h
- /opt/local/include/leptonica/ccbord.h
- /opt/local/include/leptonica/dewarp.h
- /opt/local/include/leptonica/environ.h
- /opt/local/include/leptonica/gplot.h
- /opt/local/include/leptonica/heap.h
- /opt/local/include/leptonica/imageio.h
- /opt/local/include/leptonica/jbclass.h
- /opt/local/include/leptonica/list.h
- /opt/local/include/leptonica/morph.h
- /opt/local/include/leptonica/pix.h
- /opt/local/include/leptonica/ptra.h
- /opt/local/include/leptonica/queue.h
- /opt/local/include/leptonica/recog.h
- /opt/local/include/leptonica/regutils.h
- /opt/local/include/leptonica/stack.h
- /opt/local/include/leptonica/sudoku.h
- /opt/local/include/leptonica/watershed.h
  /opt/local/include/opencv/cv.h
  /opt/local/include/opencv/highgui.h
  /opt/local/include/opencv2/calib3d/calib3d.hpp
+ /opt/local/include/opencv2/contrib/contrib.hpp
+ /opt/local/include/opencv2/contrib/openfabmap.hpp
+ /opt/local/include/opencv2/contrib/retina.hpp
+ /opt/local/include/opencv2/core/affine.hpp
  /opt/local/include/opencv2/core/core.hpp
  /opt/local/include/opencv2/core/core_c.h
  /opt/local/include/opencv2/core/eigen.hpp
@@ -75,6 +57,7 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /opt/local/include/opencv2/flann/flann_base.hpp
  /opt/local/include/opencv2/flann/general.h
  /opt/local/include/opencv2/flann/ground_truth.h
+ /opt/local/include/opencv2/flann/heap.h
  /opt/local/include/opencv2/flann/hierarchical_clustering_index.h
  /opt/local/include/opencv2/flann/index_testing.h
  /opt/local/include/opencv2/flann/kdtree_index.h
@@ -99,30 +82,17 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /opt/local/include/opencv2/imgproc/imgproc_c.h
  /opt/local/include/opencv2/imgproc/types_c.h
  /opt/local/include/opencv2/legacy/compat.hpp
+ /opt/local/include/opencv2/ml/ml.hpp
  /opt/local/include/opencv2/objdetect/objdetect.hpp
+ /opt/local/include/opencv2/opencv.hpp
+ /opt/local/include/opencv2/photo/photo.hpp
+ /opt/local/include/opencv2/photo/photo_c.h
+ /opt/local/include/opencv2/video/background_segm.hpp
  /opt/local/include/opencv2/video/tracking.hpp
+ /opt/local/include/opencv2/video/video.hpp
  /opt/local/include/png.h
  /opt/local/include/pngconf.h
  /opt/local/include/pnglibconf.h
- /opt/local/include/tesseract/apitypes.h
- /opt/local/include/tesseract/baseapi.h
- /opt/local/include/tesseract/errcode.h
- /opt/local/include/tesseract/genericvector.h
- /opt/local/include/tesseract/helpers.h
- /opt/local/include/tesseract/host.h
- /opt/local/include/tesseract/ltrresultiterator.h
- /opt/local/include/tesseract/memry.h
- /opt/local/include/tesseract/ndminx.h
- /opt/local/include/tesseract/pageiterator.h
- /opt/local/include/tesseract/platform.h
- /opt/local/include/tesseract/publictypes.h
- /opt/local/include/tesseract/resultiterator.h
- /opt/local/include/tesseract/strngs.h
- /opt/local/include/tesseract/tesscallback.h
- /opt/local/include/tesseract/thresholder.h
- /opt/local/include/tesseract/unichar.h
- /opt/local/include/tesseract/unicharmap.h
- /opt/local/include/tesseract/unicharset.h
  /opt/local/include/tiff.h
  /opt/local/include/tiffconf.h
  /opt/local/include/tiffio.h

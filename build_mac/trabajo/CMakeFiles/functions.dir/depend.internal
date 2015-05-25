@@ -27,6 +27,7 @@ trabajo/CMakeFiles/functions.dir/functions.cpp.o
  /opt/local/include/opencv/cv.h
  /opt/local/include/opencv/highgui.h
  /opt/local/include/opencv2/calib3d/calib3d.hpp
+ /opt/local/include/opencv2/core/affine.hpp
  /opt/local/include/opencv2/core/core.hpp
  /opt/local/include/opencv2/core/core_c.h
  /opt/local/include/opencv2/core/eigen.hpp
