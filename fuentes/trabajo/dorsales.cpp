@@ -8,9 +8,6 @@
 #include <string>
 #include <time.h>
 
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
-
 #if cimg_os==2 //Windows
 #include "getopt.h"
 #include "E:\opencv\opencv\build\include\opencv"

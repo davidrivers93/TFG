@@ -129,6 +129,8 @@ time.h
 -
 getopt.h
 E:/Development/tfg/fuentes/trabajo/getopt.h
+E:/opencv/opencv/build/include/opencv
+-
 unistd.h
 -
 stdlib.h
