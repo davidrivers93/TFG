@@ -1,3 +1,4 @@
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/Qr_proc.dir
 /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/dorsales.dir
 /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir
 /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/make_trainer.dir
