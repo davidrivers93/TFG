@@ -25,6 +25,11 @@ const int CV_QR_OESTE=3;
 float calc_distancia(Point2f P, Point2f Q);
 float perpendicular_dist(Point2f A, Point2f B,Point2f C);
 float calc_pendiente(Point2f A, Point2f B, int& alineamiento);
+void calc_vertices(vector<vector<Point> > cont, int c_id, float pendiente, vector<Point2f>& quad);
+void act_esquina(Point2f P, Point2f ref, float& baseline, Point2f& corner);
+void act_esquinaOr(int orientacion, vector<Point2f> input, vector<Point2f> &output);
+bool interseccion(Point2f a1, Point2f a2, Point2f b1, Point2f b2, Point2f& interseccion);
+float cross(Point2f v1, Point2f v2);
 
 //recibe una imagen en cv
 int main(int argc, char **argv){
@@ -153,7 +158,7 @@ int main(int argc, char **argv){
 
 		float area_arriba, area_abajo, area_derecha;
 
-		if( top < contours.size() && right < contours.size() && mark_abajo < contours.size() && contourArea(contours[top]) > 10 && contourArea(contours[mark_derecha]) > 10 && contourArea(contours[mark_abajo]) > 10){
+		if( top < contours.size() && mark_derecha < contours.size() && mark_abajo < contours.size() && contourArea(contours[top]) > 10 && contourArea(contours[mark_derecha]) > 10 && contourArea(contours[mark_abajo]) > 10){
 
 			vector<Point2f>A, B, C, temp_A, temp_B, temp_C;
 			Point2f D;
@@ -162,11 +167,48 @@ int main(int argc, char **argv){
 
 			Mat warp_matrix;
 
+			calc_vertices(contours, top, pendiente, temp_A);
+			calc_vertices(contours, mark_derecha, pendiente, temp_B);
+			calc_vertices(contours, mark_abajo, pendiente, temp_C);
 
+			act_esquinaOr(orientacion, temp_A, A);
+			act_esquinaOr(orientacion, temp_B, B);
+			act_esquinaOr(orientacion, temp_C, C);
 
+			int iflag = interseccion(B[1], B[2], C[3], C[2], D);
 
+			source_points.push_back(A[0]);
+			source_points.push_back(B[1]);
+			source_points.push_back(D);
+			source_points.push_back(C[3]);
+
+			destination_points.push_back(Point2f(0,0));
+			destination_points.push_back(Point2f(qr.cols,0));
+			destination_points.push_back(Point2f(qr.cols, qr.rows));
+			destination_points.push_back(Point2f(0, qr.rows));
+			if (source_points.size() == 4 && destination_points.size() == 4 )			// Failsafe for WarpMatrix Calculation to have only 4 Points with src and dst
+			{
+				warp_matrix = getPerspectiveTransform(source_points, destination_points);
+				warpPerspective(image, qr_raw, warp_matrix, Size(qr.cols, qr.rows));
+				copyMakeBorder( qr_raw, qr, 10, 10, 10, 10,BORDER_CONSTANT, Scalar(255,255,255) );
+
+				cvtColor(qr,qr_gray,CV_RGB2GRAY);
+				threshold(qr_gray, qr_thres, 127, 255, CV_THRESH_BINARY);
+
+			}
+			drawContours( image, contours, top , Scalar(255,200,0), 2, 8, hierarchy, 0 );
+			drawContours( image, contours, mark_derecha , Scalar(0,0,255), 2, 8, hierarchy, 0 );
+			drawContours( image, contours, mark_abajo , Scalar(255,0,100), 2, 8, hierarchy, 0 );
 		}
+
+
 	}
+
+	imshow ( "Image", image );
+	imshow ( "Traces", traces );
+	imshow ( "QR code", qr_thres );
+
+	return 0;
 
 }
 
@@ -201,12 +243,13 @@ float calc_pendiente(Point2f A, Point2f B, int& alineamiento){
 	}
 }
 
-float calc_vertices(vector<vector<Point>> cont, int c_id, float pendiente, vector<Point2f>& quad){
+void calc_vertices(vector<vector<Point> > cont, int c_id, float pendiente, vector<Point2f>& quad){
 
 	Rect box;
 	//Creamos bounding box
 	box = boundingRect(cont[c_id]);
 
+	Point2f M0,M1,M2,M3;
 	Point2f p_A, p_B, p_C, p_D, weight, p_X, p_Y, p_Z;
 
 	p_A = box.tl();
@@ -234,9 +277,135 @@ float calc_vertices(vector<vector<Point>> cont, int c_id, float pendiente, vecto
 	float pd1,pd2;
 	pd1=pd2=0.0;
 
+	if(pendiente>5 || pendiente < -5){
 
-	return 0;
+		for(int i = 0; i < cont[c_id].size(); i++){
+
+			pd1 = perpendicular_dist(p_C, p_A, cont[c_id][i]);
+			pd2 = perpendicular_dist(p_B, p_D, cont[c_id][i]);
+
+			if((pd1 >= 0.0) && (pd2 > 0.0 )){
+				act_esquina(cont[c_id][i],weight,dmax[1],M1);
+			}
+			else if((pd1 > 0.0) && (pd2 <= 0.0 )){
+				act_esquina(cont[c_id][i],weight,dmax[2],M2);
+			}
+			else if((pd1 <= 0.0) && (pd2 < 0.0 )){
+				act_esquina(cont[c_id][i],weight,dmax[3],M1);
+			}
+			else if((pd2 < 0.0) && (pd2 >= 0.0 )){
+				act_esquina(cont[c_id][i],weight,dmax[0],M1);
+			}
+			else
+				continue;
+		}
+
+	}
+	else{
+
+		int halfx = (p_A.x + p_B.x)/2;
+		int halfy = (p_A.y + p_D.y)/2;
+
+		for(int i = 0; i < cont[c_id].size(); i++){
+
+			if((cont[c_id][i].x < halfx) && (cont[c_id][i].y <= halfy )){
+				act_esquina(cont[c_id][i],weight,dmax[1],M1);
+			}
+			else if((cont[c_id][i].x >= halfx) && (cont[c_id][i].y < halfy )){
+				act_esquina(cont[c_id][i],weight,dmax[2],M2);
+			}
+			else if((cont[c_id][i].x > halfx) && (cont[c_id][i].y >= halfy )){
+				act_esquina(cont[c_id][i],weight,dmax[3],M1);
+			}
+			else if((cont[c_id][i].x <= halfx) && (cont[c_id][i].y > halfy )){
+				act_esquina(cont[c_id][i],weight,dmax[0],M1);
+			}
+			else
+				continue;
+		}
+
+
+	}
+
+	quad.push_back(M0);
+	quad.push_back(M1);
+	quad.push_back(M2);
+	quad.push_back(M3);
 
 
 
+}
+
+void act_esquina(Point2f P, Point2f ref, float& baseline, Point2f& corner){
+
+		float temp_distance;
+		temp_distance = calc_distancia(P,ref);
+
+		if(temp_distance > baseline){
+
+			baseline  = temp_distance;
+			corner  = P;
+
+		}
+
+}
+
+
+void act_esquinaOr(int orientacion, vector<Point2f> input, vector<Point2f> &output){
+
+	Point2f M0,M1,M2,M3;
+
+	if(orientacion == CV_QR_NORTE){
+		M0 = input[0];
+		M1 = input[1];
+		M2 = input[2];
+		M3 = input[3];
+	}
+
+	else if(orientacion == CV_QR_ESTE){
+		M0 = input[1];
+		M1 = input[2];
+		M2 = input[3];
+		M3 = input[0];
+	}
+
+	else if(orientacion == CV_QR_SUR){
+		M0 = input[2];
+		M1 = input[3];
+		M2 = input[0];
+		M3 = input[1];
+	}
+
+	else if(orientacion == CV_QR_OESTE){
+			M0 = input[3];
+			M1 = input[0];
+			M2 = input[1];
+			M3 = input[2];
+	}
+
+	output.push_back(M0);
+	output.push_back(M1);
+	output.push_back(M2);
+	output.push_back(M3);
+
+}
+
+
+bool interseccion(Point2f a1, Point2f a2, Point2f b1, Point2f b2, Point2f& interseccion){
+
+	Point2f p = a1;
+	Point2f q = b1;
+	Point2f r(a2-a1);
+	Point2f s(b2-b1);
+
+	if(cross(r,s) == 0){return false;}
+
+	float t = cross(q-p,s)/cross(r,s);
+	interseccion = p + t*r;
+	return true;
+
+}
+
+float cross(Point2f v1, Point2f v2){
+	return v1.x*v2.y - v1.y*v2.x;
 }

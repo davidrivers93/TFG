@@ -143,6 +143,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Qr_proc
+
+# Build rule for target.
+Qr_proc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Qr_proc
+.PHONY : Qr_proc
+
+# fast build rule for target.
+Qr_proc/fast:
+	$(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/build
+.PHONY : Qr_proc/fast
+
+#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -206,6 +219,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... Qr_proc"
 	@echo "... dorsales"
 	@echo "... functions"
 	@echo "... make_trainer"

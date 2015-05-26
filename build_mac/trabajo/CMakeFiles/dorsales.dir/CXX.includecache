@@ -125,6 +125,8 @@ string
 -
 time.h
 -
+opencv2/opencv.hpp
+-
 getopt.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/getopt.h
 E:/opencv/opencv/build/include/opencv
@@ -132,8 +134,6 @@ E:/opencv/opencv/build/include/opencv
 unistd.h
 -
 stdlib.h
--
-opencv2/opencv.hpp
 -
 CImg.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/CImg.h

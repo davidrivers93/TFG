@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer )
+SET (MIXED_PROGRAMS dorsales make_trainer Qr_proc)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 

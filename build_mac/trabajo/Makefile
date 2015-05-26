@@ -143,6 +143,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+trabajo/CMakeFiles/Qr_proc.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/Qr_proc.dir/rule
+.PHONY : trabajo/CMakeFiles/Qr_proc.dir/rule
+
+# Convenience name for target.
+Qr_proc: trabajo/CMakeFiles/Qr_proc.dir/rule
+.PHONY : Qr_proc
+
+# fast build rule for target.
+Qr_proc/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/build
+.PHONY : Qr_proc/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
@@ -197,6 +211,30 @@ utilities: trabajo/CMakeFiles/utilities.dir/rule
 utilities/fast:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
+
+Qr_proc.o: Qr_proc.cpp.o
+.PHONY : Qr_proc.o
+
+# target to build an object file
+Qr_proc.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.o
+.PHONY : Qr_proc.cpp.o
+
+Qr_proc.i: Qr_proc.cpp.i
+.PHONY : Qr_proc.i
+
+# target to preprocess a source file
+Qr_proc.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.i
+.PHONY : Qr_proc.cpp.i
+
+Qr_proc.s: Qr_proc.cpp.s
+.PHONY : Qr_proc.s
+
+# target to generate assembly for a file
+Qr_proc.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.s
+.PHONY : Qr_proc.cpp.s
 
 dorsales.o: dorsales.cpp.o
 .PHONY : dorsales.o
@@ -300,6 +338,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... Qr_proc"
 	@echo "... dorsales"
 	@echo "... edit_cache"
 	@echo "... functions"
@@ -310,6 +349,9 @@ help:
 	@echo "... make_trainer"
 	@echo "... rebuild_cache"
 	@echo "... utilities"
+	@echo "... Qr_proc.o"
+	@echo "... Qr_proc.i"
+	@echo "... Qr_proc.s"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"
