@@ -1,7 +1,9 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer Qr_proc)
+SET (MIXED_PROGRAMS dorsales make_trainer Qr_proc video)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
+
+pkg_check_modules(PC_ZBAR QUIET zbar)
 
 add_library(functions functions.cpp)
 
@@ -17,6 +19,7 @@ foreach(program ${MIXED_PROGRAMS})
 	target_link_libraries(${program} functions)
     target_link_libraries(${program} ${OpenCV_LIBS})
    	target_link_libraries(${program} ${TESSERACT_LIBRARIES})
+	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
 endforeach(program)
 
 

@@ -230,6 +230,12 @@ X11/keysymdef.h
 
 /opt/local/include/X11/keysymdef.h
 
+/opt/local/include/fftw3.h
+stdio.h
+-
+stddef.h
+-
+
 /opt/local/include/jconfig.h
 
 /opt/local/include/jerror.h
