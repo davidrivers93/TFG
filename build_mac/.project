@@ -174,46 +174,6 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] video</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Source Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Source Files/video.cpp</name>
-			<type>1</type>
-			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/video.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Header Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/CMake Rules</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Resources</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Object Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
 			<name>[Targets]/[exe] make_trainer</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -254,46 +214,6 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] Qr_proc</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/Source Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/Source Files/Qr_proc.cpp</name>
-			<type>1</type>
-			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/Header Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/CMake Rules</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/Resources</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] Qr_proc/Object Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
 			<name>[Targets]/[lib] functions</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -312,6 +232,11 @@
 			<name>[Targets]/[lib] functions/Source Files/functions.cpp</name>
 			<type>1</type>
 			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] functions/Source Files/Qr_proc.cpp</name>
+			<type>1</type>
+			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.cpp</location>
 		</link>
 		<link>
 			<name>[Targets]/[lib] functions/Header Files</name>

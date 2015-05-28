@@ -8,16 +8,25 @@
  * posibles codigos QR y devolvera -1 si no es codigo o en el caso de que sea codigo delvolvera el string.
  */
 
+
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+
+#define cimg_plugin1 "cimgcvMat.h"
+#include "CImg.h"
 #include <iostream>
 #include <cmath>
 #include <zbar.h>
 
+#include "Qr_proc.h"
+
 using namespace cv;
 using namespace std;
 using namespace zbar;
+using namespace cimg_library;
+
 
 //Constantes identificacion
 
@@ -26,23 +35,19 @@ const int CV_QR_ESTE = 1;
 const int CV_QR_SUR = 2;
 const int CV_QR_OESTE = 3;
 
-float calc_distancia(Point2f P, Point2f Q);
-float perpendicular_dist(Point2f A, Point2f B, Point2f C);
-float calc_pendiente(Point2f A, Point2f B, int& alineamiento);
-void calc_vertices(vector<vector<Point> > cont, int c_id, float pendiente, vector<Point2f>& quad);
-void act_esquina(Point2f P, Point2f ref, float& baseline, Point2f& corner);
-void act_esquinaOr(int orientacion, vector<Point2f> input, vector<Point2f> &output);
-bool interseccion(Point2f a1, Point2f a2, Point2f b1, Point2f b2, Point2f& interseccion);
-float cross(Point2f v1, Point2f v2);
+
 
 //recibe una imagen en cv
-int main(int argc, char **argv) {
+void qr_processing(CImg<unsigned char> img_qr) {
 	//Esto sobra cuando pasemos la imagen directamente
-	VideoCapture capture(0);
+	//VideoCapture capture(0);
 	//For image only
 	//Mat image = imread(argv[1]);
-	Mat image;
-	capture >> image;
+
+	Mat image = img_qr.get_MAT();
+
+
+	//capture >> image;
 
 	int A, B, C;
 
@@ -71,7 +76,6 @@ int main(int argc, char **argv) {
 	vector<Vec4i> hierarchy;
 
 	int key = 0;
-	while (key != 'q') {
 
 		//cv_8uc3 -> depth=3;
 		//cv_8uc1 -> depth=1;
@@ -81,10 +85,11 @@ int main(int argc, char **argv) {
 		qr_gray = Mat::zeros(100, 100, CV_8UC1);
 		qr_thres = qr_gray;
 
-		capture >> image;
+		//capture >> image;
 
 		//Pasamos a grises
 		cvtColor(image, gray, CV_RGB2GRAY);
+		imshow("Qr", gray);
 		//Busqueda de vertices mediante metodo de canny
 		Canny(gray, edges, 100, 200, 3);
 
@@ -284,7 +289,7 @@ int main(int argc, char **argv) {
 
 		}
 
-		imshow("Image", image);
+		//imshow("Image", image);
 		imshow("Traces", traces);
 		imshow("QR code", qr_thres);
 
@@ -305,12 +310,10 @@ int main(int argc, char **argv) {
 			cout << "Decodificado " << symbol->get_type_name() << " con simbolo " << symbol->get_data() << "\n";
 		}
 
-	}
 
-	return 0;
 
 }
-
+/*
 float calc_distancia(Point2f P, Point2f Q) {
 	return sqrt(pow(abs(P.x - Q.x), 2) + pow(abs(P.y - Q.y), 2));
 }
@@ -498,4 +501,233 @@ bool interseccion(Point2f a1, Point2f a2, Point2f b1, Point2f b2, Point2f& inter
 
 float cross(Point2f v1, Point2f v2) {
 	return v1.x * v2.y - v1.y * v2.x;
+}*/
+
+
+float calc_distancia(Point2f P, Point2f Q)
+{
+	return sqrt(pow(abs(P.x - Q.x),2) + pow(abs(P.y - Q.y),2)) ;
+}
+
+
+// Function: Perpendicular Distance of a Point J from line formed by Points L and M; Equation of the line ax+by+c=0
+// Description: Given 3 points, the function derives the line quation of the first two points,
+//	  calculates and returns the perpendicular distance of the the 3rd point from this line.
+
+float perpendicular_dist(Point2f L, Point2f M, Point2f J)
+{
+	float a,b,c,pdist;
+
+	a = -((M.y - L.y) / (M.x - L.x));
+	b = 1.0;
+	c = (((M.y - L.y) /(M.x - L.x)) * L.x) - L.y;
+
+	// Now that we have a, b, c from the equation ax + by + c, time to substitute (x,y) by values from the Point J
+
+	pdist = (a * J.x + (b * J.y) + c) / sqrt((a * a) + (b * b));
+	return pdist;
+}
+
+// Function: Slope of a line by two Points L and M on it; Slope of line, S = (x1 -x2) / (y1- y2)
+// Description: Function returns the slope of the line formed by given 2 points, the alignement flag
+//	  indicates the line is vertical and the slope is infinity.
+
+float calc_pendiente(Point2f L, Point2f M, int& alignement)
+{
+	float dx,dy;
+	dx = M.x - L.x;
+	dy = M.y - L.y;
+
+	if ( dy != 0)
+	{
+		alignement = 1;
+		return (dy / dx);
+	}
+	else				// Make sure we are not dividing by zero; so use 'alignement' flag
+	{
+		alignement = 0;
+		return 0.0;
+	}
+}
+
+
+
+// Function: Routine to calculate 4 Corners of the Marker in Image Space using Region partitioning
+// Theory: OpenCV Contours stores all points that describe it and these points lie the perimeter of the polygon.
+//	The below function chooses the farthest points of the polygon since they form the vertices of that polygon,
+//	exactly the points we are looking for. To choose the farthest point, the polygon is divided/partitioned into
+//	4 regions equal regions using bounding box. Distance algorithm is applied between the centre of bounding box
+//	every contour point in that region, the farthest point is deemed as the vertex of that region. Calculating
+//	for all 4 regions we obtain the 4 corners of the polygon ( - quadrilateral).
+void calc_vertices(vector<vector<Point> > contours, int c_id, float slope, vector<Point2f>& quad)
+{
+	Rect box;
+	box = boundingRect( contours[c_id]);
+
+	Point2f M0,M1,M2,M3;
+	Point2f A, B, C, D, W, X, Y, Z;
+
+	A =  box.tl();
+	B.x = box.br().x;
+	B.y = box.tl().y;
+	C = box.br();
+	D.x = box.tl().x;
+	D.y = box.br().y;
+
+
+	W.x = (A.x + B.x) / 2;
+	W.y = A.y;
+
+	X.x = B.x;
+	X.y = (B.y + C.y) / 2;
+
+	Y.x = (C.x + D.x) / 2;
+	Y.y = C.y;
+
+	Z.x = D.x;
+	Z.y = (D.y + A.y) / 2;
+
+	float dmax[4];
+	dmax[0]=0.0;
+	dmax[1]=0.0;
+	dmax[2]=0.0;
+	dmax[3]=0.0;
+
+	float pd1 = 0.0;
+	float pd2 = 0.0;
+
+	if (slope > 5 || slope < -5 )
+	{
+
+	    for( int i = 0; i < contours[c_id].size(); i++ )
+	    {
+		pd1 = perpendicular_dist(C,A,contours[c_id][i]);	// Position of point w.r.t the diagonal AC
+		pd2 = perpendicular_dist(B,D,contours[c_id][i]);	// Position of point w.r.t the diagonal BD
+
+		if((pd1 >= 0.0) && (pd2 > 0.0))
+		{
+		    act_esquina(contours[c_id][i],W,dmax[1],M1);
+		}
+		else if((pd1 > 0.0) && (pd2 <= 0.0))
+		{
+			act_esquina(contours[c_id][i],X,dmax[2],M2);
+		}
+		else if((pd1 <= 0.0) && (pd2 < 0.0))
+		{
+		    act_esquina(contours[c_id][i],Y,dmax[3],M3);
+		}
+		else if((pd1 < 0.0) && (pd2 >= 0.0))
+		{
+			act_esquina(contours[c_id][i],Z,dmax[0],M0);
+		}
+		else
+		    continue;
+             }
+	}
+	else
+	{
+		int halfx = (A.x + B.x) / 2;
+		int halfy = (A.y + D.y) / 2;
+
+		for( int i = 0; i < contours[c_id].size(); i++ )
+		{
+			if((contours[c_id][i].x < halfx) && (contours[c_id][i].y <= halfy))
+			{
+				act_esquina(contours[c_id][i],C,dmax[2],M0);
+			}
+			else if((contours[c_id][i].x >= halfx) && (contours[c_id][i].y < halfy))
+			{
+				act_esquina(contours[c_id][i],D,dmax[3],M1);
+			}
+			else if((contours[c_id][i].x > halfx) && (contours[c_id][i].y >= halfy))
+			{
+				act_esquina(contours[c_id][i],A,dmax[0],M2);
+			}
+			else if((contours[c_id][i].x <= halfx) && (contours[c_id][i].y > halfy))
+			{
+				act_esquina(contours[c_id][i],B,dmax[1],M3);
+			}
+	    	}
+	}
+
+	quad.push_back(M0);
+	quad.push_back(M1);
+	quad.push_back(M2);
+	quad.push_back(M3);
+
+}
+
+// Function: Compare a point if it more far than previously recorded farthest distance
+// Description: Farthest Point detection using reference point and baseline distance
+void act_esquina(Point2f P, Point2f ref , float& baseline,  Point2f& corner)
+{
+    float temp_dist;
+    temp_dist = calc_distancia(P,ref);
+
+    if(temp_dist > baseline)
+    {
+        baseline = temp_dist;			// The farthest distance is the new baseline
+        corner = P;						// P is now the farthest point
+    }
+
+}
+
+// Function: Sequence the Corners wrt to the orientation of the QR Code
+void act_esquinaOr(int orientation, vector<Point2f> IN,vector<Point2f> &OUT)
+{
+	Point2f M0,M1,M2,M3;
+    	if(orientation == CV_QR_NORTE)
+	{
+		M0 = IN[0];
+		M1 = IN[1];
+	 	M2 = IN[2];
+		M3 = IN[3];
+	}
+	else if (orientation == CV_QR_ESTE)
+	{
+		M0 = IN[1];
+		M1 = IN[2];
+	 	M2 = IN[3];
+		M3 = IN[0];
+	}
+	else if (orientation == CV_QR_SUR)
+	{
+		M0 = IN[2];
+		M1 = IN[3];
+	 	M2 = IN[0];
+		M3 = IN[1];
+	}
+	else if (orientation == CV_QR_OESTE)
+	{
+		M0 = IN[3];
+		M1 = IN[0];
+	 	M2 = IN[1];
+		M3 = IN[2];
+	}
+
+	OUT.push_back(M0);
+	OUT.push_back(M1);
+	OUT.push_back(M2);
+	OUT.push_back(M3);
+}
+
+// Function: Get the Intersection Point of the lines formed by sets of two points
+bool interseccion(Point2f a1, Point2f a2, Point2f b1, Point2f b2, Point2f& intersection)
+{
+    Point2f p = a1;
+    Point2f q = b1;
+    Point2f r(a2-a1);
+    Point2f s(b2-b1);
+
+    if(cross(r,s) == 0) {return false;}
+
+    float t = cross(q-p,s)/cross(r,s);
+
+    intersection = p + t*r;
+    return true;
+}
+
+float cross(Point2f v1,Point2f v2)
+{
+    return v1.x*v2.y - v1.y*v2.x;
 }

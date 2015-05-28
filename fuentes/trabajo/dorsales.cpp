@@ -25,6 +25,8 @@
 #include "utilities.h"
 #include "proc/misc.h"
 #include "proc/proc.h"
+#include "Qr_proc.h"
+
 
 using namespace cimg_library;
 using namespace std;
@@ -48,6 +50,7 @@ std::string getOsName();
  * sus posibles opciones
  *
  */
+
 void ayuda() {
 	std::cout << "Introduce en la linea de comandos junto a dorsales el nombre del .txt\n";
 
@@ -263,7 +266,7 @@ void calculate(set<string> images, int contador, int modo){
 			//SACAMOS POR PANTALLA LAS PAREJAS DE COMIENZOS DE DORSALES
 
 			std::cout << "Comienzos.\n";
-
+			/*
 			for (int h = 0; h < comienzos.size(); h++) {
 				for (int h2 = 0; h2 < comienzos[h].size(); h2++) {
 					if (h2 == 0)
@@ -272,11 +275,11 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos[h][h2];
 				}
 				std::cout << "\n";
-			}
+			}*/
 
 			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,
 					areas);
-
+			/*
 			//SACAMOS POR PANTALLA LAS PAREJAS DE DORSALES SELECCIONADAS PARA PROCESAR
 			std::cout << "Comienzos seleccionados.\n";
 			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
@@ -288,10 +291,12 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}
+			}*/
+
+
 
 			//BUSCAMOS UNA POSIBLE TERCERA CIFRA PARA CADA PAREJA DE DORSAL SELECCIONADA
-			busqueda_tercera_cifra(comienzos_seleccionados, bbox);
+			//busqueda_tercera_cifra(comienzos_seleccionados, bbox);
 
 			std::cout << "Comienzos seleccionados con tercera cifra.\n";
 			int numobj = bbox.height();
@@ -302,6 +307,10 @@ void calculate(set<string> images, int contador, int modo){
 				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
 					int indice_objeto = comienzos_seleccionados[h][h2];
 					tabla[indice_objeto] = 1;
+					/*if (h2 == 0)
+						std::cout << "Pareja: " << comienzos_seleccionados[h][h2];
+					if (h2 != 0)
+						std::cout << " " << comienzos_seleccionados[h][h2];*/
 				}
 				std::cout << "\n";
 			}
@@ -309,6 +318,42 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
 			seg2.display("A", false);
+
+			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){
+
+				int index = comienzos_seleccionados[index_for][0];
+				std::cout << "Indice: " << index << endl;
+				int center_x, center_y;
+
+
+				CImg<int> bbox_index;
+				bbox_index.resize(1,4);
+
+				bbox_index(0,0) = bbox(0,index);
+				bbox_index(0,1) = bbox(1,index);
+				bbox_index(0,2) = bbox(2,index);
+				bbox_index(0,3) = bbox(3,index);
+
+
+				calc_centro_masas(bbox_index,center_x,center_y);
+
+				std::cout << "Centro x: " << center_x << endl;
+				std::cout << "Centro y: " << center_y << endl;
+
+				int anch_x,anch_y;
+
+				calc_ancho(bbox_index, center_x, center_y, anch_x, anch_y);
+
+				CImg<unsigned char> img_temp(img);
+				CImg<unsigned char> img_crop = img_temp.crop(center_x - anch_x, center_y - anch_y, center_x + anch_x, center_y + anch_y);
+
+				img_crop.display("prueba", false);
+				img_crop.save("temp2.jpg");
+				qr_processing(img_crop);
+
+			}
+
+
 
 			seg2.save("temp.jpg");
 			std::cout << "Imagen guardada temporalmente.";

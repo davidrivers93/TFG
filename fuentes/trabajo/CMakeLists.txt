@@ -1,11 +1,11 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer Qr_proc video)
+SET (MIXED_PROGRAMS dorsales make_trainer)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
 pkg_check_modules(PC_ZBAR QUIET zbar)
 
-add_library(functions functions.cpp)
+add_library(functions functions.cpp Qr_proc Qr_proc.cpp)
 
 SET(UTILITIES_SOURCES utilities)
 foreach(src ${UTILITIES_SOURCES} )

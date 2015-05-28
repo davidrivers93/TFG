@@ -1374,3 +1374,25 @@ int OCR(cimg_library::CImg<float> & vectores,
 	return digit;
 
 }
+
+void calc_centro_masas(cimg_library::CImg<int> bbox, int &center_x, int &center_y){
+
+	int xmin = bbox(0,0);
+	int xmax = bbox(1,0);
+	int ymin = bbox(2,0);
+	int ymax = bbox(3,0);
+
+	center_x = (xmin + xmax)/2;
+	center_y = (ymin + ymax)/2;
+
+}
+
+void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &anch_x, int &anch_y){
+
+	int anch_x_2 = center_x - bbox(0,0);
+	int anch_y_2 = center_y - bbox(2,0);
+	anch_x = 25 * anch_x_2;
+	anch_y = 20 * anch_y_2;
+
+}
+

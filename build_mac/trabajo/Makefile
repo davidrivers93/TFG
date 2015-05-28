@@ -143,20 +143,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-trabajo/CMakeFiles/Qr_proc.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/Qr_proc.dir/rule
-.PHONY : trabajo/CMakeFiles/Qr_proc.dir/rule
-
-# Convenience name for target.
-Qr_proc: trabajo/CMakeFiles/Qr_proc.dir/rule
-.PHONY : Qr_proc
-
-# fast build rule for target.
-Qr_proc/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/build
-.PHONY : Qr_proc/fast
-
-# Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
@@ -212,26 +198,12 @@ utilities/fast:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
 
-# Convenience name for target.
-trabajo/CMakeFiles/video.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/video.dir/rule
-.PHONY : trabajo/CMakeFiles/video.dir/rule
-
-# Convenience name for target.
-video: trabajo/CMakeFiles/video.dir/rule
-.PHONY : video
-
-# fast build rule for target.
-video/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
-.PHONY : video/fast
-
 Qr_proc.o: Qr_proc.cpp.o
 .PHONY : Qr_proc.o
 
 # target to build an object file
 Qr_proc.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.o
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o
 .PHONY : Qr_proc.cpp.o
 
 Qr_proc.i: Qr_proc.cpp.i
@@ -239,7 +211,7 @@ Qr_proc.i: Qr_proc.cpp.i
 
 # target to preprocess a source file
 Qr_proc.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.i
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.i
 .PHONY : Qr_proc.cpp.i
 
 Qr_proc.s: Qr_proc.cpp.s
@@ -247,7 +219,7 @@ Qr_proc.s: Qr_proc.cpp.s
 
 # target to generate assembly for a file
 Qr_proc.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/Qr_proc.cpp.s
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
 .PHONY : Qr_proc.cpp.s
 
 dorsales.o: dorsales.cpp.o
@@ -346,30 +318,6 @@ utilities.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.s
 .PHONY : utilities.cpp.s
 
-video.o: video.cpp.o
-.PHONY : video.o
-
-# target to build an object file
-video.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.o
-.PHONY : video.cpp.o
-
-video.i: video.cpp.i
-.PHONY : video.i
-
-# target to preprocess a source file
-video.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.i
-.PHONY : video.cpp.i
-
-video.s: video.cpp.s
-.PHONY : video.s
-
-# target to generate assembly for a file
-video.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.s
-.PHONY : video.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -381,10 +329,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
-	@echo "... video"
 	@echo "... list_install_components"
 	@echo "... make_trainer"
-	@echo "... Qr_proc"
 	@echo "... functions"
 	@echo "... install/local"
 	@echo "... dorsales"
@@ -403,9 +349,6 @@ help:
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"
-	@echo "... video.o"
-	@echo "... video.i"
-	@echo "... video.s"
 .PHONY : help
 
 

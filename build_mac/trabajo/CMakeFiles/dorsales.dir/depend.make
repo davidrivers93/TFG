@@ -4,6 +4,7 @@
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/CImg.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/misc.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/proc.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h

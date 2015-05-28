@@ -1,4 +1,2 @@
 /Users/David/bin/dorsales
 /Users/David/bin/make_trainer
-/Users/David/bin/Qr_proc
-/Users/David/bin/video

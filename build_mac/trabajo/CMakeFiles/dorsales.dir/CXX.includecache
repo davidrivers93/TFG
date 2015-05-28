@@ -108,6 +108,12 @@ stdint.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/proc.h
 
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.h
+CImg.h
+-
+opencv2/opencv.hpp
+-
+
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
 stdlib.h
 -
@@ -137,6 +143,8 @@ proc/misc.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc/misc.h
 proc/proc.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/proc/proc.h
+Qr_proc.h
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 vector
