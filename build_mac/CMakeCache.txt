@@ -427,6 +427,12 @@ X11_xf86misc_INCLUDE_PATH:PATH=/opt/X11/include
 //Path to a file.
 X11_xf86vmode_INCLUDE_PATH:PATH=/opt/X11/include
 
+//Path to a file.
+ZBAR_INCLUDE_DIR:PATH=/usr/local/include/zbar
+
+//Path to a library.
+ZBAR_LIBRARIES:FILEPATH=/usr/local/lib/libzbar.dylib
+
 //Dependencies for target
 functions_LIB_DEPENDS:STATIC=
 
@@ -440,18 +446,16 @@ utilities_LIB_DEPENDS:STATIC=
 
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_BUILD_TOOL
-CMAKE_BUILD_TOOL-ADVANCED:INTERNAL=1
 //What is the target build tool cmake is generating for.
 CMAKE_BUILD_TOOL:INTERNAL=/opt/local/bin/gmake
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/Users/David/Desktop/ProyectosC++/TFG/build_mac
 //Major version of cmake used to create the current loaded cache
-CMAKE_CACHE_MAJOR_VERSION:INTERNAL=2
+CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=8
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=2
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=12
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -487,7 +491,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ECLIPSE_GENERATE_SOURCE_PROJECT
 CMAKE_ECLIPSE_GENERATE_SOURCE_PROJECT-ADVANCED:INTERNAL=1
 //STRINGS property for variable: CMAKE_ECLIPSE_VERSION
-CMAKE_ECLIPSE_VERSION-STRINGS:INTERNAL=3.2 (Callisto);3.3 (Europa);3.4 (Ganymede);3.5 (Galileo);3.6 (Helios);3.7 (Indigo);4.2 (Juno)
+CMAKE_ECLIPSE_VERSION-STRINGS:INTERNAL=3.2 (Callisto);3.3 (Europa);3.4 (Ganymede);3.5 (Galileo);3.6 (Helios);3.7 (Indigo);4.2 (Juno);4.3 (Kepler)
 //Path to cache edit program executable.
 CMAKE_EDIT_COMMAND:INTERNAL=/opt/local/bin/ccmake
 //Executable file format
@@ -516,6 +520,8 @@ CMAKE_EXTRA_GENERATOR_C_SYSTEM_DEFINED_MACROS:INTERNAL=__llvm__;1;__clang__;1;__
 CMAKE_EXTRA_GENERATOR_C_SYSTEM_INCLUDE_DIRS:INTERNAL=/usr/local/include;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;/usr/include;/System/Library/Frameworks;/Library/Frameworks
 //Name of generator.
 CMAKE_GENERATOR:INTERNAL=Unix Makefiles
+//Name of generator platform.
+CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Have function connect
@@ -562,7 +568,7 @@ CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RANLIB
 CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/opt/local/share/cmake-2.8
+CMAKE_ROOT:INTERNAL=/opt/local/share/cmake-3.2
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -605,6 +611,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_TIFF:INTERNAL=[/opt/local/lib/libtiff.dylib][/opt/l
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding X11
 FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/opt/local/lib/libX11.dylib][/opt/local/include;/opt/X11/include]
+//Details about finding ZBAR
+FIND_PACKAGE_MESSAGE_DETAILS_ZBAR:INTERNAL=[/usr/local/lib/libzbar.dylib][/usr/local/include/zbar][v()]
 //ADVANCED property for variable: JPEG_INCLUDE_DIR
 JPEG_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: JPEG_LIBRARY
@@ -653,6 +661,30 @@ OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
 OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_LIB_DIR_OPT
 OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+PC_ZBAR_CFLAGS:INTERNAL=
+PC_ZBAR_CFLAGS_I:INTERNAL=
+PC_ZBAR_CFLAGS_OTHER:INTERNAL=
+PC_ZBAR_FOUND:INTERNAL=
+PC_ZBAR_INCLUDEDIR:INTERNAL=
+PC_ZBAR_LIBDIR:INTERNAL=
+PC_ZBAR_LIBS:INTERNAL=
+PC_ZBAR_LIBS_L:INTERNAL=
+PC_ZBAR_LIBS_OTHER:INTERNAL=
+PC_ZBAR_LIBS_PATHS:INTERNAL=
+PC_ZBAR_PREFIX:INTERNAL=
+PC_ZBAR_STATIC_CFLAGS:INTERNAL=
+PC_ZBAR_STATIC_CFLAGS_I:INTERNAL=
+PC_ZBAR_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_ZBAR_STATIC_LIBDIR:INTERNAL=
+PC_ZBAR_STATIC_LIBS:INTERNAL=
+PC_ZBAR_STATIC_LIBS_L:INTERNAL=
+PC_ZBAR_STATIC_LIBS_OTHER:INTERNAL=
+PC_ZBAR_STATIC_LIBS_PATHS:INTERNAL=
+PC_ZBAR_VERSION:INTERNAL=
+PC_ZBAR_zbar_INCLUDEDIR:INTERNAL=
+PC_ZBAR_zbar_LIBDIR:INTERNAL=
+PC_ZBAR_zbar_PREFIX:INTERNAL=
+PC_ZBAR_zbar_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
@@ -820,5 +852,6 @@ X11_xf86misc_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_xf86vmode_INCLUDE_PATH
 X11_xf86vmode_INCLUDE_PATH-ADVANCED:INTERNAL=1
 __pkg_config_checked_OPENCV:INTERNAL=1
+__pkg_config_checked_PC_ZBAR:INTERNAL=1
 __pkg_config_checked_TESSERACT:INTERNAL=1
 
