@@ -8,16 +8,13 @@
 #include <string>
 #include <time.h>
 #include <opencv2/opencv.hpp>
-#if cimg_os==2 //Windows
-#include "getopt.h"
-#include "E:\opencv\opencv\build\include\opencv"
-#else
 #include <unistd.h>
 #include <stdlib.h>
-#endif
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"
+
+#define CARACTER_SEPARADOR_CSV ";"	// Carácter para separar campos en archivo csv. España = ";" pero en el resto es ",".
 
 
 /* OWN LIBRARIES
@@ -237,6 +234,8 @@ void calculate(set<string> images, int contador, int modo){
 
 			binarizacion_adaptativa(img, img_out_binarizacion);
 
+			//img_out_binarizacion.display("",false);
+
 			/*img_out_binarizacion es la imagen binarizada
 			 * bbox -> Rectangulo que contiene al objeto i
 			 * areas -> Estima el area del objeto gracias al bounding box
@@ -306,12 +305,22 @@ void calculate(set<string> images, int contador, int modo){
 				}
 				std::cout << "\n";
 			}
+
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
-			//seg2.display("A", false);
+			seg2.display("A", false);
 
 			seg2.save("temp.jpg");
 			std::cout << "Imagen guardada temporalmente.";
+
+			/* BUSCARIAMOS PAREJAS Y EXTRAERIAMOS UNA SUBIMAGEN CON LAS COORDENADAS CENTRADAS EN LA PAREJA DE OBJETOS.
+			 * SOBRA BUSQUEDA TERCERA CIFRA Y OCR
+			 *
+			 * EN EL CASO DE QUE NO ENCONTRARA CODIGO QR HABRIA QUE DESARROLLAR UN ALGORITMO QUE BUSQUE UNA SOLA CIFRA.
+			 *
+			 * DORSALES(1-10)
+			 *
+			 */
 
 			//SACAMOS POR PANTALLA LOS COMIENZOS SELECCIONADOS FINALES
 			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
@@ -369,33 +378,6 @@ void calculate(set<string> images, int contador, int modo){
 
 			char *outText;
 
-			/*seg2.display("Imagen a enviar a Tesseract", false);
-			tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-			// Initialize tesseract-ocr with English, without specifying tessdata path
-			if (api->Init(NULL, "eng")) {
-				fprintf(stderr, "Could not initialize tesseract.\n");
-				exit(1);
-			}
-
-			// Open input image with leptonica library
-			Pix *image = pixRead("temp.jpg");
-			//pixDisplay(image, 100, 100);
-			api->SetImage(image);
-			// Get OCR result
-			outText = api->GetUTF8Text();
-			//std::cout << "Output OCR" + outText + "\n";
-			if (outText == NULL) {
-				std::cout << "No detecta nada. \n";
-			}
-			printf("OCR output:\n%s", outText);
-
-			// Destroy used object and release memory
-			api->End();
-			//delete [] outText;
-			pixDestroy(&image);*/
-
-			//seg2.display("A", false);
-
 			contenedor_dorsales.push_back(vector_nivel_medio);
 			clock_t t1 = clock();
 
@@ -409,7 +391,7 @@ void calculate(set<string> images, int contador, int modo){
 			contenedor_tiempo[contador2] = totalTime;
 
 		}
-
+		system("rm -rf temp.jpg");
 		//xml_write(&contenedor_dorsales, &contenedor_tiempo, &contenedor_numobj);
 		//ZONA DE GUARDADO DE LOS RESULTADOS.
 

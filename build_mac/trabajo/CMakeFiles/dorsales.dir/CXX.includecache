@@ -104,10 +104,6 @@ CImg.h
 stdint.h
 -
 
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/getopt.h
-sys/cdefs.h
--
-
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/misc.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/proc.h
@@ -127,10 +123,6 @@ time.h
 -
 opencv2/opencv.hpp
 -
-getopt.h
-/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/getopt.h
-E:/opencv/opencv/build/include/opencv
-E:/opencv/opencv/build/include/opencv
 unistd.h
 -
 stdlib.h

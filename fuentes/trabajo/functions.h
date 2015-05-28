@@ -4,7 +4,7 @@
 #include<vector>
 
 #define HEIGHT_RATIO_TOLERANCE 1.5
-#define MAX_HEIGHT 30
+#define MAX_HEIGHT 70
 #define MIN_HEIGHT 12
 #define RATIO_TOLERANCE 1.8
 #define TYPICAL_RATIO 1.2
