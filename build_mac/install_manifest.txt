@@ -1,2 +1,3 @@
 /Users/David/bin/dorsales
 /Users/David/bin/make_trainer
+/Users/David/bin/video

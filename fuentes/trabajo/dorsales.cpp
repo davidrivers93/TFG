@@ -209,11 +209,11 @@ void calculate(set<string> images, int contador, int modo){
 
 	// CARGAMOS OCR -> REPASARRRRRR!!!
 
-	CImg<float> vectores;
+	/*CImg<float> vectores;
 	vectores.resize(9, 10);
 	load_dlm(vectores);
 	vectores.display("OCR", false);
-	std::cout << "DLM cargado. \n";
+	std::cout << "	DLM cargado. \n";*/
 
 	std::vector<std::vector<int> > vector_nivel_medio;
 
@@ -250,6 +250,7 @@ void calculate(set<string> images, int contador, int modo){
 
 			segmentacion(img_out_binarizacion, seg, bbox, areas);
 
+
 			//seg.display("Segmentada", false);
 
 			//ZONA DE DETECCION
@@ -259,15 +260,17 @@ void calculate(set<string> images, int contador, int modo){
 			 * la cual le pasamos los bbox asi como el vector de comienzos.
 			 */
 
-			busqueda(bbox, comienzos);
+			busqueda_marcadores(bbox, comienzos, areas);
 
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
 			//SACAMOS POR PANTALLA LAS PAREJAS DE COMIENZOS DE DORSALES
 
 			std::cout << "Comienzos.\n";
-			/*
-			for (int h = 0; h < comienzos.size(); h++) {
+
+			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
+
+			/*for (int h = 0; h < comienzos.size(); h++) {
 				for (int h2 = 0; h2 < comienzos[h].size(); h2++) {
 					if (h2 == 0)
 						std::cout << "Pareja: " << comienzos[h][h2];
@@ -276,12 +279,14 @@ void calculate(set<string> images, int contador, int modo){
 				}
 				std::cout << "\n";
 			}*/
+			std::cout << "Tamaño comienzos: "<< comienzos.size() << "\n";
+			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,areas);
 
-			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,
-					areas);
-			/*
+
 			//SACAMOS POR PANTALLA LAS PAREJAS DE DORSALES SELECCIONADAS PARA PROCESAR
 			std::cout << "Comienzos seleccionados.\n";
+
+			std::cout << "Tamaño comienzos selecccionados: " << comienzos_seleccionados.size() << endl;
 			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
 				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
 					if (h2 == 0)
@@ -291,14 +296,14 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}*/
+			}
 
 
 
 			//BUSCAMOS UNA POSIBLE TERCERA CIFRA PARA CADA PAREJA DE DORSAL SELECCIONADA
 			//busqueda_tercera_cifra(comienzos_seleccionados, bbox);
 
-			std::cout << "Comienzos seleccionados con tercera cifra.\n";
+			//std::cout << "Comienzos seleccionados con tercera cifra.\n";
 			int numobj = bbox.height();
 			CImg<int> tabla(numobj);
 			tabla.fill(0);
@@ -312,13 +317,13 @@ void calculate(set<string> images, int contador, int modo){
 					if (h2 != 0)
 						std::cout << " " << comienzos_seleccionados[h][h2];*/
 				}
-				std::cout << "\n";
+				//std::cout << "\n";
 			}
 
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
 			seg2.display("A", false);
-
+/*
 			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){
 
 				int index = comienzos_seleccionados[index_for][0];
@@ -351,7 +356,7 @@ void calculate(set<string> images, int contador, int modo){
 				img_crop.save("temp2.jpg");
 				qr_processing(img_crop);
 
-			}
+			}*/
 
 
 
@@ -368,7 +373,7 @@ void calculate(set<string> images, int contador, int modo){
 			 */
 
 			//SACAMOS POR PANTALLA LOS COMIENZOS SELECCIONADOS FINALES
-			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
+			/*or (int h = 0; h < comienzos_seleccionados.size(); h++) {
 				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
 					if (h2 == 0)
 						std::cout << "Pareja: "
@@ -377,13 +382,13 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}
+			}*/
 
 			char txt[100];
 			int interpolation_method = 2;
 
 			//ZONA DE DETECCION DE CADA DIGITO POR PARTE DEL OCR
-			for (int puntero_OCR1 = 0;
+			/*for (int puntero_OCR1 = 0;
 					puntero_OCR1 < comienzos_seleccionados.size();
 					puntero_OCR1++) {
 
@@ -414,7 +419,7 @@ void calculate(set<string> images, int contador, int modo){
 				}
 
 				vector_nivel_medio.push_back(vector_bajo_nivel);
-			}
+			}*/
 
 			//Zona de deteccion por parte de tesseract
 

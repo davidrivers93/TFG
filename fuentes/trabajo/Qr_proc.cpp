@@ -89,12 +89,12 @@ void qr_processing(CImg<unsigned char> img_qr) {
 
 		//Pasamos a grises
 		cvtColor(image, gray, CV_RGB2GRAY);
-		imshow("Qr", gray);
+		//imshow("Qr", gray);
 		//Busqueda de vertices mediante metodo de canny
 		Canny(gray, edges, 100, 200, 3);
 
-		findContours(edges, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
-
+		findContours(edges, contours, hierarchy, RETR_TREE, CV_CHAIN_APPROX_TC89_L1);
+		//imshow("edges", edges);
 		//Calculamos momentos y centros de masas
 		vector<Moments> mu(contours.size());
 		vector<Point2f> mc(contours.size());
@@ -104,6 +104,9 @@ void qr_processing(CImg<unsigned char> img_qr) {
 			mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00);
 		}
 
+
+
+		std:cout <<"Paso x aqui" << endl;
 
 		/* mark -> numero de "marcadores" de orientacion. Minimo 3.
 		 *
@@ -115,6 +118,9 @@ void qr_processing(CImg<unsigned char> img_qr) {
 			while (hierarchy[k][2] != -1) {
 				k = hierarchy[k][2];
 				c = c + 1;
+				std::cout << "hierarchi[k][2]" << hierarchy[k][2] << endl;
+				std::cout << "k: " << k << endl;
+				system("clear");
 			}
 
 			if (hierarchy[k][2] != -1)
@@ -132,7 +138,13 @@ void qr_processing(CImg<unsigned char> img_qr) {
 
 		}
 
-		if (mark >= 3) {
+		std::cout << "A :" << A << endl;
+		std::cout << "B :" << B << endl;
+		std::cout << "C :" << C << endl;
+
+		imshow("Edges.", edges);
+		std::cout << "Marcas detectadas: " << mark << endl;
+		if (mark >= 2) {
 			/* DETERMINAMOS LA DISTANCIA DE LOS LADOS DE LOS TRIANGULOS.
 			 *
 			 */
@@ -290,8 +302,8 @@ void qr_processing(CImg<unsigned char> img_qr) {
 		}
 
 		//imshow("Image", image);
-		imshow("Traces", traces);
-		imshow("QR code", qr_thres);
+		//imshow("Traces", traces);
+		//imshow("QR code", qr_thres);
 
 		int width_decod = qr_thres.cols;
 		int height_decod = qr_thres.rows;

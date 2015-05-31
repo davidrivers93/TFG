@@ -446,6 +446,34 @@
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
+<target name="[exe] video" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>video</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[exe] video/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>video/fast</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Build" path="[Targets]/[exe] video" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-C "/Users/David/Desktop/ProyectosC++/TFG/build_mac" -j4</buildArguments>
+<buildTarget>video</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Clean" path="[Targets]/[exe] video" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/cmake</buildCommand>
+<buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/video.dir/cmake_clean.cmake"</buildArguments>
+<buildTarget></buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
 <target name="[exe] make_trainer" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
@@ -576,6 +604,13 @@
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
 <buildTarget>utilities.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] video.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>video.cpp.o</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>

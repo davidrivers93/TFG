@@ -1396,3 +1396,217 @@ void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &a
 
 }
 
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, cimg_library::CImg<int> & areas) {
+
+	comienzos_marcadores.clear();
+	int numobj = bbox.height() - 1;
+
+	for (int o1 = 1; o1 <= numobj; o1++) {
+		int numero_objeto = o1;
+		int xmin1 = bbox(0, o1);
+		int xmax1 = bbox(1, o1);
+		int ymin1 = bbox(2, o1);
+		int ymax1 = bbox(3, o1);
+		int width1 = (xmax1 - xmin1);
+		int height1 = (ymax1 - ymin1);
+		float ratio_hw = float(width1) / float(height1);
+
+
+
+		if (ratio_hw < MIN_RATIO_MARK || ratio_hw > MAX_RATIO_MARK) {
+			continue;
+		}
+		float centro1_x = (float(xmin1) + float(xmax1)) / 2;
+		float centro1_y = (float(ymin1) + float(ymax1)) / 2;
+		float dis_x_centro = 0.05 * centro1_x;
+		float dis_y_centro = 0.05 * centro1_y;
+		int inner_object_id = -1;
+
+
+		for (int o2 = 1; o2 <= numobj; o2++) {
+			int second_object = 0;
+			if (o1 == o2)
+				continue;
+
+			int xmin2 = bbox(0, o2);
+			int xmax2 = bbox(1, o2);
+			int ymin2 = bbox(2, o2);
+			int ymax2 = bbox(3, o2);
+			int width2 = (xmax2 - xmin2);
+			int height2 = (ymax2 - ymin2);
+			float ratio_hw2 = float(width2) / float(height2);
+			float centro2_x = (float(xmin2) + float(xmax2)) / 2;
+			float centro2_y = (float(ymin2) + float(ymax2)) / 2;
+
+			float area_bbox = float(width2 * height2);
+
+			float ratio_area = float(area_bbox) / float(areas(o2));
+
+			/*if(o2 == 19212 && o1 == 19110){
+				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
+				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
+				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
+				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
+			}
+
+			if(o2 == 5110 && o1 == 5037){
+				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
+				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
+				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
+				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
+			}*/
+
+
+			if (centro2_x < centro1_x - dis_x_centro || centro2_x > centro2_x + dis_x_centro)
+				continue;
+
+
+			if (centro2_y < centro1_y - dis_y_centro || centro2_y > centro2_y + dis_y_centro)
+				continue;
+
+			//if (ratio_area < 0.98 || ratio_area > 1.02)
+			//	continue;
+
+			/*if(o2 == 19212 && o1 == 19110){
+				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
+				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
+				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
+				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
+			}
+			if(o2 == 5110 && o1 == 5037){
+				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
+				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
+				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
+				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
+				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
+				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
+				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
+				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
+			}*/
+			/*if(xmin2<xmin1) continue;
+			if(xmax1>xmax2) continue;
+			if(ymin2<ymin1) continue;
+			if(ymax2 < ymax1) continue;*/
+
+			bool flag=false;
+
+			if(xmin1 < xmax2 && xmax1 > xmax2 && ymin1 < ymin2 && ymax1 > ymax2){
+				flag=true;
+				std::vector<int> v(2);
+				v[0] = o1;
+				v[1] = o2;
+
+				comienzos_marcadores.push_back(v);
+				continue;
+			}
+
+		}
+
+		//Buscamos objeto interior
+
+	}
+
+}
+
+void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  ){
+
+	/*int height = seg.height();
+		int height30 = 0.30 * height;
+		int height70 = 0.65 * height;
+		int width = seg.width();
+		int width20 = 0.2 * width;
+		int width80 = 0.9 * width;
+
+		for (int o1 = 0; o1 < comienzos.size(); o1++) {
+
+			int index = comienzos[o1][0];
+			int area_bbox = (bbox(3, index) - bbox(2, index))
+					* (bbox(1, index) - bbox(0, index));
+			float area_objeto = float(area_bbox) / float(areas(index));
+			float area_imagen = seg.width()*seg.height();
+
+			if (bbox(3, index) < height30) {
+				continue;
+			}
+			if (bbox(2, index) > height70) {
+				continue;
+			}
+			if( areas(o1) < area_objeto/1000.0 )
+				continue;
+			if (bbox(1, index) < width20)
+				continue;
+			if (bbox(0, index) > width80)
+				continue;
+			if (area_bbox > areas(index) * 2.0) {
+				continue;
+			}
+
+			std::vector<int> v(2);
+			v[0] = comienzos[o1][0];
+			v[1] = comienzos[o1][1];
+			comienzos_seleccionados.push_back(v);
+		}*/
+
+	for (int o1 = 1; o1< comienzos.size(); o1++){
+
+		int height = seg.height();
+		int height30 = 0.30 * height;
+		int height70 = 0.65 * height;
+		int width = seg.width();
+		int width20 = 0.2 * width;
+		int width80 = 0.9 * width;
+
+		int index_first = comienzos[o1][1];
+		int area_bbox = (bbox(3, index_first) - bbox(2, index_first)) * (bbox(1, index_first) - bbox(0, index_first));
+
+		if (bbox(3, index_first) < height30) {
+			continue;
+		}
+		if (bbox(2, index_first) > height70) {
+			continue;
+		}
+
+		if (bbox(1, index_first) < width20)
+			continue;
+		if (bbox(0, index_first) > width80)
+			continue;
+
+		if(area_bbox > areas(index_first) * 1.3) continue;
+
+		std::vector <int> v(2);
+		v[0] = comienzos[o1][0];
+		v[1] = comienzos[o1][1];
+
+		comienzos_seleccionados.push_back(v);
+
+	}
+
+}

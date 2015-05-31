@@ -194,6 +194,19 @@ utilities/fast:
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
 
+#=============================================================================
+# Target rules for targets named video
+
+# Build rule for target.
+video: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 video
+.PHONY : video
+
+# fast build rule for target.
+video/fast:
+	$(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
+.PHONY : video/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -207,6 +220,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
+	@echo "... video"
 	@echo "... make_trainer"
 	@echo "... functions"
 	@echo "... dorsales"

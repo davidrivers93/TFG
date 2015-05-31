@@ -9,6 +9,8 @@
 #define RATIO_TOLERANCE 1.8
 #define TYPICAL_RATIO 1.2
 #define WIDTH_RATIO_TOLERANCE 1.7
+#define MIN_RATIO_MARK 0.95
+#define MAX_RATIO_MARK 1.05
 
 int  otsu(cimg_library::CImg<float> & hist);
 int SeleccionarEtiquetas_cimg(cimg_library::CImg<int>  & segment, cimg_library::CImg<int> & tabla, int & numobj_out);
@@ -46,5 +48,6 @@ void busqueda_tercera_cifra(std::vector<std::vector<int> > & comienzos_seleccion
 int OCR(cimg_library::CImg<float> & vectores, cimg_library::CImg<float> & lowres);
 void calc_centro_masas(cimg_library::CImg<int> bbox, int &center_x, int &center_y);
 void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &anch_x, int &anch_y);
-
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, cimg_library::CImg<int> & areas);
+void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  );
 #endif /* SEGMENTUTILS_H_ */
