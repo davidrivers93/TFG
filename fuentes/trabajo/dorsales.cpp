@@ -229,7 +229,7 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<unsigned char> img_out_binarizacion = img;
 
 			//Realizamos un display de la imagen de entrada.
-			//img.display("Entrada", false);
+			img.display("Entrada", false);
 
 			//router(it, modo);
 
@@ -270,16 +270,28 @@ void calculate(set<string> images, int contador, int modo){
 
 			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
 
-			/*for (int h = 0; h < comienzos.size(); h++) {
-				for (int h2 = 0; h2 < comienzos[h].size(); h2++) {
-					if (h2 == 0)
-						std::cout << "Pareja: " << comienzos[h][h2];
-					if (h2 != 0)
-						std::cout << " " << comienzos[h][h2];
+			std::cout << "Tam comienzos seleccionados: " << comienzos_seleccionados.size() << endl;
+
+			std::vector<std::vector<std::vector <int > > > target_marks_index;
+
+			target_marks(comienzos_seleccionados, target_marks_index ,seg, bbox, areas);
+
+			std::cout << "Tamaño target: " << target_marks_index.size() << endl;
+			for (int h = 0; h < target_marks_index.size(); h++) {
+				std::cout << "Numero targets " << target_marks_index.size() << endl;
+				std::cout << "Target numero " << h << endl;
+
+				for (int h2 = 3; h2 < target_marks_index[h].size(); h2++) {
+					std::cout << "Tamaño: " << target_marks_index[h][h2].size() << endl;
+					std::cout << "\t Pareja numero " << h2 << endl;
+					for(int h3=0; h3 < target_marks_index[h][h2].size();h3++){
+						std::cout << "\t\t " << target_marks_index[h][h2][h3] << endl;
+					}
 				}
 				std::cout << "\n";
-			}*/
-			std::cout << "Tamaño comienzos: "<< comienzos.size() << "\n";
+			}
+
+			/*std::cout << "Tamaño comienzos: "<< comienzos.size() << "\n";
 			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,areas);
 
 
@@ -296,8 +308,7 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}
-
+			}*/
 
 
 			//BUSCAMOS UNA POSIBLE TERCERA CIFRA PARA CADA PAREJA DE DORSAL SELECCIONADA
@@ -308,14 +319,13 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<int> tabla(numobj);
 			tabla.fill(0);
 
-			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
-				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
-					int indice_objeto = comienzos_seleccionados[h][h2];
-					tabla[indice_objeto] = 1;
-					/*if (h2 == 0)
-						std::cout << "Pareja: " << comienzos_seleccionados[h][h2];
-					if (h2 != 0)
-						std::cout << " " << comienzos_seleccionados[h][h2];*/
+			for (int h = 0; h < target_marks_index.size(); h++) {
+
+				for (int h2 = 3; h2 < target_marks_index[h].size(); h2++) {
+					for (int h3 = 0; h3 < target_marks_index[h][h2].size(); h3++) {
+						int indice_objeto = target_marks_index[h][h2][h3];
+						tabla[indice_objeto] = 1;
+					}
 				}
 				//std::cout << "\n";
 			}
@@ -323,6 +333,17 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
 			seg2.display("A", false);
+
+			std::vector <int> coordinates_qr(4);
+			for(int i = 0 ; i<target_marks_index.size();i++){
+
+				get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
+				CImg<unsigned char> image_crop(img);
+				image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1],coordinates_qr[3]);
+
+				image_crop.display("Prueba", false);
+
+			}
 /*
 			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){
 

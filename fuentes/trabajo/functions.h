@@ -49,5 +49,9 @@ int OCR(cimg_library::CImg<float> & vectores, cimg_library::CImg<float> & lowres
 void calc_centro_masas(cimg_library::CImg<int> bbox, int &center_x, int &center_y);
 void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &anch_x, int &anch_y);
 void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, cimg_library::CImg<int> & areas);
+void target_marks(std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector <int > > > & target_marks,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas);
 void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  );
+bool search_targets(std::vector<std::vector<std::vector < int > > > & target_marks, int index);
+void get_coordinates_qr(std::vector<std::vector < int > >  & target_marks, cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr);
+
 #endif /* SEGMENTUTILS_H_ */

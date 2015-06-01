@@ -1538,42 +1538,6 @@ void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::
 
 void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  ){
 
-	/*int height = seg.height();
-		int height30 = 0.30 * height;
-		int height70 = 0.65 * height;
-		int width = seg.width();
-		int width20 = 0.2 * width;
-		int width80 = 0.9 * width;
-
-		for (int o1 = 0; o1 < comienzos.size(); o1++) {
-
-			int index = comienzos[o1][0];
-			int area_bbox = (bbox(3, index) - bbox(2, index))
-					* (bbox(1, index) - bbox(0, index));
-			float area_objeto = float(area_bbox) / float(areas(index));
-			float area_imagen = seg.width()*seg.height();
-
-			if (bbox(3, index) < height30) {
-				continue;
-			}
-			if (bbox(2, index) > height70) {
-				continue;
-			}
-			if( areas(o1) < area_objeto/1000.0 )
-				continue;
-			if (bbox(1, index) < width20)
-				continue;
-			if (bbox(0, index) > width80)
-				continue;
-			if (area_bbox > areas(index) * 2.0) {
-				continue;
-			}
-
-			std::vector<int> v(2);
-			v[0] = comienzos[o1][0];
-			v[1] = comienzos[o1][1];
-			comienzos_seleccionados.push_back(v);
-		}*/
 
 	for (int o1 = 1; o1< comienzos.size(); o1++){
 
@@ -1599,7 +1563,8 @@ void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector
 		if (bbox(0, index_first) > width80)
 			continue;
 
-		if(area_bbox > areas(index_first) * 1.3) continue;
+		if(area_bbox > areas(index_first) * 1.2) continue;
+
 
 		std::vector <int> v(2);
 		v[0] = comienzos[o1][0];
@@ -1607,6 +1572,107 @@ void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector
 
 		comienzos_seleccionados.push_back(v);
 
+	}
+
+}
+
+void target_marks(std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas){
+
+	for(int o1 = 1 ; o1< comienzos_seleccionados.size(); o1 ++){
+
+		int index_first_mark = comienzos_seleccionados[o1][1];
+
+		//if(search_targets(target_marks, index_first_mark)) continue;
+
+		for(int o2 = 1; o2 < comienzos_seleccionados.size(); o2++){
+
+			if(o1 == o2) continue;
+
+			int index_second_mark = comienzos_seleccionados[o2][1];
+
+
+
+			float ratio_areas = float(areas(index_first_mark))/float(areas(index_second_mark));
+
+			//std::cout << "Ratio areas: " << ratio_areas << "\n";
+
+			if(ratio_areas < 0.98 || ratio_areas > 1.02) continue;
+
+			for(int o3 = 1; o3 < comienzos_seleccionados.size(); o3++){
+				if(o1 == o3) continue;
+				if(o2 == o3) continue;
+
+
+
+				int index_third_mark = comienzos_seleccionados[o3][1];
+
+				float ratio_areas_2 = float(areas(index_first_mark))/float(areas(index_third_mark));
+				if(index_first_mark == 5110){
+					std::cout << "o1: " << index_first_mark << " o2: " << index_second_mark << " o3: "<< index_third_mark << "\n";
+					std::cout << "Ratio areas: " << ratio_areas_2 << "\n";
+				}
+				if(ratio_areas_2 < 0.95|| ratio_areas_2 > 1.05) continue;
+
+
+
+				std::vector <std::vector < int > > v(3);
+				std::vector <int> temp1(2);
+				std::vector <int> temp2(2);
+				std::vector <int> temp3(2);
+				temp1[0] = comienzos_seleccionados[o1][0];
+				temp1[1] = comienzos_seleccionados[o1][1];
+				v.push_back(temp1);
+				temp2[0] = comienzos_seleccionados[o2][0];
+				temp2[1] = comienzos_seleccionados[o2][1];
+				v.push_back(temp2);
+				temp3[0] = comienzos_seleccionados[o3][0];
+				temp3[1] = comienzos_seleccionados[o3][1];
+				v.push_back(temp3);
+
+				target_marks.push_back(v);
+
+			}
+
+		}
+	}
+
+}
+
+bool search_targets(std::vector<std::vector<std::vector < int > > > & target_marks, int index){
+
+	for (int h = 0; h < target_marks.size(); h++) {
+
+		for (int h2 = 3; h2 < target_marks[h].size(); h2++) {
+			for (int h3 = 0; h3 < target_marks[h][h2].size(); h3++) {
+				int index_target = target_marks[h][h2][h3];
+				if(index_target == index) return true;
+			}
+		}
+	}
+
+return false;
+
+}
+
+void get_coordinates_qr(std::vector<std::vector < int > > & target_marks, cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr){
+
+	for (int h2 = 3; h2 < target_marks.size(); h2++) {
+		for (int h3 = 0; h3 < target_marks[h2].size(); h3++) {
+			int index = target_marks[h2][h3];
+			if(h3 == 0 && h2 == 3) {
+				coordinates_qr[0] = bbox(0,index);
+				coordinates_qr[1] = bbox(1,index);
+				coordinates_qr[2] = bbox(2,index);
+				coordinates_qr[3] = bbox(3,index);
+			}
+			else{
+				if(bbox(0,index) < coordinates_qr[0]) coordinates_qr[0] = bbox(0,index);
+				if(bbox(1,index) > coordinates_qr[1]) coordinates_qr[1] = bbox(1,index);
+				if(bbox(2,index) < coordinates_qr[2]) coordinates_qr[2] = bbox(2,index);
+				if(bbox(3,index) > coordinates_qr[3]) coordinates_qr[3] = bbox(3,index);
+			}
+
+		}
 	}
 
 }
