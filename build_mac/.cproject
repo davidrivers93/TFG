@@ -446,6 +446,34 @@
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
+<target name="[exe] pruebaqr" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>pruebaqr</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[exe] pruebaqr/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>pruebaqr/fast</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Build" path="[Targets]/[exe] pruebaqr" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-C "/Users/David/Desktop/ProyectosC++/TFG/build_mac" -j4</buildArguments>
+<buildTarget>pruebaqr</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Clean" path="[Targets]/[exe] pruebaqr" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/cmake</buildCommand>
+<buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/pruebaqr.dir/cmake_clean.cmake"</buildArguments>
+<buildTarget></buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
 <target name="[exe] video" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
@@ -498,34 +526,6 @@
 <target name="Clean" path="[Targets]/[exe] make_trainer" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/cmake</buildCommand>
 <buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/make_trainer.dir/cmake_clean.cmake"</buildArguments>
-<buildTarget></buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="[exe] Qr_proc" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-j4</buildArguments>
-<buildTarget>Qr_proc</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="[exe] Qr_proc/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-j4</buildArguments>
-<buildTarget>Qr_proc/fast</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="Build" path="[Targets]/[exe] Qr_proc" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-C "/Users/David/Desktop/ProyectosC++/TFG/build_mac" -j4</buildArguments>
-<buildTarget>Qr_proc</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="Clean" path="[Targets]/[exe] Qr_proc" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/cmake</buildCommand>
-<buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/Qr_proc.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
@@ -625,6 +625,13 @@
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
 <buildTarget>make_trainer.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] pruebaqr.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>pruebaqr.cpp.o</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>

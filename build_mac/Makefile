@@ -143,19 +143,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Qr_proc
-
-# Build rule for target.
-Qr_proc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Qr_proc
-.PHONY : Qr_proc
-
-# fast build rule for target.
-Qr_proc/fast:
-	$(MAKE) -f trabajo/CMakeFiles/Qr_proc.dir/build.make trabajo/CMakeFiles/Qr_proc.dir/build
-.PHONY : Qr_proc/fast
-
-#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -193,6 +180,19 @@ make_trainer: cmake_check_build_system
 make_trainer/fast:
 	$(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
 .PHONY : make_trainer/fast
+
+#=============================================================================
+# Target rules for targets named pruebaqr
+
+# Build rule for target.
+pruebaqr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pruebaqr
+.PHONY : pruebaqr
+
+# fast build rule for target.
+pruebaqr/fast:
+	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
+.PHONY : pruebaqr/fast
 
 #=============================================================================
 # Target rules for targets named utilities
@@ -233,9 +233,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
+	@echo "... pruebaqr"
 	@echo "... video"
 	@echo "... make_trainer"
-	@echo "... Qr_proc"
 	@echo "... functions"
 	@echo "... dorsales"
 .PHONY : help

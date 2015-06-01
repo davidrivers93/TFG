@@ -5,6 +5,7 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/CImg.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/misc.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/proc/proc.h
+ /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/dorsales.cpp
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
  /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
@@ -99,3 +100,13 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o
  /opt/local/include/tiffvers.h
  /opt/local/include/zconf.h
  /opt/local/include/zlib.h
+ /usr/local/include/zbar.h
+ /usr/local/include/zbar/Decoder.h
+ /usr/local/include/zbar/Exception.h
+ /usr/local/include/zbar/Image.h
+ /usr/local/include/zbar/ImageScanner.h
+ /usr/local/include/zbar/Processor.h
+ /usr/local/include/zbar/Scanner.h
+ /usr/local/include/zbar/Symbol.h
+ /usr/local/include/zbar/Video.h
+ /usr/local/include/zbar/Window.h

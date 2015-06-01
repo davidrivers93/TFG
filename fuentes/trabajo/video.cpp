@@ -7,9 +7,14 @@
 #include <iostream>
 #include <cmath>
 #include <zbar.h>
+#define cimg_plugin1 "cimgcvMat.h"
+#include "CImg.h"
+using namespace cimg_library;
 using namespace cv;
 using namespace std;
 using namespace zbar;
+
+#include "functions.h"
 
 const int CV_QR_NORTH = 0;
 const int CV_QR_EAST = 1;
@@ -49,10 +54,12 @@ int main ( int argc, char **argv )
 	}
 	
 
+
 	// Creation of Intermediate 'Image' Objects required later
 	Mat gray(image.size(), CV_MAKETYPE(image.depth(), 1));			// To hold Grayscale Image
 	Mat edges(image.size(), CV_MAKETYPE(image.depth(), 1));			// To hold Grayscale Image
-	Mat traces(image.size(), CV_8UC3);								// For Debug Visuals
+	Mat traces(image.size(), CV_8UC3);
+	Mat image2(image.size(), CV_MAKETYPE(image.depth(), 1));
 	Mat qr,qr_raw,qr_gray,qr_thres;
 	    
 	vector<vector<Point> > contours;
@@ -74,10 +81,12 @@ int main ( int argc, char **argv )
 	   	qr = Mat::zeros(100, 100, CV_8UC3 );
 		qr_gray = Mat::zeros(100, 100, CV_8UC1);
 	   	qr_thres = Mat::zeros(100, 100, CV_8UC1);		
-		
+	   	image2 = Mat::zeros(100, 100, CV_8UC1);
 		capture >> image;						// Capture Image from Image Input
 
-		cvtColor(image,gray,CV_RGB2GRAY);		// Convert Image captured from Image Input to GrayScale	
+		cvtColor(image,gray,CV_RGB2GRAY);		// Convert Image captured from Image Input to GrayScale
+		adaptiveThreshold(gray, image2, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY,13, 1 );
+
 		Canny(gray, edges, 100 , 200, 3);		// Apply Canny edge detection on the gray image
 
 
@@ -123,8 +132,9 @@ int main ( int argc, char **argv )
 				mark = mark + 1 ;
 			}
 		} 
-
 		
+		std::cout << "Marcas detectadas: " << mark << endl;
+
 		if (mark >= 2)		// Ensure we have (atleast 3; namely A,B,C) 'Alignment Markers' discovered
 		{
 			// We have found the 3 markers for the QR code; Now we need to determine which of them are 'top', 'right' and 'bottom' markers
@@ -307,6 +317,7 @@ int main ( int argc, char **argv )
 			}
 		}
 	
+		imshow("Binarizada",image2);
 		imshow ( "Image", image );
 		imshow ( "Traces", traces );
 		imshow ( "QR code", qr_thres );

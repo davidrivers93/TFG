@@ -10,9 +10,13 @@
 #include <opencv2/opencv.hpp>
 #include <unistd.h>
 #include <stdlib.h>
+#define cimg_plugin1 "cimgcvMat.h"
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"
+
+#include <zbar.h>
+using namespace zbar;
 
 #define CARACTER_SEPARADOR_CSV ";"	// Carácter para separar campos en archivo csv. España = ";" pero en el resto es ",".
 
@@ -25,6 +29,8 @@
 #include "utilities.h"
 #include "proc/misc.h"
 #include "proc/proc.h"
+#include "Qr_proc.h"
+
 
 using namespace cimg_library;
 using namespace std;
@@ -48,6 +54,7 @@ std::string getOsName();
  * sus posibles opciones
  *
  */
+
 void ayuda() {
 	std::cout << "Introduce en la linea de comandos junto a dorsales el nombre del .txt\n";
 
@@ -206,11 +213,11 @@ void calculate(set<string> images, int contador, int modo){
 
 	// CARGAMOS OCR -> REPASARRRRRR!!!
 
-	CImg<float> vectores;
+	/*CImg<float> vectores;
 	vectores.resize(9, 10);
 	load_dlm(vectores);
 	vectores.display("OCR", false);
-	std::cout << "DLM cargado. \n";
+	std::cout << "	DLM cargado. \n";*/
 
 	std::vector<std::vector<int> > vector_nivel_medio;
 
@@ -247,6 +254,7 @@ void calculate(set<string> images, int contador, int modo){
 
 			segmentacion(img_out_binarizacion, seg, bbox, areas);
 
+
 			//seg.display("Segmentada", false);
 
 			//ZONA DE DETECCION
@@ -256,7 +264,7 @@ void calculate(set<string> images, int contador, int modo){
 			 * la cual le pasamos los bbox asi como el vector de comienzos.
 			 */
 
-			busqueda(bbox, comienzos);
+			busqueda_marcadores(bbox, comienzos, areas);
 
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
@@ -264,21 +272,37 @@ void calculate(set<string> images, int contador, int modo){
 
 			std::cout << "Comienzos.\n";
 
-			for (int h = 0; h < comienzos.size(); h++) {
-				for (int h2 = 0; h2 < comienzos[h].size(); h2++) {
-					if (h2 == 0)
-						std::cout << "Pareja: " << comienzos[h][h2];
-					if (h2 != 0)
-						std::cout << " " << comienzos[h][h2];
+			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
+
+			std::cout << "Tam comienzos seleccionados: " << comienzos_seleccionados.size() << endl;
+
+			std::vector<std::vector<std::vector <int > > > target_marks_index;
+
+			target_marks(comienzos_seleccionados, target_marks_index ,seg, bbox, areas);
+
+			std::cout << "Tamaño target: " << target_marks_index.size() << endl;
+			for (int h = 0; h < target_marks_index.size(); h++) {
+				std::cout << "Numero targets " << target_marks_index.size() << endl;
+				std::cout << "Target numero " << h << endl;
+
+				for (int h2 = 3; h2 < target_marks_index[h].size(); h2++) {
+					std::cout << "Tamaño: " << target_marks_index[h][h2].size() << endl;
+					std::cout << "\t Pareja numero " << h2 << endl;
+					for(int h3=0; h3 < target_marks_index[h][h2].size();h3++){
+						std::cout << "\t\t " << target_marks_index[h][h2][h3] << endl;
+					}
 				}
 				std::cout << "\n";
 			}
 
-			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,
-					areas);
+			/*std::cout << "Tamaño comienzos: "<< comienzos.size() << "\n";
+			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,areas);
+
 
 			//SACAMOS POR PANTALLA LAS PAREJAS DE DORSALES SELECCIONADAS PARA PROCESAR
 			std::cout << "Comienzos seleccionados.\n";
+
+			std::cout << "Tamaño comienzos selecccionados: " << comienzos_seleccionados.size() << endl;
 			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
 				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
 					if (h2 == 0)
@@ -288,27 +312,111 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}
+			}*/
+
 
 			//BUSCAMOS UNA POSIBLE TERCERA CIFRA PARA CADA PAREJA DE DORSAL SELECCIONADA
-			busqueda_tercera_cifra(comienzos_seleccionados, bbox);
+			//busqueda_tercera_cifra(comienzos_seleccionados, bbox);
 
-			std::cout << "Comienzos seleccionados con tercera cifra.\n";
+			//std::cout << "Comienzos seleccionados con tercera cifra.\n";
 			int numobj = bbox.height();
 			CImg<int> tabla(numobj);
 			tabla.fill(0);
 
-			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
-				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
-					int indice_objeto = comienzos_seleccionados[h][h2];
-					tabla[indice_objeto] = 1;
+			for (int h = 0; h < target_marks_index.size(); h++) {
+
+				for (int h2 = 3; h2 < target_marks_index[h].size(); h2++) {
+					for (int h3 = 0; h3 < target_marks_index[h][h2].size(); h3++) {
+						int indice_objeto = target_marks_index[h][h2][h3];
+						tabla[indice_objeto] = 1;
+					}
 				}
-				std::cout << "\n";
+				//std::cout << "\n";
 			}
 
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
 			seg2.display("A", false);
+
+			std::vector <int> coordinates_qr(4);
+			for(int i = 0 ; i<target_marks_index.size();i++){
+
+				get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
+				CImg<unsigned char> image_crop(img);
+				image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1],coordinates_qr[3]);
+
+				image_crop.display("Prueba", false);
+
+				Mat image2 = image_crop.get_MAT();
+
+				Mat gray(image2.size(), CV_MAKETYPE(image2.depth(), 1));
+
+				imshow("image", image2);
+				ImageScanner scanner;
+				scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);
+				// obtain image date
+				cvtColor(image2, gray, CV_RGB2GRAY);
+				int width = image2.cols;
+				int height = image2.rows;
+				uchar *raw = (uchar *) gray.data;
+				// wrap image data
+				Image image(width, height, "Y800", raw, width * height);
+				// scan the image for barcodes
+				int n = scanner.scan(image);
+				// extract results
+				for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol) {
+					vector<Point> vp;
+					// do something useful with results
+					cout << "decoded " << symbol->get_type_name() << " symbol \"" << symbol->get_data() << '"' << " " << endl;
+					int n = symbol->get_location_size();
+					for (int i = 0; i < n; i++) {
+						vp.push_back(Point(symbol->get_location_x(i), symbol->get_location_y(i)));
+					}
+					RotatedRect r = minAreaRect(vp);
+					Point2f pts[4];
+					r.points(pts);
+					for (int i = 0; i < 4; i++) {
+						line(gray, pts[i], pts[(i + 1) % 4], Scalar(255, 0, 0), 3);
+					}
+					cout << "Angle: " << r.angle << endl;
+				}
+			}
+/*
+			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){
+
+				int index = comienzos_seleccionados[index_for][0];
+				std::cout << "Indice: " << index << endl;
+				int center_x, center_y;
+
+
+				CImg<int> bbox_index;
+				bbox_index.resize(1,4);
+
+				bbox_index(0,0) = bbox(0,index);
+				bbox_index(0,1) = bbox(1,index);
+				bbox_index(0,2) = bbox(2,index);
+				bbox_index(0,3) = bbox(3,index);
+
+
+				calc_centro_masas(bbox_index,center_x,center_y);
+
+				std::cout << "Centro x: " << center_x << endl;
+				std::cout << "Centro y: " << center_y << endl;
+
+				int anch_x,anch_y;
+
+				calc_ancho(bbox_index, center_x, center_y, anch_x, anch_y);
+
+				CImg<unsigned char> img_temp(img);
+				CImg<unsigned char> img_crop = img_temp.crop(center_x - anch_x, center_y - anch_y, center_x + anch_x, center_y + anch_y);
+
+				img_crop.display("prueba", false);
+				img_crop.save("temp2.jpg");
+				qr_processing(img_crop);
+
+			}*/
+
+
 
 			seg2.save("temp.jpg");
 			std::cout << "Imagen guardada temporalmente.";
@@ -323,7 +431,7 @@ void calculate(set<string> images, int contador, int modo){
 			 */
 
 			//SACAMOS POR PANTALLA LOS COMIENZOS SELECCIONADOS FINALES
-			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
+			/*or (int h = 0; h < comienzos_seleccionados.size(); h++) {
 				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
 					if (h2 == 0)
 						std::cout << "Pareja: "
@@ -332,13 +440,13 @@ void calculate(set<string> images, int contador, int modo){
 						std::cout << " " << comienzos_seleccionados[h][h2];
 				}
 				std::cout << "\n";
-			}
+			}*/
 
 			char txt[100];
 			int interpolation_method = 2;
 
 			//ZONA DE DETECCION DE CADA DIGITO POR PARTE DEL OCR
-			for (int puntero_OCR1 = 0;
+			/*for (int puntero_OCR1 = 0;
 					puntero_OCR1 < comienzos_seleccionados.size();
 					puntero_OCR1++) {
 
@@ -369,7 +477,7 @@ void calculate(set<string> images, int contador, int modo){
 				}
 
 				vector_nivel_medio.push_back(vector_bajo_nivel);
-			}
+			}*/
 
 			//Zona de deteccion por parte de tesseract
 
