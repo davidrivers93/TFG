@@ -185,6 +185,20 @@ make_trainer/fast:
 .PHONY : make_trainer/fast
 
 # Convenience name for target.
+trabajo/CMakeFiles/pruebaqr.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/pruebaqr.dir/rule
+.PHONY : trabajo/CMakeFiles/pruebaqr.dir/rule
+
+# Convenience name for target.
+pruebaqr: trabajo/CMakeFiles/pruebaqr.dir/rule
+.PHONY : pruebaqr
+
+# fast build rule for target.
+pruebaqr/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
+.PHONY : pruebaqr/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
 .PHONY : trabajo/CMakeFiles/utilities.dir/rule
@@ -308,6 +322,30 @@ make_trainer.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
 .PHONY : make_trainer.cpp.s
 
+pruebaqr.o: pruebaqr.cpp.o
+.PHONY : pruebaqr.o
+
+# target to build an object file
+pruebaqr.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/pruebaqr.cpp.o
+.PHONY : pruebaqr.cpp.o
+
+pruebaqr.i: pruebaqr.cpp.i
+.PHONY : pruebaqr.i
+
+# target to preprocess a source file
+pruebaqr.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/pruebaqr.cpp.i
+.PHONY : pruebaqr.cpp.i
+
+pruebaqr.s: pruebaqr.cpp.s
+.PHONY : pruebaqr.s
+
+# target to generate assembly for a file
+pruebaqr.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/pruebaqr.cpp.s
+.PHONY : pruebaqr.cpp.s
+
 utilities.o: utilities.cpp.o
 .PHONY : utilities.o
 
@@ -364,6 +402,7 @@ help:
 	@echo "... depend"
 	@echo "... utilities"
 	@echo "... install/strip"
+	@echo "... pruebaqr"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
@@ -385,6 +424,9 @@ help:
 	@echo "... make_trainer.o"
 	@echo "... make_trainer.i"
 	@echo "... make_trainer.s"
+	@echo "... pruebaqr.o"
+	@echo "... pruebaqr.i"
+	@echo "... pruebaqr.s"
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"

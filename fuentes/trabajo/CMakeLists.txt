@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer video)
+SET (MIXED_PROGRAMS dorsales make_trainer video pruebaqr)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 

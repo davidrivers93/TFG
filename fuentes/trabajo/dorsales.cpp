@@ -10,9 +10,13 @@
 #include <opencv2/opencv.hpp>
 #include <unistd.h>
 #include <stdlib.h>
+#define cimg_plugin1 "cimgcvMat.h"
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"
+
+#include <zbar.h>
+using namespace zbar;
 
 #define CARACTER_SEPARADOR_CSV ";"	// Carácter para separar campos en archivo csv. España = ";" pero en el resto es ",".
 
@@ -229,7 +233,7 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<unsigned char> img_out_binarizacion = img;
 
 			//Realizamos un display de la imagen de entrada.
-			img.display("Entrada", false);
+			//img.display("Entrada", false);
 
 			//router(it, modo);
 
@@ -343,6 +347,39 @@ void calculate(set<string> images, int contador, int modo){
 
 				image_crop.display("Prueba", false);
 
+				Mat image2 = image_crop.get_MAT();
+
+				Mat gray(image2.size(), CV_MAKETYPE(image2.depth(), 1));
+
+				imshow("image", image2);
+				ImageScanner scanner;
+				scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);
+				// obtain image date
+				cvtColor(image2, gray, CV_RGB2GRAY);
+				int width = image2.cols;
+				int height = image2.rows;
+				uchar *raw = (uchar *) gray.data;
+				// wrap image data
+				Image image(width, height, "Y800", raw, width * height);
+				// scan the image for barcodes
+				int n = scanner.scan(image);
+				// extract results
+				for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol) {
+					vector<Point> vp;
+					// do something useful with results
+					cout << "decoded " << symbol->get_type_name() << " symbol \"" << symbol->get_data() << '"' << " " << endl;
+					int n = symbol->get_location_size();
+					for (int i = 0; i < n; i++) {
+						vp.push_back(Point(symbol->get_location_x(i), symbol->get_location_y(i)));
+					}
+					RotatedRect r = minAreaRect(vp);
+					Point2f pts[4];
+					r.points(pts);
+					for (int i = 0; i < 4; i++) {
+						line(gray, pts[i], pts[(i + 1) % 4], Scalar(255, 0, 0), 3);
+					}
+					cout << "Angle: " << r.angle << endl;
+				}
 			}
 /*
 			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){

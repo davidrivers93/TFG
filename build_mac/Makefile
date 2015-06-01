@@ -182,6 +182,19 @@ make_trainer/fast:
 .PHONY : make_trainer/fast
 
 #=============================================================================
+# Target rules for targets named pruebaqr
+
+# Build rule for target.
+pruebaqr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pruebaqr
+.PHONY : pruebaqr
+
+# fast build rule for target.
+pruebaqr/fast:
+	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
+.PHONY : pruebaqr/fast
+
+#=============================================================================
 # Target rules for targets named utilities
 
 # Build rule for target.
@@ -220,6 +233,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
+	@echo "... pruebaqr"
 	@echo "... video"
 	@echo "... make_trainer"
 	@echo "... functions"

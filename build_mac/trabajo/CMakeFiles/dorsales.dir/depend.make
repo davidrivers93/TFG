@@ -99,4 +99,14 @@ trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/tiffio.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/tiffvers.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/zconf.h
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /opt/local/include/zlib.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Decoder.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Exception.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Image.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/ImageScanner.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Processor.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Scanner.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Symbol.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Video.h
+trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.o: /usr/local/include/zbar/Window.h
 
