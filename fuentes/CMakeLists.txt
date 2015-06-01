@@ -15,8 +15,15 @@ if(APPLE)
 	set(CMAKE_PREFIX_PATH  "/opt/local/lib/cmake")
 endif(APPLE)
 
-FIND_PACKAGE(OpenCV REQUIRED)
+#--- OpenCV (with pkgconfig)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(OPENCV REQUIRED opencv)
+# https://bugs.freedesktop.org/show_bug.cgi?id=82245
+# list(APPEND LIBRARIES ${OPENCV_LIBRARIES}) 
+list(APPEND LIBRARIES ${OPENCV_LDFLAGS})
+message(STATUS LIBS ${OPENCV_VERSION})
 
+FIND_PACKAGE(OpenCV REQUIRED)
 
 if(NOT WIN32)
 	FIND_PACKAGE(JPEG REQUIRED)
@@ -30,15 +37,18 @@ if(NOT WIN32)
 	link_directories(${TIFF_LIB_DIRS})
 	link_directories(${JPEG_LIB_DIRS})
 	include_directories(${X11_INCLUDE_DIR})	
+	include_directories("/usr/local/include")
 endif()
 
 
 pkg_check_modules(TESSERACT tesseract REQUIRED)
+pkg_check_modules(PC_ZBAR QUIET zbar)
 
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${TESSERACT_INCLUDE_DIRS})
+include_directories(${PC_ZBAR_INCLUDE_DIRS})
 
 if(NOT WIN32)
 	include_directories(${X11_INCLUDE_DIR})

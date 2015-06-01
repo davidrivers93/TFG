@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.cpp
+fstream
+-
+stdlib.h
+-
+iostream
+-
+string
+-
+locale
+-
+vector
+-
+algorithm
+-
+set
+-
+utilities.h
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
+
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
+

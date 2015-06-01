@@ -13,6 +13,12 @@
 using namespace std;
 using namespace cimg_library;
 
+struct now{
+
+
+};
+
+
 int xml_read() {
 
 	pugi::xml_document doc_load;
@@ -88,6 +94,58 @@ int xml_read() {
 void xml_write(	std::vector<std::vector<std::vector<int> > > *contenedor_dorsales, CImg<int> *contenedor_tiempo, CImg<int> *contenedor_numobj) {
 
 
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    cout << (now->tm_year + 1900) << '-'
+         << (now->tm_mon + 1) << '-'
+         <<  now->tm_mday
+         << endl;
+
+
+	FILE *fd = 0;
+	fd = fopen("results_" + now->tm_mday + "_" + now->tm_mon+1 + "_" + now->tm_year+1900 + ".xml", "w");
+	string xml_version = "1.0";
+	string encoding = "UTF-8";
+
+	string first_data = "<?xml version = " + xml_version +" enconding= " + encoding + "?> \n";
+	string open_dorsales_tag = "<dorsales \n";
+	string version_firmware = "\t version_firmware = 1.0";
+	string filename = "prueba.txt";
+
+	for (int pointer = 0; pointer > contenedor_dorsales.size(); pointer ++ ){
+
+	}
+
+			fprintf(fd, "Label , ");
+			fprintf(fd, "imagen ");
+			fprintf(fd, "Numero OCR");
+			fprintf(fd, "Tiempo ");
+			fprintf(fd, "numobj");
+			fprintf(fd, "Dorsal ");
+			fprintf(fd, "\n");
+			for (int e = 0; e < contenedor_dorsales.size(); e++) {
+				fprintf(fd, "%d ", e); // Label
+				if (contenedor_dorsales[e].size() == 0) {
+					fprintf(fd, " "); // Numero
+					fprintf(fd, "%i ", contenedor_tiempo[e]); // Tiempo
+					fprintf(fd, "%i ", contenedor_numobj[e]); // Label
+					fprintf(fd, "\n");
+					continue;
+				}
+				for (int e2 = 0; e2 < contenedor_dorsales[e].size(); e2++) {
+					fprintf(fd, "%d ", e2); // Numero
+					fprintf(fd, "%i ", contenedor_tiempo[e]); // Tiempo
+					fprintf(fd, "%i ", contenedor_numobj[e]); // Label
+					for (int e3 = 0; e3 < contenedor_dorsales[e][e2].size(); e3++) {
+						fprintf(fd, "%i ", contenedor_dorsales[e][e2][e3]); // Label
+					}
+				}
+				fprintf(fd, "\n");
+			}
+			if (fd)
+				fclose(fd);
+
+			std::cout << "Archivo de resultados guardado. \n";
 
 
 }

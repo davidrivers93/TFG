@@ -1,0 +1,4 @@
+E:/Development/tfg/build_win64/trabajo/CMakeFiles/utilities.dir
+E:/Development/tfg/build_win64/trabajo/CMakeFiles/make_trainer.dir
+E:/Development/tfg/build_win64/trabajo/CMakeFiles/functions.dir
+E:/Development/tfg/build_win64/trabajo/CMakeFiles/dorsales.dir
