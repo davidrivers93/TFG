@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer video pruebaqr)
+SET (MIXED_PROGRAMS dorsales make_trainer video bbdd_conn)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
@@ -20,6 +20,7 @@ foreach(program ${MIXED_PROGRAMS})
     target_link_libraries(${program} ${OpenCV_LIBS})
    	target_link_libraries(${program} ${TESSERACT_LIBRARIES})
 	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
+	target_link_libraries(${program} mysqlcppconn)
 endforeach(program)
 
 

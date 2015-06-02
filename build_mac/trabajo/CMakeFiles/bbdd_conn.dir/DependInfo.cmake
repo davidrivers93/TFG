@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o"
+  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/bbdd_conn.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

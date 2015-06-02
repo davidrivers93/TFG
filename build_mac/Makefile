@@ -143,6 +143,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named bbdd_conn
+
+# Build rule for target.
+bbdd_conn: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bbdd_conn
+.PHONY : bbdd_conn
+
+# fast build rule for target.
+bbdd_conn/fast:
+	$(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/build
+.PHONY : bbdd_conn/fast
+
+#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -180,19 +193,6 @@ make_trainer: cmake_check_build_system
 make_trainer/fast:
 	$(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
 .PHONY : make_trainer/fast
-
-#=============================================================================
-# Target rules for targets named pruebaqr
-
-# Build rule for target.
-pruebaqr: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pruebaqr
-.PHONY : pruebaqr
-
-# fast build rule for target.
-pruebaqr/fast:
-	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
-.PHONY : pruebaqr/fast
 
 #=============================================================================
 # Target rules for targets named utilities
@@ -233,8 +233,8 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
-	@echo "... pruebaqr"
 	@echo "... video"
+	@echo "... bbdd_conn"
 	@echo "... make_trainer"
 	@echo "... functions"
 	@echo "... dorsales"

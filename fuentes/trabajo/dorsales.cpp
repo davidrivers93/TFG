@@ -204,21 +204,6 @@ void calculate(set<string> images, int contador, int modo){
 
 	std::vector<std::vector<std::vector<int> > > contenedor_dorsales;
 
-	/* ZONA CARGA OCR
-	 *
-	 * Recordar que OCR es una matriz de 9 filas y 10 columnas.
-	 *
-	 * col 0 -> matriz 3x3 del numero 0.
-	 */
-
-	// CARGAMOS OCR -> REPASARRRRRR!!!
-
-	/*CImg<float> vectores;
-	vectores.resize(9, 10);
-	load_dlm(vectores);
-	vectores.display("OCR", false);
-	std::cout << "	DLM cargado. \n";*/
-
 	std::vector<std::vector<int> > vector_nivel_medio;
 
 	if (images.size()) {
@@ -232,45 +217,45 @@ void calculate(set<string> images, int contador, int modo){
 			CImg<unsigned char> img(imgname.c_str());
 			CImg<unsigned char> img_out_binarizacion = img;
 
-			//Realizamos un display de la imagen de entrada.
-			//img.display("Entrada", false);
-
-			//router(it, modo);
-
-			//ZONA DE SEGMENTACION Y BINARIZACION
-
+			/* Binarizacion adaptativa
+			 *
+			 * Retorna una imagen binarizada a traves del metodo de binarizacion adaptativa.
+			 */
 			binarizacion_adaptativa(img, img_out_binarizacion);
 
-			//img_out_binarizacion.display("",false);
-
-			/*img_out_binarizacion es la imagen binarizada
-			 * bbox -> Rectangulo que contiene al objeto i
-			 * areas -> Estima el area del objeto gracias al bounding box
-			 * seg -> imagen segmentada
-			 */
 			CImg<int> bbox;
 			CImg<int> areas;
 			CImg<int> seg;
+			CImg<float> cdg;
 
-			segmentacion(img_out_binarizacion, seg, bbox, areas);
-
-
-			//seg.display("Segmentada", false);
-
-			//ZONA DE DETECCION
-
-			std::vector<std::vector<int> > comienzos;
-			/* Comenzamos la zona de deteccion invocando la funcion busqueda
-			 * la cual le pasamos los bbox asi como el vector de comienzos.
+			/* Segmentacion
+			 *
+			 * Segmenta la imagen binarizada mediante los vecinos. Devuelve la imagen segmentada,
+			 * los bbox y las areas de cada objeto.
 			 */
 
-			busqueda_marcadores(bbox, comienzos, areas);
+			segmentacion(img_out_binarizacion, seg, bbox, areas, cdg);
+
+			std::vector<std::vector<int> > comienzos;
+
+			/*busqueda_marcadores
+			 *
+			 * buscamos parejas de marcadores que cumplan varias condiciones:
+			 * 	1-> Los centros esten juntos.
+			 * 	2-> los centros de masas sean parecidos.
+			 * 	3-> Que el marcador pequeño este dentro del grande.
+			 */
+
+			busqueda_marcadores(bbox, comienzos, areas,cdg);
 
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
-			//SACAMOS POR PANTALLA LAS PAREJAS DE COMIENZOS DE DORSALES
-
-			std::cout << "Comienzos.\n";
+			/*Seleccion marcadores
+			 *
+			 *Filtramos los comienzos anteriores con las siguientes caracteristicas:
+			 *	1->Esten centrados
+			 *	2->Que el area del bbox no sea 1,2 veces el area real del objeto.
+			 */
 
 			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
 
@@ -278,6 +263,9 @@ void calculate(set<string> images, int contador, int modo){
 
 			std::vector<std::vector<std::vector <int > > > target_marks_index;
 
+			/* Busca trios de marcadores QR respecto de los comienzos seleccionados.
+			 *
+			 */
 			target_marks(comienzos_seleccionados, target_marks_index ,seg, bbox, areas);
 
 			std::cout << "Tamaño target: " << target_marks_index.size() << endl;
@@ -338,110 +326,14 @@ void calculate(set<string> images, int contador, int modo){
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
 			seg2.display("A", false);
 
-			std::vector <int> coordinates_qr(4);
-			for(int i = 0 ; i<target_marks_index.size();i++){
+			std::vector < String > string_result(target_marks_index.size());
+			qr_processing(img,target_marks_index, bbox, string_result) ;
 
-				get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
-				CImg<unsigned char> image_crop(img);
-				image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1],coordinates_qr[3]);
-
-				image_crop.display("Prueba", false);
-
-				Mat image2 = image_crop.get_MAT();
-
-				Mat gray(image2.size(), CV_MAKETYPE(image2.depth(), 1));
-
-				imshow("image", image2);
-				ImageScanner scanner;
-				scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);
-				// obtain image date
-				cvtColor(image2, gray, CV_RGB2GRAY);
-				int width = image2.cols;
-				int height = image2.rows;
-				uchar *raw = (uchar *) gray.data;
-				// wrap image data
-				Image image(width, height, "Y800", raw, width * height);
-				// scan the image for barcodes
-				int n = scanner.scan(image);
-				// extract results
-				for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol) {
-					vector<Point> vp;
-					// do something useful with results
-					cout << "decoded " << symbol->get_type_name() << " symbol \"" << symbol->get_data() << '"' << " " << endl;
-					int n = symbol->get_location_size();
-					for (int i = 0; i < n; i++) {
-						vp.push_back(Point(symbol->get_location_x(i), symbol->get_location_y(i)));
-					}
-					RotatedRect r = minAreaRect(vp);
-					Point2f pts[4];
-					r.points(pts);
-					for (int i = 0; i < 4; i++) {
-						line(gray, pts[i], pts[(i + 1) % 4], Scalar(255, 0, 0), 3);
-					}
-					cout << "Angle: " << r.angle << endl;
-				}
-			}
-/*
-			for(int index_for = 0; index_for < comienzos_seleccionados.size(); index_for++){
-
-				int index = comienzos_seleccionados[index_for][0];
-				std::cout << "Indice: " << index << endl;
-				int center_x, center_y;
-
-
-
-				CImg<int> bbox_index;
-				bbox_index.resize(1,4);
-
-				bbox_index(0,0) = bbox(0,index);
-				bbox_index(0,1) = bbox(1,index);
-				bbox_index(0,2) = bbox(2,index);
-				bbox_index(0,3) = bbox(3,index);
-
-
-				calc_centro_masas(bbox_index,center_x,center_y);
-
-				std::cout << "Centro x: " << center_x << endl;
-				std::cout << "Centro y: " << center_y << endl;
-
-				int anch_x,anch_y;
-
-				calc_ancho(bbox_index, center_x, center_y, anch_x, anch_y);
-
-				CImg<unsigned char> img_temp(img);
-				CImg<unsigned char> img_crop = img_temp.crop(center_x - anch_x, center_y - anch_y, center_x + anch_x, center_y + anch_y);
-
-				img_crop.display("prueba", false);
-				img_crop.save("temp2.jpg");
-				qr_processing(img_crop);
-
-			}*/
-
+			std::cout << "Vuelvo";
 
 
 			seg2.save("temp.jpg");
 			std::cout << "Imagen guardada temporalmente.";
-
-			/* BUSCARIAMOS PAREJAS Y EXTRAERIAMOS UNA SUBIMAGEN CON LAS COORDENADAS CENTRADAS EN LA PAREJA DE OBJETOS.
-			 * SOBRA BUSQUEDA TERCERA CIFRA Y OCR
-			 *
-			 * EN EL CASO DE QUE NO ENCONTRARA CODIGO QR HABRIA QUE DESARROLLAR UN ALGORITMO QUE BUSQUE UNA SOLA CIFRA.
-			 *
-			 * DORSALES(1-10)
-			 *
-			 */
-
-			//SACAMOS POR PANTALLA LOS COMIENZOS SELECCIONADOS FINALES
-			/*or (int h = 0; h < comienzos_seleccionados.size(); h++) {
-				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
-					if (h2 == 0)
-						std::cout << "Pareja: "
-								<< comienzos_seleccionados[h][h2];
-					if (h2 != 0)
-						std::cout << " " << comienzos_seleccionados[h][h2];
-				}
-				std::cout << "\n";
-			}*/
 
 			char txt[100];
 			int interpolation_method = 2;

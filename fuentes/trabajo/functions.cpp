@@ -1251,7 +1251,7 @@ void busqueda(const cimg_library::CImg<int> & bbox,
 
 void segmentacion(const cimg_library::CImg<unsigned char> & img,
 		cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,
-		cimg_library::CImg<int> & areas) {
+		cimg_library::CImg<int> & areas, cimg_library::CImg<float> & cdg) {
 
 	/* FUNCION: Segmentacion
 	 * recibe la imagen asi como los bbox, seg y areas.
@@ -1262,7 +1262,6 @@ void segmentacion(const cimg_library::CImg<unsigned char> & img,
 
 	BoundingBox_cimg(seg, numobj, bbox);
 
-	CImg<float> cdg;
 	CImg<float> covarianzas;
 	Momentos_Areas_cimg(seg, cdg, covarianzas, areas, numobj);
 }
@@ -1396,7 +1395,7 @@ void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &a
 
 }
 
-void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, cimg_library::CImg<int> & areas) {
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg) {
 
 	comienzos_marcadores.clear();
 	int numobj = bbox.height() - 1;
@@ -1422,6 +1421,11 @@ void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::
 		float dis_y_centro = 0.05 * centro1_y;
 		int inner_object_id = -1;
 
+		float centro_masas_x_1 = cdg(o1,0);
+		float centro_masas_y_1 = cdg(o1,1);
+
+		float dis_x_centro_masas = 0.05 * centro_masas_x_1 ;
+		float dis_y_centro_masas = 0.05 * centro_masas_y_1 ;
 
 		for (int o2 = 1; o2 <= numobj; o2++) {
 			int second_object = 0;
@@ -1438,83 +1442,27 @@ void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::
 			float centro2_x = (float(xmin2) + float(xmax2)) / 2;
 			float centro2_y = (float(ymin2) + float(ymax2)) / 2;
 
+			float centro_masas_x_2 = cdg(o2,0);
+			float centro_masas_y_2 = cdg(o2,1);
+
 			float area_bbox = float(width2 * height2);
 
 			float ratio_area = float(area_bbox) / float(areas(o2));
 
-			/*if(o2 == 19212 && o1 == 19110){
-				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
-				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
-				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
-				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
-			}
+			if (centro_masas_x_2  < centro_masas_x_1 - dis_x_centro_masas || centro_masas_x_2 > centro_masas_x_1 + dis_x_centro_masas)
+				continue;
 
-			if(o2 == 5110 && o1 == 5037){
-				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
-				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
-				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
-				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
-			}*/
-
+			if (centro_masas_y_2  < centro_masas_y_1 - dis_y_centro_masas || centro_masas_y_2 > centro_masas_y_1 + dis_y_centro_masas)
+				continue;
 
 			if (centro2_x < centro1_x - dis_x_centro || centro2_x > centro2_x + dis_x_centro)
 				continue;
-
 
 			if (centro2_y < centro1_y - dis_y_centro || centro2_y > centro2_y + dis_y_centro)
 				continue;
 
 			//if (ratio_area < 0.98 || ratio_area > 1.02)
 			//	continue;
-
-			/*if(o2 == 19212 && o1 == 19110){
-				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
-				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
-				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
-				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
-			}
-			if(o2 == 5110 && o1 == 5037){
-				std::cout << "xmin de " << o1 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o1 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o1 << " : " << xmax1 << "\n";
-				std::cout << "xmin de " << o2 << " : " << xmin1 << "\n";
-				std::cout << "xmax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "ymin de " << o2 << " : " << ymin1 << "\n";
-				std::cout << "ymax de " << o2 << " : " << xmax1 << "\n";
-				std::cout << "1-> " << bool(xmin1<xmax2) << "\n";
-				std::cout << "1-> " << bool(xmax1 > xmax2) << "\n";
-				std::cout << "1-> " << bool(ymin1 < ymin2) << "\n";
-				std::cout << "1-> " << bool(ymax1 > ymax2) << "\n";
-			}*/
-			/*if(xmin2<xmin1) continue;
-			if(xmax1>xmax2) continue;
-			if(ymin2<ymin1) continue;
-			if(ymax2 < ymax1) continue;*/
 
 			bool flag=false;
 
@@ -1536,7 +1484,7 @@ void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::
 
 }
 
-void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  ){
+void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox,const cimg_library::CImg<int> & areas  ){
 
 
 	for (int o1 = 1; o1< comienzos.size(); o1++){
@@ -1576,7 +1524,7 @@ void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector
 
 }
 
-void target_marks(std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas){
+void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,const cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox, const cimg_library::CImg<int> & areas){
 
 	for(int o1 = 1 ; o1< comienzos_seleccionados.size(); o1 ++){
 
@@ -1638,7 +1586,7 @@ void target_marks(std::vector<std::vector<int> > & comienzos_seleccionados,std::
 
 }
 
-bool search_targets(std::vector<std::vector<std::vector < int > > > & target_marks, int index){
+bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index){
 
 	for (int h = 0; h < target_marks.size(); h++) {
 
@@ -1654,7 +1602,7 @@ return false;
 
 }
 
-void get_coordinates_qr(std::vector<std::vector < int > > & target_marks, cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr){
+void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr){
 
 	for (int h2 = 3; h2 < target_marks.size(); h2++) {
 		for (int h3 = 0; h3 < target_marks[h2].size(); h3++) {

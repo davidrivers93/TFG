@@ -350,6 +350,7 @@
 <pathentry include="/opt/local/include" kind="inc" path="" system="true"/>
 <pathentry include="/opt/X11/include" kind="inc" path="" system="true"/>
 <pathentry include="/usr/local/include" kind="inc" path="" system="true"/>
+<pathentry include="/opt/local/include/mysql55-connector-cpp/cppconn" kind="inc" path="" system="true"/>
 <pathentry include="/Users/David/Desktop/ProyectosC++/TFG/fuentes" kind="inc" path="" system="true"/>
 <pathentry include="/opt/local/include/tesseract" kind="inc" path="" system="true"/>
 <pathentry include="/opt/local/include/leptonica" kind="inc" path="" system="true"/>
@@ -446,34 +447,6 @@
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
-<target name="[exe] pruebaqr" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-j4</buildArguments>
-<buildTarget>pruebaqr</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="[exe] pruebaqr/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-j4</buildArguments>
-<buildTarget>pruebaqr/fast</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="Build" path="[Targets]/[exe] pruebaqr" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-C "/Users/David/Desktop/ProyectosC++/TFG/build_mac" -j4</buildArguments>
-<buildTarget>pruebaqr</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="Clean" path="[Targets]/[exe] pruebaqr" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/cmake</buildCommand>
-<buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/pruebaqr.dir/cmake_clean.cmake"</buildArguments>
-<buildTarget></buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
 <target name="[exe] video" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
@@ -498,6 +471,34 @@
 <target name="Clean" path="[Targets]/[exe] video" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/cmake</buildCommand>
 <buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/video.dir/cmake_clean.cmake"</buildArguments>
+<buildTarget></buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[exe] bbdd_conn" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>bbdd_conn</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[exe] bbdd_conn/fast" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>bbdd_conn/fast</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Build" path="[Targets]/[exe] bbdd_conn" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-C "/Users/David/Desktop/ProyectosC++/TFG/build_mac" -j4</buildArguments>
+<buildTarget>bbdd_conn</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Clean" path="[Targets]/[exe] bbdd_conn" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/cmake</buildCommand>
+<buildArguments>-E chdir "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo" "/opt/local/bin/cmake" -P "CMakeFiles/bbdd_conn.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
@@ -607,6 +608,13 @@
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
+<target name="[obj] bbdd_conn.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>bbdd_conn.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
 <target name="[obj] dorsales.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
@@ -625,13 +633,6 @@
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>
 <buildTarget>make_trainer.cpp.o</buildTarget>
-<stopOnError>true</stopOnError>
-<useDefaultCommand>false</useDefaultCommand>
-</target>
-<target name="[obj] pruebaqr.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
-<buildCommand>/opt/local/bin/gmake</buildCommand>
-<buildArguments>-j4</buildArguments>
-<buildTarget>pruebaqr.cpp.o</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
