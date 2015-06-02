@@ -389,6 +389,7 @@ void calculate(set<string> images, int contador, int modo){
 				int center_x, center_y;
 
 
+
 				CImg<int> bbox_index;
 				bbox_index.resize(1,4);
 
