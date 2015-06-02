@@ -7,13 +7,14 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include <opencv2/opencv.hpp>
-#if cimg_os==2 //Windows
+
+#ifdef _WIN32 //Windows
 #include "getopt.h"
-#include "E:\opencv\opencv\build\include\opencv"
+#include "E:\opencv\opencv\build\include\opencv\opencv.hpp"
 #else
 #include <unistd.h>
 #include <stdlib.h>
+#include <opencv2/opencv.hpp>
 #endif
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
@@ -169,7 +170,7 @@ std::string getOsName()
     #elif __APPLE__ || __MACH__
     return "Mac OSX";
     #elif __linux__
-    reutnr "Linux";
+    return "Linux";
     #elif __FreeBSD__
     return "FreeBSD";
     #else

@@ -1,0 +1,7 @@
+E:/Development/tfg/build_win64_vs/trabajo/CMakeFiles/utilities.dir
+E:/Development/tfg/build_win64_vs/trabajo/CMakeFiles/make_trainer.dir
+E:/Development/tfg/build_win64_vs/CMakeFiles/ALL_BUILD.dir
+E:/Development/tfg/build_win64_vs/CMakeFiles/ZERO_CHECK.dir
+E:/Development/tfg/build_win64_vs/trabajo/CMakeFiles/Qr_proc.dir
+E:/Development/tfg/build_win64_vs/trabajo/CMakeFiles/functions.dir
+E:/Development/tfg/build_win64_vs/trabajo/CMakeFiles/dorsales.dir

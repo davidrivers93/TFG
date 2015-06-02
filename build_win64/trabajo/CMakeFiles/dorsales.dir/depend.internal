@@ -4,9 +4,9 @@
 trabajo/CMakeFiles/dorsales.dir/dorsales.cpp.obj
  E:/Development/tfg/fuentes/CImg.h
  E:/Development/tfg/fuentes/getopt.h
- E:/Development/tfg/fuentes/opencv.h
  E:/Development/tfg/fuentes/proc/misc.h
  E:/Development/tfg/fuentes/proc/proc.h
  E:/Development/tfg/fuentes/trabajo/dorsales.cpp
  E:/Development/tfg/fuentes/trabajo/functions.h
  E:/Development/tfg/fuentes/trabajo/utilities.h
+ E:/opencv/opencv/build/include/opencv2/opencv.hpp

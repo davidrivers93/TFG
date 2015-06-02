@@ -108,8 +108,6 @@ E:/Development/tfg/fuentes/getopt.h
 sys/cdefs.h
 -
 
-E:/Development/tfg/fuentes/opencv.h
-
 E:/Development/tfg/fuentes/proc/misc.h
 
 E:/Development/tfg/fuentes/proc/proc.h
@@ -129,11 +127,13 @@ time.h
 -
 getopt.h
 E:/Development/tfg/fuentes/trabajo/getopt.h
-E:/opencv/opencv/build/include/opencv
+E:/opencv/opencv/build/include/opencv2/opencv.hpp
 -
 unistd.h
 -
 stdlib.h
+-
+opencv2/opencv.hpp
 -
 CImg.h
 E:/Development/tfg/fuentes/trabajo/CImg.h
@@ -141,8 +141,6 @@ functions.h
 E:/Development/tfg/fuentes/trabajo/functions.h
 utilities.h
 E:/Development/tfg/fuentes/trabajo/utilities.h
-opencv.h
-E:/Development/tfg/fuentes/trabajo/opencv.h
 proc/misc.h
 E:/Development/tfg/fuentes/trabajo/proc/misc.h
 proc/proc.h
@@ -153,4 +151,34 @@ vector
 -
 
 E:/Development/tfg/fuentes/trabajo/utilities.h
+
+E:/opencv/opencv/build/include/opencv2/opencv.hpp
+opencv2/core/core_c.h
+E:/opencv/opencv/build/include/opencv2/opencv2/core/core_c.h
+opencv2/core/core.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/core/core.hpp
+opencv2/flann/miniflann.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/flann/miniflann.hpp
+opencv2/imgproc/imgproc_c.h
+E:/opencv/opencv/build/include/opencv2/opencv2/imgproc/imgproc_c.h
+opencv2/imgproc/imgproc.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/imgproc/imgproc.hpp
+opencv2/photo/photo.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/photo/photo.hpp
+opencv2/video/video.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/video/video.hpp
+opencv2/features2d/features2d.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/features2d/features2d.hpp
+opencv2/objdetect/objdetect.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/objdetect/objdetect.hpp
+opencv2/calib3d/calib3d.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/calib3d/calib3d.hpp
+opencv2/ml/ml.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/ml/ml.hpp
+opencv2/highgui/highgui_c.h
+E:/opencv/opencv/build/include/opencv2/opencv2/highgui/highgui_c.h
+opencv2/highgui/highgui.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/highgui/highgui.hpp
+opencv2/contrib/contrib.hpp
+E:/opencv/opencv/build/include/opencv2/opencv2/contrib/contrib.hpp
 
