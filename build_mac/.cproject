@@ -615,6 +615,13 @@
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 </target>
+<target name="[obj] database_mng.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/opt/local/bin/gmake</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>database_mng.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
 <target name="[obj] dorsales.cpp.o" path="trabajo" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/opt/local/bin/gmake</buildCommand>
 <buildArguments>-j4</buildArguments>

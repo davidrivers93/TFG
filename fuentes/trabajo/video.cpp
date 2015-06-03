@@ -52,7 +52,7 @@ int main ( int argc, char **argv )
 	if(image.empty()){ cerr << "ERR: Unable to query image from capture device.\n" << endl;
 		return -1;
 	}
-	
+
 
 
 	// Creation of Intermediate 'Image' Objects required later

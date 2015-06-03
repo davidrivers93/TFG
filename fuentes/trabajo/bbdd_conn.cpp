@@ -30,12 +30,12 @@ int main()
 
     // Hacemos nuestra primera consulta
     statement = connection->createStatement();
-    resultset = statement->executeQuery("SELECT nombre, apellido FROM usuario");
+    resultset = statement->executeQuery("SELECT * FROM races");
 
     // Pintamos el resultado
     while (resultset->next()) {
-        std::cout << " Nombre: " << resultset->getString(1);
-        std::cout << "\n Apellido: " << resultset->getString(2);
+        std::cout << " Nombre: " << resultset->getString(2);
+        std::cout << "\n Apellido: " << resultset->getString(3);
         std::cout << std::endl;
     }
 

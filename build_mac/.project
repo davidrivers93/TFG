@@ -319,6 +319,11 @@
 			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.cpp</location>
 		</link>
 		<link>
+			<name>[Targets]/[lib] functions/Source Files/database_mng.cpp</name>
+			<type>1</type>
+			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp</location>
+		</link>
+		<link>
 			<name>[Targets]/[lib] functions/Header Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>

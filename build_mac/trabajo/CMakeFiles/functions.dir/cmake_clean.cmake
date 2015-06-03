@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/functions.dir/functions.cpp.o"
   "CMakeFiles/functions.dir/Qr_proc.cpp.o"
+  "CMakeFiles/functions.dir/database_mng.cpp.o"
   "libfunctions.pdb"
   "libfunctions.a"
 )

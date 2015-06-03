@@ -48,9 +48,11 @@ void busqueda_tercera_cifra(std::vector<std::vector<int> > & comienzos_seleccion
 int OCR(cimg_library::CImg<float> & vectores, cimg_library::CImg<float> & lowres);
 void calc_centro_masas(cimg_library::CImg<int> bbox, int &center_x, int &center_y);
 void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &anch_x, int &anch_y);
-void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg);
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg, const std::vector < int > & v_candidates);
 void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,const cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox, const cimg_library::CImg<int> & areas);
 void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox,const cimg_library::CImg<int> & areas  );
 bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index);
 void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr);
+void candidates(std::vector< int> & candidates, const cimg_library::CImg <int> & seg, const cimg_library::CImg<int> & bbox );
+
 #endif /* SEGMENTUTILS_H_ */

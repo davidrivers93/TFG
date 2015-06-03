@@ -274,6 +274,30 @@ bbdd_conn.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.s
 .PHONY : bbdd_conn.cpp.s
 
+database_mng.o: database_mng.cpp.o
+.PHONY : database_mng.o
+
+# target to build an object file
+database_mng.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.o
+.PHONY : database_mng.cpp.o
+
+database_mng.i: database_mng.cpp.i
+.PHONY : database_mng.i
+
+# target to preprocess a source file
+database_mng.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.i
+.PHONY : database_mng.cpp.i
+
+database_mng.s: database_mng.cpp.s
+.PHONY : database_mng.s
+
+# target to generate assembly for a file
+database_mng.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.s
+.PHONY : database_mng.cpp.s
+
 dorsales.o: dorsales.cpp.o
 .PHONY : dorsales.o
 
@@ -418,6 +442,9 @@ help:
 	@echo "... bbdd_conn.o"
 	@echo "... bbdd_conn.i"
 	@echo "... bbdd_conn.s"
+	@echo "... database_mng.o"
+	@echo "... database_mng.i"
+	@echo "... database_mng.s"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"

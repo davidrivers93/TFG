@@ -50,7 +50,7 @@ void qr_processing(const CImg<unsigned char> & img, std::vector<std::vector<std:
 		CImg<unsigned char> image_crop(img);
 		image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]);
 
-		image_crop.display("Prueba", false);
+		//image_crop.display("Prueba", false);
 
 		Mat image2 = image_crop.get_MAT();
 
@@ -84,8 +84,9 @@ void qr_processing(const CImg<unsigned char> & img, std::vector<std::vector<std:
 			cout << "Angle: " << r.angle << endl;
 			std::string temp = symbol->get_data();
 			std::cerr << "Simbolo: " << temp << "\n";
-
-			string_result.push_back(temp);
+			if(temp.length() != 0){
+				string_result.push_back(temp);
+			}
 		}
 
 

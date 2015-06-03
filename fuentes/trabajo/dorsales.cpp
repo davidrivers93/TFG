@@ -27,9 +27,8 @@ using namespace zbar;
 
 #include "functions.h"
 #include "utilities.h"
-#include "proc/misc.h"
-#include "proc/proc.h"
 #include "Qr_proc.h"
+#include "database_mng.h"
 
 
 using namespace cimg_library;
@@ -37,11 +36,13 @@ using namespace std;
 using namespace cv;
 
 
-
 int showfiles(set<string> images);
-void calculate(set<string> images, int contador, int modo);
+void calculate(set<string> images, int contador);
 void create_txt_file();
+void list_races(std::vector < string > & list_races, database_mng & database);
 std::string getOsName();
+
+
 
 /* DORSALES.CPP - David Rios Benet
  * PROGRAMA PRINCIPAL DEL PROYECTO.
@@ -72,34 +73,9 @@ int main(int argc, char **argv) {
 	double capt_width = 320;
 	double capt_height = 240;
 	CImgDisplay disp_cimg;
+	database_mng database;
 
-	/*while ((opt = getopt(argc, argv, "hW:H:")) != -1) { //
-	 switch (opt) {
-	 case 'h':
-	 ayuda();
-	 exit(0);
-	 break;
-	 case 'W':
-	 capt_width = atoi(optarg);
-	 break;
-	 case 'H':
-	 capt_height = atoi(optarg);
-	 break;
-	 case 'i':
-	 std::string input = argv[optind];
-	 break;
-	 }
-	 }*/
-
-	const int modo = cimg_option("-m", false, 0);
 	const bool help = cimg_option("-h", false, 0);
-
-	if (modo==0)
-		std::cout << "El modo de ejecucion es OCR. \n";
-	if(modo==1)
-		std::cout << "El modo de ejecucion es tesseract. \n";
-	if(modo==2)
-		std::cout << "Se ejectuaran ambos modos. \n";
 
 	std::string input = "prueba.txt";//argv[optind];
 
@@ -113,34 +89,52 @@ int main(int argc, char **argv) {
 		 exit(0);
 	 }
 
+	database.connect();
 
-	//Creamos el txt file que nos parsea las fotos de la carpeta
 	create_txt_file();
-	// ==== Determine kind of input ===========
-	//int camera_number = isCamera(input);
-	// camera == -1 if it is not a camera
-	//bool is_Video = isVideo(input);
-
+	std::vector < string > vector_list_races;
+	list_races(vector_list_races, database);
 	set<string> images = isImages(input);
 
-	/*if (camera_number >= 0)
-		std::cout << "It is Camera number :" << camera_number << "\n";
-
-	if (is_Video)
-		std::cout << "It is VideoFile :" << input << "\n";*/
 	int contador = showfiles(images);
 
-	calculate(images, contador, modo);
+	std::cerr << "Datos carrera: " << endl;
+
+	std::cerr << "\t" << "Nombre carrera: " << database.race_data_query.race_data << "\n";
+	std::cerr << "\t" << "Fecha carrera: " << database.race_data_query.date_data << endl;
+
+	calculate(images, contador);
 
 	if(contador == 0){
 		std::cout << "No hay ninguna imagen a procesar. \n";
 		exit(0);
 	}
 
-	//LLAMARIAMOS AL ROUTER DE PROC/PROC QUE RECIBE LA LISTA DE IMAGENES
-	//router();
-
 }
+
+void list_races(std::vector < string > & list_races, database_mng & database ){
+
+	string db_races = "prueba";
+	database.switchDb(db_races);
+    database.execute("SELECT * FROM races");
+
+    while (database.fetch()) {
+    	std::cout << " Race " << database.print(1) << " -> " << database.print(2) << " " << database.print(3) << "\n";
+
+
+    }
+    std::cerr << "Elige la carrera: \n";
+    string index_race;
+    std::cin >> index_race;
+    string query_race = "Select * FROM races WHERE idraces= \'" + index_race + "\'";
+    database.execute(query_race);
+    database.fetch();
+	database.race_data_query.race_data = database.print(2);
+	database.race_data_query.date_data = database.print(3);
+
+    std::cout << std::endl;
+}
+
 
 int showfiles(set<string> images){
 
@@ -196,7 +190,7 @@ void create_txt_file(){
 
 }
 
-void calculate(set<string> images, int contador, int modo){
+void calculate(set<string> images, int contador){
 
 	CImg<int> contenedor_numobj(contador);
 	CImg<int> contenedor_tiempo(contador);
@@ -236,6 +230,12 @@ void calculate(set<string> images, int contador, int modo){
 
 			segmentacion(img_out_binarizacion, seg, bbox, areas, cdg);
 
+			//seg.display("Segmentada", false);
+			std::vector<int> v_candidates;
+			candidates(v_candidates, seg, bbox);
+
+			std::cerr << "Candidatos iniciales: " << v_candidates.size() << endl;
+
 			std::vector<std::vector<int> > comienzos;
 
 			/*busqueda_marcadores
@@ -246,8 +246,8 @@ void calculate(set<string> images, int contador, int modo){
 			 * 	3-> Que el marcador pequeño este dentro del grande.
 			 */
 
-			busqueda_marcadores(bbox, comienzos, areas,cdg);
-
+			busqueda_marcadores(bbox, comienzos, areas,cdg, v_candidates);
+			std::cerr << "Candidatos de comienzos: " << comienzos.size() << endl;
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
 			/*Seleccion marcadores
@@ -256,7 +256,6 @@ void calculate(set<string> images, int contador, int modo){
 			 *	1->Esten centrados
 			 *	2->Que el area del bbox no sea 1,2 veces el area real del objeto.
 			 */
-
 			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
 
 			std::cout << "Tam comienzos seleccionados: " << comienzos_seleccionados.size() << endl;
@@ -266,47 +265,9 @@ void calculate(set<string> images, int contador, int modo){
 			/* Busca trios de marcadores QR respecto de los comienzos seleccionados.
 			 *
 			 */
+
 			target_marks(comienzos_seleccionados, target_marks_index ,seg, bbox, areas);
 
-			std::cout << "Tamaño target: " << target_marks_index.size() << endl;
-			for (int h = 0; h < target_marks_index.size(); h++) {
-				std::cout << "Numero targets " << target_marks_index.size() << endl;
-				std::cout << "Target numero " << h << endl;
-
-				for (int h2 = 3; h2 < target_marks_index[h].size(); h2++) {
-					std::cout << "Tamaño: " << target_marks_index[h][h2].size() << endl;
-					std::cout << "\t Pareja numero " << h2 << endl;
-					for(int h3=0; h3 < target_marks_index[h][h2].size();h3++){
-						std::cout << "\t\t " << target_marks_index[h][h2][h3] << endl;
-					}
-				}
-				std::cout << "\n";
-			}
-
-			/*std::cout << "Tamaño comienzos: "<< comienzos.size() << "\n";
-			seleccion_comienzos(comienzos, comienzos_seleccionados, seg, bbox,areas);
-
-
-			//SACAMOS POR PANTALLA LAS PAREJAS DE DORSALES SELECCIONADAS PARA PROCESAR
-			std::cout << "Comienzos seleccionados.\n";
-
-			std::cout << "Tamaño comienzos selecccionados: " << comienzos_seleccionados.size() << endl;
-			for (int h = 0; h < comienzos_seleccionados.size(); h++) {
-				for (int h2 = 0; h2 < comienzos_seleccionados[h].size(); h2++) {
-					if (h2 == 0)
-						std::cout << "Pareja: "
-								<< comienzos_seleccionados[h][h2];
-					if (h2 != 0)
-						std::cout << " " << comienzos_seleccionados[h][h2];
-				}
-				std::cout << "\n";
-			}*/
-
-
-			//BUSCAMOS UNA POSIBLE TERCERA CIFRA PARA CADA PAREJA DE DORSAL SELECCIONADA
-			//busqueda_tercera_cifra(comienzos_seleccionados, bbox);
-
-			//std::cout << "Comienzos seleccionados con tercera cifra.\n";
 			int numobj = bbox.height();
 			CImg<int> tabla(numobj);
 			tabla.fill(0);
@@ -319,76 +280,30 @@ void calculate(set<string> images, int contador, int modo){
 						tabla[indice_objeto] = 1;
 					}
 				}
-				//std::cout << "\n";
 			}
 
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
-			seg2.display("A", false);
+			//seg2.display("A", false);
 
-			std::vector < String > string_result(target_marks_index.size());
-			qr_processing(img,target_marks_index, bbox, string_result) ;
-
-			std::cout << "Vuelvo";
-
-
-			seg2.save("temp.jpg");
-			std::cout << "Imagen guardada temporalmente.";
-
-			char txt[100];
-			int interpolation_method = 2;
-
-			//ZONA DE DETECCION DE CADA DIGITO POR PARTE DEL OCR
-			/*for (int puntero_OCR1 = 0;
-					puntero_OCR1 < comienzos_seleccionados.size();
-					puntero_OCR1++) {
-
-				std::vector<int> vector_bajo_nivel;
-
-				for (int puntero_OCR2 = 0;
-						puntero_OCR2
-								< comienzos_seleccionados[puntero_OCR1].size();
-						puntero_OCR2++) {
-
-					int indice_objeto =
-							comienzos_seleccionados[puntero_OCR1][puntero_OCR2];
-
-					CImg<unsigned char> objeto_extraido;
-					extractObject(seg, bbox, indice_objeto, 0, objeto_extraido);
-					sprintf(txt, "Object %d", indice_objeto);
-					//objeto_extraido.display("object", false);
-					CImg<float> lowres = objeto_extraido;
-					lowres.resize(3, 3, -100, -100, interpolation_method);
-					//lowres.display("Lowres",false);
-					lowres.transpose();
-
-					int digito = OCR(vectores, lowres);
-					std::cout << "Digito detectado: " << digito << "\n";
-
-					vector_bajo_nivel.push_back(digito);
-
+			std::vector < String > string_result;
+			if(target_marks_index.size()!=0){
+				qr_processing(img,target_marks_index, bbox, string_result) ;
+				if(string_result.size() == 0){
+					std::cerr << "No hemos encontrado ningun QR. \n";
 				}
-
-				vector_nivel_medio.push_back(vector_bajo_nivel);
-			}*/
-
-			//Zona de deteccion por parte de tesseract
-
-			//IMPLEMENTAR IMAGENES POR SEPARADO COGIENDO EN CADA IMAGEN RISTRAS DE 2 O 3 OBJETOS. HACERRRR
-
-
-			char *outText;
+			}
+			else{
+				std::cerr << "No hay candidatos. \n";
+			}
 
 			contenedor_dorsales.push_back(vector_nivel_medio);
 			clock_t t1 = clock();
 
 			totalTime = t1 - t0;
 
-			//Dividimos por clocks_per_sec para sacar el tiempo real y no el de iteraciones!
-
 			totalTime /= CLOCKS_PER_SEC;
 
-			//guardamos el tiempo en su puntero correcto.
 			contenedor_tiempo[contador2] = totalTime;
 
 		}
