@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o"
+  "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir/database_mng.cpp.o"
   "/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.cpp" "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir/functions.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
@@ -19,6 +20,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/local/include"
   "/opt/X11/include"
   "/usr/local/include"
+  "/opt/local/include/mysql55-connector-cpp/cppconn"
   "/Users/David/Desktop/ProyectosC++/TFG/fuentes"
   "/opt/local/include/tesseract"
   "/opt/local/include/leptonica/."

@@ -1,11 +1,11 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer video pruebaqr)
+SET (MIXED_PROGRAMS dorsales make_trainer video bbdd_conn)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
 pkg_check_modules(PC_ZBAR QUIET zbar)
 
-add_library(functions functions.cpp Qr_proc Qr_proc.cpp)
+add_library(functions functions.cpp Qr_proc Qr_proc.cpp database_mng database_mng.cpp)
 
 SET(UTILITIES_SOURCES utilities)
 foreach(src ${UTILITIES_SOURCES} )
@@ -20,6 +20,7 @@ foreach(program ${MIXED_PROGRAMS})
     target_link_libraries(${program} ${OpenCV_LIBS})
    	target_link_libraries(${program} ${TESSERACT_LIBRARIES})
 	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
+	target_link_libraries(${program} mysqlcppconn)
 endforeach(program)
 
 

@@ -56,19 +56,19 @@ CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 # Directory level rules for directory trabajo
 
 # Convenience name for "all" pass in the directory.
+trabajo/all: trabajo/CMakeFiles/bbdd_conn.dir/all
 trabajo/all: trabajo/CMakeFiles/dorsales.dir/all
 trabajo/all: trabajo/CMakeFiles/functions.dir/all
 trabajo/all: trabajo/CMakeFiles/make_trainer.dir/all
-trabajo/all: trabajo/CMakeFiles/pruebaqr.dir/all
 trabajo/all: trabajo/CMakeFiles/utilities.dir/all
 trabajo/all: trabajo/CMakeFiles/video.dir/all
 .PHONY : trabajo/all
 
 # Convenience name for "clean" pass in the directory.
+trabajo/clean: trabajo/CMakeFiles/bbdd_conn.dir/clean
 trabajo/clean: trabajo/CMakeFiles/dorsales.dir/clean
 trabajo/clean: trabajo/CMakeFiles/functions.dir/clean
 trabajo/clean: trabajo/CMakeFiles/make_trainer.dir/clean
-trabajo/clean: trabajo/CMakeFiles/pruebaqr.dir/clean
 trabajo/clean: trabajo/CMakeFiles/utilities.dir/clean
 trabajo/clean: trabajo/CMakeFiles/video.dir/clean
 .PHONY : trabajo/clean
@@ -78,14 +78,50 @@ trabajo/preinstall:
 .PHONY : trabajo/preinstall
 
 #=============================================================================
+# Target rules for target trabajo/CMakeFiles/bbdd_conn.dir
+
+# All Build rule for target.
+trabajo/CMakeFiles/bbdd_conn.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/bbdd_conn.dir/all: trabajo/CMakeFiles/utilities.dir/all
+	$(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/depend
+	$(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  1
+	@echo "Built target bbdd_conn"
+.PHONY : trabajo/CMakeFiles/bbdd_conn.dir/all
+
+# Include target in all.
+all: trabajo/CMakeFiles/bbdd_conn.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+trabajo/CMakeFiles/bbdd_conn.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bbdd_conn.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
+.PHONY : trabajo/CMakeFiles/bbdd_conn.dir/rule
+
+# Convenience name for target.
+bbdd_conn: trabajo/CMakeFiles/bbdd_conn.dir/rule
+.PHONY : bbdd_conn
+
+# clean rule for target.
+trabajo/CMakeFiles/bbdd_conn.dir/clean:
+	$(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/clean
+.PHONY : trabajo/CMakeFiles/bbdd_conn.dir/clean
+
+# clean rule for target.
+clean: trabajo/CMakeFiles/bbdd_conn.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target trabajo/CMakeFiles/dorsales.dir
 
 # All Build rule for target.
-trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/utilities.dir/all
 trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/utilities.dir/all
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  2
 	@echo "Built target dorsales"
 .PHONY : trabajo/CMakeFiles/dorsales.dir/all
 
@@ -95,7 +131,7 @@ all: trabajo/CMakeFiles/dorsales.dir/all
 
 # Build rule for subdir invocation for target.
 trabajo/CMakeFiles/dorsales.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
@@ -120,7 +156,7 @@ clean: trabajo/CMakeFiles/dorsales.dir/clean
 trabajo/CMakeFiles/functions.dir/all:
 	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  3 4 5
 	@echo "Built target functions"
 .PHONY : trabajo/CMakeFiles/functions.dir/all
 
@@ -130,7 +166,7 @@ all: trabajo/CMakeFiles/functions.dir/all
 
 # Build rule for subdir invocation for target.
 trabajo/CMakeFiles/functions.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
 .PHONY : trabajo/CMakeFiles/functions.dir/rule
@@ -152,11 +188,11 @@ clean: trabajo/CMakeFiles/functions.dir/clean
 # Target rules for target trabajo/CMakeFiles/make_trainer.dir
 
 # All Build rule for target.
-trabajo/CMakeFiles/make_trainer.dir/all: trabajo/CMakeFiles/utilities.dir/all
 trabajo/CMakeFiles/make_trainer.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/make_trainer.dir/all: trabajo/CMakeFiles/utilities.dir/all
 	$(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  6
 	@echo "Built target make_trainer"
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/all
 
@@ -166,7 +202,7 @@ all: trabajo/CMakeFiles/make_trainer.dir/all
 
 # Build rule for subdir invocation for target.
 trabajo/CMakeFiles/make_trainer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
 .PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
@@ -185,49 +221,13 @@ clean: trabajo/CMakeFiles/make_trainer.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target trabajo/CMakeFiles/pruebaqr.dir
-
-# All Build rule for target.
-trabajo/CMakeFiles/pruebaqr.dir/all: trabajo/CMakeFiles/utilities.dir/all
-trabajo/CMakeFiles/pruebaqr.dir/all: trabajo/CMakeFiles/functions.dir/all
-	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/depend
-	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  5
-	@echo "Built target pruebaqr"
-.PHONY : trabajo/CMakeFiles/pruebaqr.dir/all
-
-# Include target in all.
-all: trabajo/CMakeFiles/pruebaqr.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-trabajo/CMakeFiles/pruebaqr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/pruebaqr.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
-.PHONY : trabajo/CMakeFiles/pruebaqr.dir/rule
-
-# Convenience name for target.
-pruebaqr: trabajo/CMakeFiles/pruebaqr.dir/rule
-.PHONY : pruebaqr
-
-# clean rule for target.
-trabajo/CMakeFiles/pruebaqr.dir/clean:
-	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/clean
-.PHONY : trabajo/CMakeFiles/pruebaqr.dir/clean
-
-# clean rule for target.
-clean: trabajo/CMakeFiles/pruebaqr.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target trabajo/CMakeFiles/utilities.dir
 
 # All Build rule for target.
 trabajo/CMakeFiles/utilities.dir/all:
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  7
 	@echo "Built target utilities"
 .PHONY : trabajo/CMakeFiles/utilities.dir/all
 
@@ -259,11 +259,11 @@ clean: trabajo/CMakeFiles/utilities.dir/clean
 # Target rules for target trabajo/CMakeFiles/video.dir
 
 # All Build rule for target.
-trabajo/CMakeFiles/video.dir/all: trabajo/CMakeFiles/utilities.dir/all
 trabajo/CMakeFiles/video.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/video.dir/all: trabajo/CMakeFiles/utilities.dir/all
 	$(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  7
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  8
 	@echo "Built target video"
 .PHONY : trabajo/CMakeFiles/video.dir/all
 
@@ -273,7 +273,7 @@ all: trabajo/CMakeFiles/video.dir/all
 
 # Build rule for subdir invocation for target.
 trabajo/CMakeFiles/video.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/video.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles 0
 .PHONY : trabajo/CMakeFiles/video.dir/rule

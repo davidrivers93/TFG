@@ -38,17 +38,24 @@ if(NOT WIN32)
 	link_directories(${JPEG_LIB_DIRS})
 	include_directories(${X11_INCLUDE_DIR})	
 	include_directories("/usr/local/include")
+
 endif()
 
 
 pkg_check_modules(TESSERACT tesseract REQUIRED)
 pkg_check_modules(PC_ZBAR QUIET zbar)
+pkg_check_modules(PC_ZBAR QUIET zbar)  
 
+##MYSQL-CONNECTOR
+include_directories("/opt/local/include/mysql55-connector-cpp/cppconn")
+link_directories("/opt/local/lib/mysql55-connector-cpp")
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${TESSERACT_INCLUDE_DIRS})
 include_directories(${PC_ZBAR_INCLUDE_DIRS})
+
+
 
 if(NOT WIN32)
 	include_directories(${X11_INCLUDE_DIR})
