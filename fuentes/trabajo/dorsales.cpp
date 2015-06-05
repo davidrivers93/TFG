@@ -125,6 +125,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	std::cerr << "El indice es " << index_bbdd_races << endl;
 	string index_race;
 	std::cin >> index_race;
+
 	if(index_race == "0"){
 
 		std::cout << "Introduce el nombre de la carrera : ";

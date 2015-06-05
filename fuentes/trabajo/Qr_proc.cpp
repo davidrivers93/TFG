@@ -64,7 +64,7 @@ void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> &
 		//img_circles.display("Circulos", false);
 
 		CImg<unsigned char> img_crop_object(seg);
-		img_crop_object.get_append(img_circles, 'x').display("false",false);
+		img_crop_object.get_append(img_circles.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]) ,'x').display("false",false);
 
 		Mat image2 = image_crop.get_MAT();
 
