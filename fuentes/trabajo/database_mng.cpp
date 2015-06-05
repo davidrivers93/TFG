@@ -28,13 +28,19 @@ database_mng::~database_mng()
 
 void database_mng::manageException(sql::SQLException& e)
 {
-    if (e.getErrorCode() != 0) {
+
+	if(e.getErrorCode() == 1064) {
+		database_mng::flag_created = true;
+	}
+
+    if (e.getErrorCode() != 1064) {
         cout << "# ERR: SQLException in " << __FILE__;
         cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << endl;
         cout << "# ERR: " << e.what();
         cout << " (MySQL error code: " << e.getErrorCode();
         cout << ", SQLState: " << e.getSQLState() << " )" << endl;
     }
+
 }
 
 void database_mng::connect()
@@ -71,6 +77,8 @@ void database_mng::prepare(const string& query)
         prep_stmt = con->prepareStatement(query);
     } catch (sql::SQLException &e) {
         manageException(e);
+
+
     }
 }
 

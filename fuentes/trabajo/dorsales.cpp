@@ -14,12 +14,13 @@
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"
+#include <sstream>
+#include <string>
 
 #include <zbar.h>
 using namespace zbar;
 
 #define CARACTER_SEPARADOR_CSV ";"	// Carácter para separar campos en archivo csv. España = ";" pero en el resto es ",".
-
 
 /* OWN LIBRARIES
  *
@@ -30,19 +31,15 @@ using namespace zbar;
 #include "Qr_proc.h"
 #include "database_mng.h"
 
-
 using namespace cimg_library;
 using namespace std;
 using namespace cv;
 
-
 int showfiles(set<string> images);
 void calculate(set<string> images, int contador);
 void create_txt_file();
-void list_races(std::vector < string > & list_races, database_mng & database);
+void list_races(std::vector<string> & list_races, database_mng & database);
 std::string getOsName();
-
-
 
 /* DORSALES.CPP - David Rios Benet
  * PROGRAMA PRINCIPAL DEL PROYECTO.
@@ -62,7 +59,7 @@ void ayuda() {
 	std::cout << "Opciones: \n";
 	std::cout << " \t opcion -h : Ayud \n";
 	std::cout << " \t opcion -m : Modo de ejecucion -> \n";
-	std::cout<< "\t \t 0 = OCR\n";
+	std::cout << "\t \t 0 = OCR\n";
 	std::cout << " \t \t 1 = tesseract \n";
 	std::cout << " \t \t 2 = OCR & tesseract \n";
 }
@@ -77,22 +74,22 @@ int main(int argc, char **argv) {
 
 	const bool help = cimg_option("-h", false, 0);
 
-	std::string input = "prueba.txt";//argv[optind];
+	std::string input = "prueba.txt"; //argv[optind];
 
 	//Si optind==0 salta ayuda
 	if (help) {
-	 ayuda();
-	 std::cout << "¿Quieres seguir utilizando el programa? SI/NO .\n";
-	 string opt;
-	 cin >> opt;
-	 if(opt == "NO")
-		 exit(0);
-	 }
+		ayuda();
+		std::cout << "¿Quieres seguir utilizando el programa? SI/NO .\n";
+		string opt;
+		cin >> opt;
+		if (opt == "NO")
+			exit(0);
+	}
 
 	database.connect();
 
 	create_txt_file();
-	std::vector < string > vector_list_races;
+	std::vector<string> vector_list_races;
 	list_races(vector_list_races, database);
 	set<string> images = isImages(input);
 
@@ -105,38 +102,91 @@ int main(int argc, char **argv) {
 
 	calculate(images, contador);
 
-	if(contador == 0){
+	if (contador == 0) {
 		std::cout << "No hay ninguna imagen a procesar. \n";
 		exit(0);
 	}
 
 }
 
-void list_races(std::vector < string > & list_races, database_mng & database ){
+void list_races(std::vector<string> & list_races, database_mng & database) {
 
 	string db_races = "prueba";
 	database.switchDb(db_races);
-    database.execute("SELECT * FROM races");
+	database.database_name = db_races;
+	database.execute("SELECT * FROM races");
+	int index_bbdd_races = 0;
+	while (database.fetch()) {
+		std::cout << " Race " << database.print(1) << " -> " << database.print(2) << " " << database.print(3) << " " << database.print(4) << "\n";
+		index_bbdd_races++;
+	}
+	std::cerr << "En el caso de que la carrera no este metida en la base de datos escribe 0." << endl;
+	std::cerr << "Elige la carrera: \n";
+	std::cerr << "El indice es " << index_bbdd_races << endl;
+	string index_race;
+	std::cin >> index_race;
+	if(index_race == "0"){
 
-    while (database.fetch()) {
-    	std::cout << " Race " << database.print(1) << " -> " << database.print(2) << " " << database.print(3) << "\n";
+		std::cout << "Introduce el nombre de la carrera : ";
+		string new_race_name;
+		std::cin >> new_race_name;
+		database.race_data_query.race_data = new_race_name;
+		std::cerr << "Introduce la fecha de la carrera (formato dd-mm-aa 31-07-15 ) : ";
+		string new_race_date;
+		std::cin >> new_race_date;
+		database.race_data_query.race_data = new_race_date;
+		index_bbdd_races++;
+
+		stringstream new_race_table;
+		new_race_table << new_race_date.at(0) << new_race_date.at(1) << new_race_name.at(0) << new_race_name.at(1) << new_race_date.at(6) << new_race_date.at(7);
+		string new_race_tables = new_race_table.str();
+		database.prepare("INSERT INTO prueba.races (idraces, races_name, races_date, race_dbname) VALUES (?, ?, ?, ?)");
+		database.setInt(1,index_bbdd_races);
+		database.setString(2,new_race_name);
+		database.setString(3,new_race_date);
+		database.setString(4,new_race_tables);
+
+		//actualizo struct
+		database.race_data_query.race_data = new_race_name;
+		database.race_data_query.date_data =  new_race_date;
+		database.race_data_query.tablen_data = new_race_tables;
+
+		database.execute();
 
 
-    }
-    std::cerr << "Elige la carrera: \n";
-    string index_race;
-    std::cin >> index_race;
-    string query_race = "Select * FROM races WHERE idraces= \'" + index_race + "\'";
-    database.execute(query_race);
-    database.fetch();
-	database.race_data_query.race_data = database.print(2);
-	database.race_data_query.date_data = database.print(3);
+	}
+	else{
 
-    std::cout << std::endl;
+		string query_race = "Select * FROM races WHERE idraces= \'" + index_race + "\'";
+		database.execute(query_race);
+		database.fetch();
+		database.race_data_query.race_data = database.print(2);
+		database.race_data_query.date_data = database.print(3);
+		database.race_data_query.tablen_data = database.print(4);
+
+		//std::cout << new_race_date.at(0) << new_race_date.at(1) << new_race_name.at(0) << new_race_name.at(1) << new_race_date.at(6) << new_race_date.at(7);
+	}
+
+	//Compruebo si existe la tabla de la carrera
+
+	database.prepare("SELECT * FROM ?");
+	database.setString(1, database.race_data_query.tablen_data);
+	database.execute();
+
+	std::cout << "Valor del flag " << database.flag_created << endl;
+	//CREAMOS LA TABLA
+	/*if(database.flag_created){
+
+		database.prepare("CREATE TABLE ?.? (`dorsal` INT NOT NULL,`path_img` VARCHAR(45) NOT NULL, PRIMARY KEY (`dorsal` , `path_img`)");
+		database.setString(1, db_races);
+		database.setString(2, database.race_data_query.tablen_data);
+		database.execute();
+		std::cout << "Tabla creada." << endl;
+	}*/
+	//td::cout << endl;
 }
 
-
-int showfiles(set<string> images){
+int showfiles(set<string> images) {
 
 	int contador = 0;
 	if (images.size()) {
@@ -156,41 +206,39 @@ int showfiles(set<string> images){
 	return contador;
 }
 
-std::string getOsName()
-{
-    #ifdef _WIN32
-    return "Windows 32-bit";
-    #elif _WIN64
-    return "Windows 64-bit";
-    #elif __unix || __unix__
-    return "Unix";
-    #elif __APPLE__ || __MACH__
-    return "Mac OSX";
-    #elif __linux__
-    reutnr "Linux";
-    #elif __FreeBSD__
-    return "FreeBSD";
-    #else
-    return "Other";
-    #endif
+std::string getOsName() {
+#ifdef _WIN32
+	return "Windows 32-bit";
+#elif _WIN64
+	return "Windows 64-bit";
+#elif __unix || __unix__
+	return "Unix";
+#elif __APPLE__ || __MACH__
+	return "Mac OSX";
+#elif __linux__
+	reutnr "Linux";
+#elif __FreeBSD__
+	return "FreeBSD";
+#else
+	return "Other";
+#endif
 }
 
-void create_txt_file(){
+void create_txt_file() {
 
 	/* create_txt_file
 	 * Funcion que crea el .txt de apoyo
 	 * DEBERIA DE ESTAR EN PROC/MISC
 	 */
 	std::string OS = getOsName();
-	if(OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
+	if (OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
 		system("ls *.jpg > prueba.txt");
 	else
 		system("dir *.jpg> prueba.txt");
 
-
 }
 
-void calculate(set<string> images, int contador){
+void calculate(set<string> images, int contador) {
 
 	CImg<int> contenedor_numobj(contador);
 	CImg<int> contenedor_tiempo(contador);
@@ -203,13 +251,15 @@ void calculate(set<string> images, int contador){
 	if (images.size()) {
 		std::set<string>::iterator it;
 		int contador2 = 0;
-
-		for (it = images.begin(); it != images.end(); it++, contador2++) {
+		int index = 1;
+		for (it = images.begin(); it != images.end(); it++, contador2++, index++) {
 			clock_t t0 = clock();
 			vector_nivel_medio.clear();
 			string imgname = *it;
 			CImg<unsigned char> img(imgname.c_str());
 			CImg<unsigned char> img_out_binarizacion = img;
+			img.display("Imagen de entrada", false);
+			std::cout << "Procesando imagen numero " << index << endl;
 
 			/* Binarizacion adaptativa
 			 *
@@ -227,13 +277,14 @@ void calculate(set<string> images, int contador){
 			 * Segmenta la imagen binarizada mediante los vecinos. Devuelve la imagen segmentada,
 			 * los bbox y las areas de cada objeto.
 			 */
-
+			std::cerr << "Entro a segmentar" << endl;
 			segmentacion(img_out_binarizacion, seg, bbox, areas, cdg);
-
-			//seg.display("Segmentada", false);
+			std::cerr << "Salgo a segmentar" << endl;
+			seg.display("Segmentada", false);
 			std::vector<int> v_candidates;
+			std::cerr << "Entro a candidates" << endl;
 			candidates(v_candidates, seg, bbox);
-
+			std::cerr << "Salgo de candidates" << endl;
 			std::cerr << "Candidatos iniciales: " << v_candidates.size() << endl;
 
 			std::vector<std::vector<int> > comienzos;
@@ -245,8 +296,9 @@ void calculate(set<string> images, int contador){
 			 * 	2-> los centros de masas sean parecidos.
 			 * 	3-> Que el marcador pequeño este dentro del grande.
 			 */
-
-			busqueda_marcadores(bbox, comienzos, areas,cdg, v_candidates);
+			std::cerr << "Busco marcadores" << endl;
+			busqueda_marcadores(bbox, comienzos, areas, cdg, v_candidates);
+			std::cerr << "Salgo de buscar" << endl;
 			std::cerr << "Candidatos de comienzos: " << comienzos.size() << endl;
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
@@ -256,17 +308,19 @@ void calculate(set<string> images, int contador){
 			 *	1->Esten centrados
 			 *	2->Que el area del bbox no sea 1,2 veces el area real del objeto.
 			 */
-			seleccion_marcadores(comienzos, comienzos_seleccionados, seg,bbox,areas);
-
+			std::cerr << "Entro a seleccion" << endl;
+			seleccion_marcadores(comienzos, comienzos_seleccionados, seg, bbox, areas);
+			std::cerr << "Salgo de seleccion" << endl;
 			std::cout << "Tam comienzos seleccionados: " << comienzos_seleccionados.size() << endl;
 
-			std::vector<std::vector<std::vector <int > > > target_marks_index;
+			std::vector<std::vector<std::vector<int> > > target_marks_index;
 
 			/* Busca trios de marcadores QR respecto de los comienzos seleccionados.
 			 *
 			 */
-
-			target_marks(comienzos_seleccionados, target_marks_index ,seg, bbox, areas);
+			std::cerr << "Entro a target" << endl;
+			target_marks(comienzos_seleccionados, target_marks_index, seg, bbox, areas);
+			std::cerr << "Salgo de target" << endl;
 
 			int numobj = bbox.height();
 			CImg<int> tabla(numobj);
@@ -284,75 +338,21 @@ void calculate(set<string> images, int contador){
 
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
-			//seg2.display("A", false);
-
-			std::vector < String > string_result;
-			if(target_marks_index.size()!=0){
-				qr_processing(img,target_marks_index, bbox, string_result) ;
-				if(string_result.size() == 0){
+			seg2.display("A", false);
+			std::cerr << "Entro a qr_processing." << endl;
+			std::vector<String> string_result;
+			if (target_marks_index.size() != 0) {
+				qr_processing(img, seg2, target_marks_index, bbox, string_result);
+				if (string_result.size() == 0) {
 					std::cerr << "No hemos encontrado ningun QR. \n";
 				}
-			}
-			else{
+			} else {
 				std::cerr << "No hay candidatos. \n";
 			}
-
-			contenedor_dorsales.push_back(vector_nivel_medio);
-			clock_t t1 = clock();
-
-			totalTime = t1 - t0;
-
-			totalTime /= CLOCKS_PER_SEC;
-
-			contenedor_tiempo[contador2] = totalTime;
+			std::cerr << "Salgo de qr_processing." << endl;
 
 		}
 		system("rm -rf temp.jpg");
-		//xml_write(&contenedor_dorsales, &contenedor_tiempo, &contenedor_numobj);
-		//ZONA DE GUARDADO DE LOS RESULTADOS.
-
-		//HAY QUE QUITARLA........ SUSTITUIMOS POR ESCRITURA EN XML.
-
-		//PEDIR A BELEN METODO ESCRITURA EN XML!!!
-		std::cout << "Tamano contenedor:" << contenedor_dorsales.size() << "\n";
-
-		FILE *fd = 0;
-		fd = fopen("resultado.csv", "w");
-		if (!fd) {
-			std::cerr << "Can't open resultado.csv for writing\n";
-			exit(0);
-		}
-
-		fprintf(fd, "Label , ");
-		fprintf(fd, "imagen ");
-		fprintf(fd, "Numero OCR");
-		fprintf(fd, "Tiempo ");
-		fprintf(fd, "numobj");
-		fprintf(fd, "Dorsal ");
-		fprintf(fd, "\n");
-		for (int e = 0; e < contenedor_dorsales.size(); e++) {
-			fprintf(fd, "%d ", e); // Label
-			if (contenedor_dorsales[e].size() == 0) {
-				fprintf(fd, " "); // Numero
-				fprintf(fd, "%i ", contenedor_tiempo[e]); // Tiempo
-				fprintf(fd, "%i ", contenedor_numobj[e]); // Label
-				fprintf(fd, "\n");
-				continue;
-			}
-			for (int e2 = 0; e2 < contenedor_dorsales[e].size(); e2++) {
-				fprintf(fd, "%d ", e2); // Numero
-				fprintf(fd, "%i ", contenedor_tiempo[e]); // Tiempo
-				fprintf(fd, "%i ", contenedor_numobj[e]); // Label
-				for (int e3 = 0; e3 < contenedor_dorsales[e][e2].size(); e3++) {
-					fprintf(fd, "%i ", contenedor_dorsales[e][e2][e3]); // Label
-				}
-			}
-			fprintf(fd, "\n");
-		}
-		if (fd)
-			fclose(fd);
-
-		std::cout << "Archivo de resultados guardado. \n";
 
 	}
 }

@@ -1426,7 +1426,7 @@ void candidates(std::vector< int> & candidates, const cimg_library::CImg <int> &
 
 }
 
-void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg, const std::vector < int > & v_candidates) {
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg, const std::vector < int > & v_candidates){
 
 	comienzos_marcadores.clear();
 	int numobj = bbox.height() - 1;
@@ -1561,7 +1561,6 @@ void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::
 }
 
 void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,const cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox, const cimg_library::CImg<int> & areas){
-
 	for(int o1 = 1 ; o1< comienzos_seleccionados.size(); o1 ++){
 
 		int index_first_mark = comienzos_seleccionados[o1][1];
@@ -1616,7 +1615,6 @@ void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados
 }
 
 bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index){
-
 	for (int h = 0; h < target_marks.size(); h++) {
 		for (int h2 = 3; h2 < target_marks[h].size(); h2++) {
 			for (int h3 = 0; h3 < target_marks[h][h2].size(); h3++) {
@@ -1629,16 +1627,17 @@ bool search_targets(const std::vector<std::vector<std::vector < int > > > & targ
 	return false;
 }
 
-void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr){
-
+void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> & coordinates_qr){
 	for (int h2 = 3; h2 < target_marks.size(); h2++) {
 		for (int h3 = 0; h3 < target_marks[h2].size(); h3++) {
 			int index = target_marks[h2][h3];
 			if(h3 == 0 && h2 == 3) {
+
 				coordinates_qr[0] = bbox(0,index);
 				coordinates_qr[1] = bbox(1,index);
 				coordinates_qr[2] = bbox(2,index);
 				coordinates_qr[3] = bbox(3,index);
+
 			}
 			else{
 				if(bbox(0,index) < coordinates_qr[0]) coordinates_qr[0] = bbox(0,index);

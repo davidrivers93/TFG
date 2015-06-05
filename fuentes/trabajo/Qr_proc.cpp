@@ -39,18 +39,32 @@ const int CV_QR_OESTE = 3;
 
 
 //recibe una imagen en cv
-void qr_processing(const CImg<unsigned char> & img, std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < string > & string_result) {
+void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> & seg , std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < string > &string_result) {
 
 	std::cout << "Tamaño: " << target_marks_index.size() << "\n";
 
 	std::vector <int> coordinates_qr(4);
 	for (int i = 0; i < target_marks_index.size(); i++) {
 
+		CImg<unsigned char> img_circles(img);
+
 		get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
 		CImg<unsigned char> image_crop(img);
 		image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]);
+//		image_crop.display("A", false);
 
-		//image_crop.display("Prueba", false);
+
+		const unsigned char color[] = { 255,128,64 };
+
+		img_circles.draw_circle(coordinates_qr[0], coordinates_qr[2],30,color, 0.5);
+		img_circles.draw_circle(coordinates_qr[1], coordinates_qr[2],30,color, 0.5);
+		img_circles.draw_circle(coordinates_qr[0], coordinates_qr[3],30,color, 0.5);
+		img_circles.draw_circle(coordinates_qr[1], coordinates_qr[3],30,color, 0.5);
+
+		//img_circles.display("Circulos", false);
+
+		CImg<unsigned char> img_crop_object(seg);
+		img_crop_object.get_append(img_circles, 'x').display("false",false);
 
 		Mat image2 = image_crop.get_MAT();
 
@@ -93,49 +107,6 @@ void qr_processing(const CImg<unsigned char> & img, std::vector<std::vector<std:
 
 	}
 
-/*	std::cout << "Tamaño: " << target_marks_index.size() << "\n";
-
-	std::vector <int> coordinates_qr(4);
-	for (int i = 0; i < target_marks_index.size(); i++) {
-
-		get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
-		CImg<unsigned char> image_crop(img);
-		image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]);
-
-		image_crop.display("Prueba", false);
-
-		Mat image2 = image_crop.get_MAT();
-
-		Mat gray(image2.size(), CV_MAKETYPE(image2.depth(), 1));
-		ImageScanner scanner;
-		scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);
-		// obtain image date
-		cvtColor(image2, gray, CV_RGB2GRAY);
-		int width = image2.cols;
-		int height = image2.rows;
-		uchar *raw = (uchar *) gray.data;
-		// wrap image data
-		Image image(width, height, "Y800", raw, width * height);
-		// scan the image for barcodes
-		int n = scanner.scan(image);
-		// extract results
-		for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol) {
-			vector<Point> vp;
-			// do something useful with results
-			cout << "decoded " << symbol->get_type_name() << " symbol \"" << symbol->get_data() << '"' << " " << endl;
-			int n = symbol->get_location_size();
-			for (int i = 0; i < n; i++) {
-				vp.push_back(Point(symbol->get_location_x(i), symbol->get_location_y(i)));
-			}
-			RotatedRect r = minAreaRect(vp);
-			Point2f pts[4];
-			r.points(pts);
-			for (int i = 0; i < 4; i++) {
-				line(gray, pts[i], pts[(i + 1) % 4], Scalar(255, 0, 0), 3);
-			}
-			cout << "Angle: " << r.angle << endl;
-		}
-	}*/
 
 }
 

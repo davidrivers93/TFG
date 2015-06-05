@@ -52,7 +52,7 @@ void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::
 void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,const cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox, const cimg_library::CImg<int> & areas);
 void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox,const cimg_library::CImg<int> & areas  );
 bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index);
-void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr);
+void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> & coordinates_qr);
 void candidates(std::vector< int> & candidates, const cimg_library::CImg <int> & seg, const cimg_library::CImg<int> & bbox );
 
 #endif /* SEGMENTUTILS_H_ */
