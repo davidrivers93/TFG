@@ -1729,8 +1729,8 @@ void insert_result(std::vector<std::string> & string_result, database_mng & data
 
 		std::string string_resultado = string_result[o1];
 
-		int dorsal_resultado = std::strtol(string_resultado);
-		std::cout << "A guardar el dorsal " << dorsal_resultado << "\n";
+		//int dorsal_resultado = stoi(string_resultado);
+		std::cout << "A guardar el dorsal " << string_resultado << "\n";
 
 		std::string insert_row_query  = "INSERT INTO " + database.race_data_query.tablen_data + "(dorsal,path_img) VALUES (" + string_resultado[o1] + ",\'/\')";
 

@@ -75,8 +75,8 @@ trabajo/preinstall: trabajo/CMakeFiles/dorsales.dir/preinstall
 # Target rules for target trabajo/CMakeFiles/dorsales.dir
 
 # All Build rule for target.
-trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/functions.dir/all
 trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/utilities.dir/all
+trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/functions.dir/all
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  1

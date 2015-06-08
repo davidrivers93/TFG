@@ -143,6 +143,10 @@ stdlib.h
 -
 CImg.h
 /home/david/Desktop/tfg/tfg/fuentes/trabajo/CImg.h
+sstream
+-
+string
+-
 zbar.h
 -
 functions.h
