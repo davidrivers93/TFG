@@ -13,6 +13,9 @@ trabajo/CMakeFiles/functions.dir/database_mng.cpp.o: /home/david/Desktop/tfg/tfg
 trabajo/CMakeFiles/functions.dir/database_mng.cpp.o: /home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.h
 
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /home/david/Desktop/tfg/tfg/fuentes/CImg.h
+trabajo/CMakeFiles/functions.dir/functions.cpp.o: /home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.h
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /home/david/Desktop/tfg/tfg/fuentes/trabajo/functions.cpp
 trabajo/CMakeFiles/functions.dir/functions.cpp.o: /home/david/Desktop/tfg/tfg/fuentes/trabajo/functions.h
+trabajo/CMakeFiles/functions.dir/functions.cpp.o: /usr/include/opencv/cv.h
+trabajo/CMakeFiles/functions.dir/functions.cpp.o: /usr/include/opencv/highgui.h
 

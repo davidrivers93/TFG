@@ -130,25 +130,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-trabajo/CMakeFiles/bbdd_conn.dir/rule:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bbdd_conn.dir/rule
-.PHONY : trabajo/CMakeFiles/bbdd_conn.dir/rule
-
-# Convenience name for target.
-bbdd_conn: trabajo/CMakeFiles/bbdd_conn.dir/rule
-.PHONY : bbdd_conn
-
-# fast build rule for target.
-bbdd_conn/fast:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/build
-.PHONY : bbdd_conn/fast
-
-# Manual pre-install relink rule for target.
-bbdd_conn/preinstall:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bbdd_conn.dir/preinstall
-.PHONY : bbdd_conn/preinstall
-
-# Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
@@ -182,25 +163,6 @@ functions/fast:
 .PHONY : functions/fast
 
 # Convenience name for target.
-trabajo/CMakeFiles/make_trainer.dir/rule:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
-
-# Convenience name for target.
-make_trainer: trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : make_trainer
-
-# fast build rule for target.
-make_trainer/fast:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
-.PHONY : make_trainer/fast
-
-# Manual pre-install relink rule for target.
-make_trainer/preinstall:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/preinstall
-.PHONY : make_trainer/preinstall
-
-# Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
 .PHONY : trabajo/CMakeFiles/utilities.dir/rule
@@ -213,25 +175,6 @@ utilities: trabajo/CMakeFiles/utilities.dir/rule
 utilities/fast:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
-
-# Convenience name for target.
-trabajo/CMakeFiles/video.dir/rule:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/video.dir/rule
-.PHONY : trabajo/CMakeFiles/video.dir/rule
-
-# Convenience name for target.
-video: trabajo/CMakeFiles/video.dir/rule
-.PHONY : video
-
-# fast build rule for target.
-video/fast:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
-.PHONY : video/fast
-
-# Manual pre-install relink rule for target.
-video/preinstall:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/video.dir/preinstall
-.PHONY : video/preinstall
 
 Qr_proc.o: Qr_proc.cpp.o
 .PHONY : Qr_proc.o
@@ -256,30 +199,6 @@ Qr_proc.s: Qr_proc.cpp.s
 Qr_proc.cpp.s:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
 .PHONY : Qr_proc.cpp.s
-
-bbdd_conn.o: bbdd_conn.cpp.o
-.PHONY : bbdd_conn.o
-
-# target to build an object file
-bbdd_conn.cpp.o:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.o
-.PHONY : bbdd_conn.cpp.o
-
-bbdd_conn.i: bbdd_conn.cpp.i
-.PHONY : bbdd_conn.i
-
-# target to preprocess a source file
-bbdd_conn.cpp.i:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.i
-.PHONY : bbdd_conn.cpp.i
-
-bbdd_conn.s: bbdd_conn.cpp.s
-.PHONY : bbdd_conn.s
-
-# target to generate assembly for a file
-bbdd_conn.cpp.s:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.s
-.PHONY : bbdd_conn.cpp.s
 
 database_mng.o: database_mng.cpp.o
 .PHONY : database_mng.o
@@ -353,30 +272,6 @@ functions.cpp.s:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
 .PHONY : functions.cpp.s
 
-make_trainer.o: make_trainer.cpp.o
-.PHONY : make_trainer.o
-
-# target to build an object file
-make_trainer.cpp.o:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o
-.PHONY : make_trainer.cpp.o
-
-make_trainer.i: make_trainer.cpp.i
-.PHONY : make_trainer.i
-
-# target to preprocess a source file
-make_trainer.cpp.i:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i
-.PHONY : make_trainer.cpp.i
-
-make_trainer.s: make_trainer.cpp.s
-.PHONY : make_trainer.s
-
-# target to generate assembly for a file
-make_trainer.cpp.s:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
-.PHONY : make_trainer.cpp.s
-
 utilities.o: utilities.cpp.o
 .PHONY : utilities.o
 
@@ -401,53 +296,23 @@ utilities.cpp.s:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.s
 .PHONY : utilities.cpp.s
 
-video.o: video.cpp.o
-.PHONY : video.o
-
-# target to build an object file
-video.cpp.o:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.o
-.PHONY : video.cpp.o
-
-video.i: video.cpp.i
-.PHONY : video.i
-
-# target to preprocess a source file
-video.cpp.i:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.i
-.PHONY : video.cpp.i
-
-video.s: video.cpp.s
-.PHONY : video.s
-
-# target to generate assembly for a file
-video.cpp.s:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.s
-.PHONY : video.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... bbdd_conn"
 	@echo "... dorsales"
 	@echo "... edit_cache"
 	@echo "... functions"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... list_install_components"
-	@echo "... make_trainer"
 	@echo "... rebuild_cache"
 	@echo "... utilities"
-	@echo "... video"
 	@echo "... Qr_proc.o"
 	@echo "... Qr_proc.i"
 	@echo "... Qr_proc.s"
-	@echo "... bbdd_conn.o"
-	@echo "... bbdd_conn.i"
-	@echo "... bbdd_conn.s"
 	@echo "... database_mng.o"
 	@echo "... database_mng.i"
 	@echo "... database_mng.s"
@@ -457,15 +322,9 @@ help:
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"
-	@echo "... make_trainer.o"
-	@echo "... make_trainer.i"
-	@echo "... make_trainer.s"
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"
-	@echo "... video.o"
-	@echo "... video.i"
-	@echo "... video.s"
 .PHONY : help
 
 

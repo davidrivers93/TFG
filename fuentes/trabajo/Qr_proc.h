@@ -15,11 +15,7 @@
 using namespace cimg_library;
 using namespace cv;
 
-<<<<<<< Updated upstream
 void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> & seg , std::vector<std::vector<std::vector <int > > >&  target_marks_index, const CImg<int> & bbox, std::vector < std::string > & string_result);
-=======
-void qr_processing(const CImg<unsigned char> & img, std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < std::string > & string_result);
->>>>>>> Stashed changes
 float calc_distancia(Point2f P, Point2f Q);
 float perpendicular_dist(Point2f A, Point2f B, Point2f C);
 float calc_pendiente(Point2f A, Point2f B, int& alineamiento);

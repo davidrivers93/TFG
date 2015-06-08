@@ -18,8 +18,6 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include"
   "/opt/local/include/mysql55-connector-cpp/cppconn"
   "/home/david/Desktop/tfg/tfg/fuentes"
-  "/usr/local/include/tesseract"
-  "/usr/local/include/leptonica"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
