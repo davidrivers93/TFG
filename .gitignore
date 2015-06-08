@@ -7,3 +7,5 @@
 #<ip files
 
 *.zip
+
+/build*
