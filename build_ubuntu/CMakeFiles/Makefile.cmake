@@ -12,18 +12,19 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
   "/home/david/Desktop/tfg/tfg/fuentes/CMakeLists.txt"
   "/home/david/Desktop/tfg/tfg/fuentes/trabajo/CMakeLists.txt"
-  "/usr/local/share/OpenCV/OpenCVConfig-version.cmake"
-  "/usr/local/share/OpenCV/OpenCVConfig.cmake"
-  "/usr/local/share/OpenCV/OpenCVModules-release.cmake"
-  "/usr/local/share/OpenCV/OpenCVModules.cmake"
+  "/usr/share/OpenCV/OpenCVConfig-version.cmake"
+  "/usr/share/OpenCV/OpenCVConfig.cmake"
+  "/usr/share/OpenCV/OpenCVModules-release.cmake"
+  "/usr/share/OpenCV/OpenCVModules.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
-  "/usr/share/cmake-2.8/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "/usr/share/cmake-2.8/Modules/CMakeFindEclipseCDT4.cmake"
+  "/usr/share/cmake-2.8/Modules/CMakeConfigurableFile.in"
   "/usr/share/cmake-2.8/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeParseArguments.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake"
+  "/usr/share/cmake-2.8/Modules/CMakeUnixFindMake.cmake"
+  "/usr/share/cmake-2.8/Modules/CheckFunctionExists.c"
   "/usr/share/cmake-2.8/Modules/CheckFunctionExists.cmake"
   "/usr/share/cmake-2.8/Modules/CheckIncludeFiles.cmake"
   "/usr/share/cmake-2.8/Modules/CheckLibraryExists.cmake"
@@ -44,7 +45,6 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-2.8/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-2.8/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-2.8/Modules/Platform/UnixPaths.cmake"
-  "/usr/share/cmake-2.8/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
@@ -61,8 +61,10 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
+  "trabajo/CMakeFiles/bbdd_conn.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/dorsales.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
+  "trabajo/CMakeFiles/video.dir/DependInfo.cmake"
   )

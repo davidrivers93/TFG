@@ -39,8 +39,12 @@ const int CV_QR_OESTE = 3;
 
 
 //recibe una imagen en cv
+<<<<<<< Updated upstream
 void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> & seg , std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < std::string > &string_result) {
 
+=======
+void qr_processing(const CImg<unsigned char> & img, vector<vector<vector <int > > > & target_marks_index, const CImg<int> & bbox, vector < string > & string_result){
+>>>>>>> Stashed changes
 	std::cout << "Tamaño: " << target_marks_index.size() << "\n";
 
 	std::vector <int> coordinates_qr(4);

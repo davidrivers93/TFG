@@ -4,6 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/Qr_proc.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o"
+  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/database_mng.cpp.o"
   "/home/david/Desktop/tfg/tfg/fuentes/trabajo/functions.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/functions.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
@@ -14,9 +16,10 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/david/Desktop/tfg/tfg/fuentes"
-  "/usr/local/include/opencv"
+  "/usr/include/opencv"
   "/usr/local/include"
+  "/opt/local/include/mysql55-connector-cpp/cppconn"
+  "/home/david/Desktop/tfg/tfg/fuentes"
   "/usr/local/include/tesseract"
   "/usr/local/include/leptonica"
   )
