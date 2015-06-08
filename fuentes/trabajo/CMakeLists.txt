@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales make_trainer video bbdd_conn)
+SET (MIXED_PROGRAMS dorsales)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 

@@ -42,7 +42,7 @@ if(NOT WIN32)
 endif()
 
 
-pkg_check_modules(TESSERACT tesseract REQUIRED)
+
 pkg_check_modules(PC_ZBAR QUIET zbar)
 pkg_check_modules(PC_ZBAR QUIET zbar)  
 
@@ -52,7 +52,6 @@ link_directories("/opt/local/lib/mysql55-connector-cpp")
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 include_directories(${OpenCV_INCLUDE_DIRS})
-include_directories(${TESSERACT_INCLUDE_DIRS})
 include_directories(${PC_ZBAR_INCLUDE_DIRS})
 
 

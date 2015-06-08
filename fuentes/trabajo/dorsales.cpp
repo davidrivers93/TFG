@@ -39,6 +39,7 @@ int showfiles(set<string> images);
 void calculate(set<string> images, int contador);
 void create_txt_file();
 void list_races(std::vector<string> & list_races, database_mng & database);
+void calculate(set<string> images, int contador, database_mng & database );
 std::string getOsName();
 
 /* DORSALES.CPP - David Rios Benet
@@ -67,9 +68,9 @@ void ayuda() {
 int main(int argc, char **argv) {
 
 	int opt;
-	double capt_width = 320;
-	double capt_height = 240;
+
 	CImgDisplay disp_cimg;
+
 	database_mng database;
 
 	const bool help = cimg_option("-h", false, 0);
@@ -100,12 +101,14 @@ int main(int argc, char **argv) {
 	std::cerr << "\t" << "Nombre carrera: " << database.race_data_query.race_data << "\n";
 	std::cerr << "\t" << "Fecha carrera: " << database.race_data_query.date_data << endl;
 
-	calculate(images, contador);
+	calculate(images, contador, database);
 
 	if (contador == 0) {
 		std::cout << "No hay ninguna imagen a procesar. \n";
 		exit(0);
 	}
+
+	return 0;
 
 }
 
@@ -165,7 +168,6 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 		database.race_data_query.date_data = database.print(3);
 		database.race_data_query.tablen_data = database.print(4);
 
-		//std::cout << new_race_date.at(0) << new_race_date.at(1) << new_race_name.at(0) << new_race_name.at(1) << new_race_date.at(6) << new_race_date.at(7);
 	}
 
 	//Compruebo si existe la tabla de la carrera
@@ -174,17 +176,10 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	database.setString(1, database.race_data_query.tablen_data);
 	database.execute();
 
-	std::cout << "Valor del flag " << database.flag_created << endl;
-	//CREAMOS LA TABLA
-	/*if(database.flag_created){
+	string prueba_create = "CREATE TABLE " + database.race_data_query.tablen_data +  "(`dorsal` INT NOT NULL,`path_img` VARCHAR(45) NOT NULL)";
+	database.execute(prueba_create);
+	std::cout << "He creado la tabla. \n";
 
-		database.prepare("CREATE TABLE ?.? (`dorsal` INT NOT NULL,`path_img` VARCHAR(45) NOT NULL, PRIMARY KEY (`dorsal` , `path_img`)");
-		database.setString(1, db_races);
-		database.setString(2, database.race_data_query.tablen_data);
-		database.execute();
-		std::cout << "Tabla creada." << endl;
-	}*/
-	//td::cout << endl;
 }
 
 int showfiles(set<string> images) {
@@ -239,7 +234,7 @@ void create_txt_file() {
 
 }
 
-void calculate(set<string> images, int contador) {
+void calculate(set<string> images, int contador,database_mng & database ) {
 
 	CImg<int> contenedor_numobj(contador);
 	CImg<int> contenedor_tiempo(contador);
@@ -278,10 +273,11 @@ void calculate(set<string> images, int contador) {
 			 * Segmenta la imagen binarizada mediante los vecinos. Devuelve la imagen segmentada,
 			 * los bbox y las areas de cada objeto.
 			 */
+
 			std::cerr << "Entro a segmentar" << endl;
 			segmentacion(img_out_binarizacion, seg, bbox, areas, cdg);
 			std::cerr << "Salgo a segmentar" << endl;
-			seg.display("Segmentada", false);
+			//seg.display("Segmentada", false);
 			std::vector<int> v_candidates;
 			std::cerr << "Entro a candidates" << endl;
 			candidates(v_candidates, seg, bbox);
@@ -297,6 +293,7 @@ void calculate(set<string> images, int contador) {
 			 * 	2-> los centros de masas sean parecidos.
 			 * 	3-> Que el marcador pequeño este dentro del grande.
 			 */
+
 			std::cerr << "Busco marcadores" << endl;
 			busqueda_marcadores(bbox, comienzos, areas, cdg, v_candidates);
 			std::cerr << "Salgo de buscar" << endl;
@@ -352,8 +349,18 @@ void calculate(set<string> images, int contador) {
 			}
 			std::cerr << "Salgo de qr_processing." << endl;
 
+			if(string_result.size()>0){
+				std::vector <std::string> string_final;
+				seleccionador_dorsales(string_result, string_final);
+			}
+
+			//insert_result(string_result,database );
+
 		}
 		system("rm -rf temp.jpg");
+
+
+
 
 	}
 }

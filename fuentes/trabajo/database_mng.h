@@ -38,7 +38,6 @@ class database_mng
         };
 
         string database_name;
-        bool flag_created = false;
         race_data race_data_query;
         ~database_mng();
         void manageException(sql::SQLException& e);

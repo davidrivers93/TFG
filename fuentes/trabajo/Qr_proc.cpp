@@ -39,7 +39,7 @@ const int CV_QR_OESTE = 3;
 
 
 //recibe una imagen en cv
-void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> & seg , std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < string > &string_result) {
+void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> & seg , std::vector<std::vector<std::vector <int > > > & target_marks_index, const CImg<int> & bbox, std::vector < std::string > &string_result) {
 
 	std::cout << "Tamaño: " << target_marks_index.size() << "\n";
 
@@ -47,11 +47,12 @@ void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> &
 	for (int i = 0; i < target_marks_index.size(); i++) {
 
 		CImg<unsigned char> img_circles(img);
+		CImg<unsigned char> seg2(seg);
 
 		get_coordinates_qr(target_marks_index[i], bbox, coordinates_qr);
 		CImg<unsigned char> image_crop(img);
 		image_crop.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]);
-//		image_crop.display("A", false);
+		//image_crop.display("A", false);
 
 
 		const unsigned char color[] = { 255,128,64 };
@@ -62,9 +63,9 @@ void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> &
 		img_circles.draw_circle(coordinates_qr[1], coordinates_qr[3],30,color, 0.5);
 
 		//img_circles.display("Circulos", false);
-
-		CImg<unsigned char> img_crop_object(seg);
-		img_crop_object.get_append(img_circles.crop(coordinates_qr[0], coordinates_qr[2], coordinates_qr[1], coordinates_qr[3]) ,'x').display("false",false);
+		/*seg.display("a",false);
+		CImg<unsigned char> img_crop_object(seg);*/
+		//seg2.get_append(img_circles,'x').display("false",false);
 
 		Mat image2 = image_crop.get_MAT();
 
@@ -81,7 +82,8 @@ void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> &
 		// scan the image for barcodes
 		int n = scanner.scan(image);
 		// extract results
-		for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol) {
+		int i2=0;
+		for (Image::SymbolIterator symbol = image.symbol_begin(); symbol != image.symbol_end(); ++symbol, i2++) {
 			vector<Point> vp;
 			// do something useful with results
 			cout << "decoded " << symbol->get_type_name() << " symbol \"" << symbol->get_data() << '"' << " " << endl;
@@ -98,9 +100,10 @@ void qr_processing(const CImg<unsigned char> & img, const CImg <unsigned char> &
 			cout << "Angle: " << r.angle << endl;
 			std::string temp = symbol->get_data();
 			std::cerr << "Simbolo: " << temp << "\n";
-			if(temp.length() != 0){
-				string_result.push_back(temp);
-			}
+			string_result.push_back(temp);
+			std:cerr << "He llegado a aqui" << "\n";
+			std::cerr << i << "\n";
+
 		}
 
 

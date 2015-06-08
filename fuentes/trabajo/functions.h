@@ -2,6 +2,7 @@
 #define FUNCTIONS_H_
 
 #include<vector>
+#include "database_mng.h"
 
 #define HEIGHT_RATIO_TOLERANCE 1.5
 #define MAX_HEIGHT 200
@@ -54,5 +55,8 @@ void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::
 bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index);
 void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> & coordinates_qr);
 void candidates(std::vector< int> & candidates, const cimg_library::CImg <int> & seg, const cimg_library::CImg<int> & bbox );
+void seleccionador_dorsales(std::vector <std::string> & string_input, std::vector <std::string> & string_out);
+void formateador(std::string &input, std::string &output);
+void insert_result(std::vector<std::string> & string_result, database_mng & database);
 
 #endif /* SEGMENTUTILS_H_ */

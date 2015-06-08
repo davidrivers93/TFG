@@ -66,9 +66,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/video.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/bbdd_conn.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/dorsales.dir/DependInfo.cmake"
   )
