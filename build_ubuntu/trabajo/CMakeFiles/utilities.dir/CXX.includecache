@@ -6,25 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/david/Desktop/tfg/tfg/fuentes/trabajo/utilities.cpp
-fstream
--
-stdlib.h
--
-iostream
--
-string
--
-locale
--
-vector
--
-algorithm
--
-set
--
-utilities.h
-/home/david/Desktop/tfg/tfg/fuentes/trabajo/utilities.h
-
-/home/david/Desktop/tfg/tfg/fuentes/trabajo/utilities.h
-

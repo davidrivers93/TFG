@@ -42,9 +42,15 @@ if(NOT WIN32)
 endif()
 
 
+<<<<<<< Updated upstream
 
 pkg_check_modules(PC_ZBAR QUIET zbar)
 pkg_check_modules(PC_ZBAR QUIET zbar)  
+=======
+pkg_check_modules(TESSERACT tesseract REQUIRED)
+pkg_check_modules(ZBAR  zbar)
+#pkg_check_modules(PC_ZBAR QUIET zbar)  
+>>>>>>> Stashed changes
 
 ##MYSQL-CONNECTOR
 include_directories("/opt/local/include/mysql55-connector-cpp/cppconn")

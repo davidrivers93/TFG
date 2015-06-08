@@ -63,6 +63,7 @@ void ayuda() {
 	std::cout << "\t \t 0 = OCR\n";
 	std::cout << " \t \t 1 = tesseract \n";
 	std::cout << " \t \t 2 = OCR & tesseract \n";
+
 }
 
 int main(int argc, char **argv) {
@@ -336,12 +337,21 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			CImg<int> seg2(seg);
 			SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
+<<<<<<< Updated upstream
 			seg2.display("A", false);
 			std::cerr << "Entro a qr_processing." << endl;
 			std::vector<String> string_result;
 			if (target_marks_index.size() != 0) {
 				qr_processing(img, seg2, target_marks_index, bbox, string_result);
 				if (string_result.size() == 0) {
+=======
+			//seg2.display("A", false);
+
+			std::vector < String > string_result;
+			if(target_marks_index.size()!=0){
+				//qr_processing(img,target_marks_index, bbox, string_result) ;
+				if(string_result.size() == 0){
+>>>>>>> Stashed changes
 					std::cerr << "No hemos encontrado ningun QR. \n";
 				}
 			} else {

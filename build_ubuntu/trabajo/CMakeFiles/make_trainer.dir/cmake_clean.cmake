@@ -2,6 +2,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/make_trainer.dir/make_trainer.cpp.o"
   "make_trainer.pdb"
   "make_trainer"
+  "make_trainer.pdb"
+  "CMakeFiles/CMakeRelink.dir/make_trainer"
 )
 
 # Per-language clean rules from dependency scanning.
