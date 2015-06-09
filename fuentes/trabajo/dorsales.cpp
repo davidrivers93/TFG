@@ -278,8 +278,8 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 			std::cerr << "Entro a segmentar" << endl;
 			segmentacion(img_out_binarizacion, seg, bbox, areas, cdg);
 			std::cerr << "Salgo a segmentar" << endl;
-			//seg.display("Segmentada", false);
-			std::vector<int> v_candidates;
+			seg.display("Segmentada", false);
+/*			std::vector<int> v_candidates;
 			std::cerr << "Entro a candidates" << endl;
 			candidates(v_candidates, seg, bbox);
 			std::cerr << "Salgo de candidates" << endl;
@@ -287,13 +287,13 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			std::vector<std::vector<int> > comienzos;
 
-			/*busqueda_marcadores
+			busqueda_marcadores
 			 *
 			 * buscamos parejas de marcadores que cumplan varias condiciones:
 			 * 	1-> Los centros esten juntos.
 			 * 	2-> los centros de masas sean parecidos.
 			 * 	3-> Que el marcador pequeño este dentro del grande.
-			 */
+
 
 			std::cerr << "Busco marcadores" << endl;
 			busqueda_marcadores(bbox, comienzos, areas, cdg, v_candidates);
@@ -301,12 +301,12 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 			std::cerr << "Candidatos de comienzos: " << comienzos.size() << endl;
 			std::vector<std::vector<int> > comienzos_seleccionados;
 
-			/*Seleccion marcadores
+			Seleccion marcadores
 			 *
 			 *Filtramos los comienzos anteriores con las siguientes caracteristicas:
 			 *	1->Esten centrados
 			 *	2->Que el area del bbox no sea 1,2 veces el area real del objeto.
-			 */
+
 			std::cerr << "Entro a seleccion" << endl;
 			seleccion_marcadores(comienzos, comienzos_seleccionados, seg, bbox, areas);
 			std::cerr << "Salgo de seleccion" << endl;
@@ -314,9 +314,9 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			std::vector<std::vector<std::vector<int> > > target_marks_index;
 
-			/* Busca trios de marcadores QR respecto de los comienzos seleccionados.
+			 Busca trios de marcadores QR respecto de los comienzos seleccionados.
 			 *
-			 */
+
 			std::cerr << "Entro a target" << endl;
 			target_marks(comienzos_seleccionados, target_marks_index, seg, bbox, areas);
 			std::cerr << "Salgo de target" << endl;
@@ -353,7 +353,7 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 			if(string_result.size()>0){
 				std::vector <std::string> string_final;
 				seleccionador_dorsales(string_result, string_final);
-			}
+			}*/
 
 			//insert_result(string_result,database );
 

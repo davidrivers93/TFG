@@ -169,6 +169,8 @@ iostream
 -
 CImg.h
 -
+stdlib.h
+-
 functions.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 database_mng.h

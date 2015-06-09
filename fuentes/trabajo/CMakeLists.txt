@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales)
+SET (MIXED_PROGRAMS dorsales dorsal2)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 

@@ -156,6 +156,19 @@ dorsales/fast:
 .PHONY : dorsales/fast
 
 #=============================================================================
+# Target rules for targets named dorsales2
+
+# Build rule for target.
+dorsales2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dorsales2
+.PHONY : dorsales2
+
+# fast build rule for target.
+dorsales2/fast:
+	$(MAKE) -f trabajo/CMakeFiles/dorsales2.dir/build.make trabajo/CMakeFiles/dorsales2.dir/build
+.PHONY : dorsales2/fast
+
+#=============================================================================
 # Target rules for targets named functions
 
 # Build rule for target.
@@ -194,6 +207,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
+	@echo "... dorsales2"
 	@echo "... functions"
 	@echo "... dorsales"
 .PHONY : help

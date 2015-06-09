@@ -157,6 +157,20 @@ dorsales/fast:
 .PHONY : dorsales/fast
 
 # Convenience name for target.
+trabajo/CMakeFiles/dorsales2.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales2.dir/rule
+.PHONY : trabajo/CMakeFiles/dorsales2.dir/rule
+
+# Convenience name for target.
+dorsales2: trabajo/CMakeFiles/dorsales2.dir/rule
+.PHONY : dorsales2
+
+# fast build rule for target.
+dorsales2/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales2.dir/build.make trabajo/CMakeFiles/dorsales2.dir/build
+.PHONY : dorsales2/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/functions.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/rule
 .PHONY : trabajo/CMakeFiles/functions.dir/rule
@@ -312,6 +326,7 @@ help:
 	@echo "... depend"
 	@echo "... utilities"
 	@echo "... install/strip"
+	@echo "... dorsales2"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
