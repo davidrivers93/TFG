@@ -174,122 +174,37 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr</name>
+			<name>[Targets]/[exe] dorsales2</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/</name>
+			<name>[Targets]/[exe] dorsales2/</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/Source Files</name>
+			<name>[Targets]/[exe] dorsales2/Source Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/Source Files/pruebaqr.cpp</name>
-			<type>1</type>
-			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/pruebaqr.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] pruebaqr/Header Files</name>
+			<name>[Targets]/[exe] dorsales2/Header Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/CMake Rules</name>
+			<name>[Targets]/[exe] dorsales2/CMake Rules</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/Resources</name>
+			<name>[Targets]/[exe] dorsales2/Resources</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] pruebaqr/Object Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Source Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Source Files/video.cpp</name>
-			<type>1</type>
-			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/video.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Header Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/CMake Rules</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Resources</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] video/Object Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/Source Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/Source Files/make_trainer.cpp</name>
-			<type>1</type>
-			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/make_trainer.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/Header Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/CMake Rules</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/Resources</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] make_trainer/Object Files</name>
+			<name>[Targets]/[exe] dorsales2/Object Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
@@ -317,6 +232,11 @@
 			<name>[Targets]/[lib] functions/Source Files/Qr_proc.cpp</name>
 			<type>1</type>
 			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/Qr_proc.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[lib] functions/Source Files/database_mng.cpp</name>
+			<type>1</type>
+			<location>/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp</location>
 		</link>
 		<link>
 			<name>[Targets]/[lib] functions/Header Files</name>

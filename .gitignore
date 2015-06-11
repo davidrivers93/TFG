@@ -3,3 +3,10 @@
 /tesseract
 #tmp
 /tmp_dir
+
+#<ip files
+
+*.zip
+
+#logos
+/logos

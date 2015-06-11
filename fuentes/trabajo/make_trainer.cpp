@@ -3,6 +3,7 @@
 #include <set>
 #include <iostream>
 #include <string>
+#include <map>
 
 #define cimg_use_opencv //To be able to use capture from camera in cimg
 #define cimg_plugin "opencv.h"

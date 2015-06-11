@@ -95,16 +95,41 @@ trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o.provides: trabajo/CMakeFiles/func
 
 trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o.provides.build: trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o
 
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.o: trabajo/CMakeFiles/functions.dir/flags.make
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.o: /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object trabajo/CMakeFiles/functions.dir/database_mng.cpp.o"
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/functions.dir/database_mng.cpp.o -c /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp
+
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/functions.dir/database_mng.cpp.i"
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp > CMakeFiles/functions.dir/database_mng.cpp.i
+
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/functions.dir/database_mng.cpp.s"
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.cpp -o CMakeFiles/functions.dir/database_mng.cpp.s
+
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.requires:
+.PHONY : trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.requires
+
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.provides: trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.requires
+	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.provides.build
+.PHONY : trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.provides
+
+trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.provides.build: trabajo/CMakeFiles/functions.dir/database_mng.cpp.o
+
 # Object files for target functions
 functions_OBJECTS = \
 "CMakeFiles/functions.dir/functions.cpp.o" \
-"CMakeFiles/functions.dir/Qr_proc.cpp.o"
+"CMakeFiles/functions.dir/Qr_proc.cpp.o" \
+"CMakeFiles/functions.dir/database_mng.cpp.o"
 
 # External object files for target functions
 functions_EXTERNAL_OBJECTS =
 
 trabajo/libfunctions.a: trabajo/CMakeFiles/functions.dir/functions.cpp.o
 trabajo/libfunctions.a: trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o
+trabajo/libfunctions.a: trabajo/CMakeFiles/functions.dir/database_mng.cpp.o
 trabajo/libfunctions.a: trabajo/CMakeFiles/functions.dir/build.make
 trabajo/libfunctions.a: trabajo/CMakeFiles/functions.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libfunctions.a"
@@ -117,6 +142,7 @@ trabajo/CMakeFiles/functions.dir/build: trabajo/libfunctions.a
 
 trabajo/CMakeFiles/functions.dir/requires: trabajo/CMakeFiles/functions.dir/functions.cpp.o.requires
 trabajo/CMakeFiles/functions.dir/requires: trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o.requires
+trabajo/CMakeFiles/functions.dir/requires: trabajo/CMakeFiles/functions.dir/database_mng.cpp.o.requires
 .PHONY : trabajo/CMakeFiles/functions.dir/requires
 
 trabajo/CMakeFiles/functions.dir/clean:

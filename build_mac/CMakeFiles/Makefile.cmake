@@ -19,8 +19,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/local/share/cmake-3.2/Modules/CMakeCInformation.cmake"
   "/opt/local/share/cmake-3.2/Modules/CMakeCXXInformation.cmake"
   "/opt/local/share/cmake-3.2/Modules/CMakeCommonLanguageInclude.cmake"
-  "/opt/local/share/cmake-3.2/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "/opt/local/share/cmake-3.2/Modules/CMakeFindEclipseCDT4.cmake"
   "/opt/local/share/cmake-3.2/Modules/CMakeGenericSystem.cmake"
   "/opt/local/share/cmake-3.2/Modules/CMakeParseArguments.cmake"
   "/opt/local/share/cmake-3.2/Modules/CMakeSystemSpecificInformation.cmake"
@@ -48,7 +46,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/local/share/cmake-3.2/Modules/Platform/Darwin-Initialize.cmake"
   "/opt/local/share/cmake-3.2/Modules/Platform/Darwin.cmake"
   "/opt/local/share/cmake-3.2/Modules/Platform/UnixPaths.cmake"
-  "/opt/local/share/cmake-3.2/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
@@ -66,9 +63,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/pruebaqr.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/video.dir/DependInfo.cmake"
-  "trabajo/CMakeFiles/make_trainer.dir/DependInfo.cmake"
+  "trabajo/CMakeFiles/dorsal_new.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/dorsales.dir/DependInfo.cmake"
   )

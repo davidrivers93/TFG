@@ -42,72 +42,30 @@ file(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/opt/local/lib"
       "$ENV{DESTDIR}/Users/David/bin/dorsales")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/dorsales")
-    endif()
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/opt/local/lib/mysql55-connector-cpp"
+      "$ENV{DESTDIR}/Users/David/bin/dorsales")
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/David/bin/make_trainer")
+   "/Users/David/bin/dorsal_new")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/make_trainer")
-  if(EXISTS "$ENV{DESTDIR}/Users/David/bin/make_trainer" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/make_trainer")
+file(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/dorsal_new")
+  if(EXISTS "$ENV{DESTDIR}/Users/David/bin/dorsal_new" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/dorsal_new")
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/opt/local/lib"
-      "$ENV{DESTDIR}/Users/David/bin/make_trainer")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/make_trainer")
-    endif()
-  endif()
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/David/bin/video")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/video")
-  if(EXISTS "$ENV{DESTDIR}/Users/David/bin/video" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/video")
+      "$ENV{DESTDIR}/Users/David/bin/dorsal_new")
     execute_process(COMMAND /usr/bin/install_name_tool
-      -delete_rpath "/opt/local/lib"
-      "$ENV{DESTDIR}/Users/David/bin/video")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/video")
-    endif()
-  endif()
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/David/bin/pruebaqr")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/Users/David/bin" TYPE EXECUTABLE FILES "/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/pruebaqr")
-  if(EXISTS "$ENV{DESTDIR}/Users/David/bin/pruebaqr" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/David/bin/pruebaqr")
-    execute_process(COMMAND /usr/bin/install_name_tool
-      -delete_rpath "/opt/local/lib"
-      "$ENV{DESTDIR}/Users/David/bin/pruebaqr")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/Users/David/bin/pruebaqr")
-    endif()
+      -delete_rpath "/opt/local/lib/mysql55-connector-cpp"
+      "$ENV{DESTDIR}/Users/David/bin/dorsal_new")
   endif()
 endif()
 

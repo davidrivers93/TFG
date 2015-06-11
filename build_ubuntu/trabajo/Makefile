@@ -79,16 +79,6 @@ install/local: preinstall
 install/local/fast: install/local
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -153,6 +143,11 @@ dorsales/fast:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
 .PHONY : dorsales/fast
 
+# Manual pre-install relink rule for target.
+dorsales/preinstall:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/preinstall
+.PHONY : dorsales/preinstall
+
 # Convenience name for target.
 trabajo/CMakeFiles/functions.dir/rule:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/functions.dir/rule
@@ -168,20 +163,6 @@ functions/fast:
 .PHONY : functions/fast
 
 # Convenience name for target.
-trabajo/CMakeFiles/make_trainer.dir/rule:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
-
-# Convenience name for target.
-make_trainer: trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : make_trainer
-
-# fast build rule for target.
-make_trainer/fast:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
-.PHONY : make_trainer/fast
-
-# Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
 .PHONY : trabajo/CMakeFiles/utilities.dir/rule
@@ -194,6 +175,54 @@ utilities: trabajo/CMakeFiles/utilities.dir/rule
 utilities/fast:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
+
+Qr_proc.o: Qr_proc.cpp.o
+.PHONY : Qr_proc.o
+
+# target to build an object file
+Qr_proc.cpp.o:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o
+.PHONY : Qr_proc.cpp.o
+
+Qr_proc.i: Qr_proc.cpp.i
+.PHONY : Qr_proc.i
+
+# target to preprocess a source file
+Qr_proc.cpp.i:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.i
+.PHONY : Qr_proc.cpp.i
+
+Qr_proc.s: Qr_proc.cpp.s
+.PHONY : Qr_proc.s
+
+# target to generate assembly for a file
+Qr_proc.cpp.s:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
+.PHONY : Qr_proc.cpp.s
+
+database_mng.o: database_mng.cpp.o
+.PHONY : database_mng.o
+
+# target to build an object file
+database_mng.cpp.o:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.o
+.PHONY : database_mng.cpp.o
+
+database_mng.i: database_mng.cpp.i
+.PHONY : database_mng.i
+
+# target to preprocess a source file
+database_mng.cpp.i:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.i
+.PHONY : database_mng.cpp.i
+
+database_mng.s: database_mng.cpp.s
+.PHONY : database_mng.s
+
+# target to generate assembly for a file
+database_mng.cpp.s:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.s
+.PHONY : database_mng.cpp.s
 
 dorsales.o: dorsales.cpp.o
 .PHONY : dorsales.o
@@ -243,30 +272,6 @@ functions.cpp.s:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
 .PHONY : functions.cpp.s
 
-make_trainer.o: make_trainer.cpp.o
-.PHONY : make_trainer.o
-
-# target to build an object file
-make_trainer.cpp.o:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o
-.PHONY : make_trainer.cpp.o
-
-make_trainer.i: make_trainer.cpp.i
-.PHONY : make_trainer.i
-
-# target to preprocess a source file
-make_trainer.cpp.i:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i
-.PHONY : make_trainer.cpp.i
-
-make_trainer.s: make_trainer.cpp.s
-.PHONY : make_trainer.s
-
-# target to generate assembly for a file
-make_trainer.cpp.s:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
-.PHONY : make_trainer.cpp.s
-
 utilities.o: utilities.cpp.o
 .PHONY : utilities.o
 
@@ -302,20 +307,21 @@ help:
 	@echo "... functions"
 	@echo "... install"
 	@echo "... install/local"
-	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... make_trainer"
 	@echo "... rebuild_cache"
 	@echo "... utilities"
+	@echo "... Qr_proc.o"
+	@echo "... Qr_proc.i"
+	@echo "... Qr_proc.s"
+	@echo "... database_mng.o"
+	@echo "... database_mng.i"
+	@echo "... database_mng.s"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"
-	@echo "... make_trainer.o"
-	@echo "... make_trainer.i"
-	@echo "... make_trainer.s"
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"

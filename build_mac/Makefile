@@ -50,20 +50,10 @@ CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -143,6 +133,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named dorsal_new
+
+# Build rule for target.
+dorsal_new: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dorsal_new
+.PHONY : dorsal_new
+
+# fast build rule for target.
+dorsal_new/fast:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+.PHONY : dorsal_new/fast
+
+#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -169,32 +172,6 @@ functions/fast:
 .PHONY : functions/fast
 
 #=============================================================================
-# Target rules for targets named make_trainer
-
-# Build rule for target.
-make_trainer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 make_trainer
-.PHONY : make_trainer
-
-# fast build rule for target.
-make_trainer/fast:
-	$(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
-.PHONY : make_trainer/fast
-
-#=============================================================================
-# Target rules for targets named pruebaqr
-
-# Build rule for target.
-pruebaqr: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pruebaqr
-.PHONY : pruebaqr
-
-# fast build rule for target.
-pruebaqr/fast:
-	$(MAKE) -f trabajo/CMakeFiles/pruebaqr.dir/build.make trabajo/CMakeFiles/pruebaqr.dir/build
-.PHONY : pruebaqr/fast
-
-#=============================================================================
 # Target rules for targets named utilities
 
 # Build rule for target.
@@ -207,35 +184,19 @@ utilities/fast:
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
 
-#=============================================================================
-# Target rules for targets named video
-
-# Build rule for target.
-video: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 video
-.PHONY : video
-
-# fast build rule for target.
-video/fast:
-	$(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
-.PHONY : video/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
-	@echo "... pruebaqr"
-	@echo "... video"
-	@echo "... make_trainer"
+	@echo "... dorsal_new"
 	@echo "... functions"
 	@echo "... dorsales"
 .PHONY : help

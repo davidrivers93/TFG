@@ -2,6 +2,7 @@
 #define FUNCTIONS_H_
 
 #include<vector>
+#include "database_mng.h"
 
 #define HEIGHT_RATIO_TOLERANCE 1.5
 #define MAX_HEIGHT 200
@@ -42,16 +43,20 @@ void busqueda(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int>
 bool busqueda_izquierda(int o1, int o2, const cimg_library::CImg<int> & bbox);
 bool busqueda_derecha(int o1, int o2, const cimg_library::CImg<int> & bbox);
 void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input,cimg_library::CImg<unsigned char> & out_bin);
-void segmentacion(const cimg_library::CImg<unsigned char> & img, cimg_library::CImg<int> & seg,cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas);
+void segmentacion(const cimg_library::CImg<unsigned char> & img,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas, cimg_library::CImg<float> & cdg);
 void seleccion_comienzos(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  );
 void busqueda_tercera_cifra(std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & bbox);
 int OCR(cimg_library::CImg<float> & vectores, cimg_library::CImg<float> & lowres);
 void calc_centro_masas(cimg_library::CImg<int> bbox, int &center_x, int &center_y);
 void calc_ancho(cimg_library::CImg<int> bbox, int center_x, int center_y, int &anch_x, int &anch_y);
-void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, cimg_library::CImg<int> & areas);
-void target_marks(std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector <int > > > & target_marks,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas);
-void seleccion_marcadores(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  );
-bool search_targets(std::vector<std::vector<std::vector < int > > > & target_marks, int index);
-void get_coordinates_qr(std::vector<std::vector < int > >  & target_marks, cimg_library::CImg<int> & bbox, std::vector <int> &coordinates_qr);
+void busqueda_marcadores(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos_marcadores, const cimg_library::CImg<int> & areas, const cimg_library::CImg <float> cdg, const std::vector < int > & v_candidates);
+void target_marks(const std::vector<std::vector<int> > & comienzos_seleccionados,std::vector<std::vector<std::vector < int > > > & target_marks,const cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox, const cimg_library::CImg<int> & areas);
+void seleccion_marcadores(const std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, const cimg_library::CImg<int> & bbox,const cimg_library::CImg<int> & areas  );
+bool search_targets(const std::vector<std::vector<std::vector < int > > > & target_marks, int index);
+void get_coordinates_qr(const std::vector<std::vector < int > > & target_marks, const cimg_library::CImg<int> & bbox, std::vector <int> & coordinates_qr);
+void candidates(std::vector< int> & candidates, const cimg_library::CImg <int> & seg, const cimg_library::CImg<int> & bbox );
+void seleccionador_dorsales(std::vector <std::string> & string_input, std::vector <std::string> & string_out);
+void formateador(std::string &input, std::string &output);
+void insert_result(std::vector<std::string> & string_result, database_mng & database);
 
 #endif /* SEGMENTUTILS_H_ */
