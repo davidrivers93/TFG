@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-find_package(PkgConfig)
+
 
 PROJECT(TFG)
 
@@ -15,13 +15,14 @@ if(APPLE)
 	set(CMAKE_PREFIX_PATH  "/opt/local/lib/cmake")
 endif(APPLE)
 
+find_package(PkgConfig)
 #--- OpenCV (with pkgconfig)
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(OPENCV REQUIRED opencv)
+# find_package(PkgConfig REQUIRED)
+# pkg_check_modules(OPENCV REQUIRED opencv)
 # https://bugs.freedesktop.org/show_bug.cgi?id=82245
 # list(APPEND LIBRARIES ${OPENCV_LIBRARIES}) 
-list(APPEND LIBRARIES ${OPENCV_LDFLAGS})
-message(STATUS LIBS ${OPENCV_VERSION})
+# list(APPEND LIBRARIES ${OPENCV_LDFLAGS})
+# message(STATUS LIBS ${OPENCV_VERSION})
 
 FIND_PACKAGE(OpenCV REQUIRED)
 
@@ -42,17 +43,24 @@ if(NOT WIN32)
 endif()
 
 
-pkg_check_modules(TESSERACT tesseract REQUIRED)
-pkg_check_modules(PC_ZBAR QUIET zbar)
-pkg_check_modules(PC_ZBAR QUIET zbar)  
+
+#pkg_check_modules(TESSERACT REQUIRED tesseract )
+#message("Tesseract Libs:" ${TESSERACT_LIBRARIES} )
+#message("Tesseract Libs:" ${TESSERACT_INCLUDE_DIRS} )
+
+pkg_check_modules(ZBAR  zbar)
+#pkg_check_modules(PC_ZBAR QUIET zbar)  
 
 ##MYSQL-CONNECTOR
 include_directories("/opt/local/include/mysql55-connector-cpp/cppconn")
 link_directories("/opt/local/lib/mysql55-connector-cpp")
+include_directories("/opt/local/include")
+include_directories("/opt/local/include/tesseract")
+include_directories("/opt/local/include/leptonica/")
+link_directories("/opt/local/lib")
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 include_directories(${OpenCV_INCLUDE_DIRS})
-include_directories(${TESSERACT_INCLUDE_DIRS})
 include_directories(${PC_ZBAR_INCLUDE_DIRS})
 
 

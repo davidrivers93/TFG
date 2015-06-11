@@ -23,17 +23,21 @@ class database_mng
     public:
 
         /* Your MySQL server settings */
+
         database_mng()
         {
             host     = "tcp://risign.ddns.net:3306";
             user     = "david-superadmin";
             password = "donbosco02";
         };
+
         struct race_data{
         	string race_data;
         	string date_data;
+        	string tablen_data;
         };
 
+        string database_name;
         race_data race_data_query;
         ~database_mng();
         void manageException(sql::SQLException& e);

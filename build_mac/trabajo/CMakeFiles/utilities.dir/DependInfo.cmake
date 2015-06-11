@@ -19,9 +19,9 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/X11/include"
   "/usr/local/include"
   "/opt/local/include/mysql55-connector-cpp/cppconn"
-  "/Users/David/Desktop/ProyectosC++/TFG/fuentes"
   "/opt/local/include/tesseract"
-  "/opt/local/include/leptonica/."
+  "/opt/local/include/leptonica"
+  "/Users/David/Desktop/ProyectosC++/TFG/fuentes"
   )
 set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 set(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -169,12 +169,18 @@ iostream
 -
 CImg.h
 -
+stdlib.h
+-
 functions.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
+database_mng.h
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 vector
 -
+database_mng.h
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.h
 
 /opt/local/include/X11/X.h
 X11/Xmd.h

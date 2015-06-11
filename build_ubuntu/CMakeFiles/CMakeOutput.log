@@ -1,4 +1,4 @@
-The system is: Linux - 3.16.0-30-generic - x86_64
+The system is: Linux - 3.16.0-38-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -28,30 +28,30 @@ The CXX compiler identification is GNU, found in "/home/david/Desktop/tfg/tfg/bu
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec504962280/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec504962280.dir/build.make CMakeFiles/cmTryCompileExec504962280.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec629754159/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec629754159.dir/build.make CMakeFiles/cmTryCompileExec629754159.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec504962280.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec504962280.dir/testCCompiler.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec504962280
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec504962280.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec504962280.dir/testCCompiler.c.o  -o cmTryCompileExec504962280 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec629754159.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec629754159.dir/testCCompiler.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec629754159
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec629754159.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec629754159.dir/testCCompiler.c.o  -o cmTryCompileExec629754159 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec245781131/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec245781131.dir/build.make CMakeFiles/cmTryCompileExec245781131.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec875610928/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec875610928.dir/build.make CMakeFiles/cmTryCompileExec875610928.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec245781131
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec245781131.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec245781131 -rdynamic  
+Building C object CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec875610928
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec875610928.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec875610928 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -61,8 +61,8 @@ Thread model: posix
 gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec245781131' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec245781131 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec875610928' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec875610928 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
@@ -70,15 +70,15 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec245781131/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec245781131.dir/build.make CMakeFiles/cmTryCompileExec245781131.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec875610928/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec875610928.dir/build.make CMakeFiles/cmTryCompileExec875610928.dir/build]
   ignore line: [make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec245781131]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec245781131.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec245781131 -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec875610928]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec875610928.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec875610928 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -88,8 +88,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec245781131' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec245781131 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec875610928' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec875610928 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -103,7 +103,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec245781131] ==> ignore
+    arg [cmTryCompileExec875610928] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -115,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec245781131.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec875610928.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -147,30 +147,30 @@ Parsed C implicit link information from above output:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1601599209/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1601599209.dir/build.make CMakeFiles/cmTryCompileExec1601599209.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1745501924/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1745501924.dir/build.make CMakeFiles/cmTryCompileExec1745501924.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1601599209.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1601599209.dir/testCXXCompiler.cxx.o -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec1601599209
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1601599209.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTryCompileExec1601599209.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec1601599209 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec1745501924.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1745501924.dir/testCXXCompiler.cxx.o -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec1745501924
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1745501924.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTryCompileExec1745501924.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec1745501924 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec322042990/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec322042990.dir/build.make CMakeFiles/cmTryCompileExec322042990.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1040184196/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1040184196.dir/build.make CMakeFiles/cmTryCompileExec1040184196.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTryCompileExec322042990
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec322042990.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec322042990 -rdynamic  
+Building CXX object CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec1040184196
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1040184196.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1040184196 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -180,8 +180,8 @@ Thread model: posix
 gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec322042990' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec322042990 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1040184196' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1040184196 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
@@ -189,15 +189,15 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec322042990/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec322042990.dir/build.make CMakeFiles/cmTryCompileExec322042990.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1040184196/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1040184196.dir/build.make CMakeFiles/cmTryCompileExec1040184196.dir/build]
   ignore line: [make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTryCompileExec322042990]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec322042990.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec322042990 -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec1040184196]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1040184196.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1040184196 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -207,8 +207,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec322042990' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec322042990 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1040184196' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1040184196 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -222,7 +222,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec322042990] ==> ignore
+    arg [cmTryCompileExec1040184196] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -234,7 +234,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec322042990.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1040184196.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -264,120 +264,528 @@ Parsed CXX implicit link information from above output:
 Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1337506637/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1337506637.dir/build.make CMakeFiles/cmTryCompileExec1337506637.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec3738819933/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3738819933.dir/build.make CMakeFiles/cmTryCompileExec3738819933.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1337506637.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec1337506637.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1337506637
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1337506637.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec1337506637.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1337506637 -rdynamic -lX11 -lXext 
+Building C object CMakeFiles/cmTryCompileExec3738819933.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec3738819933.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3738819933
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3738819933.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec3738819933.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3738819933 -rdynamic -lX11 -lXext 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function gethostbyname exists passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec279078529/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec279078529.dir/build.make CMakeFiles/cmTryCompileExec279078529.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2655352148/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2655352148.dir/build.make CMakeFiles/cmTryCompileExec2655352148.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec279078529.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec279078529.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec279078529
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec279078529.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec279078529.dir/CheckFunctionExists.c.o  -o cmTryCompileExec279078529 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2655352148.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec2655352148.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2655352148
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2655352148.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec2655352148.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2655352148 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function connect exists passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1746452358/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1746452358.dir/build.make CMakeFiles/cmTryCompileExec1746452358.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2057796781/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2057796781.dir/build.make CMakeFiles/cmTryCompileExec2057796781.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1746452358.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec1746452358.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1746452358
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1746452358.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec1746452358.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1746452358 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2057796781.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec2057796781.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2057796781
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2057796781.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec2057796781.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2057796781 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function remove exists passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1496485562/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1496485562.dir/build.make CMakeFiles/cmTryCompileExec1496485562.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2052819642/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2052819642.dir/build.make CMakeFiles/cmTryCompileExec2052819642.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1496485562.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec1496485562.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1496485562
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1496485562.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec1496485562.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1496485562 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2052819642.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2052819642.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2052819642
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2052819642.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec2052819642.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2052819642 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function shmat exists passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3031628632/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3031628632.dir/build.make CMakeFiles/cmTryCompileExec3031628632.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2994632508/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2994632508.dir/build.make CMakeFiles/cmTryCompileExec2994632508.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3031628632.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec3031628632.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec3031628632
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3031628632.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec3031628632.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3031628632 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2994632508.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec2994632508.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2994632508
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2994632508.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec2994632508.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2994632508 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec217903079/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec217903079.dir/build.make CMakeFiles/cmTryCompileExec217903079.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec591306112/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec591306112.dir/build.make CMakeFiles/cmTryCompileExec591306112.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec217903079.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec217903079.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec217903079
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec217903079.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec217903079.dir/CheckFunctionExists.c.o  -o cmTryCompileExec217903079 -rdynamic -lICE 
+Building C object CMakeFiles/cmTryCompileExec591306112.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec591306112.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec591306112
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec591306112.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec591306112.dir/CheckFunctionExists.c.o  -o cmTryCompileExec591306112 -rdynamic -lICE 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if files pthread.h exist passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4042361337/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4042361337.dir/build.make CMakeFiles/cmTryCompileExec4042361337.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2576472389/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2576472389.dir/build.make CMakeFiles/cmTryCompileExec2576472389.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4042361337.dir/CheckIncludeFiles.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4042361337.dir/CheckIncludeFiles.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
-Linking C executable cmTryCompileExec4042361337
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4042361337.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec4042361337.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec4042361337 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2576472389.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2576472389.dir/CheckIncludeFiles.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2576472389
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2576472389.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2576472389.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2576472389 -rdynamic 
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
 Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec304389706/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec304389706.dir/build.make CMakeFiles/cmTryCompileExec304389706.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec394738931/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec394738931.dir/build.make CMakeFiles/cmTryCompileExec394738931.dir/build
 make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec304389706.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec304389706.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec304389706
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec304389706.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec304389706.dir/CheckFunctionExists.c.o  -o cmTryCompileExec304389706 -rdynamic -lpthread 
+Building C object CMakeFiles/cmTryCompileExec394738931.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec394738931.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec394738931
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec394738931.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec394738931.dir/CheckFunctionExists.c.o  -o cmTryCompileExec394738931 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec579870812/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec579870812.dir/build.make CMakeFiles/cmTryCompileExec579870812.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec579870812.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec579870812.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec579870812
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec579870812.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec579870812.dir/CheckFunctionExists.c.o  -o cmTryCompileExec579870812 -rdynamic -lX11 -lXext 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1134448734/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1134448734.dir/build.make CMakeFiles/cmTryCompileExec1134448734.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1134448734.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec1134448734.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1134448734
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1134448734.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec1134448734.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1134448734 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec540449763/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec540449763.dir/build.make CMakeFiles/cmTryCompileExec540449763.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec540449763.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec540449763.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec540449763
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec540449763.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec540449763.dir/CheckFunctionExists.c.o  -o cmTryCompileExec540449763 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2377110051/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2377110051.dir/build.make CMakeFiles/cmTryCompileExec2377110051.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2377110051.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2377110051.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2377110051
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2377110051.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec2377110051.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2377110051 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2323847175/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2323847175.dir/build.make CMakeFiles/cmTryCompileExec2323847175.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2323847175.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec2323847175.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2323847175
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2323847175.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec2323847175.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2323847175 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2927884872/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2927884872.dir/build.make CMakeFiles/cmTryCompileExec2927884872.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2927884872.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec2927884872.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2927884872
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2927884872.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec2927884872.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2927884872 -rdynamic -lICE 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec853872336/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec853872336.dir/build.make CMakeFiles/cmTryCompileExec853872336.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec853872336.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec853872336.dir/CheckIncludeFiles.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec853872336
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec853872336.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec853872336.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec853872336 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3737822070/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3737822070.dir/build.make CMakeFiles/cmTryCompileExec3737822070.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3737822070.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3737822070.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3737822070
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3737822070.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3737822070.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3737822070 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec464863018/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec464863018.dir/build.make CMakeFiles/cmTryCompileExec464863018.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec464863018.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec464863018.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec464863018
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec464863018.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec464863018.dir/CheckFunctionExists.c.o  -o cmTryCompileExec464863018 -rdynamic -lX11 -lXext 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec926383926/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec926383926.dir/build.make CMakeFiles/cmTryCompileExec926383926.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec926383926.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec926383926.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec926383926
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec926383926.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec926383926.dir/CheckFunctionExists.c.o  -o cmTryCompileExec926383926 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3061647533/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3061647533.dir/build.make CMakeFiles/cmTryCompileExec3061647533.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3061647533.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec3061647533.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3061647533
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3061647533.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec3061647533.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3061647533 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec959796195/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec959796195.dir/build.make CMakeFiles/cmTryCompileExec959796195.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec959796195.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec959796195.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec959796195
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec959796195.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec959796195.dir/CheckFunctionExists.c.o  -o cmTryCompileExec959796195 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2223001194/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2223001194.dir/build.make CMakeFiles/cmTryCompileExec2223001194.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2223001194.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec2223001194.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2223001194
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2223001194.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec2223001194.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2223001194 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1072173963/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1072173963.dir/build.make CMakeFiles/cmTryCompileExec1072173963.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1072173963.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec1072173963.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1072173963
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1072173963.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec1072173963.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1072173963 -rdynamic -lICE 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2616685387/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2616685387.dir/build.make CMakeFiles/cmTryCompileExec2616685387.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2616685387.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2616685387.dir/CheckIncludeFiles.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2616685387
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2616685387.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2616685387.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2616685387 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3419792863/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3419792863.dir/build.make CMakeFiles/cmTryCompileExec3419792863.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3419792863.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3419792863.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3419792863
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3419792863.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3419792863.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3419792863 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2180826026/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2180826026.dir/build.make CMakeFiles/cmTryCompileExec2180826026.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2180826026.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec2180826026.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2180826026
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2180826026.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec2180826026.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2180826026 -rdynamic -lX11 -lXext 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec369187483/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec369187483.dir/build.make CMakeFiles/cmTryCompileExec369187483.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec369187483.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec369187483.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec369187483
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec369187483.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec369187483.dir/CheckFunctionExists.c.o  -o cmTryCompileExec369187483 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1891016476/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1891016476.dir/build.make CMakeFiles/cmTryCompileExec1891016476.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1891016476.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec1891016476.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1891016476
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1891016476.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec1891016476.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1891016476 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2151181479/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2151181479.dir/build.make CMakeFiles/cmTryCompileExec2151181479.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2151181479.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2151181479.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2151181479
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2151181479.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec2151181479.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2151181479 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec80269072/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec80269072.dir/build.make CMakeFiles/cmTryCompileExec80269072.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec80269072.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec80269072.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec80269072
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec80269072.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec80269072.dir/CheckFunctionExists.c.o  -o cmTryCompileExec80269072 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1216511222/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1216511222.dir/build.make CMakeFiles/cmTryCompileExec1216511222.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1216511222.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec1216511222.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1216511222
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1216511222.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec1216511222.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1216511222 -rdynamic -lICE 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3261757849/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3261757849.dir/build.make CMakeFiles/cmTryCompileExec3261757849.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3261757849.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3261757849.dir/CheckIncludeFiles.c.o   -c /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3261757849
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3261757849.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3261757849.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3261757849 -rdynamic 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec376222824/fast"
+make[1]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec376222824.dir/build.make CMakeFiles/cmTryCompileExec376222824.dir/build
+make[2]: Entering directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec376222824.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec376222824.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec376222824
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec376222824.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec376222824.dir/CheckFunctionExists.c.o  -o cmTryCompileExec376222824 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory `/home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles/CMakeTmp'
 
 

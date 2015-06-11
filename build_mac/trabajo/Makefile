@@ -50,20 +50,10 @@ CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -143,18 +133,18 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-trabajo/CMakeFiles/bbdd_conn.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bbdd_conn.dir/rule
-.PHONY : trabajo/CMakeFiles/bbdd_conn.dir/rule
+trabajo/CMakeFiles/dorsal_new.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsal_new.dir/rule
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/rule
 
 # Convenience name for target.
-bbdd_conn: trabajo/CMakeFiles/bbdd_conn.dir/rule
-.PHONY : bbdd_conn
+dorsal_new: trabajo/CMakeFiles/dorsal_new.dir/rule
+.PHONY : dorsal_new
 
 # fast build rule for target.
-bbdd_conn/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/build
-.PHONY : bbdd_conn/fast
+dorsal_new/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+.PHONY : dorsal_new/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
@@ -185,20 +175,6 @@ functions/fast:
 .PHONY : functions/fast
 
 # Convenience name for target.
-trabajo/CMakeFiles/make_trainer.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : trabajo/CMakeFiles/make_trainer.dir/rule
-
-# Convenience name for target.
-make_trainer: trabajo/CMakeFiles/make_trainer.dir/rule
-.PHONY : make_trainer
-
-# fast build rule for target.
-make_trainer/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/build
-.PHONY : make_trainer/fast
-
-# Convenience name for target.
 trabajo/CMakeFiles/utilities.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/utilities.dir/rule
 .PHONY : trabajo/CMakeFiles/utilities.dir/rule
@@ -211,20 +187,6 @@ utilities: trabajo/CMakeFiles/utilities.dir/rule
 utilities/fast:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
-
-# Convenience name for target.
-trabajo/CMakeFiles/video.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/video.dir/rule
-.PHONY : trabajo/CMakeFiles/video.dir/rule
-
-# Convenience name for target.
-video: trabajo/CMakeFiles/video.dir/rule
-.PHONY : video
-
-# fast build rule for target.
-video/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/build
-.PHONY : video/fast
 
 Qr_proc.o: Qr_proc.cpp.o
 .PHONY : Qr_proc.o
@@ -250,30 +212,6 @@ Qr_proc.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
 .PHONY : Qr_proc.cpp.s
 
-bbdd_conn.o: bbdd_conn.cpp.o
-.PHONY : bbdd_conn.o
-
-# target to build an object file
-bbdd_conn.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.o
-.PHONY : bbdd_conn.cpp.o
-
-bbdd_conn.i: bbdd_conn.cpp.i
-.PHONY : bbdd_conn.i
-
-# target to preprocess a source file
-bbdd_conn.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.i
-.PHONY : bbdd_conn.cpp.i
-
-bbdd_conn.s: bbdd_conn.cpp.s
-.PHONY : bbdd_conn.s
-
-# target to generate assembly for a file
-bbdd_conn.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bbdd_conn.dir/build.make trabajo/CMakeFiles/bbdd_conn.dir/bbdd_conn.cpp.s
-.PHONY : bbdd_conn.cpp.s
-
 database_mng.o: database_mng.cpp.o
 .PHONY : database_mng.o
 
@@ -297,6 +235,30 @@ database_mng.s: database_mng.cpp.s
 database_mng.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.s
 .PHONY : database_mng.cpp.s
+
+dorsal_new.o: dorsal_new.cpp.o
+.PHONY : dorsal_new.o
+
+# target to build an object file
+dorsal_new.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.o
+.PHONY : dorsal_new.cpp.o
+
+dorsal_new.i: dorsal_new.cpp.i
+.PHONY : dorsal_new.i
+
+# target to preprocess a source file
+dorsal_new.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.i
+.PHONY : dorsal_new.cpp.i
+
+dorsal_new.s: dorsal_new.cpp.s
+.PHONY : dorsal_new.s
+
+# target to generate assembly for a file
+dorsal_new.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.s
+.PHONY : dorsal_new.cpp.s
 
 dorsales.o: dorsales.cpp.o
 .PHONY : dorsales.o
@@ -346,30 +308,6 @@ functions.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/functions.cpp.s
 .PHONY : functions.cpp.s
 
-make_trainer.o: make_trainer.cpp.o
-.PHONY : make_trainer.o
-
-# target to build an object file
-make_trainer.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.o
-.PHONY : make_trainer.cpp.o
-
-make_trainer.i: make_trainer.cpp.i
-.PHONY : make_trainer.i
-
-# target to preprocess a source file
-make_trainer.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.i
-.PHONY : make_trainer.cpp.i
-
-make_trainer.s: make_trainer.cpp.s
-.PHONY : make_trainer.s
-
-# target to generate assembly for a file
-make_trainer.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/make_trainer.dir/build.make trabajo/CMakeFiles/make_trainer.dir/make_trainer.cpp.s
-.PHONY : make_trainer.cpp.s
-
 utilities.o: utilities.cpp.o
 .PHONY : utilities.o
 
@@ -394,30 +332,6 @@ utilities.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/utilities.cpp.s
 .PHONY : utilities.cpp.s
 
-video.o: video.cpp.o
-.PHONY : video.o
-
-# target to build an object file
-video.cpp.o:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.o
-.PHONY : video.cpp.o
-
-video.i: video.cpp.i
-.PHONY : video.i
-
-# target to preprocess a source file
-video.cpp.i:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.i
-.PHONY : video.cpp.i
-
-video.s: video.cpp.s
-.PHONY : video.s
-
-# target to generate assembly for a file
-video.cpp.s:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/video.dir/build.make trabajo/CMakeFiles/video.dir/video.cpp.s
-.PHONY : video.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -425,41 +339,32 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... utilities"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
-	@echo "... video"
 	@echo "... list_install_components"
-	@echo "... bbdd_conn"
-	@echo "... make_trainer"
+	@echo "... dorsal_new"
 	@echo "... functions"
 	@echo "... install/local"
 	@echo "... dorsales"
 	@echo "... Qr_proc.o"
 	@echo "... Qr_proc.i"
 	@echo "... Qr_proc.s"
-	@echo "... bbdd_conn.o"
-	@echo "... bbdd_conn.i"
-	@echo "... bbdd_conn.s"
 	@echo "... database_mng.o"
 	@echo "... database_mng.i"
 	@echo "... database_mng.s"
+	@echo "... dorsal_new.o"
+	@echo "... dorsal_new.i"
+	@echo "... dorsal_new.s"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"
 	@echo "... functions.o"
 	@echo "... functions.i"
 	@echo "... functions.s"
-	@echo "... make_trainer.o"
-	@echo "... make_trainer.i"
-	@echo "... make_trainer.s"
 	@echo "... utilities.o"
 	@echo "... utilities.i"
 	@echo "... utilities.s"
-	@echo "... video.o"
-	@echo "... video.i"
-	@echo "... video.s"
 .PHONY : help
 
 

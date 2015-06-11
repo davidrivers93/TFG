@@ -33,12 +33,6 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/home/david/bin/dorsales" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/bin/dorsales")
-    FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/david/bin/dorsales"
-         RPATH "")
-  ENDIF()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/david/bin/dorsales")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -47,40 +41,6 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/david/bin" TYPE EXECUTABLE FILES "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/dorsales")
-  IF(EXISTS "$ENV{DESTDIR}/home/david/bin/dorsales" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/bin/dorsales")
-    FILE(RPATH_REMOVE
-         FILE "$ENV{DESTDIR}/home/david/bin/dorsales")
-    IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/david/bin/dorsales")
-    ENDIF(CMAKE_INSTALL_DO_STRIP)
-  ENDIF()
-ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-
-IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/home/david/bin/make_trainer" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/bin/make_trainer")
-    FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/david/bin/make_trainer"
-         RPATH "")
-  ENDIF()
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/david/bin/make_trainer")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/david/bin" TYPE EXECUTABLE FILES "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/make_trainer")
-  IF(EXISTS "$ENV{DESTDIR}/home/david/bin/make_trainer" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/david/bin/make_trainer")
-    FILE(RPATH_REMOVE
-         FILE "$ENV{DESTDIR}/home/david/bin/make_trainer")
-    IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/david/bin/make_trainer")
-    ENDIF(CMAKE_INSTALL_DO_STRIP)
-  ENDIF()
+FILE(INSTALL DESTINATION "/home/david/bin" TYPE EXECUTABLE FILES "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/CMakeRelink.dir/dorsales")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

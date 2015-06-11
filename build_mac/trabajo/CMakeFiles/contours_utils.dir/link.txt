@@ -1,0 +1,2 @@
+/usr/bin/ar cq libcontours_utils.a  CMakeFiles/contours_utils.dir/contours_utils.cpp.o CMakeFiles/contours_utils.dir/functions.cpp.o CMakeFiles/contours_utils.dir/Qr_proc.cpp.o CMakeFiles/contours_utils.dir/database_mng.cpp.o
+/usr/bin/ranlib libcontours_utils.a

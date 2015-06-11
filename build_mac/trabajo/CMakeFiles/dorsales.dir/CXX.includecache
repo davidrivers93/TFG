@@ -143,6 +143,10 @@ stdlib.h
 -
 CImg.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/CImg.h
+sstream
+-
+string
+-
 zbar.h
 -
 functions.h
@@ -157,6 +161,8 @@ database_mng.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/functions.h
 vector
 -
+database_mng.h
+/Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/database_mng.h
 
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/utilities.h
 

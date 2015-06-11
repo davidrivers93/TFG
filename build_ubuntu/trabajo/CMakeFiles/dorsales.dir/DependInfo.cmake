@@ -16,11 +16,10 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/david/Desktop/tfg/tfg/fuentes"
-  "/usr/local/include/opencv"
+  "/usr/include/opencv"
   "/usr/local/include"
-  "/usr/local/include/tesseract"
-  "/usr/local/include/leptonica"
+  "/opt/local/include/mysql55-connector-cpp/cppconn"
+  "/home/david/Desktop/tfg/tfg/fuentes"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
