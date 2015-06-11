@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales dorsal2)
+SET (MIXED_PROGRAMS dorsales dorsal_new)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
@@ -18,7 +18,9 @@ foreach(program ${MIXED_PROGRAMS})
 	target_link_libraries(${program} utilities)
 	target_link_libraries(${program} functions)
     target_link_libraries(${program} ${OpenCV_LIBS})
-   	target_link_libraries(${program} ${TESSERACT_LIBRARIES})
+	include_directories(${TESSERACT_INCLUDE_DIRS})
+	target_link_libraries( ${program} tesseract)
+	target_link_libraries( ${program} lept)
 	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
 	target_link_libraries(${program} mysqlcppconn)
 endforeach(program)

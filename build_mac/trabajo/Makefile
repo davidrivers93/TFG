@@ -50,20 +50,10 @@ CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -143,6 +133,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+trabajo/CMakeFiles/dorsal_new.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsal_new.dir/rule
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/rule
+
+# Convenience name for target.
+dorsal_new: trabajo/CMakeFiles/dorsal_new.dir/rule
+.PHONY : dorsal_new
+
+# fast build rule for target.
+dorsal_new/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+.PHONY : dorsal_new/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/dorsales.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsales.dir/rule
@@ -155,20 +159,6 @@ dorsales: trabajo/CMakeFiles/dorsales.dir/rule
 dorsales/fast:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
 .PHONY : dorsales/fast
-
-# Convenience name for target.
-trabajo/CMakeFiles/dorsales2.dir/rule:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsales2.dir/rule
-.PHONY : trabajo/CMakeFiles/dorsales2.dir/rule
-
-# Convenience name for target.
-dorsales2: trabajo/CMakeFiles/dorsales2.dir/rule
-.PHONY : dorsales2
-
-# fast build rule for target.
-dorsales2/fast:
-	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsales2.dir/build.make trabajo/CMakeFiles/dorsales2.dir/build
-.PHONY : dorsales2/fast
 
 # Convenience name for target.
 trabajo/CMakeFiles/functions.dir/rule:
@@ -245,6 +235,30 @@ database_mng.s: database_mng.cpp.s
 database_mng.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/database_mng.cpp.s
 .PHONY : database_mng.cpp.s
+
+dorsal_new.o: dorsal_new.cpp.o
+.PHONY : dorsal_new.o
+
+# target to build an object file
+dorsal_new.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.o
+.PHONY : dorsal_new.cpp.o
+
+dorsal_new.i: dorsal_new.cpp.i
+.PHONY : dorsal_new.i
+
+# target to preprocess a source file
+dorsal_new.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.i
+.PHONY : dorsal_new.cpp.i
+
+dorsal_new.s: dorsal_new.cpp.s
+.PHONY : dorsal_new.s
+
+# target to generate assembly for a file
+dorsal_new.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/dorsal_new.cpp.s
+.PHONY : dorsal_new.cpp.s
 
 dorsales.o: dorsales.cpp.o
 .PHONY : dorsales.o
@@ -325,12 +339,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... utilities"
-	@echo "... install/strip"
-	@echo "... dorsales2"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... dorsal_new"
 	@echo "... functions"
 	@echo "... install/local"
 	@echo "... dorsales"
@@ -340,6 +353,9 @@ help:
 	@echo "... database_mng.o"
 	@echo "... database_mng.i"
 	@echo "... database_mng.s"
+	@echo "... dorsal_new.o"
+	@echo "... dorsal_new.i"
+	@echo "... dorsal_new.s"
 	@echo "... dorsales.o"
 	@echo "... dorsales.i"
 	@echo "... dorsales.s"

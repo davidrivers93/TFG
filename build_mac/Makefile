@@ -50,20 +50,10 @@ CMAKE_BINARY_DIR = /Users/David/Desktop/ProyectosC++/TFG/build_mac
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -143,6 +133,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named dorsal_new
+
+# Build rule for target.
+dorsal_new: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dorsal_new
+.PHONY : dorsal_new
+
+# fast build rule for target.
+dorsal_new/fast:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+.PHONY : dorsal_new/fast
+
+#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -154,19 +157,6 @@ dorsales: cmake_check_build_system
 dorsales/fast:
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
 .PHONY : dorsales/fast
-
-#=============================================================================
-# Target rules for targets named dorsales2
-
-# Build rule for target.
-dorsales2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dorsales2
-.PHONY : dorsales2
-
-# fast build rule for target.
-dorsales2/fast:
-	$(MAKE) -f trabajo/CMakeFiles/dorsales2.dir/build.make trabajo/CMakeFiles/dorsales2.dir/build
-.PHONY : dorsales2/fast
 
 #=============================================================================
 # Target rules for targets named functions
@@ -200,14 +190,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
-	@echo "... dorsales2"
+	@echo "... dorsal_new"
 	@echo "... functions"
 	@echo "... dorsales"
 .PHONY : help

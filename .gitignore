@@ -8,4 +8,5 @@
 
 *.zip
 
-/build*
+#logos
+/logos

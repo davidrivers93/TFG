@@ -839,3 +839,357 @@ gmake[1]: se sale del directorio '/Users/David/Desktop/ProyectosC++/TFG/build_ma
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the function XOpenDisplay exists in the /opt/local/lib/libX11.dylib;/opt/local/lib/libXext.dylib passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3660472917/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3660472917.dir/build.make CMakeFiles/cmTryCompileExec3660472917.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3660472917.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec3660472917.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3660472917
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3660472917.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3660472917.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3660472917  -L/opt/local/lib  /opt/local/lib/libX11.dylib /opt/local/lib/libXext.dylib -Wl,-rpath,/opt/local/lib 
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2071805071/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2071805071.dir/build.make CMakeFiles/cmTryCompileExec2071805071.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2071805071.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec2071805071.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2071805071
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2071805071.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2071805071.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2071805071  
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2177273453/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2177273453.dir/build.make CMakeFiles/cmTryCompileExec2177273453.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2177273453.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec2177273453.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2177273453
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2177273453.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2177273453.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2177273453  
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec505879498/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec505879498.dir/build.make CMakeFiles/cmTryCompileExec505879498.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec505879498.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec505879498.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec505879498
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec505879498.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec505879498.dir/CheckFunctionExists.c.o  -o cmTryCompileExec505879498  
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1990418884/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1990418884.dir/build.make CMakeFiles/cmTryCompileExec1990418884.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1990418884.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec1990418884.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1990418884
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1990418884.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1990418884.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1990418884  
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1645178307/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1645178307.dir/build.make CMakeFiles/cmTryCompileExec1645178307.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1645178307.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec1645178307.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1645178307
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1645178307.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1645178307.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1645178307  -L/opt/local/lib  -lICE -Wl,-rpath,/opt/local/lib 
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2737074674/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2737074674.dir/build.make CMakeFiles/cmTryCompileExec2737074674.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2737074674.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2737074674.dir/CheckIncludeFiles.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2737074674
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2737074674.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2737074674.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2737074674  
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec873879644/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec873879644.dir/build.make CMakeFiles/cmTryCompileExec873879644.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec873879644.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec873879644.dir/CheckSymbolExists.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec873879644
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec873879644.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec873879644.dir/CheckSymbolExists.c.o  -o cmTryCompileExec873879644  
+
+File /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function XOpenDisplay exists in the /opt/local/lib/libX11.dylib;/opt/local/lib/libXext.dylib passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3217595150/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3217595150.dir/build.make CMakeFiles/cmTryCompileExec3217595150.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3217595150.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec3217595150.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3217595150
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3217595150.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3217595150.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3217595150  -L/opt/local/lib  /opt/local/lib/libX11.dylib /opt/local/lib/libXext.dylib -Wl,-rpath,/opt/local/lib 
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec23625475/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec23625475.dir/build.make CMakeFiles/cmTryCompileExec23625475.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec23625475.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec23625475.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec23625475
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec23625475.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec23625475.dir/CheckFunctionExists.c.o  -o cmTryCompileExec23625475  
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2276280758/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2276280758.dir/build.make CMakeFiles/cmTryCompileExec2276280758.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2276280758.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec2276280758.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2276280758
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2276280758.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2276280758.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2276280758  
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2539145071/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2539145071.dir/build.make CMakeFiles/cmTryCompileExec2539145071.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2539145071.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2539145071.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2539145071
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2539145071.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2539145071.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2539145071  
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3946074108/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3946074108.dir/build.make CMakeFiles/cmTryCompileExec3946074108.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3946074108.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec3946074108.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3946074108
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3946074108.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3946074108.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3946074108  
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec768140762/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec768140762.dir/build.make CMakeFiles/cmTryCompileExec768140762.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec768140762.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec768140762.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec768140762
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec768140762.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec768140762.dir/CheckFunctionExists.c.o  -o cmTryCompileExec768140762  -L/opt/local/lib  -lICE -Wl,-rpath,/opt/local/lib 
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec783214629/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec783214629.dir/build.make CMakeFiles/cmTryCompileExec783214629.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec783214629.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec783214629.dir/CheckIncludeFiles.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec783214629
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec783214629.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec783214629.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec783214629  
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec421193857/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec421193857.dir/build.make CMakeFiles/cmTryCompileExec421193857.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec421193857.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec421193857.dir/CheckSymbolExists.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec421193857
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec421193857.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec421193857.dir/CheckSymbolExists.c.o  -o cmTryCompileExec421193857  
+
+File /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function XOpenDisplay exists in the /opt/local/lib/libX11.dylib;/opt/local/lib/libXext.dylib passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4224299176/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4224299176.dir/build.make CMakeFiles/cmTryCompileExec4224299176.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4224299176.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec4224299176.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4224299176
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4224299176.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec4224299176.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4224299176  -L/opt/local/lib  /opt/local/lib/libX11.dylib /opt/local/lib/libXext.dylib -Wl,-rpath,/opt/local/lib 
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2575277767/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2575277767.dir/build.make CMakeFiles/cmTryCompileExec2575277767.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2575277767.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec2575277767.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2575277767
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2575277767.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2575277767.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2575277767  
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec45123207/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec45123207.dir/build.make CMakeFiles/cmTryCompileExec45123207.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec45123207.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec45123207.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec45123207
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec45123207.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec45123207.dir/CheckFunctionExists.c.o  -o cmTryCompileExec45123207  
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3560477889/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3560477889.dir/build.make CMakeFiles/cmTryCompileExec3560477889.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3560477889.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec3560477889.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3560477889
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3560477889.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3560477889.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3560477889  
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3688453527/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3688453527.dir/build.make CMakeFiles/cmTryCompileExec3688453527.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3688453527.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec3688453527.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3688453527
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3688453527.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3688453527.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3688453527  
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec927058099/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec927058099.dir/build.make CMakeFiles/cmTryCompileExec927058099.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec927058099.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec927058099.dir/CheckFunctionExists.c.o   -c /opt/local/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec927058099
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec927058099.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec927058099.dir/CheckFunctionExists.c.o  -o cmTryCompileExec927058099  -L/opt/local/lib  -lICE -Wl,-rpath,/opt/local/lib 
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2251606265/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2251606265.dir/build.make CMakeFiles/cmTryCompileExec2251606265.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2251606265.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2251606265.dir/CheckIncludeFiles.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2251606265
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2251606265.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2251606265.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2251606265  
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2394549661/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2394549661.dir/build.make CMakeFiles/cmTryCompileExec2394549661.dir/build
+/opt/local/bin/cmake -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2394549661.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2394549661.dir/CheckSymbolExists.c.o   -c /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2394549661
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2394549661.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2394549661.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2394549661  
+
+File /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
