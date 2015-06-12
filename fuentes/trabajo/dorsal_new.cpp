@@ -534,7 +534,7 @@ void calculate(set<string> images, int contador) {
 	}
 
 	//Tesseract
-
+	system("rm -rf temp.jpg");
 
 
 }
