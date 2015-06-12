@@ -104,6 +104,22 @@ CImg.h
 stdint.h
 -
 
+/home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.cpp
+mysql_connection.h
+/home/david/Desktop/tfg/tfg/fuentes/trabajo/mysql_connection.h
+cppconn/driver.h
+-
+cppconn/exception.h
+-
+cppconn/resultset.h
+-
+cppconn/statement.h
+-
+cppconn/prepared_statement.h
+-
+database_mng.h
+/home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.h
+
 /home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.h
 mysql_connection.h
 /home/david/Desktop/tfg/tfg/fuentes/trabajo/mysql_connection.h

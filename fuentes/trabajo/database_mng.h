@@ -26,9 +26,9 @@ class database_mng
 
         database_mng()
         {
-            host     = "tcp://risign.ddns.net:3306";
-            user     = "david-superadmin";
-            password = "donbosco02";
+            host     = "tcp://127.0.0.1:3306";
+            user     = "david-local";
+            password = "";
         };
 
         struct race_data{
