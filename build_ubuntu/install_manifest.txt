@@ -1,0 +1,3 @@
+/home/david/bin/dorsales
+/home/david/bin/dorsal_new
+/home/david/bin/bib_generator

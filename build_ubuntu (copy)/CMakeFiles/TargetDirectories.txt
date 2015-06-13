@@ -1,0 +1,6 @@
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/bbdd_conn.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/dorsales.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/make_trainer.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/utilities.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/video.dir

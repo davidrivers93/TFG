@@ -1,0 +1,2 @@
+/usr/bin/ar cr libdatabase_mng.a  CMakeFiles/database_mng.dir/database_mng.cpp.o
+/usr/bin/ranlib libdatabase_mng.a
