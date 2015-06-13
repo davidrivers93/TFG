@@ -133,6 +133,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named bib_generator_tfg
+
+# Build rule for target.
+bib_generator_tfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bib_generator_tfg
+.PHONY : bib_generator_tfg
+
+# fast build rule for target.
+bib_generator_tfg/fast:
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/build
+.PHONY : bib_generator_tfg/fast
+
+#=============================================================================
 # Target rules for targets named dorsal_new
 
 # Build rule for target.
@@ -196,6 +209,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
+	@echo "... bib_generator_tfg"
 	@echo "... dorsal_new"
 	@echo "... functions"
 	@echo "... dorsales"

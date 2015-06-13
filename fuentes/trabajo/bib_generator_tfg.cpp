@@ -59,7 +59,7 @@ int main(int argc, char **argv) {
 
 
 	Mat image;
-	image = imread(argv[1], 1);
+	image = imread("plantilla_dorsa.jpg", 1);
 
 	database_mng database;
 
@@ -95,6 +95,7 @@ int main(int argc, char **argv) {
 	database.race_data_query.race_data = database.print(2);
 	database.race_data_query.date_data = database.print(3);
 	database.race_data_query.tablen_data = database.print(4);
+
 	string temp = database.print(5);
 	int distance;
 	istringstream ( temp ) >> distance;
@@ -112,22 +113,35 @@ int main(int argc, char **argv) {
 		std::cout << "\t Nombre " << database.print(2) << endl;
 		std::cout << "\t Apellido " << database.print(3) << endl;
 		std::cout << "\t Marca " << database.print(4) << endl;
+		std::cout << "\t Apodo " << database.print(5) << endl;
+
 		Mat template_image = image.clone();
 		std::string dorsal_text = database.print(1);
 		cv::Point2d center;
 		center.x = (template_image.cols)/2;
-		center.y = (template_image.rows)/2;
+		center.y = (template_image.rows)*0.42;
 		std::string font = "Rockwell Extra Bold";
 		cv::Scalar color = Scalar(0,0,0);
-		double fontSize = 100;
+		double fontSize = 450;
 
-		putTextCairo(template_image, dorsal_text, center, font, fontSize, color, false,false);
+		putTextCairo(template_image, dorsal_text, center, font, fontSize, color, false, true);
+
+		std::string dorsal_text2 = database.print(5);
+		cv::Point2d center2;
+		center2.x = (template_image.cols)/2;
+		center2.y = (template_image.rows)*(1-0.40);
+
+		double fontSize2 = 250;
+
+		putTextCairo(template_image, dorsal_text2, center2, font, fontSize2, color, false, true);
+
 		std::string image_dorsal_file = "prueba" + dorsal_text;
 		std::cout << "Nombre archivo" << image_dorsal_file << endl;
-		imshow("Prueba", image);
-		imshow("Prueba", template_image);
-		pause();
-		imwrite(image_dorsal_file, template_image);
+		CImg <unsigned char> orig, cambiada;
+		orig.assign(image);
+		cambiada.assign(template_image);
+		orig.get_append(cambiada, 'x').display("Slaida", false);
+		//imwrite(image_dorsal_file, template_image);
 
 		std::cout << "Imagen guardada" << endl;
 

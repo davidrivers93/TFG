@@ -1,5 +1,5 @@
 
-SET (MIXED_PROGRAMS dorsales dorsal_new bib_generator)
+SET (MIXED_PROGRAMS dorsales dorsal_new bib_generator_tfg)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
@@ -22,7 +22,7 @@ foreach(program ${MIXED_PROGRAMS})
 	target_link_libraries( ${program} tesseract)
 	target_link_libraries( ${program} lept)
 	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
-	target_link_libraries(${program} ${CAIRO_LIBRARIES})	
+	target_link_libraries(${program} cairo)	
 	target_link_libraries(${program} mysqlcppconn)
 endforeach(program)
 
