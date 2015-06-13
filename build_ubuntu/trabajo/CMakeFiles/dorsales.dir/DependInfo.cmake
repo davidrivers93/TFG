@@ -19,6 +19,9 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/include/opencv"
   "/usr/local/include"
   "/opt/local/include/mysql55-connector-cpp/cppconn"
+  "/opt/local/include"
+  "/opt/local/include/tesseract"
+  "/opt/local/include/leptonica"
   "/home/david/Desktop/tfg/tfg/fuentes"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -56,30 +56,126 @@ CMAKE_BINARY_DIR = /home/david/Desktop/tfg/tfg/build_ubuntu
 # Directory level rules for directory trabajo
 
 # Convenience name for "all" pass in the directory.
+trabajo/all: trabajo/CMakeFiles/bib_generator.dir/all
+trabajo/all: trabajo/CMakeFiles/dorsal_new.dir/all
 trabajo/all: trabajo/CMakeFiles/dorsales.dir/all
 trabajo/all: trabajo/CMakeFiles/functions.dir/all
 trabajo/all: trabajo/CMakeFiles/utilities.dir/all
 .PHONY : trabajo/all
 
 # Convenience name for "clean" pass in the directory.
+trabajo/clean: trabajo/CMakeFiles/bib_generator.dir/clean
+trabajo/clean: trabajo/CMakeFiles/dorsal_new.dir/clean
 trabajo/clean: trabajo/CMakeFiles/dorsales.dir/clean
 trabajo/clean: trabajo/CMakeFiles/functions.dir/clean
 trabajo/clean: trabajo/CMakeFiles/utilities.dir/clean
 .PHONY : trabajo/clean
 
 # Convenience name for "preinstall" pass in the directory.
+trabajo/preinstall: trabajo/CMakeFiles/bib_generator.dir/preinstall
+trabajo/preinstall: trabajo/CMakeFiles/dorsal_new.dir/preinstall
 trabajo/preinstall: trabajo/CMakeFiles/dorsales.dir/preinstall
 .PHONY : trabajo/preinstall
+
+#=============================================================================
+# Target rules for target trabajo/CMakeFiles/bib_generator.dir
+
+# All Build rule for target.
+trabajo/CMakeFiles/bib_generator.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/bib_generator.dir/all: trabajo/CMakeFiles/utilities.dir/all
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/depend
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  1
+	@echo "Built target bib_generator"
+.PHONY : trabajo/CMakeFiles/bib_generator.dir/all
+
+# Include target in all.
+all: trabajo/CMakeFiles/bib_generator.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+trabajo/CMakeFiles/bib_generator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles 0
+.PHONY : trabajo/CMakeFiles/bib_generator.dir/rule
+
+# Convenience name for target.
+bib_generator: trabajo/CMakeFiles/bib_generator.dir/rule
+.PHONY : bib_generator
+
+# Pre-install relink rule for target.
+trabajo/CMakeFiles/bib_generator.dir/preinstall:
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/preinstall
+.PHONY : trabajo/CMakeFiles/bib_generator.dir/preinstall
+
+# Prepare target for install.
+preinstall: trabajo/CMakeFiles/bib_generator.dir/preinstall
+.PHONY : preinstall
+
+# clean rule for target.
+trabajo/CMakeFiles/bib_generator.dir/clean:
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/clean
+.PHONY : trabajo/CMakeFiles/bib_generator.dir/clean
+
+# clean rule for target.
+clean: trabajo/CMakeFiles/bib_generator.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target trabajo/CMakeFiles/dorsal_new.dir
+
+# All Build rule for target.
+trabajo/CMakeFiles/dorsal_new.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/dorsal_new.dir/all: trabajo/CMakeFiles/utilities.dir/all
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/depend
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  2
+	@echo "Built target dorsal_new"
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/all
+
+# Include target in all.
+all: trabajo/CMakeFiles/dorsal_new.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+trabajo/CMakeFiles/dorsal_new.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsal_new.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles 0
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/rule
+
+# Convenience name for target.
+dorsal_new: trabajo/CMakeFiles/dorsal_new.dir/rule
+.PHONY : dorsal_new
+
+# Pre-install relink rule for target.
+trabajo/CMakeFiles/dorsal_new.dir/preinstall:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/preinstall
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/preinstall
+
+# Prepare target for install.
+preinstall: trabajo/CMakeFiles/dorsal_new.dir/preinstall
+.PHONY : preinstall
+
+# clean rule for target.
+trabajo/CMakeFiles/dorsal_new.dir/clean:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/clean
+.PHONY : trabajo/CMakeFiles/dorsal_new.dir/clean
+
+# clean rule for target.
+clean: trabajo/CMakeFiles/dorsal_new.dir/clean
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target trabajo/CMakeFiles/dorsales.dir
 
 # All Build rule for target.
-trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/utilities.dir/all
 trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/functions.dir/all
+trabajo/CMakeFiles/dorsales.dir/all: trabajo/CMakeFiles/utilities.dir/all
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  3
 	@echo "Built target dorsales"
 .PHONY : trabajo/CMakeFiles/dorsales.dir/all
 
@@ -123,7 +219,7 @@ clean: trabajo/CMakeFiles/dorsales.dir/clean
 trabajo/CMakeFiles/functions.dir/all:
 	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  2 3 4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  4 5 6
 	@echo "Built target functions"
 .PHONY : trabajo/CMakeFiles/functions.dir/all
 
@@ -158,7 +254,7 @@ clean: trabajo/CMakeFiles/functions.dir/clean
 trabajo/CMakeFiles/utilities.dir/all:
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/depend
 	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/Desktop/tfg/tfg/build_ubuntu/CMakeFiles  7
 	@echo "Built target utilities"
 .PHONY : trabajo/CMakeFiles/utilities.dir/all
 
@@ -185,6 +281,21 @@ trabajo/CMakeFiles/utilities.dir/clean:
 # clean rule for target.
 clean: trabajo/CMakeFiles/utilities.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory generator
+
+# Convenience name for "all" pass in the directory.
+generator/all:
+.PHONY : generator/all
+
+# Convenience name for "clean" pass in the directory.
+generator/clean:
+.PHONY : generator/clean
+
+# Convenience name for "preinstall" pass in the directory.
+generator/preinstall:
+.PHONY : generator/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

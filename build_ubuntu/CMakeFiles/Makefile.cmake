@@ -54,10 +54,13 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "trabajo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "generator/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
+  "trabajo/CMakeFiles/bib_generator.dir/DependInfo.cmake"
+  "trabajo/CMakeFiles/dorsal_new.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/dorsales.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   "trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"

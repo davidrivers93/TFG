@@ -51,6 +51,8 @@ endif()
 pkg_check_modules(ZBAR  zbar)
 #pkg_check_modules(PC_ZBAR QUIET zbar)  
 
+pkg_check_modules(CAIRO REQUIRED cairo)
+
 ##MYSQL-CONNECTOR
 include_directories("/opt/local/include/mysql55-connector-cpp/cppconn")
 link_directories("/opt/local/lib/mysql55-connector-cpp")
@@ -114,5 +116,5 @@ endif(NOT APPLE)
 
 
 # ## Subdirs
-SUBDIRS(trabajo)
+SUBDIRS(trabajo generator)
 

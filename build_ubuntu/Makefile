@@ -130,6 +130,42 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named bib_generator
+
+# Build rule for target.
+bib_generator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bib_generator
+.PHONY : bib_generator
+
+# fast build rule for target.
+bib_generator/fast:
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/build
+.PHONY : bib_generator/fast
+
+# Manual pre-install relink rule for target.
+bib_generator/preinstall:
+	$(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/preinstall
+.PHONY : bib_generator/preinstall
+
+#=============================================================================
+# Target rules for targets named dorsal_new
+
+# Build rule for target.
+dorsal_new: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dorsal_new
+.PHONY : dorsal_new
+
+# fast build rule for target.
+dorsal_new/fast:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
+.PHONY : dorsal_new/fast
+
+# Manual pre-install relink rule for target.
+dorsal_new/preinstall:
+	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/preinstall
+.PHONY : dorsal_new/preinstall
+
+#=============================================================================
 # Target rules for targets named dorsales
 
 # Build rule for target.
@@ -184,6 +220,8 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... bib_generator"
+	@echo "... dorsal_new"
 	@echo "... dorsales"
 	@echo "... functions"
 	@echo "... utilities"

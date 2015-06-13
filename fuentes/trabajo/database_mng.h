@@ -35,6 +35,8 @@ class database_mng
         	string race_data;
         	string date_data;
         	string tablen_data;
+        	int distance;
+        	string ins_table;
         };
 
         string database_name;
