@@ -1,4 +1,4 @@
-/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/bib_generator.dir
+/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/bib_generator_tfg.dir
 /home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/dorsal_new.dir
 /home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/dorsales.dir
 /home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir

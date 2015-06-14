@@ -130,23 +130,23 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-trabajo/CMakeFiles/bib_generator.dir/rule:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator.dir/rule
-.PHONY : trabajo/CMakeFiles/bib_generator.dir/rule
+trabajo/CMakeFiles/bib_generator_tfg.dir/rule:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator_tfg.dir/rule
+.PHONY : trabajo/CMakeFiles/bib_generator_tfg.dir/rule
 
 # Convenience name for target.
-bib_generator: trabajo/CMakeFiles/bib_generator.dir/rule
-.PHONY : bib_generator
+bib_generator_tfg: trabajo/CMakeFiles/bib_generator_tfg.dir/rule
+.PHONY : bib_generator_tfg
 
 # fast build rule for target.
-bib_generator/fast:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/build
-.PHONY : bib_generator/fast
+bib_generator_tfg/fast:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/build
+.PHONY : bib_generator_tfg/fast
 
 # Manual pre-install relink rule for target.
-bib_generator/preinstall:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator.dir/preinstall
-.PHONY : bib_generator/preinstall
+bib_generator_tfg/preinstall:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator_tfg.dir/preinstall
+.PHONY : bib_generator_tfg/preinstall
 
 # Convenience name for target.
 trabajo/CMakeFiles/dorsal_new.dir/rule:
@@ -238,29 +238,29 @@ Qr_proc.cpp.s:
 	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
 .PHONY : Qr_proc.cpp.s
 
-bib_generator.o: bib_generator.cpp.o
-.PHONY : bib_generator.o
+bib_generator_tfg.o: bib_generator_tfg.cpp.o
+.PHONY : bib_generator_tfg.o
 
 # target to build an object file
-bib_generator.cpp.o:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/bib_generator.cpp.o
-.PHONY : bib_generator.cpp.o
+bib_generator_tfg.cpp.o:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.o
+.PHONY : bib_generator_tfg.cpp.o
 
-bib_generator.i: bib_generator.cpp.i
-.PHONY : bib_generator.i
+bib_generator_tfg.i: bib_generator_tfg.cpp.i
+.PHONY : bib_generator_tfg.i
 
 # target to preprocess a source file
-bib_generator.cpp.i:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/bib_generator.cpp.i
-.PHONY : bib_generator.cpp.i
+bib_generator_tfg.cpp.i:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.i
+.PHONY : bib_generator_tfg.cpp.i
 
-bib_generator.s: bib_generator.cpp.s
-.PHONY : bib_generator.s
+bib_generator_tfg.s: bib_generator_tfg.cpp.s
+.PHONY : bib_generator_tfg.s
 
 # target to generate assembly for a file
-bib_generator.cpp.s:
-	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator.dir/build.make trabajo/CMakeFiles/bib_generator.dir/bib_generator.cpp.s
-.PHONY : bib_generator.cpp.s
+bib_generator_tfg.cpp.s:
+	cd /home/david/Desktop/tfg/tfg/build_ubuntu && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.s
+.PHONY : bib_generator_tfg.cpp.s
 
 database_mng.o: database_mng.cpp.o
 .PHONY : database_mng.o
@@ -388,7 +388,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... bib_generator"
+	@echo "... bib_generator_tfg"
 	@echo "... dorsal_new"
 	@echo "... dorsales"
 	@echo "... edit_cache"
@@ -401,9 +401,9 @@ help:
 	@echo "... Qr_proc.o"
 	@echo "... Qr_proc.i"
 	@echo "... Qr_proc.s"
-	@echo "... bib_generator.o"
-	@echo "... bib_generator.i"
-	@echo "... bib_generator.s"
+	@echo "... bib_generator_tfg.o"
+	@echo "... bib_generator_tfg.i"
+	@echo "... bib_generator_tfg.s"
 	@echo "... database_mng.o"
 	@echo "... database_mng.i"
 	@echo "... database_mng.s"

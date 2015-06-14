@@ -209,10 +209,10 @@ void add_result_db(std::string result, database_mng & database, std::string imag
 	std::cerr << "QUERY: " << query << endl;
 	database.prepare("INSERT INTO ? (dorsal,path_img) VALUES (?,?)");
 	database.setString(1,database.race_data_query.tablen_data);
-	int dorsal = std::stoi(resultado,0);
-	database.setInt(2,dorsal);
-	string path = "/" + database.race_data_query.tablen_data + "/" + imagename;
-	database.setString(1,path);
+	//int dorsal = std::stoi(resultado,0);
+	//database.setInt(2,dorsal);
+	//string path = "/" + database.race_data_query.tablen_data + "/" + imagename;
+	//database.setString(1,path);
 
 	database.execute();
 
