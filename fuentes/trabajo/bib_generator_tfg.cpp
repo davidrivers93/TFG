@@ -135,19 +135,18 @@ int main(int argc, char **argv) {
 
 		putTextCairo(template_image, dorsal_text2, center2, font, fontSize2, color, false, true);
 
-		std::string image_dorsal_file = "prueba" + dorsal_text;
-		std::cout << "Nombre archivo" << image_dorsal_file << endl;
+		std::string image_dorsal_file ="dorsal_" + dorsal_text + ".jpg";
+		std::cout << "Nombre archivo " << image_dorsal_file << endl;
 		CImg <unsigned char> orig, cambiada;
 		orig.assign(image);
 		cambiada.assign(template_image);
 		orig.get_append(cambiada, 'x').display("Slaida", false);
 		//imwrite(image_dorsal_file, template_image);
 
+		cambiada.save(image_dorsal_file.c_str());
 		std::cout << "Imagen guardada" << endl;
 
 	}
-
-
 }
 
 
