@@ -135,23 +135,23 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 		new_race_table << new_race_date.at(0) << new_race_date.at(1) << new_race_name.at(0) << new_race_name.at(1) << new_race_date.at(6) << new_race_date.at(7);
 		string new_race_tables = new_race_table.str();
 		string race_ins = "ins" + new_race_tables;
-		database.prepare("INSERT INTO prueba.races (idraces, races_name, races_date, race_dbname, race_distance, race_ins) VALUES (?, ?, ?, ?)");
+		database.prepare("INSERT INTO prueba.races (idraces, races_name, races_date, race_dbname, race_distance, race_ins) VALUES (?, ?, ?, ?, ?, ?)");
 		database.setInt(1,index_bbdd_races);
 		database.setString(2,new_race_name);
 		database.setString(3,new_race_date);
 		database.setString(4,new_race_tables);
 		database.setInt(5,distance);
 		database.setString(6,race_ins);
-
-
+		database.execute();
+		std::cerr << "He llegado" << endl;
 		//actualizo struct
 		database.race_data_query.race_data = new_race_name;
 		database.race_data_query.date_data =  new_race_date;
 		database.race_data_query.tablen_data = new_race_tables;
 		database.race_data_query.distance = distance;
 		database.race_data_query.ins_table = race_ins;
+		std::cerr << "He llegado" << endl;
 
-		database.execute();
 
 
 	}
@@ -173,7 +173,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	}
 
 	//Compruebo si existe la tabla de la carrera
-
+	std::cerr << "He llegado" << endl;
 	database.prepare("SELECT * FROM ?");
 	database.setString(1, database.race_data_query.tablen_data);
 	database.execute();
@@ -204,17 +204,18 @@ void add_result_db(std::string result, database_mng & database, std::string imag
 
 	std::cout << "Resultado a enviar " << resultado << endl;
 
-	std::string query = "INSERT INTO " + database.race_data_query.tablen_data + "(dorsal, path_img) VALUES (" + resultado + ",/\'" + database.race_data_query.tablen_data + "/" + imagename + "\')";
+	std::string query = "INSERT INTO " + database.race_data_query.tablen_data + "(dorsal, path_img) VALUES (" + resultado + ",\'/" + database.race_data_query.tablen_data + "/" + imagename + "\')";
 
 	std::cerr << "QUERY: " << query << endl;
-	database.prepare("INSERT INTO ? (dorsal,path_img) VALUES (?,?)");
+
+	/*database.prepare("INSERT INTO ? (dorsal,path_img) VALUES (?,?)");
 	database.setString(1,database.race_data_query.tablen_data);
 	int dorsal = std::stoi(resultado,0);
 	database.setInt(2,dorsal);
 	string path = "/" + database.race_data_query.tablen_data + "/" + imagename;
-	database.setString(1,path);
+	database.setString(1,path);*/
 
-	database.execute();
+	database.execute(query);
 
 
 }
