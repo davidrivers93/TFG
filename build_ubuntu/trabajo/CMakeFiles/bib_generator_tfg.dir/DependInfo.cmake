@@ -4,14 +4,14 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/Qr_proc.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.o"
-  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/database_mng.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/database_mng.cpp.o"
-  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/functions.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/functions.cpp.o"
+  "/home/david/Desktop/tfg/tfg/fuentes/trabajo/bib_generator_tfg.cpp" "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/utilities.dir/DependInfo.cmake"
+  "/home/david/Desktop/tfg/tfg/build_ubuntu/trabajo/CMakeFiles/functions.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
