@@ -75,8 +75,6 @@ int main(int argc, char **argv) {
 
 	database.connect();
 
-
-
 	create_txt_file();
 
 	std::vector<string> vector_list_races;
