@@ -10,10 +10,12 @@
 #include <set>
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <time.h>
 #include <opencv2/opencv.hpp>
 #include <unistd.h>
 #include <stdlib.h>
+
 #define cimg_plugin1 "cimgcvMat.h"
 #include "CImg.h"
 #define cimg_use_opencv //To be able to use capture from camera in cimg
@@ -49,6 +51,8 @@ int numberOfSons(const std::vector<Vec4i> & hierarchy, int id);
 void list_races(std::vector<string> & list_races, database_mng & database);
 void add_result_db(std::string result, database_mng & database, std::string imagename);
 std::string search_number(std::string result);
+void save_image(std::string imagename, database_mng & database, CImg <unsigned char> & image_save);
+bool check_file ( const char * filename);
 
 int main(int argc, char **argv) {
 
@@ -80,7 +84,7 @@ int main(int argc, char **argv) {
 	std::vector<string> vector_list_races;
 	list_races(vector_list_races, database);
 	set<string> images = isImages(input);
-
+	std::cerr << "He llegado" << endl;
 	int contador = showfiles(images);
 	std::cerr << "LLEGO" << endl;
 	calculate(images, contador,database);
@@ -169,14 +173,15 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 
 
 	}
-
+	std::cerr << "SALGO DEL ELSE" << endl;
 	//Compruebo si existe la tabla de la carrera
-	std::cerr << "He llegado" << endl;
 	database.prepare("SELECT * FROM ?");
 	database.setString(1, database.race_data_query.tablen_data);
+	std::cerr << "SALGO DEL ELSE" << endl;
 	database.execute();
 
 	string prueba_create = "CREATE TABLE " + database.race_data_query.tablen_data +  "(`dorsal` INT NOT NULL,`path_img` VARCHAR(45) NOT NULL)";
+	std::cerr << "SALGO DEL ELSE" << endl;
 	database.execute(prueba_create);
 	std::cout << "He creado la tabla. \n";
 
@@ -214,6 +219,34 @@ void add_result_db(std::string result, database_mng & database, std::string imag
 	database.setString(1,path);*/
 
 	database.execute(query);
+
+
+}
+
+bool check_file ( const char * filename){
+
+	std::ifstream infile(filename);
+	return infile.good();
+
+}
+
+
+void save_image(std::string imagename, database_mng & database, CImg <unsigned char> & image_save){
+
+	std::string path_xampp = "/opt/lampp/htdocs";
+
+	std::string path_image = path_xampp + "/" + database.race_data_query.tablen_data + "/" + imagename ;
+
+	std::cout << "Ruta de la imagen " << path_image << endl;
+
+	//if(!check_file(path_image.c_str()))
+	if(!check_file(path_image.c_str()))
+		std::cout << "Imagen guardada anteriormente" << endl;
+
+	if(check_file(path_image.c_str())){
+		image_save.save(path_image.c_str());
+		std::cout << "Imagen guardada" << endl;
+	}
 
 
 }
@@ -292,7 +325,6 @@ int showfiles(set<string> images) {
 }
 
 void calculate(set<string> images, int contador,database_mng & database ) {
-
 	if (images.size()) {
 
 		std::set<string>::iterator it;
@@ -668,6 +700,8 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 				 pixDestroy(&image);
 
 				 add_result_db(outtext, database,imgname);
+
+				 save_image(imgname, database, img);
 			}
 
 		}
