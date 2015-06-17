@@ -94,7 +94,6 @@ trabajo/make_trainer: /opt/local/lib/libopencv_ts.a
 trabajo/make_trainer: /opt/local/lib/libopencv_superres.2.4.11.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_stitching.2.4.11.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_contrib.2.4.11.dylib
-trabajo/make_trainer: /usr/local/lib/libzbar.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_nonfree.2.4.11.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_gpu.2.4.11.dylib
 trabajo/make_trainer: /opt/local/lib/libopencv_photo.2.4.11.dylib

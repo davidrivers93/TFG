@@ -42,7 +42,7 @@ using namespace std;
 using namespace cv;
 
 void computeContourDepth(const std::vector<Vec4i> & hierarchy, std::vector<int> & depth);
-void calculate(set<string> images, int contador,database_mng & database );
+void calculate(set<string> images, int contador,database_mng & database , CImg <float> vectores);
 void create_txt_file();
 std::string getOsName();
 int showfiles(set<string> images);
@@ -80,13 +80,18 @@ int main(int argc, char **argv) {
 
 	create_txt_file();
 
+	CImg<float> vectores;
+	vectores.resize(9, 10);
+	load_dlm(vectores);
+	std::cout << "DLM cargado";
+
 	std::vector<string> vector_list_races;
 	list_races(vector_list_races, database);
 	set<string> images = isImages(input);
 	std::cerr << "He llegado" << endl;
 	int contador = showfiles(images);
 	std::cerr << "LLEGO" << endl;
-	calculate(images, contador,database);
+	calculate(images, contador,database, vectores);
 
 	if (contador == 0) {
 		std::cout << "No hay ninguna imagen a procesar. \n";
@@ -286,9 +291,9 @@ void create_txt_file() {
 	 */
 	std::string OS = getOsName();
 	if (OS == "Linux" || "FreeBSD" || "Mac OSX" || "Unix")
-		system("ls *.jpg > prueba.txt");
+		system("ls *.jpg *.JPG > prueba.txt");
 	else
-		system("dir *.jpg> prueba.txt");
+		system("dir *.jpg *.JPG> prueba.txt");
 
 }
 
@@ -330,7 +335,7 @@ int showfiles(set<string> images) {
 	return contador;
 }
 
-void calculate(set<string> images, int contador,database_mng & database ) {
+void calculate(set<string> images, int contador,database_mng & database , CImg <float> vectores) {
 	if (images.size()) {
 
 		std::set<string>::iterator it;
@@ -358,7 +363,7 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			Mat img_opencv_contours = img_opencv.clone();
 			//Canny(img_opencv, edges, 100 , 200, 3);
-			findContours(img_opencv_contours, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE); // Find contours with hierarchy
+			findContours(img_opencv_contours, contours, hierarchy, RETR_TREE, CV_CHAIN_APPROX_TC89_KCOS); // Find contours with hierarchy
 
 			//imshow("A", img_opencv);
 			std::cout << "Contours " << contours.size() << endl;
@@ -372,19 +377,27 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			Size s = img_opencv.size();
 			for (int n = 0; n < contours.size(); n++) {
+				//Solo tomamos los que tengan depth impar.
 				if (depth[n] % 2) // Exteriores;
 					continue;
+
 				Rect bb = boundingRect(contours[n]);
 
+				//Descartamos bb que sean mas altos que anchos, que sean muy pequeños.
 				if (bb.height > bb.width)
 					continue;
 				if (bb.width < 50 || bb.width > s.width / 4)
 					continue;
+				/*if(bb.width < 0.02 * s.width)
+					continue;
+				if(bb.height < 0.02 * s.height)
+					continue;*/
+
 				std::vector<cv::Point> approx;
 				approxPolyDP(contours[n], approx, 10, true);
 				std::cout << " ** NVertices " << approx.size() << " \n";
-				if (approx.size() < 3 || approx.size() > 5)
-					continue;
+				//if (approx.size() < 3 || approx.size() > 5)
+				//	continue;
 				int sons = numberOfSons(hierarchy,n);
 				//if(sons < 5)
 				//	continue;
@@ -392,16 +405,17 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 
 			}
 
-			std::cout << "**Tamaño de BBs:  " << validBBs.size() << endl;
+			//std::cout << "**Tamaño de BBs:  " << validBBs.size() << endl;
 			Mat img_orig = img.get_MAT();
 			Mat image_opencv_rect = img_opencv;
 			Scalar color = Scalar(0, 0, 0);
 			for (int i = 0; i < validBBs.size(); i++) {
-
+				//Pintamos rectangulos
 				rectangle(img_orig, validBBs[i].tl(), validBBs[i].br(), color, 5, 10, 0);
-				std::cout << "Valor " << i << endl;
+				//std::cout << "Valor " << i << endl;
 
 			}
+
 			CImg<unsigned char> img_salida;
 
 			img_salida.assign(img_orig);
@@ -437,10 +451,10 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 					std::cout << "\tRatio 1 " << ratio_width << endl;
 					std::cout << "\tRatio masasa 1" << ratio_mass_x << endl;
 
-					if (ratio_mass_x > 1.01 || ratio_mass_x < 0.99)
+					if (ratio_mass_x > 1.05 || ratio_mass_x < 0.95)
 						continue;
 
-					if (ratio_width > 1.01 || ratio_width < 0.99)
+					if (ratio_width > 1.05 || ratio_width < 0.95)
 						continue;
 
 					for (int i3 = 0; i3 < validBBs.size(); i3++) {
@@ -455,10 +469,11 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 						float ratio_width =float(bb_temp_3.width) / float(bb_temp.width);
 						std::cout << "\tRatio 2 " << ratio_width << endl;
 						std::cout << "\tRatio masasa 2" << ratio_mass_x << endl;
-						if (ratio_mass_x > 1.01 || ratio_mass_x < 0.99)
+						if (ratio_mass_x > 1.05 || ratio_mass_x < 0.95)
 							continue;
-						if (ratio_width > 1.01 || ratio_width < 0.99)
+						if (ratio_width > 1.05 || ratio_width < 0.95)
 							continue;
+
 
 						std::cout << "\tRatio 2 pasado " << ratio_width << endl;
 						std::cout << "\tRatio masasa 2 pasado " << ratio_mass_x << endl;
@@ -683,34 +698,233 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 			}
 
 			for(int i=0; i<num_finales.size(); i++){
-				imwrite("temp.jpg", dorsal_objects[i][1]);
-				char *outtext;
+
+				CImg<unsigned char> dorsal_cimg = dorsal_objects[i][1];
+
+
+				CImg<int> bbox;
+				CImg<int> areas;
+				CImg<int> seg;
+				CImg<float> cdg;
+
+				segmentacion(dorsal_cimg, seg, bbox, areas, cdg);
+
+				int numobj = bbox.size();
+
+				seg.display("PRUEBA", false);
+				std::vector <int> comienzos;
+				float area_img = dorsal_cimg.width() * dorsal_cimg.height();
+				for(int i=0; i<bbox.size(); i++){
+
+					if(bbox(1,i) < 0.2 * seg.width()) continue;
+					if(bbox(0,i) > 0.8 * seg.width()) continue;
+					if(bbox(3,i) > 0.6 * seg.height()) continue;
+					if(areas(i) < 0.01 * area_img) continue;
+
+					comienzos.push_back(i);
+				}
+
+				std::cout << "Tamaño " << comienzos.size() << endl;
+
+				CImg<int> tabla(numobj);
+
+				tabla.fill(0);
+				for (int h = 0; h < comienzos.size(); h++) {
+						int indice_objeto = comienzos[h];
+						tabla[indice_objeto] = 1;
+				}
+				CImg<int> seg2(seg);
+				SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
+				seg2.display();
+				CImg<int> salida(seg2);
+				cimg_forXY(seg2,x,y){
+					if(seg2(x,y) == 0) salida(x,y) = 1;
+					else salida(x,y)=0;
+				}
+
+				salida.display("PRUEBA", false);
+				cv::Mat image_tess =255*( salida.get_MAT());
+				imwrite("temp.jpg", image_tess);
+
 				//Inicializamos el tesseract
-				 tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+				/* tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
 				 //Cargamos la API. El idioma nos da igual. ENG por defecto.
 				 if(api->Init(NULL, "eng")){
-				 fprintf(stderr, "Could not initizalize tesseract. \n");
-				 exit(1);
+					 fprintf(stderr, "Could not initizalize tesseract. \n");
+					 exit(1);
+				 }*/
+
+
+				tesseract::TessBaseAPI api;
+				api.Init(NULL, "eng");
+
+				STRING text;
+
+				if(!api.ProcessPages("temp.jpg", NULL,0, &text)){
+					std::cout << "ERROR";
+
+				}
+				else{
+					std::cout << "Resultado " << text.string() << endl;
+				}
+				 //api->SetImage((uchar*)image_tess.data, image_tess.cols, image_tess.rows, 1, image_tess.cols);
+
+				 //char* out = api->GetUTF8Text();
+				 /*std::cout << "Resultado" << api->GetUTF8Text() << std::endl;
+
+				 if(sizeof(out) == 0){
+					 std::cout << "No se encuentra nada" << endl;
 				 }
 
-				 Pix *image = pixRead("temp.jpg");
-				 pixDisplay(image,100,100);
-				 api->SetImage(image);
-				 outtext = api->GetUTF8Text();
+				 api->End();*/
 
-				 if(outtext == NULL){
-				 std::cout << "No hemos detectado nada. \n";
-				 }
+				 /*if(out == NULL){
+					 std::cout << "No hemos detectado nada. \n";
+					 add_result_db(out, database,imgname);
+				 }*/
 
-				 printf("Resultado OCR: \n%s", outtext);
-
-				 api->End();
-				 pixDestroy(&image);
-
-				 add_result_db(outtext, database,imgname);
-
-				 save_image(imgname, database, img);
+				 //save_image(imgname, database, img);
 			}
+
+	/*for(int i=0; i<num_finales.size(); i++){
+
+				cv::Mat dorsal = dorsal_objects[i][1].clone();
+
+				CImg<unsigned char> dorsal_cimg;
+				dorsal_cimg.assign(dorsal);
+
+				CImg<int> bbox;
+				CImg<int> areas;
+				CImg<int> seg;
+				CImg<float> cdg;
+
+				segmentacion(dorsal_cimg, seg, bbox, areas, cdg);
+
+				int numobj = bbox.size();
+
+				seg.display();
+				std::cout << "Tamaño numobj" << numobj<< endl;
+				std::vector <int> comienzos;
+				for(int i=0; i<bbox.size(); i++){
+
+					if(bbox(1,i) < 0.2 * seg.width()) continue;
+					if(bbox(0,i) > 0.8 * seg.width()) continue;
+					if(bbox(3,i) > 0.6 * seg.height()) continue;
+
+					comienzos.push_back(i);
+				}
+
+				std::cout << "Tamaño " << comienzos.size() << endl;
+
+				CImg<int> tabla(numobj);
+
+				tabla.fill(0);
+				for (int h = 0; h < comienzos.size(); h++) {
+						int indice_objeto = comienzos[h];
+						tabla[indice_objeto] = 1;
+				}
+				CImg<int> seg2(seg);
+				SeleccionarEtiquetas_cimg(seg2, tabla, numobj);
+				seg2.display();
+				std::vector < std::vector <int> > tiras;
+				for (int h = 0; h < comienzos.size(); h++) {
+					float width_1 = bbox(1,h) - bbox(0,h);
+					float height_1 = bbox(3,h) - bbox(2,h);
+					std::vector < int > temp;
+					for(int h2=0; h2< comienzos.size(); h2++){
+						if(h==h2) continue;
+						float width_2 = bbox(1,h2) - bbox(0,h2);
+						float height_2 = bbox(3,h2) - bbox(2,h2);
+						float ratio_w = float(width_1)/float(width_2);
+						float ratio_h = float(height_1)/float(height_2);
+						float ratio_y = float(bbox(2,h2))/float(bbox(2,h));
+						float ratio_dist = float(bbox(0,h2))-float(bbox(0,h));
+						if(ratio_w <0.98 || ratio_w >1.02) continue;
+						if(ratio_h <0.98 || ratio_h >1.02) continue;
+						//if(ratio_y <0.95 || ratio_h >1.05) continue;
+						if(ratio_dist > 2 * width_1) continue;
+						if(bbox(0,h2) < bbox(0,h)) continue;
+
+
+
+						if(temp.size()==0){
+							temp.push_back(h);
+							temp.push_back(h2);
+						}
+						else{
+							temp.push_back(h2);
+						}
+
+					}
+					if(temp.size() !=0){
+						tiras.push_back(temp);
+					}
+				}
+
+				CImg<int> tabla2(numobj);
+				tabla2.fill(0);
+
+				for (int h = 0; h < tiras.size(); h++) {
+					for(int h2 = 0; h2 < tiras[h].size();h2++){
+
+							int indice_objeto = tiras[h][h2];
+							tabla2[indice_objeto] = 1;
+					}
+				}
+
+				CImg<int> seg3(seg);
+				SeleccionarEtiquetas_cimg(seg3, tabla2, numobj);
+				seg3.display("Objetos1");
+				char txt[100];
+				int interpolation_method = 2;
+				std::vector<std::vector<int> > vector_nivel_medio;
+				for (int h = 0; h < tiras.size(); h++) {
+					std::cout << "Tira numero " << h << endl;
+					std::cout << "Indices: " << endl;
+					for(int h2 = 0; h2 < tiras[h].size();h2++){
+
+							int indice_objeto = tiras[h][h2];
+							std::cout << "\t" << indice_objeto << endl;
+							tabla2[indice_objeto] = 1;
+
+					}
+					std::cout << endl;
+				}
+				for (int puntero_OCR1 = 0;
+						puntero_OCR1 < tiras.size();
+						puntero_OCR1++) {
+
+					std::vector<int> vector_bajo_nivel;
+
+					for (int puntero_OCR2 = 0;
+							puntero_OCR2
+							< tiras[puntero_OCR1].size();
+							puntero_OCR2++) {
+
+						int indice_objeto =
+								tiras[puntero_OCR1][puntero_OCR2];
+
+						CImg<unsigned char> objeto_extraido;
+						extractObject(seg3, bbox, indice_objeto, 0, objeto_extraido);
+						objeto_extraido.display();
+						sprintf(txt, "Object %d", indice_objeto);
+						//objeto_extraido.display("object", false);
+						CImg<float> lowres = objeto_extraido;
+						lowres.resize(3, 3, -100, -100, interpolation_method);
+						//lowres.display("Lowres",false);
+						lowres.transpose();
+
+						int digito = OCR(vectores, lowres);
+						std::cout << "Digito detectado: " << digito << "\n";
+
+						vector_bajo_nivel.push_back(digito);
+
+					}
+
+					vector_nivel_medio.push_back(vector_bajo_nivel);
+				}
+
+			}*/
 
 		}
 	}

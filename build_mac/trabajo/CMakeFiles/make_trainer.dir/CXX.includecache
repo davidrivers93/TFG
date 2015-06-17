@@ -137,6 +137,8 @@ iostream
 -
 string
 -
+map
+-
 CImg.h
 /Users/David/Desktop/ProyectosC++/TFG/fuentes/trabajo/CImg.h
 getopt.h

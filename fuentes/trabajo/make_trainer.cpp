@@ -31,12 +31,11 @@ using namespace cv;
  */
 
 int main(int argc, char **argv) {
-	if (argc < 2) {
-		std::cout << "At least one argument needed\n";
-		exit(0);
-	}
-	std::string input = argv[optind];
+
+	system("ls *.tiff > prueba.txt");
+	std::string input = "prueba.txt";
 	set<string> images = isImages(input);
+
 	if (images.size()) {
 		int nimags = images.size();
 		std::cout << "Image Files: \n";
