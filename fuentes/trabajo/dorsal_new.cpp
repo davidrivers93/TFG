@@ -192,7 +192,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	database.execute();
 
 
-	string prueba_create_ins = "CREATE TABLE " + database.race_data_query.ins_table +  "(`dorsal` INT NOT NULL,`Nombre` VARCHAR(45) NULL,`Apellidos` VARCHAR(45) NULL,`Marca` VARCHAR(45) NULL)";
+	string prueba_create_ins = "CREATE TABLE " + database.race_data_query.ins_table +  "(`dorsal` INT NOT NULL,`Nombre` VARCHAR(45) NULL,`Apellidos` VARCHAR(45) NULL,`Marca` VARCHAR(45) NULL,`Nick` VARCHAR(45) NULL)";
 	database.execute(prueba_create_ins);
 	std::cout << "He creado la tabla. \n";
 

@@ -1,2 +1,0 @@
-/usr/bin/ar cr libfunctions.a  CMakeFiles/functions.dir/functions.cpp.o CMakeFiles/functions.dir/Qr_proc.cpp.o CMakeFiles/functions.dir/database_mng.cpp.o
-/usr/bin/ranlib libfunctions.a
