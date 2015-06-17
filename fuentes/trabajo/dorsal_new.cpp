@@ -52,7 +52,6 @@ void list_races(std::vector<string> & list_races, database_mng & database);
 void add_result_db(std::string result, database_mng & database, std::string imagename);
 std::string search_number(std::string result);
 void save_image(std::string imagename, database_mng & database, CImg <unsigned char> & image_save);
-bool check_file ( const char * filename);
 
 int main(int argc, char **argv) {
 
@@ -175,7 +174,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	}
 	std::cerr << "SALGO DEL ELSE" << endl;
 	//Compruebo si existe la tabla de la carrera
-	database.prepare("SELECT * FROM ?");
+	/*database.prepare("SELECT * FROM ?");
 	database.setString(1, database.race_data_query.tablen_data);
 	std::cerr << "SALGO DEL ELSE" << endl;
 	database.execute();
@@ -194,7 +193,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 
 	string prueba_create_ins = "CREATE TABLE " + database.race_data_query.ins_table +  "(`dorsal` INT NOT NULL,`Nombre` VARCHAR(45) NULL,`Apellidos` VARCHAR(45) NULL,`Marca` VARCHAR(45) NULL,`Nick` VARCHAR(45) NULL)";
 	database.execute(prueba_create_ins);
-	std::cout << "He creado la tabla. \n";
+	std::cout << "He creado la tabla. \n";*/
 
 
 }
@@ -223,10 +222,17 @@ void add_result_db(std::string result, database_mng & database, std::string imag
 
 }
 
-bool check_file ( const char * filename){
+bool fileExists ( const char * filename){
 
-	std::ifstream infile(filename);
-	return infile.good();
+	FILE *fd=fopen(filename,"r");
+	if(fd) {
+		fclose(fd);
+		return true;
+
+	}
+	return false;
+//	std::ifstream infile(filename);
+//	return infile.good();
 
 }
 
@@ -240,12 +246,12 @@ void save_image(std::string imagename, database_mng & database, CImg <unsigned c
 	std::cout << "Ruta de la imagen " << path_image << endl;
 
 	//if(!check_file(path_image.c_str()))
-	if(!check_file(path_image.c_str()))
+	if(fileExists(path_image.c_str()))
 		std::cout << "Imagen guardada anteriormente" << endl;
 
-	if(check_file(path_image.c_str())){
+	else{
 		image_save.save(path_image.c_str());
-		std::cout << "Imagen guardada" << endl;
+		std::cout << "Imagen " << path_image << " guardada" << endl;
 	}
 
 
@@ -332,6 +338,8 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 			string imgname = *it;
 			CImg<unsigned char> img(imgname.c_str());
 
+			img.display("Entrada",false);
+
 			CImg<unsigned char> img_out_binarizacion = img;
 
 			binarizacion_adaptativa(img, img_out_binarizacion);
@@ -375,7 +383,7 @@ void calculate(set<string> images, int contador,database_mng & database ) {
 				std::vector<cv::Point> approx;
 				approxPolyDP(contours[n], approx, 10, true);
 				std::cout << " ** NVertices " << approx.size() << " \n";
-				if (approx.size() < 4 || approx.size() > 4)
+				if (approx.size() < 3 || approx.size() > 5)
 					continue;
 				int sons = numberOfSons(hierarchy,n);
 				//if(sons < 5)
