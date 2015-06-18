@@ -124,5 +124,5 @@ endif(NOT APPLE)
 
 
 # ## Subdirs
-SUBDIRS(trabajo)
+SUBDIRS(TFG)
 

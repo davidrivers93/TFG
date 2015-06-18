@@ -29,7 +29,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/cmake_install.cmake")
+  include("/Users/David/Desktop/ProyectosC++/TFG/build_mac/TFG/cmake_install.cmake")
 
 endif()
 

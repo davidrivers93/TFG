@@ -33,8 +33,10 @@ using namespace zbar;
 
 #include "functions.h"
 #include "utilities.h"
-#include "Qr_proc.h"
 #include "database_mng.h"
+#include "db_functions.h"
+#include "img_functions.h"
+#include "misc_functions.h"
 //#include "contours_utils.h"
 
 using namespace cimg_library;

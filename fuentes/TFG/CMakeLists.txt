@@ -1,11 +1,11 @@
 
-SET (MIXED_PROGRAMS dorsales dorsal_new bib_generator_tfg)
+SET (MIXED_PROGRAMS tfg_dorsal bib_generator_tfg)
 
 SET(EXTERNAL_LIBS ${SYSTEM_LIBS})
 
 pkg_check_modules(ZBAR QUIET zbar)
 
-add_library(functions functions.cpp Qr_proc Qr_proc.cpp database_mng database_mng.cpp)
+add_library(functions functions.cpp db_functions db_functions.cpp database_mng database_mng.cpp img_functions img_functions.cpp misc_functions misc_functions.cpp)
 
 SET(UTILITIES_SOURCES utilities)
 foreach(src ${UTILITIES_SOURCES} )
