@@ -51,13 +51,23 @@ endif()
 pkg_check_modules(ZBAR  zbar)
 #pkg_check_modules(PC_ZBAR QUIET zbar)  
 
+#pkg_check_modules(CAIRO REQUIRED cairo)
+
 ##MYSQL-CONNECTOR
 include_directories("/opt/local/include/mysql55-connector-cpp/cppconn")
 link_directories("/opt/local/lib/mysql55-connector-cpp")
 include_directories("/opt/local/include")
 include_directories("/opt/local/include/tesseract")
 include_directories("/opt/local/include/leptonica/")
+include_directories("/opt/local/include/freetype2")
+include_directories("/opt/local/include/libpng16")
+include_directories("/opt/local/include/pixman-1")
+include_directories("/opt/X11/include/cairo")
+
 link_directories("/opt/local/lib")
+link_directories("/opt/X11/lib")
+
+
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 include_directories(${OpenCV_INCLUDE_DIRS})
@@ -114,5 +124,5 @@ endif(NOT APPLE)
 
 
 # ## Subdirs
-SUBDIRS(trabajo)
+SUBDIRS(TFG)
 

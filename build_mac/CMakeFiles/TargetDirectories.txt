@@ -1,4 +1,4 @@
-/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/utilities.dir
-/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/dorsal_new.dir
-/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/functions.dir
-/Users/David/Desktop/ProyectosC++/TFG/build_mac/trabajo/CMakeFiles/dorsales.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/TFG/CMakeFiles/utilities.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/TFG/CMakeFiles/tfg_dorsal.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/TFG/CMakeFiles/bib_generator_tfg.dir
+/Users/David/Desktop/ProyectosC++/TFG/build_mac/TFG/CMakeFiles/functions.dir

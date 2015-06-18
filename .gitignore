@@ -8,5 +8,10 @@
 
 *.zip
 
-#logos
-/logos
+
+#build
+/tmp_dir
+/build
+/build_mac
+/build_ubuntu
+/build_win64

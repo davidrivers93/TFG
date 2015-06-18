@@ -133,6 +133,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+trabajo/CMakeFiles/bib_generator_tfg.dir/rule:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/bib_generator_tfg.dir/rule
+.PHONY : trabajo/CMakeFiles/bib_generator_tfg.dir/rule
+
+# Convenience name for target.
+bib_generator_tfg: trabajo/CMakeFiles/bib_generator_tfg.dir/rule
+.PHONY : bib_generator_tfg
+
+# fast build rule for target.
+bib_generator_tfg/fast:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/build
+.PHONY : bib_generator_tfg/fast
+
+# Convenience name for target.
 trabajo/CMakeFiles/dorsal_new.dir/rule:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f CMakeFiles/Makefile2 trabajo/CMakeFiles/dorsal_new.dir/rule
 .PHONY : trabajo/CMakeFiles/dorsal_new.dir/rule
@@ -211,6 +225,30 @@ Qr_proc.s: Qr_proc.cpp.s
 Qr_proc.cpp.s:
 	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/Qr_proc.cpp.s
 .PHONY : Qr_proc.cpp.s
+
+bib_generator_tfg.o: bib_generator_tfg.cpp.o
+.PHONY : bib_generator_tfg.o
+
+# target to build an object file
+bib_generator_tfg.cpp.o:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.o
+.PHONY : bib_generator_tfg.cpp.o
+
+bib_generator_tfg.i: bib_generator_tfg.cpp.i
+.PHONY : bib_generator_tfg.i
+
+# target to preprocess a source file
+bib_generator_tfg.cpp.i:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.i
+.PHONY : bib_generator_tfg.cpp.i
+
+bib_generator_tfg.s: bib_generator_tfg.cpp.s
+.PHONY : bib_generator_tfg.s
+
+# target to generate assembly for a file
+bib_generator_tfg.cpp.s:
+	cd /Users/David/Desktop/ProyectosC++/TFG/build_mac && $(MAKE) -f trabajo/CMakeFiles/bib_generator_tfg.dir/build.make trabajo/CMakeFiles/bib_generator_tfg.dir/bib_generator_tfg.cpp.s
+.PHONY : bib_generator_tfg.cpp.s
 
 database_mng.o: database_mng.cpp.o
 .PHONY : database_mng.o
@@ -342,6 +380,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
+	@echo "... bib_generator_tfg"
 	@echo "... list_install_components"
 	@echo "... dorsal_new"
 	@echo "... functions"
@@ -350,6 +389,9 @@ help:
 	@echo "... Qr_proc.o"
 	@echo "... Qr_proc.i"
 	@echo "... Qr_proc.s"
+	@echo "... bib_generator_tfg.o"
+	@echo "... bib_generator_tfg.i"
+	@echo "... bib_generator_tfg.s"
 	@echo "... database_mng.o"
 	@echo "... database_mng.i"
 	@echo "... database_mng.s"

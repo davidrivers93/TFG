@@ -133,30 +133,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named dorsal_new
+# Target rules for targets named bib_generator_tfg
 
 # Build rule for target.
-dorsal_new: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dorsal_new
-.PHONY : dorsal_new
+bib_generator_tfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bib_generator_tfg
+.PHONY : bib_generator_tfg
 
 # fast build rule for target.
-dorsal_new/fast:
-	$(MAKE) -f trabajo/CMakeFiles/dorsal_new.dir/build.make trabajo/CMakeFiles/dorsal_new.dir/build
-.PHONY : dorsal_new/fast
-
-#=============================================================================
-# Target rules for targets named dorsales
-
-# Build rule for target.
-dorsales: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dorsales
-.PHONY : dorsales
-
-# fast build rule for target.
-dorsales/fast:
-	$(MAKE) -f trabajo/CMakeFiles/dorsales.dir/build.make trabajo/CMakeFiles/dorsales.dir/build
-.PHONY : dorsales/fast
+bib_generator_tfg/fast:
+	$(MAKE) -f TFG/CMakeFiles/bib_generator_tfg.dir/build.make TFG/CMakeFiles/bib_generator_tfg.dir/build
+.PHONY : bib_generator_tfg/fast
 
 #=============================================================================
 # Target rules for targets named functions
@@ -168,8 +155,21 @@ functions: cmake_check_build_system
 
 # fast build rule for target.
 functions/fast:
-	$(MAKE) -f trabajo/CMakeFiles/functions.dir/build.make trabajo/CMakeFiles/functions.dir/build
+	$(MAKE) -f TFG/CMakeFiles/functions.dir/build.make TFG/CMakeFiles/functions.dir/build
 .PHONY : functions/fast
+
+#=============================================================================
+# Target rules for targets named tfg_dorsal
+
+# Build rule for target.
+tfg_dorsal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tfg_dorsal
+.PHONY : tfg_dorsal
+
+# fast build rule for target.
+tfg_dorsal/fast:
+	$(MAKE) -f TFG/CMakeFiles/tfg_dorsal.dir/build.make TFG/CMakeFiles/tfg_dorsal.dir/build
+.PHONY : tfg_dorsal/fast
 
 #=============================================================================
 # Target rules for targets named utilities
@@ -181,7 +181,7 @@ utilities: cmake_check_build_system
 
 # fast build rule for target.
 utilities/fast:
-	$(MAKE) -f trabajo/CMakeFiles/utilities.dir/build.make trabajo/CMakeFiles/utilities.dir/build
+	$(MAKE) -f TFG/CMakeFiles/utilities.dir/build.make TFG/CMakeFiles/utilities.dir/build
 .PHONY : utilities/fast
 
 # Help Target
@@ -196,9 +196,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... utilities"
-	@echo "... dorsal_new"
+	@echo "... tfg_dorsal"
+	@echo "... bib_generator_tfg"
 	@echo "... functions"
-	@echo "... dorsales"
 .PHONY : help
 
 

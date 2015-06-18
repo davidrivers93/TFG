@@ -23,6 +23,10 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/local/include/mysql55-connector-cpp/cppconn"
   "/opt/local/include/tesseract"
   "/opt/local/include/leptonica"
+  "/opt/local/include/freetype2"
+  "/opt/local/include/libpng16"
+  "/opt/local/include/pixman-1"
+  "/opt/X11/include/cairo"
   "/Users/David/Desktop/ProyectosC++/TFG/fuentes"
   )
 set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

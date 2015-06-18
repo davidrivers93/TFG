@@ -1,2 +1,2 @@
-/Users/David/bin/dorsales
-/Users/David/bin/dorsal_new
+/Users/David/bin/tfg_dorsal
+/Users/David/bin/bib_generator_tfg
