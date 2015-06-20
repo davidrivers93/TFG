@@ -105,21 +105,22 @@ int showfiles(std::set<std::string> images){
 	return contador;
 }
 
-void process_results(std::vector <int> resultados, std::vector <int> & resultados_norepeat){
+void process_results(std::vector <int> & resultados, std::vector <int> & resultados_norepeat){
 
 
 	for(int i=0; i<resultados.size(); i++){
 
 
 		int temp=resultados[i];
-
 		if(i==0) resultados_norepeat.push_back(temp);
 		else{
 			for(int i2=0; i2<resultados_norepeat.size(); i2++){
-
 				int temp2=resultados_norepeat[i2];
 				if(temp==temp2) break;
-				if(i2==resultados_norepeat.size()-1) resultados_norepeat.push_back(temp2);
+				if(i2==resultados_norepeat.size()-1) {
+					resultados_norepeat.push_back(temp);
+					break;
+				}
 
 			}
 

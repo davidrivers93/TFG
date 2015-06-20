@@ -71,23 +71,22 @@ int main(int argc, char **argv) {
 			exit(0);
 	}
 
-	database.connect();
+	//database.connect();
 
 	create_txt_file();
 
 	std::vector<string> vector_list_races;
-	list_races(vector_list_races, database);
+	//list_races(vector_list_races, database);
 	set<string> images = isImages(input);
-	std::cerr << "He llegado" << endl;
 	int contador = showfiles(images);
-	std::cerr << "LLEGO" << endl;
-	calculate(images, contador,database);
-
-	if (contador == 0) {
+	if(images.size()){
+		calculate(images, contador,database);
+	}
+	else {
 		std::cout << "No hay ninguna imagen a procesar. \n";
 		exit(0);
 	}
-
+	std::cout << "He llegado al final "  << endl;
 	return 0;
 
 }
