@@ -139,7 +139,6 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 
 		approxPolyDP(contours[n], approx, tolerance, true);
 
-
 		std::cout << " ** NVertices " << approx.size() << " \n";
 		if (approx.size() < 4 || approx.size() > 4)
 			continue;
@@ -189,7 +188,7 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 
 		float pendiente = float(y2-y1)/float(x2-x1);
 		float degrees = atan(pendiente);
-		std::cout << "** ANGULO ** " << degrees << endl;
+		std::cout << "** ANGULO RADIANES ** " << degrees << endl;
 
 		//validBBs.push_back(bb);
 		dorsal_i.rectangle = bb;
@@ -413,9 +412,10 @@ void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<
 
 
 void calculate(set<string> images, int contador,database_mng & database) {
-
+	std::vector <float> time;
 	std::set<string>::iterator it;
 	for (it = images.begin(); it != images.end(); it++) {
+		clock_t t0 = clock();
 		string imgname = *it;
 		CImg<unsigned char> img(imgname.c_str());
 
@@ -425,7 +425,7 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 		binarizacion_adaptativa(img, img_out_binarizacion);
 
-		img_out_binarizacion.display("a", false);
+		//img_out_binarizacion.display("a", false);
 
 		//img.blur(0.8,0.8);
 
@@ -451,9 +451,6 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 		std::vector <int> valid_contours;
 
-
-
-
 		Size s = img_opencv.size();
 		std::vector <dorsal> dorsales;
 		search_rectangles(dorsales, contours, hierarchy, s, depth);
@@ -477,104 +474,7 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 		img_salida.assign(img_orig);
 
-		img_salida.display("Salida", false);
-
-		//std::vector<std::vector<Rect> > dorsales;
-
-		//std::cout << "ValidBBs tamaño " << validBBs.size() << endl;
-
-		//std::vector<std::vector<int> > num;
-
-
-		/*get_bibs(validBBs,s,dorsales,num);
-
-
-		std::cout << "Numero dorsales " << dorsales.size() << endl;
-
-		for (int i = 0; i < num.size(); i++) {
-				std::cout << "Dorsales " << num[i][0] << " " << num[i][1] << " " << num[i][2] << endl;
-
-			}
-
-		std::vector<std::vector<Rect> > dorsales_ordenados;
-		std::vector<std::vector<int> > num_ordenados;
-
-		//Ordeno los dorsales
-		ordenar(dorsales,num,dorsales_ordenados, num_ordenados);
-
-
-		std::cout << "Tamaño final " << dorsales_ordenados.size() << endl;
-
-		std::vector<std::vector<Rect> > dorsales_finales;
-		std::vector<std::vector<int> > num_finales;
-
-		no_repeat(dorsales_ordenados, num_ordenados, dorsales_finales, num_finales);
-
-
-		std::cerr << "Tamaño final " << num_finales.size() << endl;
-
-		std::vector<std::vector<cv::Mat> > dorsal_objects;
-		for (int i = 0; i < num_finales.size(); i++) {
-			Rect bb_1 = dorsales_ordenados[i][0];
-			Rect bb_2 = dorsales_ordenados[i][1];
-			Rect bb_3 = dorsales_ordenados[i][2];
-
-			std::cout << "Conjunto numero " << i << endl;
-				std::cout << "Indices" << num_finales[i][0] << " " << num_finales[i][1] << " " << num_finales[i][2] << endl;
-				std::cout << "\t Coordenadas obj1" << bb_1.x << " "<< bb_1.y << " " << bb_1.width << " " << bb_1.height << endl;
-				std::cout << "\t Coordenadas obj1" << bb_2.x << " "<< bb_2.y << " " << bb_2.width << " " << bb_2.height << endl;
-				std::cout << "\t Coordenadas obj1" << bb_3.x << " "<< bb_3.y << " " << bb_3.width << " " << bb_3.height << endl;
-			//Mat img_opencv = img_out_binarizacion.get_MAT();
-
-
-			cv::Rect myROI(bb_1.x, bb_1.y, bb_1.width, bb_1.height);
-			cv::Mat copy_img_1 = img_norect.clone();
-			cv::Mat obj1 = copy_img_1(myROI);
-			cv::Mat copy_img1_bin = img_opencv.clone();
-			cv::Mat obj1_bin = copy_img1_bin(myROI);
-			CImg<unsigned char> ob1_cimg;
-			ob1_cimg.assign(obj1);
-			CImg<unsigned char> ob1_cimg_bin;
-			ob1_cimg_bin.assign(obj1_bin);
-
-			cv::Rect myROI2(bb_2.x, bb_2.y, bb_2.width, bb_2.height);
-
-			cv::Mat copy_img_2 = img_norect.clone();
-			cv::Mat obj2 = copy_img_2(myROI2);
-			cv::Mat copy_img2_bin = img_opencv.clone();
-			cv::Mat obj2_bin = copy_img2_bin(myROI2);
-			CImg<unsigned char> ob2_cimg;
-			ob2_cimg.assign(obj2);
-			CImg<unsigned char> ob2_cimg_bin;
-			ob2_cimg_bin.assign(obj2_bin);
-
-			cv::Rect myROI3(bb_3.x, bb_3.y, bb_3.width, bb_3.height);
-			cv::Mat copy_img_3 = img_orig.clone();
-
-			cv::Mat obj3 = copy_img_3(myROI3);
-			cv::Mat copy_img3_bin = img_norect.clone();
-			cv::Mat obj3_bin = copy_img3_bin(myROI3);
-			CImg<unsigned char> ob3_cimg;
-			ob3_cimg.assign(obj3);
-			CImg<unsigned char> ob3_cimg_bin;
-			ob3_cimg_bin.assign(obj3_bin);
-
-			//ob1_cimg.get_append(ob2_cimg, 'x').get_append(ob3_cimg,'x').display("Objetos", false);
-			//ob1_cimg_bin.get_append(ob2_cimg_bin, 'x').get_append(ob3_cimg_bin,'x').display("Objetos binarizados", false);
-
-			//CImg<unsigned char> dorsal_cimg(ob3_cimg_bin);
-
-			//OCR_proc(dorsal_cimg,resultados);
-
-			std::vector <cv::Mat> temp(3);
-			temp[0] = obj1_bin;
-			temp[1] = obj2_bin;
-			temp[2] = obj3_bin;
-
-			dorsal_objects.push_back(temp);
-
-		}*/
-
+		//img_salida.display("Salida", false);
 		std::vector < dorsal_final > dorsales_finales;
 		for(int i=0; i<dorsales.size(); i++){
 
@@ -603,7 +503,7 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 			CImg < unsigned char > roi_cimg;
 			roi_cimg.assign(copy_img);
-			roi_cimg.display("A", false);
+			//roi_cimg.display("A", false);
 
 			dorsali.angle = dorsales[i].angle;
 			dorsali.approx_points = dorsales[i].approx_points;
@@ -688,17 +588,9 @@ void calculate(set<string> images, int contador,database_mng & database) {
 				else salida(x,y)=0;
 			}
 
-			salida.display("PRUEBA", false);
+			//salida.display("PRUEBA", false);
 			cv::Mat image_tess =255*( salida.get_MAT());
 			imwrite("temp.jpg", image_tess);
-
-			/*//Inicializamos el tesseract
-			tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-				 //Cargamos la API. El idioma nos da igual. ENG por defecto.
-				 if(api->Init(NULL, "eng")){
-					 fprintf(stderr, "Could not initizalize tesseract. \n");
-					 exit(1);
-				 }*/
 
 			STRING text;
 
@@ -734,22 +626,40 @@ void calculate(set<string> images, int contador,database_mng & database) {
 		}
 		std::cout << "He salido del bucle " << endl;
 		std::vector <int >resultados_norepeat;
-		//process_results(resultados,resultados_norepeat);
+		process_results(resultados,resultados_norepeat);
 		std::cout << "Tamaño resultados finales " << resultados_norepeat.size() << endl;
 		for(int pointer=0; pointer < resultados_norepeat.size(); pointer++){
 			string out= std::to_string(resultados_norepeat[pointer]);
 			std::cout << "\n" << endl;
 			std::cout << "Resultado final " << out << endl;
 			std::cout << endl;
-			//add_result_db(out, database,imgname);
+			add_result_db(out, database,imgname);
 
 		}
 
-		img_salida.display("Rectangle search", false);
-		//save_image(imgname, database, img);
-		//save_thumbail(imgname, database, img);
+		//img_salida.display("Rectangle search", false);
+		CImg <unsigned char> thumb;
+		create_thumb(img,thumb);
+		string thumb_nm = "thumb_" + imgname;
+		thumb.save(thumb_nm.c_str());
+		std::cout << "Imagen guardada" << endl;
 		system("rm -rf temp.jpg");
+		clock_t t1 = clock();
+		float totaltime= t1-t0;
+		time.push_back(totaltime);
 
 	}
+	float sum=0;
+	for(int i=0; i< time.size(); i++)
+		sum+=time[i];
+	float meant = float(sum)/time.size();
+	std::cout << "Media de tiempo " <<meant << endl;
+
+}
+
+void create_thumb(CImg <unsigned char> & input, CImg <unsigned char> & output){
+
+	CImg <unsigned char> copy(input);
+	output = copy.resize(input.width()/7, input.height()/7,1,3);
 
 }

@@ -47,5 +47,6 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 void get_bibs(std::vector<Rect> & validBBs, Size & s, std::vector<std::vector<Rect> > & dorsales, std::vector<std::vector<int> > & num);
 void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<std::vector<int> > & num_ordenados,std::vector<std::vector<Rect> > & dorsales_finales, std::vector<std::vector<int> > & num_finales );
 void OCR_proc(CImg <unsigned char> & dorsal_cimg, std::vector <int> &resultados);
+void create_thumb(CImg <unsigned char> & input, CImg <unsigned char> & output);
 
 #endif /* TFG_IMG_FUNCTIONS_H_ */

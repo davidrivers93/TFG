@@ -77,8 +77,8 @@ TFG/preinstall:
 # Target rules for target TFG/CMakeFiles/bib_generator_tfg.dir
 
 # All Build rule for target.
-TFG/CMakeFiles/bib_generator_tfg.dir/all: TFG/CMakeFiles/utilities.dir/all
 TFG/CMakeFiles/bib_generator_tfg.dir/all: TFG/CMakeFiles/functions.dir/all
+TFG/CMakeFiles/bib_generator_tfg.dir/all: TFG/CMakeFiles/utilities.dir/all
 	$(MAKE) -f TFG/CMakeFiles/bib_generator_tfg.dir/build.make TFG/CMakeFiles/bib_generator_tfg.dir/depend
 	$(MAKE) -f TFG/CMakeFiles/bib_generator_tfg.dir/build.make TFG/CMakeFiles/bib_generator_tfg.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  1
@@ -148,8 +148,8 @@ clean: TFG/CMakeFiles/functions.dir/clean
 # Target rules for target TFG/CMakeFiles/tfg_dorsal.dir
 
 # All Build rule for target.
-TFG/CMakeFiles/tfg_dorsal.dir/all: TFG/CMakeFiles/utilities.dir/all
 TFG/CMakeFiles/tfg_dorsal.dir/all: TFG/CMakeFiles/functions.dir/all
+TFG/CMakeFiles/tfg_dorsal.dir/all: TFG/CMakeFiles/utilities.dir/all
 	$(MAKE) -f TFG/CMakeFiles/tfg_dorsal.dir/build.make TFG/CMakeFiles/tfg_dorsal.dir/depend
 	$(MAKE) -f TFG/CMakeFiles/tfg_dorsal.dir/build.make TFG/CMakeFiles/tfg_dorsal.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/David/Desktop/ProyectosC++/TFG/build_mac/CMakeFiles  7

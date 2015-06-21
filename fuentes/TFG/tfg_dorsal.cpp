@@ -71,12 +71,12 @@ int main(int argc, char **argv) {
 			exit(0);
 	}
 
-	//database.connect();
+	database.connect();
 
 	create_txt_file();
 
 	std::vector<string> vector_list_races;
-	//list_races(vector_list_races, database);
+	list_races(vector_list_races, database);
 	set<string> images = isImages(input);
 	int contador = showfiles(images);
 	if(images.size()){
