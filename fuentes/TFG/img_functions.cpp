@@ -110,6 +110,12 @@ void computeContourDepth(const std::vector<Vec4i> & hierarchy, std::vector<int> 
 	}
 }
 
+/* Search_rectangles
+ *
+ * Busca rectangulos que cumplan el ratio establecido y ademas que
+ * tengan al menos 5 hijos.
+ */
+
 void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & contours , vector<Vec4i> & hierarchy, Size & s,std::vector<int> depth){
 	for (int n = 0; n < contours.size(); n++) {
 
@@ -139,11 +145,11 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 
 		approxPolyDP(contours[n], approx, tolerance, true);
 
-		std::cout << " ** NVertices " << approx.size() << " \n";
+		//std::cout << " ** NVertices " << approx.size() << " \n";
 		if (approx.size() < 4 || approx.size() > 4)
 			continue;
 		int sons = numberOfSons(hierarchy,n);
-		std::cout << "Numero hijos " << sons  << endl;
+		//std::cout << "Numero hijos " << sons  << endl;
 		if(sons < 5)
 			continue;
 
@@ -188,7 +194,7 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 
 		float pendiente = float(y2-y1)/float(x2-x1);
 		float degrees = atan(pendiente);
-		std::cout << "** ANGULO RADIANES ** " << degrees << endl;
+		//std::cout << "** ANGULO RADIANES ** " << degrees << endl;
 
 		//validBBs.push_back(bb);
 		dorsal_i.rectangle = bb;
@@ -199,177 +205,11 @@ void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & con
 	}
 }
 
-void get_bibs(std::vector<Rect> & validBBs, Size & s, std::vector<std::vector<Rect> > & dorsales, std::vector<std::vector<int> > & num){
-	for (int i = 0; i < validBBs.size(); i++) {
 
-		Rect bb_temp = validBBs[i];
-		Point2f first_object_mass;
-
-		first_object_mass.x = (bb_temp.x + bb_temp.width) / 2;
-		first_object_mass.y = (bb_temp.y + bb_temp.height) / 2;
-
-		for (int i2 = 0; i2 < validBBs.size(); i2++) {
-
-			if (i == i2)
-				continue;
-
-			Rect bb_temp_2 = validBBs[i2];
-			Point2f second_object_mass;
-
-			second_object_mass.x = (bb_temp_2.x + bb_temp_2.width) / 2;
-			second_object_mass.y = (bb_temp_2.y + bb_temp_2.height) / 2;
-
-			float ratio_mass_x = float(second_object_mass.x) / float(first_object_mass.x);
-			float ratio_width =float(bb_temp_2.width) / float(bb_temp.width);
-
-			float dist_x = bb_temp_2.x - bb_temp.x;
-			float dist_y = bb_temp_2.x - bb_temp.x;
-			float width_5 = 0.1 * s.width;
-
-			if(dist_y > width_5) continue;
-
-
-			//std::cout << "\tRatio 1 " << ratio_width << endl;
-			//std::cout << "\tRatio masasa 1" << ratio_mass_x << endl;
-
-			if (ratio_mass_x > 1.2 || ratio_mass_x < 0.95)
-				continue;
-
-			if (ratio_width > 1.2 || ratio_width < 0.95)
-				continue;
-
-			for (int i3 = 0; i3 < validBBs.size(); i3++) {
-
-				if (i3 == i || i3 == i2)
-					continue;
-
-
-				Rect bb_temp_3 = validBBs[i3];
-				float dist_3_y = bb_temp_3.x - bb_temp_2.x;
-				float width_7 = 0.1 * s.width;
-
-				if(dist_3_y > width_7) continue;
-
-				Point2f third_object_mass;
-
-				third_object_mass.x = (bb_temp_3.x + bb_temp_3.width) / 2;
-				third_object_mass.y = (bb_temp_3.y + bb_temp_3.height) / 2;
-
-				float radio_mass_x = float(third_object_mass.x) / float(first_object_mass.x);
-				float ratio_width =float(bb_temp_3.width) / float(bb_temp.width);
-				float ratio_first_third = float(bb_temp_3.height) / float(bb_temp.height);
-
-				//std::cout << "\tRatio 2 " << ratio_width << endl;
-				//std::cout << "\tRatio masasa 2" << ratio_mass_x << endl;
-
-				if (ratio_mass_x > 1.2 || ratio_mass_x < 0.95)
-					continue;
-				if (ratio_width > 1.2 || ratio_width < 0.95)
-					continue;
-				if(ratio_first_third > 1.3 || ratio_first_third <0.7) continue;
-
-
-				//std::cout << "\tRatio 2 pasado " << ratio_width << endl;
-				//std::cout << "\tRatio masasa 2 pasado " << ratio_mass_x << endl;
-
-				std::vector<Rect> temp(3);
-				temp[0] = bb_temp;
-				temp[1] = bb_temp_2;
-				temp[2] = bb_temp_3;
-				dorsales.push_back(temp);
-				std::vector<int> temp2(3);
-				temp2[0] = i;
-				temp2[1] = i2;
-				temp2[2] = i3;
-				num.push_back(temp2);
-
-			}
-
-		}
-
-	}
-}
-
-void ordenar(std::vector<std::vector<Rect> > & dorsales, std::vector<std::vector<int> > & num, std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<std::vector<int> > & num_ordenados){
-	for (int i = 0; i < num.size(); i++) {
-
-		Rect y1 = dorsales[i][0];
-		Rect y2 = dorsales[i][1];
-		Rect y3 = dorsales[i][2];
-
-		std::vector<Rect> temp(3);
-		std::vector<int> temp_int(3);
-		if (y1.y < y2.y && y1.y < y3.y) {
-
-			temp[0] = y1;
-			temp_int[0] = num[i][0];
-			if (y2.y < y3.y) {
-				temp[1] = y2;
-				temp_int[1] = num[i][1];
-				temp[2] = y3;
-				temp_int[2] = num[i][2];
-			}
-			else {
-				temp[1] = y3;
-				temp_int[1] = num[i][1];
-				temp[2] = y2;
-				temp_int[2] = num[i][2];
-			}
-
-			dorsales_ordenados.push_back(temp);
-			num_ordenados.push_back(temp_int);
-			continue;
-		}
-
-		if (y2.y < y1.y && y2.y < y3.y) {
-
-			temp[0] = dorsales[i][1];
-			temp_int[0] = num[i][1];
-
-			if (y1.y < y3.y) {
-				temp[1] = dorsales[i][0];
-				temp_int[1] = num[i][0];
-				temp[2] = dorsales[i][2];
-				temp_int[2] = num[i][2];
-			}
-			else {
-				temp[1] = dorsales[i][2];
-				temp_int[1] = num[i][2];
-				temp[2] = dorsales[i][0];
-				temp_int[2] = num[i][0];
-			}
-			dorsales_ordenados.push_back(temp);
-			num_ordenados.push_back(temp_int);
-			continue;
-
-		}
-
-		if (y3.y < y2.y && y3.y < y1.y) {
-
-			temp[0] = dorsales[i][2];
-			temp_int[0] = num[i][2];
-
-			if (y2.y < y1.y) {
-				temp[1] = dorsales[i][1];
-				temp_int[1] = num[i][1];
-				temp[2] = dorsales[i][0];
-				temp_int[2] = num[i][0];
-			} else {
-				temp[1] = dorsales[i][0];
-				temp_int[1] = num[i][0];
-				temp[2] = dorsales[i][1];
-				temp_int[2] = num[i][1];
-			}
-			dorsales_ordenados.push_back(temp);
-			num_ordenados.push_back(temp_int);
-			continue;
-
-		}
-
-	}
-
-}
-
+/* no_repeat
+ *
+ * Chequeamos que no hayan 2 resultados de dorsales repetidos.
+ */
 void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<std::vector<int> > & num_ordenados,std::vector<std::vector<Rect> > & dorsales_finales, std::vector<std::vector<int> > & num_finales ){
 	for (int i = 0; i < num_ordenados.size(); i++) {
 		if (i == 0) {
@@ -411,14 +251,34 @@ void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<
 }
 
 
-void calculate(set<string> images, int contador,database_mng & database) {
+void calculate(set<string> images, int contador,database_mng & database, int resize) {
 	std::vector <float> time;
 	std::set<string>::iterator it;
-	for (it = images.begin(); it != images.end(); it++) {
+	std::vector<std::vector <int > > cont_dorsales;
+	std::vector <string> names;
+	int cont = 1;
+	for (it = images.begin(); it != images.end(); it++, cont++) {
+		std::cout << "Procesando imagen numero " << cont << endl;
 		clock_t t0 = clock();
 		string imgname = *it;
-		CImg<unsigned char> img(imgname.c_str());
+		names.push_back(imgname);
+		CImg<unsigned char> img2(imgname.c_str());
+		CImg<unsigned char> img;
 
+
+		int orientacion = orientation(imgname);
+		std::cout << "Orientacion " << orientacion << endl;
+		if(orientacion==8)
+			img2.rotate(-90);
+		if(orientacion==7)
+			img2.rotate(90);
+
+		if(resize!=1){
+			CImg <unsigned char> img_temp(img2);
+			resize_own(img_temp,img2,resize);
+		}
+
+		img=img2;
 		//img.display("Entrada",false);
 
 		CImg<unsigned char> img_out_binarizacion = img;
@@ -427,18 +287,12 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 		//img_out_binarizacion.display("a", false);
 
-		//img.blur(0.8,0.8);
-
 		Mat img_opencv = img_out_binarizacion.get_MAT();
-
-		Mat edges(img_opencv.size(), CV_MAKETYPE(img_opencv.depth(), 1));			// To hold Grayscale Image
-		Mat traces(img_opencv.size(), CV_8UC3);
 
 		vector<vector<Point> > contours;
 		vector<Vec4i> hierarchy;
 
 		Mat img_opencv_contours = img_opencv.clone();
-		//Canny(img_opencv, edges, 100 , 200, 3);
 		findContours(img_opencv_contours, contours, hierarchy, RETR_TREE, CV_CHAIN_APPROX_TC89_KCOS); // Find contours with hierarchy
 
 		//imshow("A", img_opencv);
@@ -455,8 +309,6 @@ void calculate(set<string> images, int contador,database_mng & database) {
 		std::vector <dorsal> dorsales;
 		search_rectangles(dorsales, contours, hierarchy, s, depth);
 
-
-
 		//std::cout << "**Tamaño de BBs:  " << validBBs.size() << endl;
 		Mat img_orig = img.get_MAT();
 		Mat img_norect = img_orig.clone();
@@ -465,8 +317,7 @@ void calculate(set<string> images, int contador,database_mng & database) {
 		Scalar color = Scalar(0, 0, 0);
 		for (int i = 0; i < validBBs.size(); i++) {
 			//Pintamos rectangulos
-			rectangle(img_orig, dorsales[i].rectangle.tl(), dorsales[i].rectangle.br(), color, 10, 10, 0);
-			//std::cout << "Valor " << i << endl;
+			rectangle(img_orig, dorsales[i].rectangle.tl(), dorsales[i].rectangle.br(), color, 50, 10, 0);
 
 		}
 
@@ -474,20 +325,10 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 		img_salida.assign(img_orig);
 
+
 		//img_salida.display("Salida", false);
 		std::vector < dorsal_final > dorsales_finales;
 		for(int i=0; i<dorsales.size(); i++){
-
-			/*cv::Rect myROI(bb_1.x, bb_1.y, bb_1.width, bb_1.height);
-			cv::Mat copy_img_1 = img_norect.clone();
-			cv::Mat obj1 = copy_img_1(myROI);
-			cv::Mat copy_img1_bin = img_opencv.clone();
-			cv::Mat obj1_bin = copy_img1_bin(myROI);
-			CImg<unsigned char> ob1_cimg;
-			ob1_cimg.assign(obj1);
-			CImg<unsigned char> ob1_cimg_bin;
-			ob1_cimg_bin.assign(obj1_bin);*/
-
 			dorsal_final dorsali;
 
 			cv::Rect rectangle_i = dorsales[i].rectangle;
@@ -498,12 +339,8 @@ void calculate(set<string> images, int contador,database_mng & database) {
 			cv::Mat copy_orbin= img_opencv.clone();
 			cv::Mat copy_bin = copy_orbin(rectangle);
 
-			std::cout << "Dorsal numero " << i << endl;
-			std::cout << "\t Coordenadas" << rectangle_i.x << " "<< rectangle_i.y << " " << rectangle_i.width << " " << rectangle_i.height << endl;
-
-			CImg < unsigned char > roi_cimg;
-			roi_cimg.assign(copy_img);
-			//roi_cimg.display("A", false);
+			//std::cout << "Dorsal numero " << i << endl;
+			//std::cout << "\t Coordenadas" << rectangle_i.x << " "<< rectangle_i.y << " " << rectangle_i.width << " " << rectangle_i.height << endl;
 
 			dorsali.angle = dorsales[i].angle;
 			dorsali.approx_points = dorsales[i].approx_points;
@@ -511,25 +348,99 @@ void calculate(set<string> images, int contador,database_mng & database) {
 			dorsali.image_rect = copy_img;
 			dorsali.image_bin = copy_bin;
 
+			/*CImg < unsigned char > roi_cimg;
+			roi_cimg.assign(copy_img);
+			roi_cimg.display("A", false);
+
+
+			int size = std::max(img_norect.cols, img_norect.rows);
+
+			cv::Mat copy = img_norect.clone();
+			cv::Mat copy_bin = img_opencv.clone();
+
+			cv::Point2f pt((dorsales[i].rectangle.x+dorsales[i].rectangle.width)/2, (dorsales[i].rectangle.y+dorsales[i].rectangle.height)/2);
+			float angulo = dorsales[i].angle * 2 * 3.1416 /360;
+			std::cout << "Angulo de rotacion " << angulo << endl;
+			cv::Mat r = cv::getRotationMatrix2D(pt,angulo, 1.0);
+			cv::warpAffine(img_norect, copy, r,cv::Size(size,size));
+			cv::warpAffine(img_opencv, copy_bin, r,cv::Size(size,size));
+
+
+			std::vector <cv::Point> temp;
+			for(int i2=0; i2<4; i2++){
+				cv::Point2f punto;
+				float x_orig=dorsales[i].approx_points[i2].x;
+				float y_orig=dorsales[i].approx_points[i2].y;
+				float new_x = x_orig * cos(dorsales[i].angle) + y_orig * sin(dorsales[i].angle);
+				float new_y = -x_orig * sin(dorsales[i].angle) + y_orig * cos(dorsales[i].angle);;
+				punto.x = new_x;
+				punto.y = new_y;
+				temp.push_back(punto);
+			}
+
+			cv::Point2f pt((dorsales[i].rectangle.x+dorsales[i].rectangle.width)/2, (dorsales[i].rectangle.y+dorsales[i].rectangle.height)/2);
+			float angulo = dorsales[i].angle * PI/180;
+			float angulorad = dorsales[i].angle;
+			std::cout << "Angulo de rotacion " << angulo << endl;
+			cv::Mat r = cv::getRotationMatrix2D(pt,angulo, 1.0);
+			cv::warpAffine(img_norect, copy, r,cv::Size(size,size));
+			cv::warpAffine(img_opencv, copy_bin, r,cv::Size(size,size));
+
+			cv::Rect temp;
+			float x_orig=dorsales[i].rectangle.x;
+			float y_orig=dorsales[i].rectangle.y;
+			float new_x = float(x_orig) * float(cos(angulo)) + float(y_orig) * float(sin(angulo));
+			float new_y = float(-x_orig) * float(sin(angulo)) + float(y_orig) * float(cos(angulo));
+
+			temp.x = new_x;
+			temp.y = new_y;
+			temp.width = dorsales[i].rectangle.width;
+			temp.height = dorsales[i].rectangle.height;
+			dorsali.new_points_rect = temp;
+
+			dorsali.angle = dorsales[i].angle;
+			dorsali.approx_points = dorsales[i].approx_points;
+			dorsali.rectangle = dorsales[i].rectangle;
+			dorsali.new_points_rect = temp;
+
+			cv::Rect rectangle_i = dorsali.new_points_rect;
+			cv::Mat copy_original = copy.clone();
+			cv::Rect rectangle(rectangle_i.x,rectangle_i.y,rectangle_i.width,rectangle_i.height);
+			cv::Mat copy_img = copy_original(rectangle);
+
+			cv::Mat copy_orbin= copy_bin.clone();
+			cv::Mat copy_bin2 = copy_orbin(rectangle);
+
+			CImg < unsigned char > roi_cimg;
+			roi_cimg.assign(copy_img);
+			roi_cimg.display("Recortada orig", false);
+
+			CImg < unsigned char > roi_cimg2;
+			roi_cimg2.assign(copy_bin2);
+			roi_cimg2.display("Recortada bin", false);
+			dorsali.angle = dorsales[i].angle;
+			dorsali.approx_points = dorsales[i].approx_points;
+			dorsali.rectangle = dorsales[i].rectangle;
+			//dorsali.new_points = temp;
+
+			cv::Mat copy_original = img_norect.clone();
+			float width = temp[1].x - temp[0].x;
+			float height = temp[2].y - temp[0].y;
+
+			cv::Rect rectangle(temp[0].x,temp[0].y,width,height);
+			cv::Mat copy_img = copy(rectangle);
+			cv::Mat copy_orbin= img_opencv.clone();
+			cv::Mat copy_bin_1 = copybin(rectangle);
+
+			CImg < unsigned char > roi_cimg;
+			roi_cimg.assign(copy);
+			roi_cimg.display("A", false);
+			dorsali.image_rect = copy_img;
+			dorsali.image_bin = copy_bin;*/
+
 			dorsales_finales.push_back(dorsali);
 
 		}
-		std::cout << "TAMAÑO "  << dorsales_finales.size() << endl;
-		std::vector < dorsal > dorsales_rt;
-		/*for(int i=0; i<dorsales.size(); i++){
-
-			int size = std::max(img_norect.cols, img_norect.rows);
-			cv::Mat copy = img_norect.clone();
-			cv::Point2f pt((dorsales[i].rectangle.x+dorsales[i].rectangle.width)/2, (dorsales[i].rectangle.y+dorsales[i].rectangle.height)/2);
-			cv::Mat r = cv::getRotationMatrix2D(pt,dorsales[i].angle, 1.0);
-			cv::warpAffine(img_norect, copy, r,cv::Size(size,size));
-
-			CImg < unsigned char > roi_cimg;
-						roi_cimg.assign(copy);
-						roi_cimg.display("A", false);
-
-
-		}*/
 
 		tesseract::TessBaseAPI api;
 		api.Init(NULL, "eng");
@@ -538,8 +449,6 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 			CImg<unsigned char> dorsal_cimg;
 			dorsal_cimg.assign(dorsales_finales[i].image_bin);
-
-
 			CImg<int> bbox;
 			CImg<int> areas;
 			CImg<int> seg;
@@ -553,12 +462,6 @@ void calculate(set<string> images, int contador,database_mng & database) {
 			std::vector <int> comienzos;
 			float area_img = dorsal_cimg.width() * dorsal_cimg.height();
 
-			std::cout << "Coordenadas: " <<endl;
-				std::cout << "\t xmin " << bbox(0,i) << endl;
-				std::cout << "\t xmax " << bbox(1,i) << endl;
-				std::cout << "\t ymin " << bbox(2,i) << endl;
-				std::cout << "\t ymax " << bbox(3,i) << endl;
-
 			for(int i=0; i<bbox.size(); i++){
 				float width = bbox(1,i) - bbox(0,i);
 				float height = bbox(3,i) - bbox(2,i);
@@ -569,8 +472,6 @@ void calculate(set<string> images, int contador,database_mng & database) {
 				if(float(width)/float(height) > 2) continue;
 				comienzos.push_back(i);
 			}
-
-			//std::cout << "Tamaño " << comienzos.size() << endl;
 
 			CImg<int> tabla(numobj);
 
@@ -603,12 +504,10 @@ void calculate(set<string> images, int contador,database_mng & database) {
 
 				std::string textres= text.string();
 				if(textres.length() > 0){
-					std::cout << "Resultado " << text.string() << endl;
 					char *cstr = new char[textres.length()-1];
 					strcpy(cstr, textres.c_str());
 					bool flag=false;
 					for(int i=0; i<textres.length()-2;i++){
-						std::cout << "char " << cstr[i] << endl;
 						if(!isdigit(cstr[i])){
 							flag=true;
 							break;
@@ -624,42 +523,100 @@ void calculate(set<string> images, int contador,database_mng & database) {
 			}
 
 		}
-		std::cout << "He salido del bucle " << endl;
 		std::vector <int >resultados_norepeat;
 		process_results(resultados,resultados_norepeat);
-		std::cout << "Tamaño resultados finales " << resultados_norepeat.size() << endl;
 		for(int pointer=0; pointer < resultados_norepeat.size(); pointer++){
 			string out= std::to_string(resultados_norepeat[pointer]);
-			std::cout << "\n" << endl;
 			std::cout << "Resultado final " << out << endl;
-			std::cout << endl;
-			add_result_db(out, database,imgname);
-
+			//add_result_db(out, database,imgname);
+			CImg <unsigned char> thumb;
+			resize_own(img,thumb,5);
+			string thumb_nm = "thumb_" + imgname;
+			thumb.save(thumb_nm.c_str());
+			std::cout << "Imagen guardada" << endl;
 		}
-
+		cont_dorsales.push_back(resultados_norepeat);
 		//img_salida.display("Rectangle search", false);
-		CImg <unsigned char> thumb;
-		create_thumb(img,thumb);
-		string thumb_nm = "thumb_" + imgname;
-		thumb.save(thumb_nm.c_str());
-		std::cout << "Imagen guardada" << endl;
+
 		system("rm -rf temp.jpg");
+		system("rm -rf thumb*");
 		clock_t t1 = clock();
 		float totaltime= t1-t0;
 		time.push_back(totaltime);
+		std::cout << "**************************" << endl;
 
 	}
+
+	std::cout << "Archivo de resultados guardado. \n";
+	FILE *fd = 0;
+	fd = fopen("resultado.csv", "w");
+	if (!fd) {
+		std::cerr << "Can't open resultado.csv for writing\n";
+		exit(0);
+	}
 	float sum=0;
-	for(int i=0; i< time.size(); i++)
-		sum+=time[i];
+	fprintf(fd, "Indice");
+	fprintf(fd, CARACTER_SEPARADOR_CSV);
+	fprintf(fd, "Nombre archivo");
+	fprintf(fd, CARACTER_SEPARADOR_CSV);
+	fprintf(fd, "Tiempo empleado");
+	fprintf(fd, CARACTER_SEPARADOR_CSV);
+	fprintf(fd, "Dorsales detectados");
+	fprintf(fd, "\n");
+	for(int i=0; i< time.size(); i++){
+		fprintf(fd, "%d ", i); // Indice
+		sum+=time[i]/CLOCKS_PER_SEC;
+		fprintf(fd, CARACTER_SEPARADOR_CSV);
+		fprintf(fd, "%s ", names[i].c_str()); // Names
+		fprintf(fd, CARACTER_SEPARADOR_CSV);
+		fprintf(fd, "%f ", time[i]/CLOCKS_PER_SEC); // Tiempo
+		fprintf(fd, CARACTER_SEPARADOR_CSV);
+		for(int i2=0;i2<cont_dorsales[i].size();i2++){
+			fprintf(fd, "%i ", cont_dorsales[i][i2]); // Dorsal
+			fprintf(fd, CARACTER_SEPARADOR_CSV);
+		}
+		fprintf(fd, "\n");
+	}
 	float meant = float(sum)/time.size();
 	std::cout << "Media de tiempo " <<meant << endl;
-
+	fprintf(fd, "Media de tiempo");
+	fprintf(fd, CARACTER_SEPARADOR_CSV);
+	fprintf(fd, "%f ", meant); // Tiempo
+	if (fd)
+		fclose(fd);
 }
 
-void create_thumb(CImg <unsigned char> & input, CImg <unsigned char> & output){
+void resize_own(const CImg <unsigned char> & input, CImg <unsigned char> & output, int size){
 
 	CImg <unsigned char> copy(input);
-	output = copy.resize(input.width()/7, input.height()/7,1,3);
+	output = copy.resize(input.width()/size, input.height()/size,1,3);
 
 }
+
+void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input,
+		cimg_library::CImg<unsigned char> & out_bin) {
+
+	/*BINARIZACION_ADAPTATIVA
+	 *
+	 * FUNCION QUE DADA UNA IMAGEN CREA UNA IMAGEN BINARIA
+	 * CREADA MEDIANTE EL METODO DE UMBRALIZACION ADAPTATIVA.
+	 */
+
+	CImg<unsigned char> img_blur;
+
+	float sigma = 15;
+	float epsilon = 2;
+	img_blur.assign(input);
+	img_blur = input.get_blur(sigma);
+	out_bin.assign(input.get_shared_channel(0));
+	cimg_foroff(out_bin,off)
+	{
+		if (input(off) < img_blur(off) - epsilon) {
+			out_bin(off) = 1;
+		} else {
+			out_bin(off) = 0;
+		}
+	}
+	//Salida binaria
+}
+

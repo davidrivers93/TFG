@@ -23,6 +23,7 @@ foreach(program ${MIXED_PROGRAMS})
 	target_link_libraries( ${program} lept)
 	target_link_libraries(${program} ${ZBAR_LIBRARIES})	
 	target_link_libraries(${program} cairo)	
+	target_link_libraries(${program} exif)	
 	target_link_libraries(${program} mysqlcppconn)
 endforeach(program)
 

@@ -26,6 +26,7 @@ void create_txt_file();
 std::string getOsName();
 int showfiles(std::set<std::string> images);
 void process_results(std::vector <int> & resultados, std::vector <int> & resultados_norepeat);
-
+void ayuda();
+int orientation(std::string imagename);
 
 #endif /* TFG_MISC_FUNCTIONS_H_ */

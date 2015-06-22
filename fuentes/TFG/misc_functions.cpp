@@ -14,6 +14,8 @@
 #include "CImg.h"
 #include <opencv2/opencv.hpp>
 
+#include <libexif/exif-data.h>
+
 using namespace cimg_library;
 using namespace std;
 using namespace cv;
@@ -32,9 +34,17 @@ bool fileExists ( const char * filename){
 
 }
 
+void ayuda(){
+	std::cout << endl << "Reconocedor inteligente de dorsales." << endl;
+	std::cout << "VERSION: 2.1" << endl;
+	std::cout << endl;
+	std::cout << "Ejecucion: El programa ha de ejecutarse dentro de la carpeta con las fotos a procesar. No es necesario pasar ningun parametro como argumento." << endl << endl;
+	std::cout << "El algoritmo es totalmente automatico excepto la seleccion de la carrera." << endl;
+}
+
 std::string search_number(std::string result){
 	std::string number;
-	std::cout << "Tess " << result <<endl;
+
 	std::vector <std::string> vector_posibles;
 	bool flag_estado = false;
 	int first_position = 0 ;
@@ -46,8 +56,6 @@ std::string search_number(std::string result){
 		vector_posibles.push_back(temp);
 
 	}
-
-	std::cout << "Tamaño posibles" << vector_posibles.size() << endl;
 	number = vector_posibles[0];
 
 	return number;
@@ -128,7 +136,21 @@ void process_results(std::vector <int> & resultados, std::vector <int> & resulta
 
 	}
 
+}
 
+int orientation(std::string imagename){
+	  int orientation = 0;
+	  ExifData *exifData = exif_data_new_from_file(imagename.c_str());
+	  if (exifData) {
+	    ExifByteOrder byteOrder = exif_data_get_byte_order(exifData);
+	    ExifEntry *exifEntry = exif_data_get_entry(exifData,
+	                                               EXIF_TAG_ORIENTATION);
+	    if (exifEntry)
+	      orientation = exif_get_short(exifEntry->data, byteOrder);
 
+	    exif_data_free(exifData);
+	  }
+
+	    return orientation;
 
 }

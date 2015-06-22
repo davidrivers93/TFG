@@ -42,7 +42,6 @@ void load_dlm(cimg_library::CImg<float> & vectores);
 void busqueda(const cimg_library::CImg<int> & bbox, std::vector<std::vector<int> > & comienzos);
 bool busqueda_izquierda(int o1, int o2, const cimg_library::CImg<int> & bbox);
 bool busqueda_derecha(int o1, int o2, const cimg_library::CImg<int> & bbox);
-void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input,cimg_library::CImg<unsigned char> & out_bin);
 void segmentacion(const cimg_library::CImg<unsigned char> & img,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas, cimg_library::CImg<float> & cdg);
 void seleccion_comienzos(std::vector<std::vector<int> > & comienzos,std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & seg, cimg_library::CImg<int> & bbox,cimg_library::CImg<int> & areas  );
 void busqueda_tercera_cifra(std::vector<std::vector<int> > & comienzos_seleccionados,cimg_library::CImg<int> & bbox);
