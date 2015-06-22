@@ -38,7 +38,6 @@ using namespace zbar;
 #include "db_functions.h"
 #include "img_functions.h"
 #include "misc_functions.h"
-#include "functions.h"
 
 
 using namespace cimg_library;
@@ -55,15 +54,15 @@ int main(int argc, char **argv) {
 	CImgDisplay disp_cimg;
 
 	const bool help = cimg_option("-h", false, 0);
+	const int resize = cimg_option("-r", 1, 0);
 
 	database_mng database;
-
 
 	std::string input = "prueba.txt"; //argv[optind];
 
 	//Si optind==0 salta ayuda
 	if (help) {
-		//ayuda();
+		ayuda();
 		std::cout << "¿Quieres seguir utilizando el programa? SI/NO .\n";
 		string opt;
 		cin >> opt;
@@ -71,19 +70,18 @@ int main(int argc, char **argv) {
 			exit(0);
 	}
 
-	database.connect();
+	//database.connect();
 
 	create_txt_file();
 
 	std::vector<string> vector_list_races;
-	list_races(vector_list_races, database);
+	//list_races(vector_list_races, database);
 	set<string> images = isImages(input);
-	std::cerr << "He llegado" << endl;
 	int contador = showfiles(images);
-	std::cerr << "LLEGO" << endl;
-	calculate(images, contador,database);
-
-	if (contador == 0) {
+	if(images.size()){
+		calculate(images, contador,database,resize);
+	}
+	else {
 		std::cout << "No hay ninguna imagen a procesar. \n";
 		exit(0);
 	}

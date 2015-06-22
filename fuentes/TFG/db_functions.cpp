@@ -20,7 +20,7 @@ using namespace cv;
 
 void list_races(std::vector<string> & list_races, database_mng & database) {
 
-	string db_races = "prueba";
+	string db_races = "testing";
 	database.switchDb(db_races);
 	database.database_name = db_races;
 	database.execute("SELECT * FROM races");
@@ -95,7 +95,7 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 	}
 	std::cerr << "SALGO DEL ELSE" << endl;
 	//Compruebo si existe la tabla de la carrera
-	/*database.prepare("SELECT * FROM ?");
+	database.prepare("SELECT * FROM ?");
 	database.setString(1, database.race_data_query.tablen_data);
 	std::cerr << "SALGO DEL ELSE" << endl;
 	database.execute();
@@ -114,29 +114,16 @@ void list_races(std::vector<string> & list_races, database_mng & database) {
 
 	string prueba_create_ins = "CREATE TABLE " + database.race_data_query.ins_table +  "(`dorsal` INT NOT NULL,`Nombre` VARCHAR(45) NULL,`Apellidos` VARCHAR(45) NULL,`Marca` VARCHAR(45) NULL,`Nick` VARCHAR(45) NULL)";
 	database.execute(prueba_create_ins);
-	std::cout << "He creado la tabla. \n";*/
+	std::cout << "He creado la tabla. \n";
 
 
 }
 
 void add_result_db(std::string result, database_mng & database, std::string imagename){
 
-	/*std::cout << "Antes de formatear " << result << endl;
-
-	std::string resultado = search_number(result);
-
-	std::cout << "Resultado a enviar " << resultado << endl;*/
-
 	std::string query = "INSERT INTO " + database.race_data_query.tablen_data + "(dorsal, path_img) VALUES (" + result + ",\'/" + database.race_data_query.tablen_data + "/" + imagename + "\')";
 
 	std::cerr << "QUERY: " << query << endl;
-
-	/*database.prepare("INSERT INTO ? (dorsal,path_img) VALUES (?,?)");
-	database.setString(1,database.race_data_query.tablen_data);
-	int dorsal = std::stoi(resultado,0);
-	database.setInt(2,dorsal);
-	string path = "/" + database.race_data_query.tablen_data + "/" + imagename;
-	database.setString(1,path);*/
 
 	database.execute(query);
 

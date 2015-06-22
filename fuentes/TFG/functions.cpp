@@ -1064,34 +1064,6 @@ void load_dlm(cimg_library::CImg<float> & vectores) {
 
 	}
 }
-
-void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input,
-		cimg_library::CImg<unsigned char> & out_bin) {
-
-	/*BINARIZACION_ADAPTATIVA
-	 *
-	 * FUNCION QUE DADA UNA IMAGEN CREA UNA IMAGEN BINARIA
-	 * CREADA MEDIANTE EL METODO DE UMBRALIZACION ADAPTATIVA.
-	 */
-
-	CImg<unsigned char> img_blur;
-
-	float sigma = 15;
-	float epsilon = 2;
-	img_blur.assign(input);
-	img_blur = input.get_blur(sigma);
-	out_bin.assign(input.get_shared_channel(0));
-	cimg_foroff(out_bin,off)
-	{
-		if (input(off) < img_blur(off) - epsilon) {
-			out_bin(off) = 1;
-		} else {
-			out_bin(off) = 0;
-		}
-	}
-	//Salida binaria
-}
-
 bool busqueda_derecha(int o1, int o2, const cimg_library::CImg<int> & bbox) {
 
 	/*BUSQUEDA DERECHA
