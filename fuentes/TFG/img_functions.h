@@ -38,11 +38,12 @@ struct dorsal_final{
 	float angle;
 };
 
+void bin_to_RGB(const CImg<unsigned char> &input, CImg <unsigned char> & output);
 void save_image(std::string imagename, database_mng & database, CImg <unsigned char> & image_save);
 int numberOfSons(const std::vector<Vec4i> & hierarchy, int id);
 cv::Point2f blobCenter(const std::vector<cv::Point> & points);
 void computeContourDepth(const std::vector<Vec4i> & hierarchy, std::vector<int> & depth);
-void calculate(set<string> images, int contador,database_mng & database, int resize);
+void calculate(set<string> images, int contador,database_mng & database, int resize, int out_option);
 void search_rectangles(vector< dorsal > & dorsales ,vector<vector<Point> > & contours , vector<Vec4i> & hierarchy, Size & s,std::vector<int> depth);
 void get_bibs(std::vector<Rect> & validBBs, Size & s, std::vector<std::vector<Rect> > & dorsales, std::vector<std::vector<int> > & num);
 void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<std::vector<int> > & num_ordenados,std::vector<std::vector<Rect> > & dorsales_finales, std::vector<std::vector<int> > & num_finales );

@@ -55,6 +55,9 @@ int main(int argc, char **argv) {
 
 	const bool help = cimg_option("-h", false, 0);
 	const int resize = cimg_option("-r", 1, 0);
+	const int out_option = cimg_option("-v", 0, 0);
+
+	std::cout << "-v " << out_option << endl;
 
 	database_mng database;
 
@@ -79,7 +82,7 @@ int main(int argc, char **argv) {
 	set<string> images = isImages(input);
 	int contador = showfiles(images);
 	if(images.size()){
-		calculate(images, contador,database,resize);
+		calculate(images, contador,database,resize, out_option);
 	}
 	else {
 		std::cout << "No hay ninguna imagen a procesar. \n";

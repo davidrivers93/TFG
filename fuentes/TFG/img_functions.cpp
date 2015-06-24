@@ -251,7 +251,7 @@ void no_repeat(std::vector<std::vector<Rect> > & dorsales_ordenados,std::vector<
 }
 
 
-void calculate(set<string> images, int contador,database_mng & database, int resize) {
+void calculate(set<string> images, int contador,database_mng & database, int resize, int out_option) {
 	std::vector <float> time;
 	std::set<string>::iterator it;
 	std::vector<std::vector <int > > cont_dorsales;
@@ -445,6 +445,7 @@ void calculate(set<string> images, int contador,database_mng & database, int res
 		tesseract::TessBaseAPI api;
 		api.Init(NULL, "eng");
 		std::vector <int> resultados;
+		std::vector <CImg<unsigned char> > vec_tess;
 		for(int i=0; i<dorsales_finales.size(); i++){
 
 			CImg<unsigned char> dorsal_cimg;
@@ -490,6 +491,7 @@ void calculate(set<string> images, int contador,database_mng & database, int res
 			}
 
 			//salida.display("PRUEBA", false);
+			vec_tess.push_back(salida);
 			cv::Mat image_tess =255*( salida.get_MAT());
 			imwrite("temp.jpg", image_tess);
 
@@ -524,19 +526,56 @@ void calculate(set<string> images, int contador,database_mng & database, int res
 
 		}
 		std::vector <int >resultados_norepeat;
-		process_results(resultados,resultados_norepeat);
-		for(int pointer=0; pointer < resultados_norepeat.size(); pointer++){
-			string out= std::to_string(resultados_norepeat[pointer]);
-			std::cout << "Resultado final " << out << endl;
-			//add_result_db(out, database,imgname);
-			CImg <unsigned char> thumb;
-			resize_own(img,thumb,5);
-			string thumb_nm = "thumb_" + imgname;
-			thumb.save(thumb_nm.c_str());
-			std::cout << "Imagen guardada" << endl;
+		if(resultados.size()){
+
+			process_results(resultados,resultados_norepeat);
+			for(int pointer=0; pointer < resultados_norepeat.size(); pointer++){
+				string out= std::to_string(resultados_norepeat[pointer]);
+				std::cout << "Resultado final " << out << endl;
+				//add_result_db(out, database,imgname);
+				CImg <unsigned char> thumb;
+				resize_own(img,thumb,5);
+				string thumb_nm = "thumb_" + imgname;
+				thumb.save(thumb_nm.c_str());
+				std::cout << "Imagen guardada" << endl;
+			}
+			cont_dorsales.push_back(resultados_norepeat);
 		}
-		cont_dorsales.push_back(resultados_norepeat);
+		else{
+			std::cout << "No se han encontrado dorsales." << endl;
+		}
 		//img_salida.display("Rectangle search", false);
+		std::cout << "-v " << out_option << endl;
+		if(out_option>=1){
+			for(int pointer=0; pointer < resultados_norepeat.size(); pointer++){
+							string out= std::to_string(resultados_norepeat[pointer]);
+							std::cout << "Resultado final " << out << endl;
+			}
+			if(out_option==1){
+				img.display("Imagen de entrada", false);
+			}
+			if(out_option>=2){
+
+				CImg <unsigned char > muestra;
+				CImg <unsigned char> bin_RGB(img_out_binarizacion.width(),img_out_binarizacion.height(),1,3);
+				bin_to_RGB(img_out_binarizacion,bin_RGB);
+				muestra.assign(img).append(bin_RGB,'x');
+				if(out_option==2) muestra.display("Imagen de entrada y binarizada");
+				else{
+					CImg <unsigned char> muestra_tess;
+					muestra_tess.assign(vec_tess[0]);
+					for(int i =1;i<vec_tess.size();i++){
+						CImg<unsigned char> muestra_RGB(vec_tess[i].width(),vec_tess[i].height(),1,3);
+						bin_to_RGB(vec_tess[i],muestra_RGB);
+						muestra_tess.append(muestra_RGB.resize(muestra_RGB.width()*3, muestra_RGB.height()*3,1,3),'x');
+
+					}
+					muestra.append(muestra_tess,'y');
+					muestra.display("Salida", false);
+				}
+			}
+
+		}
 
 		system("rm -rf temp.jpg");
 		system("rm -rf thumb*");
@@ -591,6 +630,15 @@ void resize_own(const CImg <unsigned char> & input, CImg <unsigned char> & outpu
 	CImg <unsigned char> copy(input);
 	output = copy.resize(input.width()/size, input.height()/size,1,3);
 
+}
+
+void bin_to_RGB(const CImg<unsigned char> &input, CImg <unsigned char> & output){
+
+	cimg_forXY(input,x,y){
+		output(x,y,0) = 255*input(x,y);
+		output(x,y,1) = 255*input(x,y);
+		output(x,y,2) = 255*input(x,y);
+	}
 }
 
 void binarizacion_adaptativa(const cimg_library::CImg<unsigned char> & input,

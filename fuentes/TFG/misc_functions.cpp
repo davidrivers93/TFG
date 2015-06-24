@@ -16,6 +16,9 @@
 
 #include <libexif/exif-data.h>
 
+#include<string>
+#include<set>
+
 using namespace cimg_library;
 using namespace std;
 using namespace cv;
